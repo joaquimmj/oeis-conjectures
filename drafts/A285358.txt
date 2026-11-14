@@ -1,0 +1,5 @@
+NOTE POUR JOAQUIM (ne pas soumettre cette ligne) : brouillon préparé avec une IA (Claude) ; à relire. Rien n a été soumis.
+
+A285358, section FORMULA :
+
+The conjecture a(n) = A284929(n+1) is true. Proof: let s: 0->10, 1->1101 and t: 0->01, 1->1011. Then s(w)1 = 1t(w) for every finite word w, so the fixed point y = A284929 of t satisfies s(y) = 1y. Writing y = 0z gives 10s(z) = 10z, so z is the fixed point of s starting with 1. - _Joaquim Manji-Jung_, Nov xx 2026

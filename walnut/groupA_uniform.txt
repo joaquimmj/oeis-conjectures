@@ -1,0 +1,5 @@
+eval a285383 "?msd_4 Ai (i>=1) => XA[i]=TA[i-1]":
+eval a285383_at1 "?msd_4 XA[0]=@0":
+eval a284948 "?msd_4 Ai XB[i+1]=PB[i]":
+eval sanity_false "?msd_4 Ai XB[i]=PB[i]":
+exit;

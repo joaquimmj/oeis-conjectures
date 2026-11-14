@@ -1,0 +1,31 @@
+Welcome to Walnut! Type "help;" to see all available commands.
+
+[Walnut]$ computed ~:1 states - 12ms
+computed ~:2 states - 2ms
+i>=1:2 states - 41ms
+ XA[i]=TA[(i-1)]:2 states - 3ms
+  (i>=1=>XA[i]=TA[(i-1)]):1 states - 1ms
+   (A i (i>=1=>XA[i]=TA[(i-1)])):1 states - 3ms
+Total computation time: 59ms.
+____
+TRUE
+
+[Walnut]$ computed ~:1 states - 0ms
+XA[0]=@0:1 states - 0ms
+Total computation time: 1ms.
+____
+TRUE
+
+[Walnut]$ XB[(i+1)]=PB[i]:1 states - 6ms
+ (A i XB[(i+1)]=PB[i]):1 states - 0ms
+Total computation time: 8ms.
+____
+TRUE
+
+[Walnut]$ XB[i]=PB[i]:3 states - 0ms
+ (A i XB[i]=PB[i]):3 states - 1ms
+Total computation time: 1ms.
+_____
+FALSE
+
+[Walnut]$ 

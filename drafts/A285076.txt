@@ -1,0 +1,5 @@
+NOTE POUR JOAQUIM (ne pas soumettre cette ligne) : brouillon préparé avec une IA (Claude) ; à relire. Rien n a été soumis.
+
+A285076, section FORMULA :
+
+The conjecture a(n) = A285073(n), n>=3, is true; it follows from the comments by Michel Dekking above (a = 10c and A285073 = 01c with the same word c = A159684). - _Joaquim Manji-Jung_, Nov xx 2026
