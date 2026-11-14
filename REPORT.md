@@ -49,4 +49,5 @@ Contrôles : formule comparée à la définition directe (exact, 2e5 lettres) ; 
 ## Limites
 Page de publications de Shallit inaccessible ; antériorité vérifiée par recherche web, lecture des entrées OEIS et des
 deux articles ci-dessus. Seul l'historique OEIS de A284364 a été lu en détail.
-Atteinte des bornes non étudiée (énoncés sûrs : inf <= D(n) <= sup).
+Atteinte des bornes (ajout du 14/11 au soir, en local) : **aucune des 32 bornes n'est atteinte**, donc inf < D(n) < sup pour tout n >= 1
+(python/attainment.py, results/groupB_attainment.txt ; deux méthodes exactes concordantes). Les brouillons de drafts/ disent encore « inf/sup ».

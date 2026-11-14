@@ -1,7 +1,7 @@
 """Group A, uniform cases. Build Walnut DFAOs mechanically from the OEIS morphism definitions,
 verify each DFAO by simulating it against an independent direct generation, write the Walnut script."""
 import os, sys
-WAL = '/home/user/Walnut'
+WAL = os.environ.get('WALNUT_DIR', '../Walnut')   # clone de github.com/firetto/Walnut
 def iterate(m, seed, n, parity=None):
     w = seed; k = 0
     while len(w) < n or (parity is not None and k % 2 != parity):
