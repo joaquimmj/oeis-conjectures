@@ -1,0 +1,73 @@
+% BROUILLON - rien de soumis. Préparé avec l'aide d'une IA (Claude) ; à relire intégralement.
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}{Lemma}
+\title{Exact discrepancy bounds for some binary morphic words:\\ on conjectures of Kimberling in the OEIS}
+\author{Joaquim Manji-Jung\\ Paris}
+\date{Draft, November 2026}
+\begin{document}\maketitle
+\begin{abstract}
+For eight binary morphisms appearing in the OEIS, Kimberling conjectured bounds of the form
+$\ell < nr - a(n) < h$, where $a(n)$ is the position of the $n$-th occurrence of a letter in the fixed
+point and $1/r$ is the frequency of that letter. We compute the exact infimum and supremum of
+$nr-a(n)$ in each case. Seven of the conjectures follow; the one for A284364 is false, with smallest
+counterexample $n = 2977771$. The method is the classical one based on Dumont--Thomas numeration.
+\end{abstract}
+\section{Setting}
+Let $\sigma$ be a morphism on $\{0,1\}$, prolongable on a letter $s$, with fixed point
+$x=\sigma^\omega(s)=x_0x_1\cdots$, incidence matrix $M$ and eigenvalues $\lambda>1>|\lambda'|$,
+$\lambda$ a quadratic irrational. For a letter $L$ let $a(n)$ be the position (starting at $1$) of the
+$n$-th $L$ in $x$, and let $1/r$ be the frequency of $L$. Put $D(n)=nr-a(n)$.
+\begin{lemma}\label{l1} Let $f(q)=r\,q_L-(q_0+q_1)$ for $q\in\mathbb{Z}^2$. Then $f(Mq)=\lambda' f(q)$.\end{lemma}
+\begin{proof} $f$ vanishes on the $\lambda$-eigenvector of $M$ (the frequency vector), hence it is a left
+eigenvector for $\lambda'$. \end{proof}
+By Dumont and Thomas, each $m\ge 0$ corresponds to a unique path $(c_k,d_k),\dots,(c_0,d_0)$ in the prefix
+automaton (states are letters, $c_k=s$, edges $c\xrightarrow{d}\sigma(c)_d$ for $0\le d<|\sigma(c)|$)
+such that $x_0\cdots x_{m-1}=\sigma^k(p_k)\cdots\sigma(p_1)p_0$, where $p_i$ is the prefix of length $d_i$
+of $\sigma(c_i)$, and $x_m$ is the end state. With $g(c,d)=f(\text{Parikh vector of } p)$, Lemma~\ref{l1} gives
+\[ D(n)= r-1+\sum_{i=0}^{k}\lambda'^{\,i}\,g(c_i,d_i)\qquad (m=a(n)-1). \]
+\begin{lemma}\label{l2} Let $S_c$ and $I_c$ be the supremum and infimum of $\sum_i\lambda'^i g(c_i,d_i)$ over
+all paths from $s$ ending in $c$. If $\lambda'<0$, then $(S,I)$ is the unique bounded solution of
+\[ S_{c'}=\max\bigl(\{0 : c'=s\}\cup\{\lambda' I_c+g(c,d)\}\bigr),\qquad
+   I_{c'}=\min\bigl(\{0 : c'=s\}\cup\{\lambda' S_c+g(c,d)\}\bigr), \]
+the max and min being over the edges $c\xrightarrow{d}c'$. \end{lemma}
+\begin{proof} A path ending in $c'$ is either empty ($c'=s$) or a path ending in $c$ followed by an edge
+$c\xrightarrow{d}c'$, which changes the sum $v$ into $\lambda' v+g(c,d)$. This gives the equations. The
+right-hand side is a contraction of ratio $|\lambda'|$ for the sup norm. \end{proof}
+Consequently $\sup_n D(n)=S_L+r-1$ and $\inf_n D(n)=I_L+r-1$, and these are obtained by solving a
+linear system over $\mathbb{Q}(\sqrt d)$ and checking finitely many inequalities exactly.
+\section{Results}
+\begin{theorem} For the following morphisms $0\to u$, $1\to w$ and letters, the exact extreme values of
+$D(n)=nr-a(n)$, $n\ge1$, are as in the table.\end{theorem}
+\begin{center}\small\begin{tabular}{llllll}\toprule
+OEIS & morphism & letter & $r$ & $\inf D$ & $\sup D$\\\midrule
+A283963 & $1,\ 1010$ & 0 & $(3+\sqrt3)/2$ & $-(3+\sqrt3)/6$ & $(3+\sqrt3)/3$\\
+        &            & 1 & $\sqrt3$ & $(-3+\sqrt3)/3$ & $(3+\sqrt3)/3$\\
+A283966 & $1,\ 10101$ & 0 & $(7+\sqrt{17})/4$ & $-1/2$ & $(5+\sqrt{17})/4$\\
+        &             & 1 & $(-1+\sqrt{17})/2$ & $(-7+\sqrt{17})/4$ & $(1+\sqrt{17})/4$\\
+A284364 & $1,\ 101010$ & 0 & $(9+\sqrt{21})/6$ & $-(12+2\sqrt{21})/15$ & $(6+\sqrt{21})/5$\\
+        &              & 1 & $(-1+\sqrt{21})/2$ & $(-9+\sqrt{21})/5$ & $(6+\sqrt{21})/5$\\
+A284386 & $1,\ 1101$ & 0 & $(5+\sqrt{13})/2$ & $(1+\sqrt{13})/6$ & $(7+\sqrt{13})/6$\\
+        &            & 1 & $(-1+\sqrt{13})/2$ & $(-5+\sqrt{13})/6$ & $(1+\sqrt{13})/6$\\
+A284368 & $1,\ 1011$ & 0 & $(5+\sqrt{13})/2$ & $(1+\sqrt{13})/3$ & $(4+\sqrt{13})/3$\\
+        &            & 1 & $(-1+\sqrt{13})/2$ & $(-5+\sqrt{13})/3$ & $(-2+\sqrt{13})/3$\\
+A284369 & $1,\ 1001$ & 0 & $(3+\sqrt3)/2$ & $-(3+\sqrt3)/2$ & $2+\sqrt3$\\
+        &            & 1 & $\sqrt3$ & $-2$ & $1+\sqrt3$\\
+A284505 & $1,\ 1100$ & 0 & $(3+\sqrt3)/2$ & $-(9+5\sqrt3)/6$ & $(6+2\sqrt3)/3$\\
+        &            & 1 & $\sqrt3$ & $-(3+\sqrt3)/3$ & $(6+2\sqrt3)/3$\\
+A045672 & $11,\ 1110$ & 0 & $(5+\sqrt{17})/2$ & $-(9+\sqrt{17})/16$ & $(27+3\sqrt{17})/16$\\
+A045671 & $11,\ 1110$ & 1 & $(1+\sqrt{17})/4$ & $-(9+\sqrt{17})/32$ & $(27+3\sqrt{17})/32$\\\bottomrule
+\end{tabular}\end{center}
+\paragraph{Consequences.} Kimberling's bounds hold for all entries except A284364, where
+$\sup D=(6+\sqrt{21})/5=2.1165\ldots>2$ for both letters; the smallest $n$ with $D(n)>2$ are
+$n=8933313$ (letter 0, $a(n)=20222898$) and $n=2977771$ (letter 1, $a(n)=5334043$). For A284369 the
+conjectured lower bound $-2$ for the letter 1 is the exact infimum, not attained since $n\sqrt3\notin\mathbb{Q}$.
+In A284386 the constant $r$ must be $(5+\sqrt{13})/2$. In all entries except A045671/A045672 the conjecture
+is stated with the counting function $u(n)$ in place of the position $a(n)$; that literal form is false.
+\paragraph{Remarks.} The approach follows the symbolic discrepancy method (Dumont--Thomas; Adamczewski)
+used by Fokkink and Joshi for A284753. All computations are exact; code and outputs accompany this note.
+The equalities of Mathar for A284948, A285358, A285076 and a corrected form for A284677 are proved
+separately (the first with Walnut, by H. Mousavi; see Shallit's book).
+\paragraph{Use of AI.} The computations and a first draft were prepared with an AI assistant (Claude) and
+must be checked by the author before any submission.
+\end{document}

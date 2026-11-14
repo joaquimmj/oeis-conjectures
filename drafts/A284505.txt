@@ -1,0 +1,5 @@
+NOTE POUR JOAQUIM (ne pas soumettre cette ligne) : brouillon préparé avec une IA (Claude) ; à relire. Rien n a été soumis.
+
+A284505, section COMMENTS :
+
+Let a(n) be the position of the n-th 0 and b(n) the position of the n-th 1. The conjecture above must be read as -3 < n*r - a(n) < 4 and -2 < n*s - b(n) < 4 (as literally written, with u(n) the number of 0's <= n, the quantity n*r - u(n) is unbounded). With this reading the conjecture is true. The exact extreme values are: inf(n*r - a(n)) = (-9-5*sqrt(3))/6, sup(n*r - a(n)) = (6+2*sqrt(3))/3, inf(n*s - b(n)) = (-3-sqrt(3))/3, sup(n*s - b(n)) = (6+2*sqrt(3))/3, with r = (3+sqrt(3))/2, s = sqrt(3). Proof: Dumont-Thomas numeration for the morphism 0->1, 1->1100 expresses these quantities as sums of g_i*c^i over the digits, c being the conjugate eigenvalue; the extreme values solve a finite max/min system that is a contraction. - _Joaquim Manji-Jung_, Nov xx 2026

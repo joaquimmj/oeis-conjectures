@@ -1,0 +1,16 @@
+A283963 positions of 0: conj -1 < . < 2 : holds for n<=84529946; min -0.784466 (n=47940949) max 1.572935 (n=74262358)
+A283963 positions of 1: conj -1 < . < 2 : holds for n<=115470054; min -0.419417 (n=101444267) max 1.574269 (n=65488555)
+A283966 positions of 0: conj -1 < . < 3 : holds for n<=71922359; min -0.499603 (n=20011685) max 2.280553 (n=71272674)
+A283966 positions of 1: conj -1 < . < 2 : holds for n<=128077641; min -0.719098 (n=126920695) max 1.280553 (n=35636337)
+A284364 positions of 0: conj -2 < . < 2 : VIOLATED for n<=88348486; min -1.335245 (n=61532119) max 2.036660 (n=23526435)  FIRST VIOLATION n=8933313, pos=20222898, value=2.004872
+A284364 positions of 1: conj -1 < . < 2 : VIOLATED for n<=111651514; min -0.820296 (n=29731828) max 2.056563 (n=77761993)  FIRST VIOLATION n=2977771, pos=5334043, value=2.004872
+A284386 (r with sqrt13) positions of 0: conj 0 < . < 2 : holds for n<=46481624; min 0.767592 (n=9524286) max 1.767592 (n=31456579)
+A284386 (r with sqrt13) positions of 1: conj -1 < . < 1 : holds for n<=153518376; min -0.232408 (n=103894022) max 0.767592 (n=31456579)
+A284368 positions of 0: conj 1 < . < 3 : holds for n<=46481624; min 1.535184 (n=24145815) max 2.535184 (n=7310765)
+A284368 positions of 1: conj -1 < . < 1 : holds for n<=153518376; min -0.464816 (n=152185651) max 0.535184 (n=79748208)
+A284369 positions of 0: conj -3 < . < 4 : holds for n<=84529946; min -2.356066 (n=30393343) max 3.724760 (n=83036162)
+A284369 positions of 1: conj -2 < . < 3 : holds for n<=115470054; min -1.994663 (n=113429504) max 2.724760 (n=41518081)
+A284505 positions of 0: conj -3 < . < 4 : holds for n<=84529946; min -2.931312 (n=54363817) max 3.143200 (n=35095212)
+A284505 positions of 1: conj -2 < . < 4 : holds for n<=115470054; min -1.568932 (n=47940949) max 3.145869 (n=74262358)
+A045672/A045671 positions of 0: conj -1 < . < 3 : holds for n<=43844719; min -0.819766 (n=41736016) max 2.459819 (n=11718489)
+A045672/A045671 positions of 1: conj -1 < . < 2 : holds for n<=156155281; min -0.409883 (n=41736016) max 1.230171 (n=148645026)

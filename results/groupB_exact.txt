@@ -1,0 +1,48 @@
+A283963 zeros: r=(3/2 + 1/2*sqrt(3))
+   inf = (-1/2 + -1/6*sqrt(3)) ~ -0.788675   sup = (1 + 1/3*sqrt(3)) ~ 1.577350   [observed on 2e5 letters: -0.74948 .. 1.53999]
+   conjecture -1 < n*r - a(n) < 2: lower TRUE, upper TRUE
+A283963 ones: r=1*sqrt(3)
+   inf = (-1 + 1/3*sqrt(3)) ~ -0.422650   sup = (1 + 1/3*sqrt(3)) ~ 1.577350   [observed on 2e5 letters: -0.39530 .. 1.54866]
+   conjecture -1 < n*r - a(n) < 2: lower TRUE, upper TRUE
+A283966 zeros: r=(7/4 + 1/4*sqrt(17))
+   inf = -1/2 ~ -0.500000   sup = (5/4 + 1/4*sqrt(17)) ~ 2.280776   [observed on 2e5 letters: -0.49167 .. 2.27366]
+   conjecture -1 < n*r - a(n) < 3: lower TRUE, upper TRUE
+A283966 ones: r=(-1/2 + 1/2*sqrt(17))
+   inf = (-7/4 + 1/4*sqrt(17)) ~ -0.719224   sup = (1/4 + 1/4*sqrt(17)) ~ 1.280776   [observed on 2e5 letters: -0.71523 .. 1.27610]
+   conjecture -1 < n*r - a(n) < 2: lower TRUE, upper TRUE
+A284364 zeros: r=(3/2 + 1/6*sqrt(21))
+   inf = (-4/5 + -2/15*sqrt(21)) ~ -1.411010   sup = (6/5 + 1/5*sqrt(21)) ~ 2.116515   [observed on 2e5 letters: -1.15360 .. 1.87229]
+   conjecture -2 < n*r - a(n) < 2: lower TRUE, upper FALSE
+A284364 ones: r=(-1/2 + 1/2*sqrt(21))
+   inf = (-9/5 + 1/5*sqrt(21)) ~ -0.883485   sup = (6/5 + 1/5*sqrt(21)) ~ 2.116515   [observed on 2e5 letters: -0.69023 .. 1.91283]
+   conjecture -1 < n*r - a(n) < 2: lower TRUE, upper FALSE
+A284386 zeros [r corrected to (5+sqrt13)/2]: r=(5/2 + 1/2*sqrt(13))
+   inf = (1/6 + 1/6*sqrt(13)) ~ 0.767592   sup = (7/6 + 1/6*sqrt(13)) ~ 1.767592   [observed on 2e5 letters: 0.76760 .. 1.76758]
+   conjecture 0 < n*r - a(n) < 2: lower TRUE, upper TRUE
+A284386 ones: r=(-1/2 + 1/2*sqrt(13))
+   inf = (-5/6 + 1/6*sqrt(13)) ~ -0.232408   sup = (1/6 + 1/6*sqrt(13)) ~ 0.767592   [observed on 2e5 letters: -0.23240 .. 0.76759]
+   conjecture -1 < n*r - a(n) < 1: lower TRUE, upper TRUE
+A284368 zeros: r=(5/2 + 1/2*sqrt(13))
+   inf = (1/3 + 1/3*sqrt(13)) ~ 1.535184   sup = (4/3 + 1/3*sqrt(13)) ~ 2.535184   [observed on 2e5 letters: 1.53519 .. 2.53517]
+   conjecture 1 < n*r - a(n) < 3: lower TRUE, upper TRUE
+A284368 ones: r=(-1/2 + 1/2*sqrt(13))
+   inf = (-5/3 + 1/3*sqrt(13)) ~ -0.464816   sup = (-2/3 + 1/3*sqrt(13)) ~ 0.535184   [observed on 2e5 letters: -0.46481 .. 0.53518]
+   conjecture -1 < n*r - a(n) < 1: lower TRUE, upper TRUE
+A284369 zeros: r=(3/2 + 1/2*sqrt(3))
+   inf = (-3/2 + -1/2*sqrt(3)) ~ -2.366025   sup = (2 + 1*sqrt(3)) ~ 3.732051   [observed on 2e5 letters: -2.30131 .. 3.64365]
+   conjecture -3 < n*r - a(n) < 4: lower TRUE, upper TRUE
+A284369 ones: r=1*sqrt(3)
+   inf = -2 ~ -2.000000   sup = (1 + 1*sqrt(3)) ~ 2.732051   [observed on 2e5 letters: -1.93529 .. 2.68468]
+   conjecture -2 < n*r - a(n) < 3: lower EQUAL(check attainment), upper TRUE
+A284505 zeros: r=(3/2 + 1/2*sqrt(3))
+   inf = (-3/2 + -5/6*sqrt(3)) ~ -2.943376   sup = (2 + 2/3*sqrt(3)) ~ 3.154701   [observed on 2e5 letters: -2.84130 .. 3.07998]
+   conjecture -3 < n*r - a(n) < 4: lower TRUE, upper TRUE
+A284505 ones: r=1*sqrt(3)
+   inf = (-1 + -1/3*sqrt(3)) ~ -1.577350   sup = (2 + 2/3*sqrt(3)) ~ 3.154701   [observed on 2e5 letters: -1.52265 .. 3.07998]
+   conjecture -2 < n*r - a(n) < 4: lower TRUE, upper TRUE
+A045671 (ones of 0->11,1->1110): r=(1/4 + 1/4*sqrt(17))
+   inf = (-9/32 + -1/32*sqrt(17)) ~ -0.410097   sup = (27/32 + 3/32*sqrt(17)) ~ 1.230291   [observed on 2e5 letters: -0.40482 .. 1.22645]
+   conjecture -1 < n*r - a(n) < 2: lower TRUE, upper TRUE
+A045672 (zeros of 0->11,1->1110): r=(5/2 + 1/2*sqrt(17))
+   inf = (-9/16 + -1/16*sqrt(17)) ~ -0.820194   sup = (27/16 + 3/16*sqrt(17)) ~ 2.460582   [observed on 2e5 letters: -0.80653 .. 2.44180]
+   conjecture -1 < n*r - a(n) < 3: lower TRUE, upper TRUE
