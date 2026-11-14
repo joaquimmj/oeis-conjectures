@@ -1,17 +1,17 @@
 % BROUILLON - rien de soumis. Préparé avec l'aide d'une IA (Claude) ; à relire intégralement.
 \documentclass[11pt]{article}
-\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage{amsmath,amssymb,amsthm,booktabs}\usepackage[margin=1in]{geometry}
 \newtheorem{theorem}{Theorem}\newtheorem{lemma}{Lemma}
 \title{Exact discrepancy bounds for some binary morphic words:\\ on conjectures of Kimberling in the OEIS}
 \author{Joaquim Manji-Jung\\ Paris}
 \date{Draft, November 2026}
 \begin{document}\maketitle
 \begin{abstract}
-For eight binary morphisms appearing in the OEIS, Kimberling conjectured bounds of the form
+For eight binary morphisms appearing in nine OEIS entries, Kimberling conjectured bounds of the form
 $\ell < nr - a(n) < h$, where $a(n)$ is the position of the $n$-th occurrence of a letter in the fixed
 point and $1/r$ is the frequency of that letter. We compute the exact infimum and supremum of
-$nr-a(n)$ in each case. Seven of the conjectures follow; the one for A284364 is false, with smallest
-counterexample $n = 2977771$. The method is the classical one based on Dumont--Thomas numeration.
+$nr-a(n)$ in each case. In no case is the infimum or the supremum attained. The conjectured bounds hold in eight of the nine entries;
+the one for A284364 is false, with smallest counterexample $n = 2977771$. The method is the classical one based on Dumont--Thomas numeration.
 \end{abstract}
 \section{Setting}
 Let $\sigma$ be a morphism on $\{0,1\}$, prolongable on a letter $s$, with fixed point
@@ -19,8 +19,9 @@ $x=\sigma^\omega(s)=x_0x_1\cdots$, incidence matrix $M$ and eigenvalues $\lambda
 $\lambda$ a quadratic irrational. For a letter $L$ let $a(n)$ be the position (starting at $1$) of the
 $n$-th $L$ in $x$, and let $1/r$ be the frequency of $L$. Put $D(n)=nr-a(n)$.
 \begin{lemma}\label{l1} Let $f(q)=r\,q_L-(q_0+q_1)$ for $q\in\mathbb{Z}^2$. Then $f(Mq)=\lambda' f(q)$.\end{lemma}
-\begin{proof} $f$ vanishes on the $\lambda$-eigenvector of $M$ (the frequency vector), hence it is a left
-eigenvector for $\lambda'$. \end{proof}
+\begin{proof} $f$ vanishes on the $\lambda$-eigenvector $v$ of $M$ (the frequency vector), and so does the
+linear form $f\circ M$. In dimension $2$ the forms vanishing on $v$ are the multiples of $f$, so $f\circ M=\mu f$;
+evaluating on a $\lambda'$-eigenvector $w$, where $f(w)\ne0$, gives $\mu=\lambda'$. \end{proof}
 By Dumont and Thomas, each $m\ge 0$ corresponds to a unique path $(c_k,d_k),\dots,(c_0,d_0)$ in the prefix
 automaton (states are letters, $c_k=s$, edges $c\xrightarrow{d}\sigma(c)_d$ for $0\le d<|\sigma(c)|$)
 such that $x_0\cdots x_{m-1}=\sigma^k(p_k)\cdots\sigma(p_1)p_0$, where $p_i$ is the prefix of length $d_i$
@@ -38,7 +39,8 @@ Consequently $\sup_n D(n)=S_L+r-1$ and $\inf_n D(n)=I_L+r-1$, and these are obta
 linear system over $\mathbb{Q}(\sqrt d)$ and checking finitely many inequalities exactly.
 \section{Results}
 \begin{theorem} For the following morphisms $0\to u$, $1\to w$ and letters, the exact extreme values of
-$D(n)=nr-a(n)$, $n\ge1$, are as in the table.\end{theorem}
+$D(n)=nr-a(n)$, $n\ge1$, are as in the table. Neither bound is attained: $\inf D<D(n)<\sup D$ for all
+$n\ge1$.\end{theorem}
 \begin{center}\small\begin{tabular}{llllll}\toprule
 OEIS & morphism & letter & $r$ & $\inf D$ & $\sup D$\\\midrule
 A283963 & $1,\ 1010$ & 0 & $(3+\sqrt3)/2$ & $-(3+\sqrt3)/6$ & $(3+\sqrt3)/3$\\
@@ -58,6 +60,11 @@ A284505 & $1,\ 1100$ & 0 & $(3+\sqrt3)/2$ & $-(9+5\sqrt3)/6$ & $(6+2\sqrt3)/3$\\
 A045672 & $11,\ 1110$ & 0 & $(5+\sqrt{17})/2$ & $-(9+\sqrt{17})/16$ & $(27+3\sqrt{17})/16$\\
 A045671 & $11,\ 1110$ & 1 & $(1+\sqrt{17})/4$ & $-(9+\sqrt{17})/32$ & $(27+3\sqrt{17})/32$\\\bottomrule
 \end{tabular}\end{center}
+\paragraph{Non-attainment.} A finite path attains $S_{c'}$ (resp.\ $I_{c'}$) if and only if $c'=s$ and the
+value $0$ is extremal, or some edge $c\xrightarrow{d}c'$ realises the max (resp.\ min) in Lemma~\ref{l2} and a
+finite path attains $I_c$ (resp.\ $S_c$). The nodes attained are thus a least fixed point over the tight edges,
+computed exactly; it is empty at the letter $L$ in all sixteen cases. Independently, a shortest attaining path
+repeats no node, hence has at most three edges, and an exact scan of the first $5000$ letters finds no equality.
 \paragraph{Consequences.} Kimberling's bounds hold for all entries except A284364, where
 $\sup D=(6+\sqrt{21})/5=2.1165\ldots>2$ for both letters; the smallest $n$ with $D(n)>2$ are
 $n=8933313$ (letter 0, $a(n)=20222898$) and $n=2977771$ (letter 1, $a(n)=5334043$). For A284369 the
@@ -65,9 +72,20 @@ conjectured lower bound $-2$ for the letter 1 is the exact infimum, not attained
 In A284386 the constant $r$ must be $(5+\sqrt{13})/2$. In all entries except A045671/A045672 the conjecture
 is stated with the counting function $u(n)$ in place of the position $a(n)$; that literal form is false.
 \paragraph{Remarks.} The approach follows the symbolic discrepancy method (Dumont--Thomas; Adamczewski)
-used by Fokkink and Joshi for A284753. All computations are exact; code and outputs accompany this note.
+used by Fokkink and Joshi~\cite{FJ} for A284753; see \cite{DT,Ad}. All computations are exact; code and outputs accompany this note.
 The equalities of Mathar for A284948, A285358, A285076 and a corrected form for A284677 are proved
-separately (the first with Walnut, by H. Mousavi; see Shallit's book).
+separately (the first with the Walnut prover~\cite{Mo,Sh}). The equality for A285383 is due to
+Ashburn~\cite{As}. Beatty sequences $\lfloor n\alpha+\beta\rfloor$ for quadratic $\alpha$ can be handled in
+Walnut via Ostrowski numeration~\cite{SSZ}; we did not find how to use this for the non-unimodular morphisms here.
 \paragraph{Use of AI.} The computations and a first draft were prepared with an AI assistant (Claude) and
 must be checked by the author before any submission.
+\begin{thebibliography}{9}\small
+\bibitem{Ad} B. Adamczewski, Symbolic discrepancy and self-similar dynamics, \emph{Ann. Inst. Fourier} 54 (2004), 2201--2234.
+\bibitem{As} A. Ashburn, Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words, arXiv:2610.04842, 2026.
+\bibitem{DT} J.-M. Dumont and A. Thomas, Syst\`emes de num\'eration et fonctions fractales relatifs aux substitutions, \emph{Theoret. Comput. Sci.} 65 (1989), 153--169.
+\bibitem{FJ} R. Fokkink and G. Joshi, On Cloitre's hiccup sequences, arXiv:2507.16956, 2025.
+\bibitem{Mo} H. Mousavi, Automatic theorem proving in Walnut, arXiv:1603.06017, 2016.
+\bibitem{SSZ} L. Schaeffer, J. Shallit and S. Zorcic, Beatty sequences for a quadratic irrational: decidability and applications, \emph{Discrete Math.} 349 (2026), 115183; arXiv:2402.08331.
+\bibitem{Sh} J. Shallit, \emph{The Logical Approach to Automatic Sequences}, Cambridge University Press, 2022.
+\end{thebibliography}
 \end{document}

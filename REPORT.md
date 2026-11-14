@@ -47,6 +47,9 @@ Contrôles : formule comparée à la définition directe (exact, 2e5 lettres) ; 
   vient aussi d'une majoration des sommes de chiffres, pas de Walnut.
 
 ## Limites
+Rejeu local du 14/11 au soir : Walnut recompilé et script du groupe A rejoué à l'identique ; article compilé (paper/draft.pdf).
+Page de Shallit et historiques OEIS des 14 entrées lus depuis : rien sur ces suites (détail dans LOG.md). Google Scholar non consulté.
+Ce qui suit date de la session cloud :
 Page de publications de Shallit inaccessible ; antériorité vérifiée par recherche web, lecture des entrées OEIS et des
 deux articles ci-dessus. Seul l'historique OEIS de A284364 a été lu en détail.
 Atteinte des bornes (ajout du 14/11 au soir, en local) : **aucune des 32 bornes n'est atteinte**, donc inf < D(n) < sup pour tout n >= 1
