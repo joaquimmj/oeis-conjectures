@@ -38,3 +38,13 @@ Contre-exemple A284364 : vérifié en entiers exacts (comparaison de carrés), d
 indépendants du mot, plus petit n obtenu par balayage exact.
 Fokkink–Joshi (arXiv:2507.16956) traite A284753 (0->10, 1->1000), pas ces suites, d'après les
 résumés ; aucun résultat de recherche ne mentionne les A-numéros du groupe B.
+
+## Mise à jour après ouverture du réseau (14/11/2026, soir)
+- Entrées en direct sur oeis.org : **identiques** aux fichiers `.seq` pour les 20 suites (`python/check_live.py`).
+- b-files en direct : **tous** les termes (10000 à 65536 selon la suite) coïncident avec la génération indépendante.
+- Historique OEIS de A284364 : dernier changement approuvé le 13/04/2025 (Eldar, moyenne asymptotique) ; rien sur la borne.
+- Ashburn, arXiv:2610.04842, lu : Proposition 5 prouve A285383 (w = 0·d) par la conjugaison 1·μ(u) = σ(u)·1. Cible retirée.
+- Fokkink–Joshi, arXiv:2507.16956, lu : ne mentionne aucune de nos suites. Leur borne pour A284753 n'est PAS obtenue par Walnut :
+  Walnut sert à identifier la suite dans la numération de Dumont–Thomas, puis la borne vient d'une majoration numérique de
+  Σ d_i·λ̄^i (Lemme 18, « a finite problem that we solved numerically », Théorème 19). Notre calcul exact est de la même famille.
+- Page de Shallit (cs.uwaterloo.ca) : toujours inaccessible. Shallit et al., arXiv:2510.11318 : aucune de nos suites.

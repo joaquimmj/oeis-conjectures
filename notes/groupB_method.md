@@ -5,7 +5,7 @@ Raison : les inégalités portent sur le réel n·r − a(n). Pour les morphisme
 (déterminant ±2, ±3 : tous les cas sauf √13), je ne sais pas exprimer la comparaison à un seuil réel
 par un automate fini dans la numération de Dumont–Thomas, donc pas par une formule Walnut. C'est aussi
 la voie de Fokkink–Joshi d'après les résumés consultés (discrépance symbolique, Adamczewski 2004) ;
-je n'ai pas pu lire leur article (arxiv.org bloqué), la méthode ci-dessous est donc reconstruite.
+leur article (lu ensuite) confirme : Walnut identifie la suite, la borne vient d une majoration numérique des sommes de chiffres (Lemme 18, Théorème 19).
 
 ## Lecture des conjectures
 Écrites avec u(n) = nombre de 0 parmi les n premiers termes, elles sont fausses dès n <= 4.
