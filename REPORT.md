@@ -38,7 +38,15 @@ Contrôles : formule comparée à la définition directe (exact, 2e5 lettres) ; 
 - A284369, lettre 1 : la borne −2 est l'infimum exact, non atteint (irrationalité).
 - Toutes les entrées sauf A045671/A045672 énoncent la conjecture avec u(n) = nombre de 0 <= n ; sous cette forme littérale elle est fausse.
 
+## Vérifications en direct (réseau ouvert le 14/11 au soir)
+- Les 20 entrées OEIS en direct sont identiques aux fichiers du dépôt oeisdata ; tous les termes de tous les b-files
+  coïncident avec la génération indépendante (python/check_live.py).
+- Vérification croisée du groupe B par un second algorithme (énumération à profondeur 80 + queue géométrique) :
+  encadrements à 1e-8 près, tous cohérents avec les valeurs exactes (results/groupB_bracket_check.txt).
+- Ashburn (arXiv:2610.04842) lu : prouve A285383. Fokkink–Joshi (arXiv:2507.16956) lu : aucune de nos suites ; leur borne
+  vient aussi d'une majoration des sommes de chiffres, pas de Walnut.
+
 ## Limites
-oeis.org et arxiv.org inaccessibles depuis la session : historiques OEIS, b-files (sauf deux par SHA-256) et textes
-intégraux (Ashburn, Fokkink–Joshi) non lus. Antériorité vérifiée par recherche web seulement.
+Page de publications de Shallit inaccessible ; antériorité vérifiée par recherche web, lecture des entrées OEIS et des
+deux articles ci-dessus. Seul l'historique OEIS de A284364 a été lu en détail.
 Atteinte des bornes non étudiée (énoncés sûrs : inf <= D(n) <= sup).
