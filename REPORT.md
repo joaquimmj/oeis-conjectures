@@ -4,9 +4,17 @@
 |---|---|---|
 | A285383 | a(n) = A035263(n-1), n >= 2 : vraie | Walnut TRUE (échauffement). Déjà prouvée : Ashburn, arXiv:2610.04842. Rien à soumettre. |
 | A284948 | a(n) = A096268(n-2), n >= 2 : vraie | **Walnut TRUE** ; automates vérifiés contre génération directe sur 3e5 termes ; énoncé vérifié sur 2e6 termes. |
-| A285358 | a(n) = A284929(n+1), n >= 1 : vraie | Preuve à la main (pas Walnut) ; identités vérifiées par machine ; 2e6 termes. |
-| A285076 | a(n) = A285073(n), n >= 3 : vraie | Preuve à la main ; découle aussi du commentaire de Dekking (2017). |
-| A284677 | énoncé d'origine faux (n = 6) ; a(n) = A284674(n), n >= 3 : vraie | Contre-exemple exact ; preuve à la main de la forme corrigée. |
+| A285358 | a(n) = A284929(n+1), n >= 1 : vraie | Preuve à la main **et Walnut TRUE** (numération de Dumont–Thomas, voir plus bas) ; 2e6 termes. |
+| A285076 | a(n) = A285073(n), n >= 3 : vraie | Preuve à la main **et Walnut TRUE** ; découle aussi du commentaire de Dekking (2017). |
+| A284677 | énoncé d'origine faux (n = 6) ; a(n) = A284674(n), n >= 3 : vraie | Contre-exemple exact ; forme corrigée : preuve à la main **et Walnut TRUE** ; Walnut renvoie FALSE pour l'énoncé d'origine. |
+
+### Preuves Walnut des trois égalités non uniformes (ajout du 14/11 au soir, en local)
+`python/make_nonuniform.py`, note `notes/groupA_walnut_nonuniform.md`, sorties `walnut/groupA_nonuniform_*.out` (16 TRUE et 2 FALSE de contrôle chacune ;
+rejoué deux fois). Numération de Dumont–Thomas et additionneur produits par l'outil licofage, **validés dans Walnut** par des axiomes
+(addition totale, fonctionnelle, x+0 = x, commutative, compatible avec le successeur défini par l'ordre). Walnut prouve que chaque mot est le
+point fixe de son morphisme. Limites : le second mot de chaque paire est défini à partir du premier, donc l'égalité finale est vraie par
+construction et tout le contenu est dans les deux preuves de point fixe ; l'associativité de l'addition n'a pas été vérifiée (non utilisée) ;
+on suppose Walnut correct. Relu par une IA seulement.
 
 ## Groupe B (lecture « positions » : a(n) = position du n-ième 0 ou 1, D(n) = n·r − a(n))
 

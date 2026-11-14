@@ -1,0 +1,23 @@
+def succdtr "?msd_dtr x<y & ~Et (x<t & t<y)":
+def v1dtr "?msd_dtr n=1 | (n>=2 & UR[n]=@1)":
+combine VR v1dtr:
+def gdtr "?msd_dtr (i=0 & j=0) | (i=1 & j=4) | (i>=2 & $shdtr(i,j))":
+eval A284677_ax_total "?msd_dtr Ax,y Ez x+y=z":
+eval A284677_ax_fun "?msd_dtr Ax,y,z,w (x+y=z & x+y=w) => z=w":
+eval A284677_ax_zero "?msd_dtr Ax,z (x+0=z <=> x=z)":
+eval A284677_ax_comm "?msd_dtr Ax,y,z (x+y=z <=> y+x=z)":
+eval A284677_ax_succ_total "?msd_dtr Ax Ey $succdtr(x,y)":
+eval A284677_ax_one "?msd_dtr Ex,y x=0 & y=1 & $succdtr(x,y)":
+eval A284677_ax_succ "?msd_dtr Ax,y,z (x+y=z => Eu ($succdtr(y,u) & Ev ($succdtr(z,v) & x+u=v)))":
+eval A284677_f_fun "?msd_dtr An Em ($shdtr(n,m) & Ak ($shdtr(n,k) => k=m))":
+eval A284677_f_zero "?msd_dtr Am ($shdtr(0,m) <=> m=0)":
+eval A284677_f_rec "?msd_dtr An,m $shdtr(n,m) => ((UR[n]=@0 => $shdtr(n+1,m+4)) & (UR[n]=@1 => $shdtr(n+1,m+13)))":
+eval A284677_u_fixed "?msd_dtr UR[0]=@1 & An,m ($shdtr(n,m) => ((UR[n]=@0 => (UR[m]=@0 & UR[m+1]=@1 & UR[m+2]=@1 & UR[m+3]=@1)) & (UR[n]=@1 => (UR[m]=@1 & UR[m+1]=@0 & UR[m+2]=@1 & UR[m+3]=@1 & UR[m+4]=@1 & UR[m+5]=@0 & UR[m+6]=@1 & UR[m+7]=@1 & UR[m+8]=@1 & UR[m+9]=@0 & UR[m+10]=@1 & UR[m+11]=@1 & UR[m+12]=@1))))":
+eval A284677_g_fun "?msd_dtr An Em ($gdtr(n,m) & Ak ($gdtr(n,k) => k=m))":
+eval A284677_g_zero "?msd_dtr Am ($gdtr(0,m) <=> m=0)":
+eval A284677_g_rec "?msd_dtr An,m $gdtr(n,m) => ((VR[n]=@0 => $gdtr(n+1,m+4)) & (VR[n]=@1 => $gdtr(n+1,m+13)))":
+eval A284677_v_fixed "?msd_dtr VR[0]=@0 & An,m ($gdtr(n,m) => ((VR[n]=@0 => (VR[m]=@0 & VR[m+1]=@1 & VR[m+2]=@1 & VR[m+3]=@1)) & (VR[n]=@1 => (VR[m]=@1 & VR[m+1]=@0 & VR[m+2]=@1 & VR[m+3]=@1 & VR[m+4]=@1 & VR[m+5]=@0 & VR[m+6]=@1 & VR[m+7]=@1 & VR[m+8]=@1 & VR[m+9]=@0 & VR[m+10]=@1 & VR[m+11]=@1 & VR[m+12]=@1))))":
+eval A284677_main "?msd_dtr An (n>=2 => UR[n]=VR[n])":
+eval A284677_control1 "?msd_dtr An (n>=1 => UR[n]=VR[n])":
+eval A284677_control2 "?msd_dtr An (n>=1 => UR[n]=VR[n-1])":
+exit;

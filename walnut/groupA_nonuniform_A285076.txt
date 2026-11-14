@@ -1,0 +1,23 @@
+def succdtq "?msd_dtq x<y & ~Et (x<t & t<y)":
+def v1dtq "?msd_dtq n=1 | (n>=2 & UQ[n]=@1)":
+combine VQ v1dtq:
+def gdtq "?msd_dtq (i=0 & j=0) | (i=1 & j=5) | (i>=2 & $shdtq(i,j))":
+eval A285076_ax_total "?msd_dtq Ax,y Ez x+y=z":
+eval A285076_ax_fun "?msd_dtq Ax,y,z,w (x+y=z & x+y=w) => z=w":
+eval A285076_ax_zero "?msd_dtq Ax,z (x+0=z <=> x=z)":
+eval A285076_ax_comm "?msd_dtq Ax,y,z (x+y=z <=> y+x=z)":
+eval A285076_ax_succ_total "?msd_dtq Ax Ey $succdtq(x,y)":
+eval A285076_ax_one "?msd_dtq Ex,y x=0 & y=1 & $succdtq(x,y)":
+eval A285076_ax_succ "?msd_dtq Ax,y,z (x+y=z => Eu ($succdtq(y,u) & Ev ($succdtq(z,v) & x+u=v)))":
+eval A285076_f_fun "?msd_dtq An Em ($shdtq(n,m) & Ak ($shdtq(n,k) => k=m))":
+eval A285076_f_zero "?msd_dtq Am ($shdtq(0,m) <=> m=0)":
+eval A285076_f_rec "?msd_dtq An,m $shdtq(n,m) => ((UQ[n]=@0 => $shdtq(n+1,m+5)) & (UQ[n]=@1 => $shdtq(n+1,m+7)))":
+eval A285076_u_fixed "?msd_dtq UQ[0]=@1 & An,m ($shdtq(n,m) => ((UQ[n]=@0 => (UQ[m]=@0 & UQ[m+1]=@1 & UQ[m+2]=@0 & UQ[m+3]=@1 & UQ[m+4]=@0)) & (UQ[n]=@1 => (UQ[m]=@1 & UQ[m+1]=@0 & UQ[m+2]=@0 & UQ[m+3]=@1 & UQ[m+4]=@0 & UQ[m+5]=@1 & UQ[m+6]=@0))))":
+eval A285076_g_fun "?msd_dtq An Em ($gdtq(n,m) & Ak ($gdtq(n,k) => k=m))":
+eval A285076_g_zero "?msd_dtq Am ($gdtq(0,m) <=> m=0)":
+eval A285076_g_rec "?msd_dtq An,m $gdtq(n,m) => ((VQ[n]=@0 => $gdtq(n+1,m+5)) & (VQ[n]=@1 => $gdtq(n+1,m+7)))":
+eval A285076_v_fixed "?msd_dtq VQ[0]=@0 & An,m ($gdtq(n,m) => ((VQ[n]=@0 => (VQ[m]=@0 & VQ[m+1]=@1 & VQ[m+2]=@0 & VQ[m+3]=@1 & VQ[m+4]=@0)) & (VQ[n]=@1 => (VQ[m]=@1 & VQ[m+1]=@0 & VQ[m+2]=@0 & VQ[m+3]=@1 & VQ[m+4]=@0 & VQ[m+5]=@1 & VQ[m+6]=@0))))":
+eval A285076_main "?msd_dtq An (n>=2 => UQ[n]=VQ[n])":
+eval A285076_control1 "?msd_dtq An (n>=1 => UQ[n]=VQ[n])":
+eval A285076_control2 "?msd_dtq An (n>=2 => UQ[n]=VQ[n+1])":
+exit;
