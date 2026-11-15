@@ -1,0 +1,5 @@
+NOTE POUR JOAQUIM (ne pas soumettre cette ligne) : brouillon préparé avec une IA (Claude) ; à relire. Rien n a été soumis.
+
+A284366, section COMMENTS :
+
+The conjecture is false: the upper bound 2 fails first at n = 2977771, where a(n) = 5334043 and n*s - a(n) = 2.00487... (exactly: 21*n^2 > (2*a(n)+4+n)^2). The lower bound -1 holds. The exact extreme values are inf(n*s - a(n)) = (-9+sqrt(21))/5 = -0.8834... and sup(n*s - a(n)) = (6+sqrt(21))/5 = 2.1165..., neither being attained. See A284364 and the link for the method (Dumont-Thomas numeration for the morphism 0->1, 1->101010). - _Joaquim Manji-Jung_, Nov xx 2026

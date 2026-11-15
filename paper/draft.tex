@@ -1,17 +1,17 @@
-% BROUILLON - rien de soumis. Préparé avec l'aide d'une IA (Claude) ; à relire intégralement.
+% Preprint, not peer reviewed. Prepared with an AI assistant (Claude); see the last paragraph.
 \documentclass[11pt]{article}
 \usepackage{amsmath,amssymb,amsthm,booktabs}\usepackage[margin=1in]{geometry}
 \newtheorem{theorem}{Theorem}\newtheorem{lemma}{Lemma}
 \title{Exact discrepancy bounds for some binary morphic words:\\ on conjectures of Kimberling in the OEIS}
 \author{Joaquim Manji-Jung\\ Paris}
-\date{Draft, November 2026}
+\date{November 15, 2026\\[2pt] {\small Preprint, not peer reviewed}}
 \begin{document}\maketitle
 \begin{abstract}
 For eight binary morphisms appearing in nine OEIS entries, Kimberling conjectured bounds of the form
 $\ell < nr - a(n) < h$, where $a(n)$ is the position of the $n$-th occurrence of a letter in the fixed
 point and $1/r$ is the frequency of that letter. We compute the exact infimum and supremum of
 $nr-a(n)$ in each case. In no case is the infimum or the supremum attained. The conjectured bounds hold in eight of the nine entries;
-the one for A284364 is false, with smallest counterexample $n = 2977771$. The method is the classical one based on Dumont--Thomas numeration.
+the one for A284364 (stated with positions in the companion entries A284365 and A284366) is false, with smallest counterexample $n = 2977771$. The method is the classical one based on Dumont--Thomas numeration.
 \end{abstract}
 \section{Setting}
 Let $\sigma$ be a morphism on $\{0,1\}$, prolongable on a letter $s$, with fixed point
@@ -67,7 +67,14 @@ computed exactly; it is empty at the letter $L$ in all sixteen cases. Independen
 repeats no node, hence has at most three edges, and an exact scan of the first $5000$ letters finds no equality.
 \paragraph{Consequences.} Kimberling's bounds hold for all entries except A284364, where
 $\sup D=(6+\sqrt{21})/5=2.1165\ldots>2$ for both letters; the smallest $n$ with $D(n)>2$ are
-$n=8933313$ (letter 0, $a(n)=20222898$) and $n=2977771$ (letter 1, $a(n)=5334043$). For A284369 the
+$n=8933313$ (letter 0, $a(n)=20222898$) and $n=2977771$ (letter 1, $a(n)=5334043$); at both, $D(n)=2.00487\ldots$
+The companion entries A284365 (positions of 0) and A284366 (positions of 1) state the conjecture directly
+with the positions, as $-2<nr-a(n)<2$ and $-1<ns-a(n)<2$, so these two values of $n$ refute them as written.
+The counterexamples can be checked without any of the theory: generate the first $2.1\cdot10^7$ letters and
+test $D(n)>2$ in integers, since $n(\sqrt{21}-1)/2-b>2$ is $21n^2>(2b+4+n)^2$ and
+$n(9+\sqrt{21})/6-a>2$ is $21n^2>(6a+12-9n)^2$ (script \texttt{python/independent\_check.py}, written from the
+OEIS definitions only). Eldar's conjecture in A284364, that the asymptotic mean is $(\sqrt{21}+1)/10$, is true:
+this is the frequency $1/s$ of the letter 1, which exists because the morphism is primitive. For A284369 the
 conjectured lower bound $-2$ for the letter 1 is the exact infimum, not attained since $n\sqrt3\notin\mathbb{Q}$.
 In A284386 the constant $r$ must be $(5+\sqrt{13})/2$. In all entries except A045671/A045672 the conjecture
 is stated with the counting function $u(n)$ in place of the position $a(n)$; that literal form is false.
@@ -77,8 +84,9 @@ The equalities of Mathar for A284948, A285358, A285076 and a corrected form for 
 separately (the first with the Walnut prover~\cite{Mo,Sh}). The equality for A285383 is due to
 Ashburn~\cite{As}. Beatty sequences $\lfloor n\alpha+\beta\rfloor$ for quadratic $\alpha$ can be handled in
 Walnut via Ostrowski numeration~\cite{SSZ}; we did not find how to use this for the non-unimodular morphisms here.
-\paragraph{Use of AI.} The computations and a first draft were prepared with an AI assistant (Claude) and
-must be checked by the author before any submission.
+\paragraph{Use of AI.} The computations, the proofs and the text were prepared with an AI assistant (Claude).
+The numerical statements were re-derived by a second, independent program; the proofs have not been
+refereed. Nothing here has been submitted to the OEIS or to a journal at the date above.
 \begin{thebibliography}{9}\small
 \bibitem{Ad} B. Adamczewski, Symbolic discrepancy and self-similar dynamics, \emph{Ann. Inst. Fourier} 54 (2004), 2201--2234.
 \bibitem{As} A. Ashburn, Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words, arXiv:2610.04842, 2026.

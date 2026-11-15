@@ -1,0 +1,5 @@
+NOTE POUR JOAQUIM (ne pas soumettre cette ligne) : brouillon préparé avec une IA (Claude) ; à relire. Rien n a été soumis.
+
+A284365, section COMMENTS :
+
+The conjecture is false: the upper bound 2 fails first at n = 8933313, where a(n) = 20222898 and n*r - a(n) = 2.00487... (exactly: 21*n^2 > (6*a(n)+12-9*n)^2). The exact extreme values are inf(n*r - a(n)) = (-12-2*sqrt(21))/15 = -1.411... and sup(n*r - a(n)) = (6+sqrt(21))/5 = 2.1165..., neither being attained. See A284364 and the link for the method (Dumont-Thomas numeration for the morphism 0->1, 1->101010). - _Joaquim Manji-Jung_, Nov xx 2026
