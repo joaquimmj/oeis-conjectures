@@ -9,9 +9,9 @@
 | A284677 | énoncé d'origine faux (n = 6) ; a(n) = A284674(n), n >= 3 : vraie | Contre-exemple exact ; forme corrigée : preuve à la main **et Walnut TRUE** ; Walnut renvoie FALSE pour l'énoncé d'origine. |
 
 ### Preuves Walnut des trois égalités non uniformes (ajout du 14/11 au soir, en local)
-`python/make_nonuniform.py`, note `notes/groupA_walnut_nonuniform.md`, sorties `walnut/groupA_nonuniform_*.out` (16 TRUE et 2 FALSE de contrôle chacune ;
+`python/make_nonuniform.py`, note `notes/groupA_walnut_nonuniform.md`, sorties `walnut/groupA_nonuniform_*.out` (17 TRUE et 2 FALSE de contrôle chacune ;
 rejoué deux fois). Numération de Dumont–Thomas et additionneur produits par l'outil licofage, **validés dans Walnut** par des axiomes
-(addition totale, fonctionnelle, x+0 = x, commutative, compatible avec le successeur défini par l'ordre). Walnut prouve que chaque mot est le
+(addition totale, fonctionnelle, 0 minimal, x+0 = x, commutative, compatible avec le successeur défini par l'ordre). Walnut prouve que chaque mot est le
 point fixe de son morphisme. Limites : le second mot de chaque paire est défini à partir du premier, donc l'égalité finale est vraie par
 construction et tout le contenu est dans les deux preuves de point fixe ; l'associativité de l'addition n'a pas été vérifiée (non utilisée) ;
 on suppose Walnut correct. Relu par une IA seulement.
@@ -40,6 +40,11 @@ Contrôles : formule comparée à la définition directe (exact, 2e5 lettres) ; 
 | A045671 (ones of 0->11,1->1110) | (1+sqrt(17))/4 | -1 < n·r − a(n) < 2 | (-9-sqrt(17))/32 | -0.410097 | (27+3*sqrt(17))/32 | 1.230291 | VRAIE |
 | A045672 (zeros of 0->11,1->1110) | (5+sqrt(17))/2 | -1 < n·r − a(n) < 3 | (-9-sqrt(17))/16 | -0.820194 | (27+3*sqrt(17))/16 | 2.460582 | VRAIE |
 
+- A284386 et A284368 (les deux cas en sqrt 13, ajout du 15/11) : les quatre bornes ont aussi une **preuve par Walnut complétée par un argument à la main**
+  (`python/make_sqrt13.py`, `notes/groupB_walnut_sqrt13.md`, sorties `walnut/groupB_sqrt13_*.out` : 23 TRUE et 4 FALSE de contrôle chacune, rejoué
+  deux fois). Walnut prouve la quasi-additivité p(i)+p(j)+A <= p(i+j) <= p(i)+p(j)+B des positions ; le passage à A < n·r − p(n) < B se fait à la main
+  (lemme de Fekete, fréquence, irrationalité de sqrt 13). Les valeurs exactes de inf et sup ne sont pas prouvées par Walnut, seulement par le calcul exact.
+  La méthode ne s'étend pas telle quelle aux autres suites du groupe (elle exige sup − inf = 1).
 - A284364 : **conjecture fausse**, sup = (6+sqrt(21))/5 = 2,1165 > 2 pour les deux lettres ; plus petits contre-exemples
   n = 2977771 (lettre 1) et n = 8933313 (lettre 0), vérifiés en entiers exacts.
 - A284386 : la constante r de l'entrée, (5+sqrt(3))/2, est une coquille pour (5+sqrt(13))/2.

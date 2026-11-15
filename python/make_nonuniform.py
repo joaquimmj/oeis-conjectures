@@ -78,6 +78,7 @@ def case(tag, ns, U, V, mu, seed, nu, vseed, vdef, gdef, main, controls, oeis):
         ('ax_zero', 'Ax,z (x+0=z <=> x=z)', True),
         ('ax_comm', 'Ax,y,z (x+y=z <=> y+x=z)', True),
         ('ax_succ_total', f'Ax Ey $succ{ns}(x,y)', True),
+        ('ax_min', 'Ax x>=0', True),   # 0 is the least element (asked by the adversarial review)
         ('ax_one', f'Ex,y x=0 & y=1 & $succ{ns}(x,y)', True),
         ('ax_succ', # 4 tracks at most (5 exhaust the heap when there are 13 digits); succ is a total function by ax_succ_total
          f'Ax,y,z (x+y=z => Eu ($succ{ns}(y,u) & Ev ($succ{ns}(z,v) & x+u=v)))', True),

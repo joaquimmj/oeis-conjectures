@@ -15,6 +15,7 @@ un humain : chaque résultat porte son niveau de certitude dans `REPORT.md`.
 | A284677 | énoncé d'origine faux (n = 6) ; forme corrigée vraie | à la main et Walnut |
 | A285383 | déjà prouvée par A. Ashburn (arXiv:2610.04842) | rien à revendiquer |
 | A283963, A283966, A284386, A284368, A284369, A284505, A045671, A045672 | bornes de Kimberling vraies ; inf et sup exacts, jamais atteints | calcul exact (`python/discrepancy_exact.py`, `python/attainment.py`) |
+| A284386, A284368 | en plus : les quatre bornes prouvées par Walnut + un argument à la main | `python/make_sqrt13.py`, `notes/groupB_walnut_sqrt13.md` |
 | A284364 | borne de Kimberling **fausse** ; plus petit contre-exemple n = 2977771 | calcul exact + entiers exacts (`python/exact_A284364.py`) |
 
 Les bornes de Kimberling sont lues avec a(n) = position du n-ième 0 (ou 1) ; écrites littéralement avec un

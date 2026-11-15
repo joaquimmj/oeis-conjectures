@@ -1,0 +1,37 @@
+def succdtt "?msd_dtt x<y & ~Et (x<t & t<y)":
+def onedtt "?msd_dtt Em ($shdtt(i,m) & m=i+3*j)":
+def zerdtt "?msd_dtt Ek ($onedtt(i,k) & i=j+k)":
+def pzdtt "?msd_dtt i>=1 & j>=1 & KT[j-1]=@0 & $zerdtt(j,i)":
+def szdtt "?msd_dtt Ep,q ($pzdtt(i,p) & $pzdtt(j,q) & k=p+q)":
+def tzdtt "?msd_dtt Es (s=i+j & $pzdtt(s,k))":
+def podtt "?msd_dtt i>=1 & j>=1 & KT[j-1]=@1 & $onedtt(j,i)":
+def sodtt "?msd_dtt Ep,q ($podtt(i,p) & $podtt(j,q) & k=p+q)":
+def todtt "?msd_dtt Es (s=i+j & $podtt(s,k))":
+eval A284368_ax_total "?msd_dtt Ax,y Ez x+y=z":
+eval A284368_ax_fun "?msd_dtt Ax,y,z,w (x+y=z & x+y=w) => z=w":
+eval A284368_ax_zero "?msd_dtt Ax,z (x+0=z <=> x=z)":
+eval A284368_ax_comm "?msd_dtt Ax,y,z (x+y=z <=> y+x=z)":
+eval A284368_ax_succ_total "?msd_dtt Ax Ey $succdtt(x,y)":
+eval A284368_ax_min "?msd_dtt Ax x>=0":
+eval A284368_ax_one "?msd_dtt Ex,y x=0 & y=1 & $succdtt(x,y)":
+eval A284368_ax_succ "?msd_dtt Ax,y,z (x+y=z => Eu ($succdtt(y,u) & Ev ($succdtt(z,v) & x+u=v)))":
+eval A284368_f_fun "?msd_dtt An Em ($shdtt(n,m) & Ak ($shdtt(n,k) => k=m))":
+eval A284368_f_zero "?msd_dtt Am ($shdtt(0,m) <=> m=0)":
+eval A284368_f_rec "?msd_dtt An,m $shdtt(n,m) => ((KT[n]=@0 => $shdtt(n+1,m+1)) & (KT[n]=@1 => $shdtt(n+1,m+4)))":
+eval A284368_u_fixed "?msd_dtt KT[0]=@1 & An,m ($shdtt(n,m) => ((KT[n]=@0 => (KT[m]=@1)) & (KT[n]=@1 => (KT[m]=@1 & KT[m+1]=@0 & KT[m+2]=@1 & KT[m+3]=@1))))":
+eval A284368_one_fun "?msd_dtt Ai (Ej ($onedtt(i,j) & Ak ($onedtt(i,k) => k=j)))":
+eval A284368_one_zero "?msd_dtt Aj ($onedtt(0,j) <=> j=0)":
+eval A284368_one_rec "?msd_dtt Ai,j $onedtt(i,j) => ((KT[i]=@1 => $onedtt(i+1,j+1)) & (KT[i]!=@1 => $onedtt(i+1,j)))":
+eval A284368_zer_fun "?msd_dtt Ai (Ej ($zerdtt(i,j) & Ak ($zerdtt(i,k) => k=j)))":
+eval A284368_zer_zero "?msd_dtt Aj ($zerdtt(0,j) <=> j=0)":
+eval A284368_zer_rec "?msd_dtt Ai,j $zerdtt(i,j) => ((KT[i]=@0 => $zerdtt(i+1,j+1)) & (KT[i]!=@0 => $zerdtt(i+1,j)))":
+eval A284368_density "?msd_dtt An,m,k ($shdtt(n,m) & $zerdtt(m,k)) => $onedtt(n,k)":
+eval A284368_pos0_fun "?msd_dtt Ai (i>=1 => Ej ($pzdtt(i,j) & Ak ($pzdtt(i,k) => k=j)))":
+eval A284368_main0 "?msd_dtt Ai,j (i>=1 & j>=1) => Eu,t ($szdtt(i,j,u) & $tzdtt(i,j,t) & u+1<=t & t<=u+3)":
+eval A284368_control0_low "?msd_dtt Ai,j (i>=1 & j>=1) => Eu,t ($szdtt(i,j,u) & $tzdtt(i,j,t) & u+2<=t & t<=u+3)":
+eval A284368_control0_up "?msd_dtt Ai,j (i>=1 & j>=1) => Eu,t ($szdtt(i,j,u) & $tzdtt(i,j,t) & u+1<=t & t<=u+2)":
+eval A284368_pos1_fun "?msd_dtt Ai (i>=1 => Ej ($podtt(i,j) & Ak ($podtt(i,k) => k=j)))":
+eval A284368_main1 "?msd_dtt Ai,j (i>=1 & j>=1) => Eu,t ($sodtt(i,j,u) & $todtt(i,j,t) & u<=t+1 & t<=u+1)":
+eval A284368_control1_low "?msd_dtt Ai,j (i>=1 & j>=1) => Eu,t ($sodtt(i,j,u) & $todtt(i,j,t) & u+0<=t & t<=u+1)":
+eval A284368_control1_up "?msd_dtt Ai,j (i>=1 & j>=1) => Eu,t ($sodtt(i,j,u) & $todtt(i,j,t) & u<=t+1 & t<=u+0)":
+exit;

@@ -7,6 +7,7 @@ eval A284677_ax_fun "?msd_dtr Ax,y,z,w (x+y=z & x+y=w) => z=w":
 eval A284677_ax_zero "?msd_dtr Ax,z (x+0=z <=> x=z)":
 eval A284677_ax_comm "?msd_dtr Ax,y,z (x+y=z <=> y+x=z)":
 eval A284677_ax_succ_total "?msd_dtr Ax Ey $succdtr(x,y)":
+eval A284677_ax_min "?msd_dtr Ax x>=0":
 eval A284677_ax_one "?msd_dtr Ex,y x=0 & y=1 & $succdtr(x,y)":
 eval A284677_ax_succ "?msd_dtr Ax,y,z (x+y=z => Eu ($succdtr(y,u) & Ev ($succdtr(z,v) & x+u=v)))":
 eval A284677_f_fun "?msd_dtr An Em ($shdtr(n,m) & Ak ($shdtr(n,k) => k=m))":
