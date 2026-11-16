@@ -4,8 +4,8 @@ Preuves et réfutations de quatorze conjectures de l'OEIS sur des mots morphique
 R. J. Mathar et de C. Kimberling), avec le prouveur Walnut, des preuves à la main et un calcul exact certifié.
 
 **Soumis à l'OEIS le 15/11/2026, en relecture :** le contre-exemple de A284364, A284365 et A284366 (un commentaire
-par entrée). Rien d'autre n'est soumis ni publié. Travail préparé avec l'aide d'une IA (Claude) ; les preuves ne sont
-pas encore relues par un humain : chaque résultat porte son niveau de certitude dans `REPORT.md`.
+par entrée). Rien d'autre n'est soumis ni publié. Les preuves ne sont
+pas encore relues par des pairs : chaque résultat porte son niveau de certitude dans `REPORT.md`.
 
 ## Résultats en bref
 
