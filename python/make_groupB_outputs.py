@@ -21,7 +21,7 @@ with open('results/groupB_table.md', 'w') as f:
     f.write('| Suite, lettre | r | conjecture | inf exact | ~ | sup exact | ~ | conjecture |\n|---|---|---|---|---|---|---|---|\n')
     for n, r, lo, hi, i, fi, s, fs, ok in rows:
         f.write(f'| {n} | {r} | {lo} < n·r − a(n) < {hi} | {i} | {fi:.6f} | {s} | {fs:.6f} | {"VRAIE" if ok else "FAUSSE"} |\n')
-H = 'NOTE POUR JOAQUIM (ne pas soumettre cette ligne) : brouillon préparé avec une IA (Claude) ; à relire. Rien n a été soumis.\n\n'
+H = ''
 for A, lst in byA.items():
     if A in ('A045671', 'A045672'):
         L, r, lo, hi, i, s, ok, sig = lst[0]

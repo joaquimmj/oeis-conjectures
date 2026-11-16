@@ -96,7 +96,7 @@ Ce contrôle porte sur le lemme entier. Pour la borne réelle resserrée d'une u
 
 - Rien n'a échoué : tout est passé au premier lancement de Walnut (un seul bogue, d'indice, dans le contrôle Python).
 - Pas de preuve mécanique du caractère sturmien ni de inf/sup exacts ; pas de numération d'Ostrowski.
-- Relu par une IA seulement.
+- Pas encore relu par des pairs.
 
 ## Détails pratiques
 

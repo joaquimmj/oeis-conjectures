@@ -14,7 +14,7 @@ rejoué deux fois). Numération de Dumont–Thomas et additionneur produits par 
 (addition totale, fonctionnelle, 0 minimal, x+0 = x, commutative, compatible avec le successeur défini par l'ordre). Walnut prouve que chaque mot est le
 point fixe de son morphisme. Limites : le second mot de chaque paire est défini à partir du premier, donc l'égalité finale est vraie par
 construction et tout le contenu est dans les deux preuves de point fixe ; l'associativité de l'addition n'a pas été vérifiée (non utilisée) ;
-on suppose Walnut correct. Relu par une IA seulement.
+on suppose Walnut correct. Pas encore relu par des pairs.
 
 ## Groupe B (lecture « positions » : a(n) = position du n-ième 0 ou 1, D(n) = n·r − a(n))
 
