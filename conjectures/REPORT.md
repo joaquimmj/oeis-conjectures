@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 12 lignes de résultats, 18 entrées concernées, toutes prouvées ; rien n'est soumis.**
+**Bilan : 23 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 après), toutes prouvées vraies ; rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -21,6 +21,24 @@ entrées. Non vérifié : les historiques OEIS (page protégée contre les robot
 | A070864 | Layman 2002 : formule fermée | **vraie** | récurrence forte rédigée ; équivalente aux formules de Cloitre et Curgus (données sans preuve dans l'entrée) | élevée ; apport modeste |
 | A112310 | Adamson 2010 : sommes par groupes = A023610 | **vraie** à partir du 2e groupe | à la main (mots sans 00) | élevée |
 | A055246 | Jeffery 2015 : deux conjectures | **vraies** | élémentaire, depuis a(n) = 1 + 6·A005836(n) | élevée ; apport modeste |
+
+## Lot 3 (crawl du 18/11 : 1 643 entrées lues, 710 conjectures sans signe de résolution, tri à la main)
+
+| Entrée | Conjecture | Statut | Preuve | Certitude |
+|---|---|---|---|---|
+| A001462 (core) | Song 2021 : Golomb a(n) ≥ n^(φ−1) | **vraie** | à la main : m^φ/φ ≤ A001463(m) ≤ m^φ par récurrence forte, base m ≤ 30 calculée | élevée |
+| A006165 | Bala 2022 : sept conjectures, dont (vi) et (vii) pour tout k | **vraies** | Walnut base 2 (k paramétré par u = msb(n)/2^k) et formule des itérées | élevée ; le « 35 » de l'entrée est une coquille pour 33 |
+| A000139 (nice) | Bala 2025 : a(n) impair ⇔ n ∈ A022341 | **vraie** | à la main (Legendre, retenues de n + 2n) | élevée |
+| A004123, A006531 (nice) | Bala 2022 : périodicité mod k, période divisant φ(k), et forme générale G(eˣ − 1) | **vraies** | à la main (j!·S(n,j), Carmichael λ(k)) | élevée ; argument classique, référence non cherchée |
+| A050446 (nice) | Rascoe 2025 : mots à sommes voisines ≤ m + 1 | **vraie** | bijection vers les mots alternés, puis récurrence de l'entrée | élevée ; dépend de la récurrence %F de l'entrée |
+| A003278, A006364, A034448 (nice) | Jeffery, Yanev, Yanev | **vraies** | élémentaires | élevée ; apport modeste |
+| A022558 | Burstein 2019 : |Av(2143, 415263)| = |Av(1342)| | **ouverte**, vérifiée pour n ≤ 10 | TileScope lancé (25 min, 6 Go) | — |
+| A033485 (nice) | Cloitre 2003 : lim a(2n)/a(n)·log n/n | non prouvée | a(n) = b(2n)/2 (partitions binaires) ; la limite devrait découler de de Bruijn 1948 ou Knuth 1966, non lus ; numériquement ≈ 1,60, pas 1,64 | — |
+
+**Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
+arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002
+(Perry : Hervé 2014), A305394 (Dekking et al.), A002083 (Finch), A001187 (probablement Konvalinka–Pak 2014), A122135,
+A006012, A094913/A006697 (probablement Shallit 1993, Allouche–Shallit 2016).
 
 **Écartées après Phase 0** : A178482 (déjà prouvée, Shallit–Vukusic 2025) ; A156253 (la récurrence de Maiga a
 une note de 2025 dans l'entrée, non lue ; l'asymptotique 2n/3 équivaut à la densité de Kolakoski) ; A364648

@@ -53,6 +53,12 @@ check scripts, Walnut scripts and outputs, draft OEIS comment). Nothing there ha
 | A161580 (A161579, A161817, A162311) | Shevelev's alternation conjecture, both variants, all odd k | Walnut, base 2 |
 | A358360 | the five conjectures of Oudra | by hand from Alekseyev-Amdeberhan-Shallit-Vukusic (2026) |
 | A070864, A112310, A055246 | conjectures of Layman, Adamson, Jeffery | by hand (elementary) |
+| A001462 | Song's conjecture a(n) >= n^(phi-1) for Golomb's sequence | by hand (two-sided bound on A001463 by induction) |
+| A006165 | all seven conjectures of Bala, (vi) and (vii) for every k | Walnut, base 2, and a closed form for the iterates |
+| A000139 | Bala's parity conjecture | by hand (Legendre's formula, carries) |
+| A004123, A006531 | Bala's periodicity mod k, and its general form for e.g.f. G(exp(x)-1) | by hand (Stirling numbers, Carmichael function) |
+| A050446 | Rascoe's conjecture on words with bounded adjacent sums | by hand (bijection, recurrence) |
+| A003278, A006364, A034448 | conjectures of Jeffery and Yanev | by hand (elementary) |
 
 Details and confidence levels: `conjectures/REPORT.md`.
 
