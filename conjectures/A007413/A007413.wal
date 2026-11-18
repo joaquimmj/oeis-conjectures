@@ -1,0 +1,18 @@
+# A007413 (conjecture de Shevelev). T = Thue-Morse (prédéfini dans Walnut).
+# o(j) = 2j + 1 - t(j) : le (j+1)-ième nombre odieux (un seul odieux par paire {2j, 2j+1}).
+def o "?msd_2 (T[j]=@0 & m=2*j+1) | (T[j]=@1 & m=2*j)":
+eval odious_enum "?msd_2 Am T[m]=@1 <=> Ej $o(j,m)":
+eval odious_incr "?msd_2 Aj,m,p ($o(j,m) & $o(j+1,p)) => m<p":
+# y(j) = o(j+1) - o(j), à valeurs dans {1,2,3}
+def y1 "?msd_2 Em,p $o(j,m) & $o(j+1,p) & p=m+1":
+def y2 "?msd_2 Em,p $o(j,m) & $o(j+1,p) & p=m+2":
+def y3 "?msd_2 Em,p $o(j,m) & $o(j+1,p) & p=m+3":
+eval y_values "?msd_2 Aj ($y1(j) | $y2(j) | $y3(j))":
+# S(j) = 2j + t(j) : début du bloc mu(y(j)) dans mu(y)
+def S "?msd_2 (T[j]=@0 & s=2*j) | (T[j]=@1 & s=2*j+1)":
+eval tiling "?msd_2 Aj,s,u ($S(j,s) & $S(j+1,u)) => (($y1(j) & u=s+3) | ($y2(j) & u=s+2) | ($y3(j) & u=s+1))":
+eval blocks "?msd_2 Aj,s $S(j,s) => (($y1(j) & $y1(s) & $y2(s+1) & $y3(s+2)) | ($y2(j) & $y1(s) & $y3(s+1)) | ($y3(j) & $y2(s)))":
+eval start "?msd_2 $S(0,0) & $y1(0)":
+# témoin négatif : mu modifié (2 -> 31) doit donner FALSE
+eval blocks_bad "?msd_2 Aj,s $S(j,s) => (($y1(j) & $y1(s) & $y2(s+1) & $y3(s+2)) | ($y2(j) & $y3(s) & $y1(s+1)) | ($y3(j) & $y2(s)))":
+exit;

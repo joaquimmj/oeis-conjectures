@@ -1,0 +1,113 @@
+Welcome to Walnut! Type "help;" to see all available commands.
+
+[Walnut]$ T[j]=@0:2 states - 15ms
+computed ~:1 states - 13ms
+computed ~:2 states - 1ms
+ m=((2*j)+1):2 states - 1ms
+  (T[j]=@0&m=((2*j)+1)):4 states - 1ms
+   T[j]=@1:2 states - 0ms
+    m=(2*j):2 states - 1ms
+     (T[j]=@1&m=(2*j)):4 states - 0ms
+      ((T[j]=@0&m=((2*j)+1))|(T[j]=@1&m=(2*j))):4 states - 1ms
+Total computation time: 51ms.
+
+[Walnut]$ T[m]=@1:2 states - 0ms
+ (E j o(j,m))):2 states - 2ms
+  (T[m]=@1<=>(E j o(j,m)))):1 states - 3ms
+   (A m (T[m]=@1<=>(E j o(j,m))))):1 states - 0ms
+Total computation time: 6ms.
+____
+TRUE
+
+[Walnut]$ (o(j,m))&o((j+1),p))):11 states - 0ms
+ m<p:2 states - 1ms
+  ((o(j,m))&o((j+1),p)))=>m<p):1 states - 2ms
+   (A j , m , p ((o(j,m))&o((j+1),p)))=>m<p)):1 states - 0ms
+Total computation time: 5ms.
+____
+TRUE
+
+[Walnut]$ (o(j,m))&o((j+1),p))):11 states - 0ms
+ p=(m+1):2 states - 0ms
+  ((o(j,m))&o((j+1),p)))&p=(m+1)):7 states - 0ms
+   (E m , p ((o(j,m))&o((j+1),p)))&p=(m+1))):4 states - 1ms
+Total computation time: 3ms.
+
+[Walnut]$ (o(j,m))&o((j+1),p))):11 states - 0ms
+ p=(m+2):3 states - 1ms
+  ((o(j,m))&o((j+1),p)))&p=(m+2)):11 states - 0ms
+   (E m , p ((o(j,m))&o((j+1),p)))&p=(m+2))):2 states - 0ms
+Total computation time: 3ms.
+
+[Walnut]$ (o(j,m))&o((j+1),p))):11 states - 1ms
+ p=(m+3):4 states - 0ms
+  ((o(j,m))&o((j+1),p)))&p=(m+3)):8 states - 0ms
+   (E m , p ((o(j,m))&o((j+1),p)))&p=(m+3))):4 states - 1ms
+Total computation time: 4ms.
+
+[Walnut]$ (y1(j))|y2(j))):4 states - 0ms
+ ((y1(j))|y2(j)))|y3(j))):1 states - 0ms
+  (A j ((y1(j))|y2(j)))|y3(j)))):1 states - 0ms
+Total computation time: 1ms.
+____
+TRUE
+
+[Walnut]$ T[j]=@0:2 states - 0ms
+ s=(2*j):2 states - 0ms
+  (T[j]=@0&s=(2*j)):4 states - 0ms
+   T[j]=@1:2 states - 0ms
+    s=((2*j)+1):2 states - 0ms
+     (T[j]=@1&s=((2*j)+1)):4 states - 0ms
+      ((T[j]=@0&s=(2*j))|(T[j]=@1&s=((2*j)+1))):4 states - 0ms
+Total computation time: 2ms.
+
+[Walnut]$ (S(j,s))&S((j+1),u))):11 states - 0ms
+ u=(s+3):4 states - 0ms
+  (y1(j))&u=(s+3)):11 states - 0ms
+   u=(s+2):3 states - 0ms
+    (y2(j))&u=(s+2)):5 states - 0ms
+     ((y1(j))&u=(s+3))|(y2(j))&u=(s+2))):12 states - 2ms
+      u=(s+1):2 states - 0ms
+       (y3(j))&u=(s+1)):8 states - 0ms
+        (((y1(j))&u=(s+3))|(y2(j))&u=(s+2)))|(y3(j))&u=(s+1))):12 states - 1ms
+         ((S(j,s))&S((j+1),u)))=>(((y1(j))&u=(s+3))|(y2(j))&u=(s+2)))|(y3(j))&u=(s+1)))):1 states - 2ms
+          (A j , s , u ((S(j,s))&S((j+1),u)))=>(((y1(j))&u=(s+3))|(y2(j))&u=(s+2)))|(y3(j))&u=(s+1))))):1 states - 0ms
+Total computation time: 8ms.
+____
+TRUE
+
+[Walnut]$ (y1(j))&y1(s))):16 states - 1ms
+ ((y1(j))&y1(s)))&y2((s+1)))):17 states - 4ms
+  (((y1(j))&y1(s)))&y2((s+1))))&y3((s+2)))):17 states - 0ms
+   (y2(j))&y1(s))):8 states - 0ms
+    ((y2(j))&y1(s)))&y3((s+1)))):9 states - 1ms
+     ((((y1(j))&y1(s)))&y2((s+1))))&y3((s+2))))|((y2(j))&y1(s)))&y3((s+1))))):19 states - 0ms
+      (y3(j))&y2(s))):8 states - 0ms
+       (((((y1(j))&y1(s)))&y2((s+1))))&y3((s+2))))|((y2(j))&y1(s)))&y3((s+1)))))|(y3(j))&y2(s)))):19 states - 1ms
+        (S(j,s))=>(((((y1(j))&y1(s)))&y2((s+1))))&y3((s+2))))|((y2(j))&y1(s)))&y3((s+1)))))|(y3(j))&y2(s))))):1 states - 1ms
+         (A j , s (S(j,s))=>(((((y1(j))&y1(s)))&y2((s+1))))&y3((s+2))))|((y2(j))&y1(s)))&y3((s+1)))))|(y3(j))&y2(s)))))):1 states - 0ms
+Total computation time: 10ms.
+____
+TRUE
+
+[Walnut]$ computed ~:1 states - 1ms
+(S(0,0))&y1(0))):0 states - 0ms
+Total computation time: 1ms.
+____
+TRUE
+
+[Walnut]$ (y1(j))&y1(s))):16 states - 0ms
+ ((y1(j))&y1(s)))&y2((s+1)))):17 states - 0ms
+  (((y1(j))&y1(s)))&y2((s+1))))&y3((s+2)))):17 states - 0ms
+   (y2(j))&y3(s))):8 states - 0ms
+    ((y2(j))&y3(s)))&y1((s+1)))):9 states - 0ms
+     ((((y1(j))&y1(s)))&y2((s+1))))&y3((s+2))))|((y2(j))&y3(s)))&y1((s+1))))):19 states - 0ms
+      (y3(j))&y2(s))):8 states - 0ms
+       (((((y1(j))&y1(s)))&y2((s+1))))&y3((s+2))))|((y2(j))&y3(s)))&y1((s+1)))))|(y3(j))&y2(s)))):19 states - 0ms
+        (S(j,s))=>(((((y1(j))&y1(s)))&y2((s+1))))&y3((s+2))))|((y2(j))&y3(s)))&y1((s+1)))))|(y3(j))&y2(s))))):8 states - 0ms
+         (A j , s (S(j,s))=>(((((y1(j))&y1(s)))&y2((s+1))))&y3((s+2))))|((y2(j))&y3(s)))&y1((s+1)))))|(y3(j))&y2(s)))))):7 states - 0ms
+Total computation time: 4ms.
+_____
+FALSE
+
+[Walnut]$ 

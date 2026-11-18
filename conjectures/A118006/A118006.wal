@@ -1,0 +1,19 @@
+# A118006 : équation de Hebisch–Rubey corrigée par Somos.
+# W[i] = a(i+1). Le mot des paires de W est le point fixe de a->aab, b->abb (a = 01 = lettre 0, b = 10 = lettre 1).
+morphism phi "0->001 1->011":
+promote V phi:
+def w "?msd_3 Ej (i=2*j & V[j]=@1) | (i=2*j+1 & V[j]=@0)":
+# contrôle : début du mot (0,1,0,1,1,0,0,1,0,1,1,0)
+eval ctl "?msd_3 ~$w(0) & $w(1) & ~$w(2) & $w(3) & $w(4) & ~$w(5) & ~$w(6) & $w(7) & ~$w(8) & $w(9) & $w(10) & ~$w(11)":
+def c0 "?msd_3 ~$w(i) & ~$w(i-1) & ~$w(i-2)":
+def c1 "?msd_3 ($w(i) & ~$w(i-1) & ~$w(i-2)) | (~$w(i) & $w(i-1) & ~$w(i-2)) | (~$w(i) & ~$w(i-1) & $w(i-2))":
+def c2 "?msd_3 ($w(i) & $w(i-1) & ~$w(i-2)) | ($w(i) & ~$w(i-1) & $w(i-2)) | (~$w(i) & $w(i-1) & $w(i-2))":
+def c3 "?msd_3 $w(i) & $w(i-1) & $w(i-2)":
+def t "?msd_3 Ej i=3*j+2 & $w(j)":
+def p2 "?msd_3 Eq i=6*q+3 | i=6*q+4":
+# coefficient de x^i, i >= 2 : W[i]+W[i-1]+W[i-2] - t(i)·W[(i-2)/3] = p(i)
+eval hr "?msd_3 Ai i>=2 => ( (~$t(i) & ~$p2(i) & $c1(i)) | (~$t(i) & $p2(i) & $c2(i)) | ($t(i) & ~$p2(i) & $c2(i)) | ($t(i) & $p2(i) & $c3(i)) )":
+# témoin négatif : la même formule avec p décalé doit être FALSE
+def p2bad "?msd_3 Eq i=6*q+2 | i=6*q+3":
+eval hrbad "?msd_3 Ai i>=2 => ( (~$t(i) & ~$p2bad(i) & $c1(i)) | (~$t(i) & $p2bad(i) & $c2(i)) | ($t(i) & ~$p2bad(i) & $c2(i)) | ($t(i) & $p2bad(i) & $c3(i)) )":
+exit;
