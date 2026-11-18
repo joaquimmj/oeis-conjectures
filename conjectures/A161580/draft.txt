@@ -1,0 +1,2 @@
+%C A161580 The conjecture is true. It is a first-order statement in (k, n) over the Thue-Morse sequence, and the Walnut theorem prover confirms it for all odd k at once, both for the positions with A010060(n) + A010060(n+k) = 1 and for those with A010060(n) = A010060(n+k); for the latter see also Allouche (2015). - _Joaquim Manji-Jung_, Nov 18 2026
+%H A161580 J.-P. Allouche, <a href="https://doi.org/10.5802/jtnb.906">Thue, Combinatorics on words, and conjectures inspired by the Thue-Morse sequence</a>, J. de Théorie des Nombres de Bordeaux, 27, no. 2 (2015), 375-388.

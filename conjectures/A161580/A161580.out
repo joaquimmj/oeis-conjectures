@@ -1,0 +1,68 @@
+Welcome to Walnut! Type "help;" to see all available commands.
+
+[Walnut]$ computed ~:1 states - 13ms
+computed ~:2 states - 2ms
+k=((2*j)+1):2 states - 1ms
+ (E j k=((2*j)+1)):2 states - 3ms
+Total computation time: 57ms.
+
+[Walnut]$ T[n]=T[(n+k)]:4 states - 3ms
+Total computation time: 4ms.
+
+[Walnut]$ T[n]!=T[(n+k)]:4 states - 6ms
+Total computation time: 6ms.
+
+[Walnut]$ (odd(k))&same(k,n))):6 states - 1ms
+ ((odd(k))&same(k,n)))&same(k,m))):20 states - 2ms
+  n<m:2 states - 0ms
+   (((odd(k))&same(k,n)))&same(k,m)))&n<m):24 states - 1ms
+    n<j:2 states - 0ms
+     j<m:2 states - 1ms
+      (n<j&j<m):4 states - 0ms
+       ~same(k,j)):4 states - 0ms
+        ((n<j&j<m)=>~same(k,j))):17 states - 2ms
+         (A j ((n<j&j<m)=>~same(k,j)))):24 states - 7ms
+          ((((odd(k))&same(k,n)))&same(k,m)))&n<m)&(A j ((n<j&j<m)=>~same(k,j))))):22 states - 1ms
+           T[n]!=T[m]:2 states - 0ms
+            (((((odd(k))&same(k,n)))&same(k,m)))&n<m)&(A j ((n<j&j<m)=>~same(k,j)))))=>T[n]!=T[m]):1 states - 1ms
+             (A k , n , m (((((odd(k))&same(k,n)))&same(k,m)))&n<m)&(A j ((n<j&j<m)=>~same(k,j)))))=>T[n]!=T[m])):1 states - 1ms
+Total computation time: 19ms.
+____
+TRUE
+
+[Walnut]$ (odd(k))&diff(k,n))):6 states - 1ms
+ ((odd(k))&diff(k,n)))&diff(k,m))):20 states - 1ms
+  n<m:2 states - 0ms
+   (((odd(k))&diff(k,n)))&diff(k,m)))&n<m):24 states - 1ms
+    n<j:2 states - 0ms
+     j<m:2 states - 0ms
+      (n<j&j<m):4 states - 0ms
+       ~diff(k,j)):4 states - 0ms
+        ((n<j&j<m)=>~diff(k,j))):17 states - 1ms
+         (A j ((n<j&j<m)=>~diff(k,j)))):24 states - 5ms
+          ((((odd(k))&diff(k,n)))&diff(k,m)))&n<m)&(A j ((n<j&j<m)=>~diff(k,j))))):22 states - 3ms
+           T[n]!=T[m]:2 states - 0ms
+            (((((odd(k))&diff(k,n)))&diff(k,m)))&n<m)&(A j ((n<j&j<m)=>~diff(k,j)))))=>T[n]!=T[m]):1 states - 1ms
+             (A k , n , m (((((odd(k))&diff(k,n)))&diff(k,m)))&n<m)&(A j ((n<j&j<m)=>~diff(k,j)))))=>T[n]!=T[m])):1 states - 0ms
+Total computation time: 13ms.
+____
+TRUE
+
+[Walnut]$ (same(k,n))&same(k,m))):16 states - 0ms
+ n<m:2 states - 0ms
+  ((same(k,n))&same(k,m)))&n<m):20 states - 1ms
+   n<j:2 states - 0ms
+    j<m:2 states - 0ms
+     (n<j&j<m):4 states - 0ms
+      ~same(k,j)):4 states - 0ms
+       ((n<j&j<m)=>~same(k,j))):17 states - 2ms
+        (A j ((n<j&j<m)=>~same(k,j)))):24 states - 3ms
+         (((same(k,n))&same(k,m)))&n<m)&(A j ((n<j&j<m)=>~same(k,j))))):20 states - 1ms
+          T[n]!=T[m]:2 states - 0ms
+           ((((same(k,n))&same(k,m)))&n<m)&(A j ((n<j&j<m)=>~same(k,j)))))=>T[n]!=T[m]):22 states - 1ms
+            (A k , n , m ((((same(k,n))&same(k,m)))&n<m)&(A j ((n<j&j<m)=>~same(k,j)))))=>T[n]!=T[m])):21 states - 0ms
+Total computation time: 9ms.
+_____
+FALSE
+
+[Walnut]$ 

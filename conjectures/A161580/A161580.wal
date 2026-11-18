@@ -1,0 +1,10 @@
+# Conjecture de Shevelev (2009), deux variantes, pour tout k impair à la fois. T = Thue-Morse.
+# same : t(n) = t(n+k) (A161579, A161817, A162311) ; diff : t(n) + t(n+k) = 1 (A161580).
+def odd "?msd_2 Ej k=2*j+1":
+def same "?msd_2 T[n]=T[n+k]":
+def diff "?msd_2 T[n]!=T[n+k]":
+eval shev_same "?msd_2 Ak,n,m ($odd(k) & $same(k,n) & $same(k,m) & n<m & (Aj (n<j & j<m) => ~$same(k,j))) => T[n]!=T[m]":
+eval shev_diff "?msd_2 Ak,n,m ($odd(k) & $diff(k,n) & $diff(k,m) & n<m & (Aj (n<j & j<m) => ~$diff(k,j))) => T[n]!=T[m]":
+# témoin négatif : sans l'hypothèse k impair, l'énoncé doit être FALSE
+eval shev_same_allk "?msd_2 Ak,n,m ($same(k,n) & $same(k,m) & n<m & (Aj (n<j & j<m) => ~$same(k,j))) => T[n]!=T[m]":
+exit;

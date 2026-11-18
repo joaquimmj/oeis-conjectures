@@ -36,6 +36,26 @@ equalities of Mathar and part of the bounds of Kimberling, which is why the repo
 Kimberling's bounds are read with a(n) = position of the n-th 0 (or 1); written literally with a counting
 function, they are false. In A284386 the constant r must be (5 + √13)/2.
 
+## Further conjectures (branch work, not in the paper)
+
+The folder `conjectures/` holds proofs of other OEIS conjectures, one folder per entry (proof in French,
+check scripts, Walnut scripts and outputs, draft OEIS comment). Nothing there has been submitted or refereed.
+
+| Entries | Result | Proof |
+|---|---|---|
+| A347171 | conjecture of Doche and Mendès France (2001): P_n has exactly A285869(n) real roots, all simple | by hand (Chebyshev form, phase argument); exact Sturm counts per region for n <= 300 |
+| A366860, A366870, A366871 | Gutkovskiy's conjectures, for every k >= 1: a(n)/n -> (sqrt(k^2+4k) - k)/2 | by hand: first differences are the fixed point of 0 -> 1^k, 1 -> 1^k 0 |
+| A005590 | Stephan's conjecture: a(3n) = 0 iff n is fibbinary | by hand: linear representation and a quadratic invariant |
+| A357097 | conjectured formula with A019586 and the Knuth product A101330 | by hand, in Z[phi] |
+| A371176 | Kotesovec's conjecture; the limit exists | by hand (Schreier sets) |
+| A118006 | functional equation of Hebisch and Rubey (Somos), with f(x) = Sum a(n) x^(n-1) | Walnut, base 3 |
+| A007413 | Shevelev's conjecture on A076826 | Walnut, base 2 |
+| A161580 (A161579, A161817, A162311) | Shevelev's alternation conjecture, both variants, all odd k | Walnut, base 2 |
+| A358360 | the five conjectures of Oudra | by hand from Alekseyev-Amdeberhan-Shallit-Vukusic (2026) |
+| A070864, A112310, A055246 | conjectures of Layman, Adamson, Jeffery | by hand (elementary) |
+
+Details and confidence levels: `conjectures/REPORT.md`.
+
 ## Layout
 
 - `paper/`: the paper (`draft.tex`, `draft.pdf`).
