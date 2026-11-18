@@ -1,0 +1,1 @@
+%C A003278 Jeffery's conjecture is true: a(n) - 1 = A005836(n), A191107(n) = 1 + 3*A005836(n) and A055246(n) = 1 + 6*A005836(n) (see A055246). - _Joaquim Manji-Jung_, Nov 18 2026

@@ -1,0 +1,10 @@
+conjecture 2-regular 16
+conjecture 3-regular 18
+conjecture automatic 125
+conjecture morphism 213
+conjecture Shallit 276
+conjecture Zeilberger 361
+conjecture Dekking 423
+conjecture Allouche 468
+conjecture Ramanujan 557
+conjecture Hankel 623

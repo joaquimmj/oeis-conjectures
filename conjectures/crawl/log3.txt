@@ -1,0 +1,10 @@
+conjecture lattice paths 110
+conjecture permutations avoiding 195
+conjecture Motzkin 276
+conjecture Catalan 379
+conjecture tilings 489
+conjecture partitions 593
+conjecture Fibonacci word 667
+conjecture Thue-Morse 762
+conjecture paperfolding 769
+conjecture Stern 831

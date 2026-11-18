@@ -1,0 +1,10 @@
+conjecture keyword:nice 110
+conjecture keyword:core 156
+conjectured keyword:nice 156
+conjecture Sloane 254
+conjecture Erdos 337
+conjecture Stanley 412
+conjecture Knuth 470
+conjecture Conway 518
+conjecture Guy 540
+conjecture Graham 565

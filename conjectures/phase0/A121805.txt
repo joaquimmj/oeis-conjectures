@@ -1,0 +1,68 @@
+# Greetings from The On-Line Encyclopedia of Integer Sequences! http://oeis.org/
+
+Search: id:a121805
+Showing 1-1 of 1
+
+%I A121805 #162 Oct 22 2026 11:34:25
+%S A121805 1,12,35,94,135,186,248,331,344,387,461,475,530,535,590,595,651,667,
+%T A121805 744,791,809,908,997,1068,1149,1240,1241,1252,1273,1304,1345,1396,
+%U A121805 1457,1528,1609,1700,1701,1712,1733,1764,1805,1856,1917,1988,2070
+%N A121805 The "comma sequence": the lexicographically earliest sequence of positive numbers with the property that the sequence formed by the pairs of digits adjacent to the commas between the terms is the same as the sequence of successive differences between the terms.
+%C A121805 An equivalent, but more formal definition, is: a(1) = 1; for n > 1, let x be the least significant digit of a(n-1); then a(n) = a(n-1) + x*10 + y where y is the most significant digit of a(n) and is the smallest such y, if such a y exists. If no such y exists, stop.
+%C A121805 The sequence contains exactly 2137453 terms, with a(2137453)=99999945. The next term does not exist. - _W. Edwin Clark_, Dec 11 2006
+%C A121805 It is remarkable that the sequence persists for so long. - _N. J. A. Sloane_, Dec 15 2006
+%C A121805 The similar sequence A139284, which starts at a(1)=2, persists even longer, ending at a(194697747222394) = 9999999999999918. - _Giovanni Resta_, Nov 30 2019
+%C A121805 Conjecture: This sequence is finite, for any initial term. - _N. J. A. Sloane_, Nov 14 2023
+%C A121805 The base 2 analog (suggested by _William Cheswick_) is 1, 4, 5, 8, 9, 12, 13, ..., (see A042948) with successive differences 3, 1, 3, 1, ... (repeat). - _N. J. A. Sloane_, Nov 15 2023
+%C A121805 Does not satisfy Benford's Law. - _Michael S. Branicky_, Nov 16 2023
+%C A121805 Using the notion of "comma transform" of a sequence, as defined in A367360, this is the lexicographically earliest sequence of positive integers with the property that its first differences and comma transform coincide. - _N. J. A. Sloane_, Nov 23 2023
+%D A121805 Eric Angelini, "Jeux de suites", in Dossier Pour La Science, pp. 32-35, Volume 59 (Jeux math'), April/June 2008, Paris.
+%H A121805 Michael S. Branicky, <a href="/A121805/b121805.txt">Table of n, a(n) for n = 1..20000</a> (terms 1..1001 from Zak Seidov)
+%H A121805 Eric Angelini, <a href="/A121805/a121805.pdf">The Commas Sequence</a>, Message to Sequence Fans, Sep 06 2016. [Cached copy, with permission]
+%H A121805 Eric Angelini, Michael S. Branicky, Giovanni Resta, N. J. A. Sloane, and David W. Wilson, The Comma Sequence: A Simple Sequence With Bizarre Properties, <a href="https://arxiv.org/abs/2401.14346">arXiv:2401.14346</a>, Fibonacci Quarterly 62:3 (2024), 215-232.
+%H A121805 Eric Angelini, Michael S. Branicky, Giovanni Resta, N. J. A. Sloane, and David W. Wilson, <a href="/A121805/a121805_1.pdf">The Comma Sequence: A Simple Sequence With Bizarre Properties</a>, Local copy.
+%H A121805 Lorenzo Angelini, <a href="https://www.youtube.com/watch?v=_Se0yJSbD48">Happy birthday Éric!!</a>, Youtube video.
+%H A121805 Michael S. Branicky, <a href="/A121805/a121805.png">Graph of a(n)/n over entire sequence</a>
+%H A121805 Simon Demers, <a href="https://drive.google.com/uc?export=download&amp;id=16cV-LPDX_pBels0Doj69J14IXBRRNq2I">Table of n, a(n) for n = 1..2137453</a> (full sequence)
+%H A121805 Robert Dougherty-Bliss, <a href="https://www.youtube.com/watch?v=D3HhsNIjo80">The Comma Sequence is WILD</a>, 2024 video.
+%H A121805 Robert Dougherty-Bliss and Natalya Ter-Saakov, <a href="https://arxiv.org/abs/2408.03434">The Comma Sequence is Finite in Other Bases</a>, arXiv:2408.03434 [math.NT], 2024.
+%H A121805 Brady Haran, Pete McPartlan, and N. J. A. Sloane, <a href="https://www.youtube.com/watch?v=A020pGO5MBs">The Immortal Kangaroo Sequence</a>, Numberphile video (2026).
+%H A121805 Carlos Rivera, <a href="https://www.primepuzzles.net/puzzles/puzz_980.htm">Puzzle 980. The "Commas" sequence</a>, The Prime Puzzles and Problems Connection.
+%H A121805 N. J. A. Sloane, <a href="https://www.youtube.com/watch?v=_EHAdf6izPI">Eric Angelini's Comma Sequence</a>, Experimental Math Seminar, Rutgers Univ., January 18, 2024, Youtube video; <a href="https://sites.math.rutgers.edu/~zeilberg/expmath/sloane2024.pdf">Slides</a>
+%H A121805 Eric Weisstein's World of Mathematics, <a href="https://mathworld.wolfram.com/CommaSequence.html">Comma Sequence</a>.
+%H A121805 <a href="/index/Be#Benford">Index entries for sequences related to Benford's law</a>
+%e A121805 Replace each comma in the original sequence by the pair of digits adjacent to the comma; the result is the sequence of first differences between the terms of the sequence:
+%e A121805 Sequence:   1, 12, 35, 94, 135, 186, 248, 331, 344, 387, 461, 475, ...
+%e A121805 Differences: 11, 23, 59, 41 , 51 , 62 , 83 , 13 , 43 , 74 , 14 , ...
+%e A121805 To illustrate the formula in the comment: a(6) = 186 and a(7) = 248 = 186 + 62.
+%p A121805 digits:=n->ListTools:-Reverse(convert(n,base,10)):
+%p A121805 nextK:=proc(K) local i,L; for i from 0 to 9 do L:=K+digits(K)[ -1]*10+i; if i = digits(L)[1] then return L; fi; od; FAIL; end:
+%p A121805 A121805:=proc(n) option remember: if n = 1 then return 1; fi; return nextK(A121805(n-1)); end: # _W. Edwin Clark_
+%t A121805 a[1] = 1; a[n_] := a[n] = For[x=Mod[a[n-1], 10]; y=0, y <= 9, y++, an = a[n-1] + 10*x + y; If[y == IntegerDigits[an][[1]], Return[an]]]; Array[a, 45] (* _Jean-François Alcover_, Nov 25 2014 *)
+%o A121805 (PARI) a=1; for(n=1,1000, print1(a", "); a+=a%10*10; for(k=1, 9, digits(a+k)[1]==k&&(a+=k)&&next(2)); error("blocked at a("n")=",a-a%10*10)) \\ _M. F. Hasler_, Jul 21 2015
+%o A121805 (R) A121805 <- data.frame(n=seq(from=1,to=200),a=integer(200)); A121805$a[1]=1; for (i in seq(from=2,to=200)){LSD=A121805$a[i-1] %% 10; k = 1; while (k != as.integer(substring(A121805$a[i-1]+LSD*10+k,1,1))){k = k+1; if(k>9) break}; A121805$a[i]=A121805$a[i-1]+LSD*10+k} # _Simon Demers_, Oct 19 2017
+%o A121805 (Python)
+%o A121805 from itertools import islice
+%o A121805 def agen(): # generator of terms
+%o A121805     an, y = 1, 1
+%o A121805     while y < 10:
+%o A121805         yield an
+%o A121805         an, y = an + 10*(an%10), 1
+%o A121805         while y < 10:
+%o A121805             if str(an+y)[0] == str(y):
+%o A121805                 an += y
+%o A121805                 break
+%o A121805             y += 1
+%o A121805 print(list(islice(agen(), 45))) # _Michael S. Branicky_, Apr 08 2022
+%Y A121805 See A366487 and A367349 for first differences.
+%Y A121805 Comma sequences in base 10, starting with 1, 2, 4, 5, 6, 7, 8, 9, 10 are A121805, A139284, A366492, A367337, A367350, A367351, A367352, A367353, A367354. Starting with 3 is trivial, and those starting with 11, 12, 13 are essentially duplicates.
+%Y A121805 Cf. A330128, A330129, A367338 (comma-successor), A367360.
+%Y A121805 See also A260261, A042948.
+%K A121805 nonn,base,fini,nice
+%O A121805 1,2
+%A A121805 _Eric Angelini_, Dec 11 2006
+%E A121805 More terms from _Zak Seidov_, Dec 11 2006
+%E A121805 Edited by _N. J. A. Sloane_, Sep 17 2023
+%E A121805 Changed name from "commas sequence" to "comma sequence". - _N. J. A. Sloane_, Dec 20 2023
+
+# Content is available under The OEIS End-User License Agreement: http://oeis.org/LICENSE

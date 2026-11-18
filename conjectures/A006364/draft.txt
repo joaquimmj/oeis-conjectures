@@ -1,0 +1,1 @@
+%C A006364 Yanev's formula is true: the terms come in pairs 2j, 2j+1 with j evil, and the i-th evil number (from i = 0) is 2i + A010060(i), so a(2i+1) = 4i + 2*A010060(i) and a(2i+2) = a(2i+1) + 1, which is the formula. - _Joaquim Manji-Jung_, Nov 18 2026

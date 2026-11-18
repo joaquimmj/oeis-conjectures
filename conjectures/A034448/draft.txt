@@ -1,0 +1,1 @@
+%C A034448 Yanev's conjecture is true: both sides are multiplicative, and for n = p^e, sigma(p^(2e-1))/sigma(p^(e-1)) = (p^(2e)-1)/(p^e-1) = p^e + 1. - _Joaquim Manji-Jung_, Nov 18 2026

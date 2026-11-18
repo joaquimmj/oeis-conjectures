@@ -1,0 +1,37 @@
+# A006165 : a(1)=a(2)=1, a(2n)=2a(n), a(2n+1)=a(n)+a(n+1). Conjectures de Bala (2022).
+reg pw msd_2 "0*10*":
+def msb "?msd_2 $pw(p) & p<=n & n<2*p":
+# a(n) = min(n - p/2, p), p = msb(n) (formule de Wu), et a(1) = 1
+def a "?msd_2 (n=1 & y=1) | (n>=2 & Ep,q $msb(n,p) & p=2*q & ((n<=p+q & y+q=n) | (n>p+q & y=p)))":
+# l'automate est bien A006165 : fonction totale, valeurs initiales et récurrences
+eval a_func "?msd_2 An (n>=1) => (Ey $a(n,y) & Ay,z ($a(n,y) & $a(n,z)) => y=z)":
+eval a_init "?msd_2 $a(1,1) & $a(2,1)":
+eval a_even "?msd_2 An,y (n>=2 & $a(n,y)) => $a(2*n,2*y)":
+eval a_odd "?msd_2 An,y,z (n>=1 & $a(n,y) & $a(n+1,z)) => $a(2*n+1,y+z)":
+# (i) a(n) + a(n - a(n - a(n - a(n - a(n))))) = n
+eval c1 "?msd_2 An,y1,y2,y3,y4,y5 (n>=2 & $a(n,y1) & $a(n-y1,y2) & $a(n-y2,y3) & $a(n-y3,y4) & $a(n-y4,y5)) => y1+y5=n":
+# (ii) a(n - a(n - a(n - a(n)))) = a(n - a(n - a(n - a(n - a(n - a(n))))))
+eval c2 "?msd_2 An,y1,y2,y3,y4,y5,y6 (n>=2 & $a(n,y1) & $a(n-y1,y2) & $a(n-y2,y3) & $a(n-y3,y4) & $a(n-y4,y5) & $a(n-y5,y6)) => y4=y6":
+# (iii) a(a(n)) = a(n - a(n - a(n - a(n))))
+eval c3 "?msd_2 An,y1,z,y2,y3,y4 (n>=2 & $a(n,y1) & $a(y1,z) & $a(n-y1,y2) & $a(n-y2,y3) & $a(n-y3,y4)) => z=y4":
+# (iv) n - a(n) = a(n - a(a(n)))
+eval c4 "?msd_2 An,y1,z,w (n>=2 & $a(n,y1) & $a(y1,z) & $a(n-z,w)) => y1+w=n":
+# (v) a(n - a(n)) = a2(n - a2(n - a2(n - a2(n)))), a2 = a o a
+def a2 "?msd_2 Ez $a(n,z) & $a(z,y)":
+eval c5 "?msd_2 An,y1,w,z1,z2,z3,z4 (n>=2 & $a(n,y1) & $a(n-y1,w) & $a2(n,z1) & $a2(n-z1,z2) & $a2(n-z2,z3) & $a2(n-z3,z4)) => w=z4":
+# Itérées : F(n,u,y) <=> y = a^(k)(n) avec 2^k = msb(n)/u (u puissance de 2, u <= msb(n)) :
+#   y = min(n - p + u, 2u). Vérification par récurrence sur k (k = 0 : identité ; k -> k+1 : u -> u/2 ;
+#   et, pour u = 1, a^(k+1)(n) = 1).
+def F "?msd_2 Ep $msb(n,p) & $pw(u) & u<=p & ((n+u<=p+2*u & y+p=n+u) | (n+u>p+2*u & y=2*u))":
+eval F_k0 "?msd_2 An,p ($msb(n,p)) => $F(n,p,n)":
+eval F_step "?msd_2 An,u,y,z (n>=1 & u>=2 & $F(n,u,y) & $a(y,z)) => Ev 2*v=u & $F(n,v,z)":
+eval F_last "?msd_2 An,y,z (n>=1 & $F(n,1,y) & $a(y,z)) => z=1":
+# G(n,u,x,y) : y = a^(k)(x), où k est fixé par (n,u) et 1 <= x <= n, x >= n/16
+def G "?msd_2 Ep,q $msb(n,p) & $msb(x,q) & ((q=p & $F(x,u,y)) | (2*q=p & ((u>=2 & Ev 2*v=u & $F(x,v,y)) | (u<2 & y=1))) | (4*q=p & ((u>=4 & Ev 4*v=u & $F(x,v,y)) | (u<4 & y=1))) | (8*q=p & ((u>=8 & Ev 8*v=u & $F(x,v,y)) | (u<8 & y=1))) | (16*q=p & ((u>=16 & Ev 16*v=u & $F(x,v,y)) | (u<16 & y=1))))":
+# (vi) pour tout k >= 2 (4u <= msb(n)) et n >= 2^k : F(n - F(n)) = F(n - F(n - F(n - F(n))))
+eval c6 "?msd_2 An,u,p,y1,w,y2,y3,z (n>=2 & $msb(n,p) & $pw(u) & 4*u<=p & $F(n,u,y1) & $G(n,u,n-y1,w) & $G(n,u,n-y1,y2) & $G(n,u,n-y2,y3) & $G(n,u,n-y3,z)) => w=z":
+# les arguments emboîtés restent >= n/16 (donc G couvre tous les cas)
+eval c6_range "?msd_2 An,u,p,y1,y2,y3 (n>=2 & $msb(n,p) & $pw(u) & 4*u<=p & $F(n,u,y1) & $G(n,u,n-y1,y2) & $G(n,u,n-y2,y3)) => (16*(n-y1)>=n & 16*(n-y2)>=n & 16*(n-y3)>=n & n-y3>=1)":
+# témoin négatif : (vi) est faux pour k = 1 (u = p/2)
+eval c6_k1 "?msd_2 An,u,p,y1,w,y2,y3,z (n>=2 & $msb(n,p) & 2*u=p & $F(n,u,y1) & $G(n,u,n-y1,w) & $G(n,u,n-y1,y2) & $G(n,u,n-y2,y3) & $G(n,u,n-y3,z)) => w=z":
+exit;
