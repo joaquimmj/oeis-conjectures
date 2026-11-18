@@ -32,7 +32,7 @@ entrées. Non vérifié : les historiques OEIS (page protégée contre les robot
 | A004123, A006531 (nice) | Bala 2022 : périodicité mod k, période divisant φ(k), et forme générale G(eˣ − 1) | **vraies** | à la main (j!·S(n,j), Carmichael λ(k)) | élevée ; argument classique, référence non cherchée |
 | A050446 (nice) | Rascoe 2025 : mots à sommes voisines ≤ m + 1 | **vraie** | bijection vers les mots alternés, puis récurrence de l'entrée | élevée ; dépend de la récurrence %F de l'entrée |
 | A003278, A006364, A034448 (nice) | Jeffery, Yanev, Yanev | **vraies** | élémentaires | élevée ; apport modeste |
-| A022558 | Burstein 2019 : |Av(2143, 415263)| = |Av(1342)| | **ouverte**, vérifiée pour n ≤ 10 | TileScope lancé (25 min, 6 Go) | — |
+| A022558 | Burstein 2019 : |Av(2143, 415263)| = |Av(1342)| | **ouverte**, vérifiée pour n ≤ 10 (`count.py`) | TileScope (tilings 4.1.0) : pas de spécification avec point, row ou insertion placements en 300 s chacune ; la 4e stratégie sature la mémoire du conteneur | — |
 | A033485 (nice) | Cloitre 2003 : lim a(2n)/a(n)·log n/n | non prouvée | a(n) = b(2n)/2 (partitions binaires) ; la limite devrait découler de de Bruijn 1948 ou Knuth 1966, non lus ; numériquement ≈ 1,60, pas 1,64 | — |
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
