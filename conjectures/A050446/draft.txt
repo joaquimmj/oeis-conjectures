@@ -1,0 +1,1 @@
+%C A050446 Rascoe's conjecture is true: replacing each letter x in even position by m+1-x maps these words bijectively onto the words with w1 <= w2 >= w3 <= ... over [m], and splitting a word w1 >= w2 <= w3 >= ... at its first letter m (which is in odd position 2k+1) gives the recurrence T(n,m) = T(n,m-1) + Sum_k T(2k,m-1)*T(n-1-2k,m) above. - _Joaquim Manji-Jung_, Nov 18 2026
