@@ -1,0 +1,5 @@
+n = 1..300 : OK (régions, racines simples, total = A285869)
+
+real	10m8.594s
+user	10m3.975s
+sys	0m0.302s

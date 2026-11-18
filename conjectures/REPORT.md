@@ -12,8 +12,8 @@ entrées. Non vérifié : les historiques OEIS (page protégée contre les robot
 | A118006 | équation de Hebisch–Rubey (Somos) | **vraie** pour f = Σ a(n) x^(n−1), fausse avec x^n | lemme à la main et Walnut en base 3 | élevée |
 | A007413 | Shevelev 2009 : nombres de 1 entre deux 2 de A076826 | **vraie** | réduction à la main et Walnut en base 2 | élevée |
 | A005590 | Stephan 2003 : a(3n) = 0 ⇔ n fibbinaire | **vraie**, et |a(3n)| ≥ 2 sinon | à la main : représentation linéaire et invariant quadratique | élevée ; identités vérifiées par sympy, énoncé jusqu'à 2^21 |
-| A347171 | Doche–Mendès France 2001 : racines réelles | en cours | — | — |
+| A347171 | Doche–Mendès France 2001 : nombre de racines réelles = A285869(n) | **vraie**, toutes les racines sont simples, avec le décompte par région | à la main : forme de Tchebychev, phase croissante ou concave sur les deux branches, analyse directe pour y > 0 | élevée ; formules vérifiées (mpmath), décompte exact par région (Sturm sur ℚ(√2)) pour n ≤ 300 ; article original non lu (hôte inaccessible) |
 
 Walnut : github.com/firetto/Walnut, HEAD a4fe84e, compilé avec javac (OpenJDK 21), fastutil 8.5.13 et
 automaton 1.12-4. Les lignes `#` des scripts `.wal` sont retirées avant exécution, car le REPL ne les accepte pas.
-Rien n'a été soumis à l'OEIS. Brouillons : `*/draft.txt`. Aucune de ces preuves n'a été relue par un humain.
+Rien n'a été soumis à l'OEIS. Pour A347171, le plan prévoit d'abord une note arXiv, et de vérifier avant dans l'article de 2001 qu'il ne contient pas déjà une preuve. Brouillons : `*/draft.txt`. Aucune de ces preuves n'a été relue par un humain.
