@@ -1,0 +1,163 @@
+% Preprint, not peer reviewed.
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\oeis}[1]{\href{https://oeis.org/#1}{#1}}
+
+\title{The real roots of the Rudin--Shapiro weight polynomials:\\ proof of a conjecture of Doche and Mend\`es France}
+\author{Joaquim Manji-Jung\\ Paris}
+\date{November 18, 2026\\[2pt] {\small Draft, not peer reviewed}}
+
+\begin{document}\maketitle
+
+\begin{abstract}
+Let $P_n(y)=\sum_{0\le j<2^n}\mathrm{GRS}(j)\,y^{\mathrm{wt}(j)}$, where $\mathrm{GRS}$ is the
+Golay--Rudin--Shapiro sequence and $\mathrm{wt}(j)$ is the binary weight of $j$ (the coefficients form the
+triangle \oeis{A347171}). Doche and Mend\`es France conjectured that the number of real roots of $P_n$ is
+the number of zeros of the Chebyshev polynomial $S_n$ in $(-\sqrt2,\sqrt2)$, sequence \oeis{A285869}.
+We prove this for every $n$, show that the real roots are simple, and locate them: they lie in
+$(-3-2\sqrt2,\,-3+2\sqrt2)$, except for one positive root when $n$ is even.
+\end{abstract}
+
+\section{Statement}
+The polynomials satisfy $P_0=1$, $P_1=1+y$ and
+\begin{equation}\label{rec}
+P_n(y)=(1-y)P_{n-1}(y)+2y\,P_{n-2}(y)\qquad(n\ge2),
+\end{equation}
+a recurrence due to Doche and Mend\`es France \cite{DMF}. Let
+$A(n)=2b(n)+(n \bmod 2)$ with $b(n)=\lfloor n/2\rfloor-\lfloor (n+1)/4\rfloor$; this is the closed form of
+\oeis{A285869}$(n)$. Put $L=-3-2\sqrt2$ and $R=-3+2\sqrt2$.
+
+\begin{theorem}\label{main}
+For every $n\ge0$ the real roots of $P_n$ are simple and their number is $A(n)$. More precisely, for
+$n\ge2$, with $q=(n+3)/4$ and $K=\lceil q\rceil-1$, the number of roots of $P_n$ is
+\[
+\begin{array}{ll}
+0 & \text{in } (-\infty,L]\ \text{and in}\ [R,0],\\
+K-1+[q\in\mathbb Z] & \text{in } (L,-1),\\
+{}[q\in\mathbb Z] & \text{at } y=-1,\\
+K & \text{in } (-1,R),\\
+{}[n \text{ even}] & \text{in } (0,\infty).
+\end{array}
+\]
+\end{theorem}
+\noindent Here $[\,\cdot\,]$ is $1$ if the condition holds and $0$ otherwise. The cases $n=0,1$ are trivial
+($P_0=1$, $P_1=1+y$).
+
+\section{The Chebyshev form for $y<0$}
+Let $S_n$ be defined by $S_{-1}=0$, $S_0=1$, $S_n(x)=xS_{n-1}(x)-S_{n-2}(x)$, so that
+$S_n(2\cos\theta)=\sin((n+1)\theta)/\sin\theta$ and $S_n(2\cosh\eta)=\sinh((n+1)\eta)/\sinh\eta$.
+
+\begin{lemma}\label{cheb}
+For $y<0$ put $t=\sqrt{-2y}>0$ and $x=(1-y)/t=t/2+1/t$. Then $P_n(y)=t^n\bigl(S_n(x)-t\,S_{n-1}(x)\bigr)$.
+\end{lemma}
+\begin{proof}
+Both sides equal $1$ for $n=0$ and $tx-t^2=1+y$ for $n=1$. Writing $P_n=t^nQ_n$, the recurrence \eqref{rec}
+becomes $Q_n=xQ_{n-1}-Q_{n-2}$ because $tx=1-y$ and $t^2=-2y$.
+\end{proof}
+Since $x=t/2+1/t\ge\sqrt2$, we have $x<2$ exactly when $t\in(2-\sqrt2,2+\sqrt2)$, that is, $y\in(L,R)$.
+
+\begin{lemma}\label{outside}
+For $n\ge1$, $P_n$ has no root in $(-\infty,L]\cup[R,0]$.
+\end{lemma}
+\begin{proof}
+$P_n(0)=1$. At $y=L$ or $R$ we have $x=2$, $S_n(2)=n+1$ and $P_n=t^n(n+1-tn)\ne0$ since $t=2\pm\sqrt2$
+is irrational. Otherwise $x>2$; write $x=2\cosh\eta$, $\eta>0$. By Lemma~\ref{cheb}, $P_n(y)=0$ if and only if
+$\rho:=\sinh((n+1)\eta)/\sinh(n\eta)=t$. Now $\rho=\cosh\eta+\coth(n\eta)\sinh\eta$ and
+$1<\coth(n\eta)\le\coth\eta$, so $e^\eta<\rho\le2\cosh\eta=x$. If $t>2+\sqrt2$ then $\rho\le x=t/2+1/t<t$.
+If $t<2-\sqrt2$ then $\rho>e^\eta>1>t$.
+\end{proof}
+
+\section{The phase on $(L,R)$}
+For $y\in(L,R)$ write $x=2\cos\theta$ with $\theta\in(0,\pi/4]$, and let $c=\cos\theta$, $s=\sin\theta$,
+$w=\sqrt{2\cos2\theta}=\sqrt{4c^2-2}$. Since $t^2-2xt+2=0$, we get $t=2c\pm w$:
+\begin{itemize}
+\item branch 1: $t_1=2c+w\in(\sqrt2,2+\sqrt2)$, which describes $y\in(L,-1)$;
+\item branch 2: $t_2=2c-w\in(2-\sqrt2,\sqrt2)$, which describes $y\in(-1,R)$.
+\end{itemize}
+On each branch $\theta\mapsto y$ is a bijection from $(0,\pi/4)$; $\theta=\pi/4$ is $y=-1$, and
+$\theta\to0$ is $y\to L$ on branch 1 and $y\to R$ on branch 2. Since
+$\sin((n+1)\theta)-t\sin(n\theta)=\operatorname{Im}\bigl(e^{in\theta}(e^{i\theta}-t)\bigr)$, Lemma~\ref{cheb} gives
+\begin{equation}\label{phase}
+P_n(y)=t^n\,\bigl|e^{i\theta}-t\bigr|\,\frac{\sin\Phi(\theta)}{\sin\theta},\qquad
+\Phi(\theta)=n\theta+\beta(\theta),\quad \beta(\theta)=\arg\bigl(e^{i\theta}-t\bigr)\in(0,\pi),
+\end{equation}
+and $|e^{i\theta}-t|^2=1-2tc+t^2=t^2/2>0$. So the roots in $(L,R)$ are the solutions of $\Phi\in\pi\mathbb Z$.
+
+\begin{lemma}\label{b2}
+On branch 2, $\beta_2$ is strictly increasing from $0$ to $3\pi/4$. Hence $\Phi_2=n\theta+\beta_2$ is
+strictly increasing from $0$ to $q\pi$.
+\end{lemma}
+\begin{proof}
+$\cot\beta_2=(c-t_2)/s=(w-c)/s$. With $w'=-4sc/w$, the derivative of $(w-c)/s$ is $N/s^2$ where
+$N=(w'+s)s-(w-c)c$, and $Nw=-4s^2c+w-(4c^2-2)c=w-2c<0$ because $w^2=4c^2-2<4c^2$. So $\cot\beta_2$ is
+strictly decreasing. At $\theta\to0$, $\cot\beta_2\to+\infty$; at $\theta=\pi/4$, $\cot\beta_2=-1$.
+\end{proof}
+
+\begin{lemma}\label{b1}
+On branch 1, $\beta_1'(\theta)=1-2c/w$. Hence $\beta_1$ and $\Phi_1=n\theta+\beta_1$ are strictly concave,
+$\Phi_1(0^+)=\pi$, $\Phi_1(\pi/4)=q\pi$, $\Phi_1'(\theta)\to-\infty$ as $\theta\to\pi/4$, and
+$\Phi_1<q\pi+\pi/4$ on $(0,\pi/4)$.
+\end{lemma}
+\begin{proof}
+$e^{i\theta}-t_1=-(c+w)+is$ lies in the second quadrant, so $\beta_1=\pi-\arctan\bigl(s/(c+w)\bigr)$.
+Differentiating,
+\[
+\frac{d}{d\theta}\arctan\frac{s}{c+w}=\frac{1+cw-sw'}{(c+w)^2+s^2}=\frac{w+2c}{w\,(4c^2-1+2cw)} ,
+\]
+using $-sw'=4s^2c/w$ and $w+cw^2+4s^2c=w+2c$. Since $(2c+w)^2=2(4c^2-1+2cw)$ and $(2c+w)(2c-w)=2$, this
+equals $2/\bigl(w(2c+w)\bigr)=(2c-w)/w=2c/w-1$. Now $2c/w=2/\sqrt{4-2/c^2}$ increases strictly with $\theta$,
+so $\beta_1'$ decreases strictly. The boundary values are $\beta_1(0^+)=\pi$ and $\beta_1(\pi/4)=3\pi/4$, and
+$\beta_1'\to-\infty$ as $w\to0$. Finally $\theta<\pi/4$ and $\beta_1<\pi$ give $\Phi_1<n\pi/4+\pi=q\pi+\pi/4$.
+\end{proof}
+
+\section{Positive $y$}
+\begin{lemma}\label{pos}
+For $y>0$, $P_n$ has exactly one root, which is simple, if $n\ge2$ is even, and no root if $n$ is odd.
+\end{lemma}
+\begin{proof}
+Let $\rho_1>0>\rho_2$ be the roots of $f(r)=r^2-(1-y)r-2y$. Since $f(1)=-y<0<2=f(2)$, $1<\rho_1<2$. The
+recurrence \eqref{rec} at $n=1$ gives $P_{-1}=1$, hence
+$P_n=\bigl(\rho_1^{n+1}(\rho_2-1)+\rho_2^{n+1}(1-\rho_1)\bigr)/(\rho_2-\rho_1)$, and $P_n(y)=0$ if and only if
+$\rho_1^{n+1}(1-\rho_2)=\rho_2^{n+1}(1-\rho_1)$. The left side is positive. If $n$ is odd the right side is
+negative. If $n$ is even, parametrize by $\rho=\rho_1\in(1,2)$: then $y=\rho(\rho-1)/(2-\rho)$ is an increasing
+bijection onto $(0,\infty)$, $|\rho_2|=2(\rho-1)/(2-\rho)$, and the equation becomes
+$\kappa^{n+2}=2/(2-\rho)^2$ with $\kappa=2(\rho-1)/(\rho(2-\rho))$. Let
+$g(\rho)=(n+2)\log\kappa+2\log(2-\rho)-\log2$. Then
+$g'(\rho)=(n+2)\bigl(\tfrac1{\rho-1}-\tfrac1\rho\bigr)+\tfrac{n}{2-\rho}>0$, $g\to-\infty$ at $1^+$ and, for
+$n\ge1$, $g\to+\infty$ at $2^-$. So there is exactly one root, and it is simple.
+\end{proof}
+
+\section{Proof of Theorem \ref{main}}
+Let $n\ge2$, so $q>1$. By \eqref{phase} and Lemma~\ref{b2}, the roots in $(-1,R)$ correspond to the integers
+$k$ with $0<k<q$: there are $K$ of them. At $y=-1$, $\Phi=q\pi$, so $-1$ is a root if and only if
+$q\in\mathbb Z$, that is, $n\equiv1\pmod4$. On branch 1, by Lemma~\ref{b1}, $\Phi_1$ is strictly concave with
+boundary values $\pi<q\pi$, its maximum $M$ is interior with $q\pi<M<q\pi+\pi/4$, and the only multiple of
+$\pi$ in $[q\pi,M]$ is $q\pi$ itself when $q\in\mathbb Z$ (otherwise the next multiple is at least
+$(q+1/4)\pi$). By concavity, each $k\pi$ with $1<k<q$ is attained exactly once, on the increasing part; if
+$q\in\mathbb Z$, $q\pi$ is attained once in the interior and once at the endpoint $\theta=\pi/4$; and $\pi$ is
+not attained in the interior. This gives $K-1+[q\in\mathbb Z]$ roots in $(L,-1)$. All these roots are simple,
+because $\Phi'\ne0$ there (at $y=-1$ one uses the parameter $t$, in which $\theta'(\sqrt2)=0$ and $\beta'\ne0$).
+With Lemmas~\ref{outside} and~\ref{pos}, the total is $2K-1+2[q\in\mathbb Z]+[n\text{ even}]$.
+Writing $n=4m+r$: for $r=0,1,2,3$ we get $(q,K)=(m+\tfrac34,m)$, $(m+1,m)$, $(m+\tfrac54,m+1)$,
+$(m+\tfrac32,m+1)$ and totals $2m$, $2m+1$, $2m+2$, $2m+1$, while $b(n)=m,m,m+1,m$. In each case the total
+is $A(n)$. \qed
+
+\begin{remark}
+Every formula above was checked numerically, and the table of Theorem~\ref{main} was confirmed for
+$1\le n\le300$ with exact Sturm sequences, the signs at $L$ and $R$ being computed in $\mathbb Q(\sqrt2)$.
+The scripts are in the repository \url{https://github.com/joaquimmj/oeis-walnut}, folder
+\texttt{conjectures/A347171}.
+\end{remark}
+
+\begin{thebibliography}{9}
+\bibitem{DMF} C. Doche and M. Mend\`es France, An exercise on the average number of real zeros of random
+real polynomials, \emph{Finite and Infinite Combinatorics}, Budapest, 2001.
+\bibitem{OEIS} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
+\url{https://oeis.org}, entries \oeis{A347171} and \oeis{A285869}.
+\end{thebibliography}
+\end{document}

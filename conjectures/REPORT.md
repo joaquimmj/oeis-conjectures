@@ -29,4 +29,4 @@ lexicographiques, pas d'angle) ; A001953/A001954, A022344, A070875, A133954, A18
 
 Walnut : github.com/firetto/Walnut, HEAD a4fe84e, compilé avec javac (OpenJDK 21), fastutil 8.5.13 et
 automaton 1.12-4. Les lignes `#` des scripts `.wal` sont retirées avant exécution, car le REPL ne les accepte pas.
-Rien n'a été soumis à l'OEIS. Pour A347171, le plan prévoit d'abord une note arXiv, et de vérifier avant dans l'article de 2001 qu'il ne contient pas déjà une preuve. Brouillons : `*/draft.txt`. Aucune de ces preuves n'a été relue par un humain.
+Rien n'a été soumis à l'OEIS. Pour A347171, le plan prévoit d'abord une note arXiv, et de vérifier avant dans l'article de 2001 qu'il ne contient pas déjà une preuve. Note LaTeX de A347171 (anglais, 3 pages, compilée avec pdflatex) : `A347171/paper/note.tex` et `note.pdf`. Brouillons : `*/draft.txt`. Aucune de ces preuves n'a été relue par un humain.
