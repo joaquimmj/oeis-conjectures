@@ -47,3 +47,4 @@
 - 2026-11-19 : A064097 (Cloitre 2002) : minorations prouvées, majoration 2/log2 prouvée, borne 5/2 ouverte (records jusqu'à 2e9 : 2,385). Non compté.
 - 2026-11-19 : A005427 : conjecture générale de Hadjicostas (Josèphe, tout k) prouvée. Total 285.
 - 2026-11-19 : A074355 (Stephan 2004) : f.g. fausse telle qu'écrite, corrigée et prouvée. Total 286.
+- 2026-11-19 : A120160 : conjectures de Hadjicostas (Josèphe k = 5, base 5/4) prouvées, pour toute base (k+1)/k. Total 287.
