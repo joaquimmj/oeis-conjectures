@@ -14,6 +14,6 @@ assert all(v2i(a[n]) == s2(n) for n in range(1, N + 1))
 assert all(v2(Fr(2**j, factorial(j))) == s2(j) for j in range(1, N + 1))
 r = [Fr(1)] + [Fr(0)] * 120                     # R' = R * Sum_{n>=2} 2^(n^2) x^(n-1)
 for t in range(1, 121):
-    r[t] = sum(Fr(2**(n*n)) * r[t - n] for n in range(2, t + 1)) / t
+    r[t] = sum((Fr(2**(n*n)) * r[t - n] for n in range(2, t + 1)), Fr(0)) / Fr(t)
 assert all(r[t] == 0 or v2(r[t]) >= t + 1 for t in range(1, 121))
 print("OK : v2(a(n)) = s2(n) pour n <= 300 ; lemmes vérifiés")
