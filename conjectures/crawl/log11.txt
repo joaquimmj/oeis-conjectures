@@ -1,0 +1,2 @@
+"Conjecture: D-finite with recurrence" sqrt 101
+"Conjecture D-finite with recurrence" sqrt 101

@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 196 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 18 au lot 7) : 174 vraies, 21 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
+**Bilan : 202 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 24 au lot 7) : 180 vraies, 21 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -94,6 +94,7 @@ exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,1602
 | A080253 | Bala : périodicité mod k | **vraie** | théorème de A004123 (cas G(eˣ − 1)) |
 | A129527, A173614, A023887, A055210, A367865, A090079, A163617, A285385, A179504 | Yanev : identités | **vraies** | élémentaires (`yanev/proof.md`) ; apport modeste |
 | A285503, A285517, A285567, A285623, A285627, A285663 | Kimberling : a(n)/n → φ | **vraies** | fréquences de Perron (substitutions primitives non Pisot) |
+| A026743, A027174, A027175, A103973, A190171, A385252 | Mathar (récurrences D-finies) | **vraies** (A385252 : pour n ≥ 6, fausse en n = 5) | vérification exacte de l'opérateur différentiel sur la série algébrique (`dfinite/`) ; apport minime |
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
 arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002
