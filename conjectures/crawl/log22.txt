@@ -1,0 +1,4 @@
+Conjecture author:"N. J. A. Sloane" 110
+"It appears that" author:"N. J. A. Sloane" 213
+Conjecture author:"Jeffrey Shallit" 267
+Conjecture author:"Ralf Stephan" "a(n)" 326
