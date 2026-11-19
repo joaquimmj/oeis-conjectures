@@ -1,0 +1,3 @@
+Conjecture author:"Ralf Stephan" 67
+Conjectured author:"Ralf Stephan" 67
+Conjecture author:"Benoit Cloitre" 177

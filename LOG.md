@@ -44,3 +44,4 @@
 - 2026-11-19 : A297291 : a(n) - floor(5n/2) semble 2-automatique (100 états), mais b et c ne se referment pas même sur 6·10^6 termes ; non résolu.
 - 2026-11-19 : A298173, A298741 (somme alternée), A295070 (croissance quadratique). Total 281.
 - 2026-11-19 : famille A297830 : A297836, A298112, A298113 fausses ; données de A297834 incohérentes ; 16 bornes non prouvées. Total 284.
+- 2026-11-19 : A064097 (Cloitre 2002) : minorations prouvées, majoration 2/log2 prouvée, borne 5/2 ouverte (records jusqu'à 2e9 : 2,385). Non compté.
