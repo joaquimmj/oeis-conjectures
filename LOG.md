@@ -50,3 +50,4 @@
 - 2026-11-19 : A120160 : conjectures de Hadjicostas (Josèphe k = 5, base 5/4) prouvées, pour toute base (k+1)/k. Total 287.
 - 2026-11-19 : A074356-A074360 : f.g. conjecturées (Mathar, Wu, Barker) prouvées. Total 292.
 - 2026-11-19 : A078841 (Wilson 2007) : rapport -> 2 prouvé. Total 293.
+- 2026-11-19 : A014664 (Shevelev 2008) : classique, vraie. Total 294.

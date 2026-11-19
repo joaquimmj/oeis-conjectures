@@ -1,0 +1,1 @@
+%C A014664 Shevelev's conjecture is true (classical): if d = a(n) and 2^d = 1 + p*t with p not dividing t (equivalent to p not being a Wieferich prime), the lifting-the-exponent lemma gives v_p(2^(d*p^i) - 1) = 1 + i, so the order of 2 modulo p^k is d*p^(k-1). - _Joaquim Manji-Jung_, Nov 19 2026
