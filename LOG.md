@@ -67,3 +67,4 @@
 - 2026-11-19 : A116731 (Meeussen 2008) prouvée. Total 325.
 - 2026-11-19 : A057194/A216151 (Perry 2012), immédiate. Total 327.
 - 2026-11-19 : lot 11 : A084091, A327551 vraies ; A088226 vraie seulement avec n-1. Total 330.
+- 2026-11-19 : A047863 (Stephan 2013) : cinq congruences prouvées. Total 331.
