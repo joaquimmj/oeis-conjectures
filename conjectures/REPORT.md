@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 29 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4), toutes vraies ; une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses ; rien n'est soumis.**
+**Bilan : 38 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5), toutes vraies ; une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses ; rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -46,6 +46,24 @@ entrées. Non vérifié : les historiques OEIS (page protégée contre les robot
 | A088538 | Aktar 2007 : limite 4/π | **vraie** | à la main (produit de Viète) | élevée ; apport modeste |
 | A361190 | Kotesovec 2026 : exposant 1 + π/arctan(√2) | **vraie** (et série non D-finie) | application du théorème de Denisov–Wachtel (2015) | moyenne à élevée : hypothèses non re-vérifiées ligne à ligne |
 | A288997 | Dekking 2022 : mot de Pell décalé | non prouvée, vérifiée sur 248 425 lettres | réduite à un énoncé en numération de Pell | — |
+
+## Lot 5 (19/11, second crawl : auteurs Bala, Kotesovec, Cloitre, Jovovic, Wiseman, Callan, Hasler, Greathouse…)
+
+| Entrée | Conjecture | Statut | Preuve | Certitude |
+|---|---|---|---|---|
+| A005121 (nice) | Mohapatra 2026 : R(n,n) = a(n) | **vraie** | à la main : M^t triangulaire, sommes de colonnes = Stirling, récurrence de Lengyel | élevée |
+| A006068 (nice) | Kurkov 2023 : Gray inverse | **vraie** | Walnut base 2 | élevée |
+| A055938 (nice) | Stephan 2013 : règle +1/+3 et lien avec A080578 | **vraies** | à la main (écarts de A005187) | élevée |
+| A008278 (nice) | Wiseman : diviseurs des superprimorielles | **vraie** | nombres de tours du plateau en escalier | élevée |
+| A040027 (nice) | Yanev 2021 : nombres de Gould | **vraie** | séries génératrices exponentielles | élevée |
+| A079267 (nice) | Callan 2012 : loi de Poisson(1) à la limite | **vraie** | convergence dominée | élevée |
+| A170941 | Callan 2012 : proportion 1/e | **vraie** | inclusion-exclusion, convergence dominée | élevée |
+| A088617 | Callan 2008 : ~ n/√2 pas U | **vraie** | log-concavité, concentration | élevée (rédaction un peu rapide) |
+| A003959 (nice) | Stephan 2013 : produit eulérien | **vraie** | immédiate | élevée ; apport minime |
+
+**Références à ajouter (déjà prouvé ailleurs)** : A059100 (Cloitre 2002 : la fraction continue de Σ n^(−2^k)
+relève du théorème de Shallit 1979 sur Σ x^(−2^k), non relu), A001156 (Bohman–Fröberg–Riesel : l'asymptotique
+exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,16022).
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
 arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002

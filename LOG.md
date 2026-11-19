@@ -26,3 +26,4 @@
 - 2026-11-18 (suite) : note LaTeX pour A347171 (conjectures/A347171/paper/note.tex, 3 pages, pdflatex de TeX Live 2023, sans avertissement bloquant). Brouillon non relu.
 - 2026-11-18 (suite) : crawl de l'API OEIS (30 requêtes, 1 643 entrées, script conjectures/crawl/). Lot 3 prouvé : A001462 (Song), A006165 (Bala, 7 conjectures), A000139, A004123, A006531, A050446, A003278, A006364, A034448. A022558 (Burstein) vérifiée n ≤ 10, TileScope en cours. Déjà résolues par d'autres : A000521 (Li 2025), van Lamoen/A001462 (Claes–Miyamoto 2026), etc. Total : 23 entrées.
 - 2026-11-19 : lot 4 : A226898 (Greathouse), A072939 (4 conjectures), A368281, A363308, A088538, A361190 (via Denisov–Wachtel). A288997 non prouvée. Total 29 entrées.
+- 2026-11-19 : lot 5 : A005121, A006068, A055938, A008278, A040027, A079267, A170941, A088617, A003959. Total 38 entrées.
