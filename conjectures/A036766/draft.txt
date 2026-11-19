@@ -1,0 +1,1 @@
+%C A036766 The conjectured recurrence is true (for n >= 2): with theta = x d/dx, the recurrence corresponds to the operator L = Sum_i x^i p_i(theta+i), and reducing L(A) modulo A = Sum_{k=0..4} (x*A)^k (using A' = -P_x/P_A) gives L(A) = 8328 + 6660*x. - _Joaquim Manji-Jung_, Nov 19 2026
