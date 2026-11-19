@@ -1,0 +1,21 @@
+A297830 données True offset 0 | min -1.4142 max 2.9142 | bornes None None | violations [] 0
+A297831 données True offset 0 | min -1.4142 max 2.2071 | bornes None 2.5 | violations [] 0
+A297833 données True offset 0 | min -1.9142 max 0.7929 | bornes -2 1 | violations [] 0
+A297834 données False offset 0 | min -2.6213 max 0.0858 | bornes -3 1 | violations [] 0
+A297835 données True offset 0 | min -1.4142 max 3.6213 | bornes None 7 | violations [] 0
+A297836 données True offset 0 | min -2.3028 max 2.8685 | bornes None 2 | violations [2, 3, 9, 12] 605551
+A297837 données True offset 0 | min -3.2361 max 2.8680 | bornes None 3 | violations [] 0
+A298000 données True offset 0 | min -1.4142 max 3.9142 | bornes None 4 | violations [] 0
+A298001 données True offset 0 | min -2.3028 max 3.8685 | bornes None 4 | violations [] 0
+A298002 données True offset 0 | min -3.2361 max 3.8680 | bornes None 4 | violations [] 0
+A298003 données True offset 0 | min 0.6213 max 2.5858 | bornes 0.6 3 | violations [] 0
+A298004 données True offset 0 | min 0.7370 max 2.6972 | bornes 0.7 3 | violations [] 0
+A298005 données True offset 0 | min 0.7951 max 2.7639 | bornes 0.7 3 | violations [] 0
+A298006 données True offset 0 | min 0.9142 max 2.6213 | bornes 0.9 3 | violations [] 0
+A298007 données True offset 0 | min 1.2071 max 2.9142 | bornes 1 3 | violations [] 0
+A298108 données True offset 0 | min 1.5000 max 3.2071 | bornes 1.5 4 | violations [] 0
+A298109 données False offset 0 | min 1.7929 max 3.5000 | bornes 1.5 4 | violations [] 0
+A298111 données True offset 0 | min 0.2071 max 2.5858 | bornes 0.2 3 | violations [] 0
+A298112 données True offset 0 | min -222874.8821 max 2.5858 | bornes 0.4 3 | violations [7, 8, 9, 10] 1999991
+A298113 données True offset 0 | min -356289.4679 max 2.5858 | bornes 0.5 3 | violations [7, 8, 9, 10] 1999991
+fin
