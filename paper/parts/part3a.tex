@@ -39,8 +39,8 @@ $j+kt_n-1\ge m_0+t_n$, so the count wraps and
 Since $m_0+t_n=T(n+1)$ and $t_n\ge1$ (because $T(n)\ge k>r_n$), the induction goes on, and the $m\ge k$ with
 $J(m)\le k-1$ are exactly the $T(n)\ge k$. \end{proof}
 
-\begin{remark}[Prior work] The conjecture is in fact a short corollary of the classical formula of Odlyzko
-and Wilf~\cite{OW}, also in Graham--Knuth--Patashnik's \emph{Concrete Mathematics} (\S3.3):
+\begin{remark}[Prior work]\label{r:OW} The conjecture is in fact a short corollary of the classical formula of Odlyzko
+and Wilf~\cite{OW}, also in Graham--Knuth--Patashnik's \emph{Concrete Mathematics} (Section 3.3):
 $J_k(m)=km+1-D_j$, where $D_0=1$, $D_j=\lceil kD_{j-1}/(k-1)\rceil$ and $j$ is least with $D_j>(k-1)m$
 (we checked it for $k\le8$, $m<400$). Indeed $S(n)=D_{n-1}$, so $T(n+1)=D_n-D_{n-1}=\lceil D_{n-1}/(k-1)\rceil$. If
 $m=\lceil D_{j-1}/(k-1)\rceil\ge k$, then $D_j=D_{j-1}+m$ is the least $D$ above $(k-1)m$ and
@@ -51,8 +51,8 @@ $D_{j-1}\le(k-1)(m-1)$, a contradiction, so $m=c$ is a value of $T$. The proof a
 \begin{remark} Hadjicostas expected Schuh's 1968 method for $k=3$ to help. The argument above is direct: the
 Josephus recursion, observed at the times when the survivor is small, coincides with the ceiling recursion
 defining $T$. This is the principle of the Burde--Thériault algorithm, with the explicit identification
-$j=r+1$, which closes the proof. We have not checked whether Burde (1987), Thériault or Odlyzko--Wilf
-(1991)~\cite{OW} contain the general statement. The script \texttt{A005427/check.py} checks the equality of the
+$j=r+1$, which closes the proof. We have not checked whether Burde (1987) or Thériault state the general
+characterisation explicitly; as shown in Remark~\ref{r:OW}, it follows quickly from Odlyzko--Wilf~\cite{OW}. The script \texttt{A005427/check.py} checks the equality of the
 sets for $k=2,\dots,30$ and $m\le10^6$, the claim for $k\le60$, and the formula for $J$ for $T(n)\le2000$,
 $k\le60$.\end{remark}
 

@@ -118,8 +118,8 @@ $r=(9+\sqrt{21})/6$ and $s=(-1+\sqrt{21})/2$, so these two values of $n$ refute 
 \paragraph{Elementary verification.} The counterexamples can be checked without any of the theory above.
 Generate the first $2.1\cdot10^7$ letters of $x$ and test $D(n)>2$ in integers: since both sides are
 positive,
-\[ n\,\tfrac{\sqrt{21}-1}{2}-a_1(n)>2 \iff 21n^2>(2a_1(n)+4+n)^2,\qquad
-   n\,\tfrac{9+\sqrt{21}}{6}-a_0(n)>2 \iff 21n^2>(6a_0(n)+12-9n)^2. \]
+\begin{gather*} n\,\tfrac{\sqrt{21}-1}{2}-a_1(n)>2 \iff 21n^2>(2a_1(n)+4+n)^2,\\
+   n\,\tfrac{9+\sqrt{21}}{6}-a_0(n)>2 \iff 21n^2>(6a_0(n)+12-9n)^2. \end{gather*}
 The script \texttt{python/independent\_check.py}, written from the OEIS definitions only, does exactly this.
 
 \paragraph{Mean value.} Eldar's conjecture in \oeis{A284364}, that the asymptotic mean of the sequence is
@@ -167,7 +167,7 @@ the exact computation of Section~\ref{s:method}. In Dumont--Thomas numeration, W
 positions $p$ of each letter are quasi-additive: for all $i,j\ge1$,
 \[ p(i)+p(j)+A\le p(i+j)\le p(i)+p(j)+B, \]
 with $(A,B)=(0,2)$ and $(-1,1)$ for the letters $0$ and $1$ of \oeis{A284386}, and $(1,3)$ and $(-1,1)$ for
-\oeis{A284368}; tightening $A$ or $B$ by one gives \textsc{false}. By Fekete's lemma $p(n)/n$ tends to a
+\oeis{A284368}; tightening $A$ or $B$ by one gives \FALSE. By Fekete's lemma $p(n)/n$ tends to a
 limit $\ell$ with $A\le n\ell-p(n)\le B$ for all $n$. Walnut also proves that the number $Z$ of zeros
 satisfies $Z(f(n))=n-Z(n)$, where $f(n)=n+3(n-Z(n))$, which gives the density $(5-\sqrt{13})/6$ of the
 letter $0$ and hence $\ell=r$. Finally $\ell$ is irrational, so $n\ell-p(n)$ is never an integer and the

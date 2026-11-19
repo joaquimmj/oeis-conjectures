@@ -1,6 +1,7 @@
 % Preprint, not peer reviewed. Tables in paper/tables/ are produced by paper/make_tables.py.
 \documentclass[11pt]{article}
-\usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable,array}
+\usepackage[expansion=false]{microtype}
 \usepackage[margin=1in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \newtheorem{theorem}{Theorem}[section]
@@ -9,11 +10,13 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
 \newcommand{\oeis}[1]{\href{https://oeis.org/#1}{#1}}
-\newcommand{\Walnut}{\textsc{Walnut}}
-\newcommand{\TRUE}{\textsc{true}}
-\newcommand{\FALSE}{\textsc{false}}
+\newcommand{\Walnut}{\textup{\textsc{Walnut}}}
+\newcommand{\TRUE}{\textup{\textsc{true}}}
+\newcommand{\FALSE}{\textup{\textsc{false}}}
 \input{tables/counts.tex}
 \makeatletter\let\tinput\@@input\makeatother
+\newcolumntype{R}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\labelitemi}{$\bullet$}
 \setcounter{tocdepth}{2}
 \emergencystretch=3em
 
@@ -30,14 +33,15 @@ We settle conjectures stated in \Ntotal{} entries of the On-Line Encyclopedia of
 \Ntrue{} are true, \Nfalse{} are false as stated, \Nmixed{} are partly true and partly false, and \Ntwo{} holds
 only from $n=2$ on. The conjectures come from about thirty contributors, among them C.~Kimberling,
 R.~J.~Mathar, P.~Bala, V.~Kotesovec, V.~Shevelev, R.~Stephan, D.~Callan, P.~Hadjicostas, V.~Yanev and
-N.~J.~A.~Sloane. Highlights include the number of real roots of the Doche--Mend\`es France polynomials
-(\oeis{A347171}); Hadjicostas' Josephus conjecture for every step $k$ (\oeis{A005427}, \oeis{A120160});
-Kotesovec's growth exponent for the Schreier-type sequence \oeis{A371176}; Gutkovskiy's linear growth for the
-nested recursions $a(n)=n-a(\lfloor a(n-1)/k\rfloor)$ for every $k$ (\oeis{A366860} and two others);
-$80$ of Kimberling's discrepancy conjectures $\ell<nr-a(n)<h$ for binary morphic words, of which $63$ are
-true (in most cases with the exact infimum and supremum) and $16$ false, with explicit counterexamples
-such as $n=2\,977\,771$ for \oeis{A284364}; and a counterexample
-$c(26)=113$ to the bounds stated for the anti-tetranacci system (\oeis{A299405}). The tools are hand proofs,
+N.~J.~A.~Sloane. The main result is a proof of the conjecture of Doche and Mend\`es France (2001) on the number of
+real roots of the polynomials $\sum_{j<2^n}\mathrm{GRS}(j)\,y^{\mathrm{wt}(j)}$ (\oeis{A347171}), which they had
+checked up to degree $200$ but could not prove. Other results include Gutkovskiy's linear growth for the nested
+recursions $a(n)=n-a(\lfloor a(n-1)/k\rfloor)$ for every $k$ (\oeis{A366860} and two others); Kotesovec's growth
+exponent for \oeis{A371176}; Hadjicostas' Josephus conjecture for every step $k$ (\oeis{A005427}, \oeis{A120160}),
+which turns out to follow from the Odlyzko--Wilf formula; a refutation of Cloitre's constant for binary partitions
+(\oeis{A033485}: the limit is $2\log2$); and $80$ of Kimberling's discrepancy conjectures $\ell<nr-a(n)<h$ for binary
+morphic words, of which $63$ are true (in most cases with the exact infimum and supremum) and $16$ false, with
+explicit counterexamples such as $n=2\,977\,771$ for \oeis{A284364}. The tools are hand proofs,
 the \Walnut{} prover, exact computation with certificates in $\mathbb{Q}(\sqrt d)$, Perron--Frobenius
 frequencies and exact computer algebra. Every computational claim was re-run on November 19, 2026 from the
 public repository.

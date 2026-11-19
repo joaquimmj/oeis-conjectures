@@ -202,8 +202,10 @@ print('done')
 # ---------------------------------------------------------------- draft OEIS comments
 import glob
 def esc(t):
-    rep = {'\\': '\\textbackslash{}', '{': '\\{', '}': '\\}', '$': '\\$', '&': '\\&', '#': '\\#',
-           '^': '\\textasciicircum{}', '_': '\\_', '%': '\\%', '~': '\\textasciitilde{}', '≈': '$\\approx$'}
+    # typewriter font (OT1 cmtt has these glyphs at their ASCII positions)
+    rep = {'\\': '\\char92{}', '{': '\\char123{}', '}': '\\char125{}', '$': '\\$', '&': '\\&', '#': '\\#',
+           '^': '\\char94{}', '_': '\\char95{}', '%': '\\%', '~': '\\char126{}', '≈': '$\\approx$',
+           '<': '\\char60{}', '>': '\\char62{}'}
     return ''.join(rep.get(ch, ch) for ch in t)
 files = [f for f in sorted(glob.glob('drafts/*.txt')) if 'A285383' not in f] + sorted(glob.glob('conjectures/*/draft*.txt'))
 with open(OUT + 'drafts.tex', 'w') as f:
