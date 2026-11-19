@@ -1,0 +1,105 @@
+A003157 ? définition non reconnue
+A283794 autre Fixed point of the mapping 00->1000, 10->1001, starting at 00.
+A284469 VRAIE r = sqrt(13)/6 + 7/6 ≈ 1.767592 ; énoncé sqrt(13)/6 + 7/6 ; observé 1.76764
+A284470 VRAIE r = 1/2 + sqrt(13)/2 ≈ 2.302776 ; énoncé 1/2 + sqrt(13)/2 ; observé 2.30268
+A284472 VRAIE r = sqrt(13)/6 + 7/6 ≈ 1.767592 ; énoncé sqrt(13)/6 + 7/6 ; observé 1.76769
+A284473 VRAIE r = 1/2 + sqrt(13)/2 ≈ 2.302776 ; énoncé 1/2 + sqrt(13)/2 ; observé 2.30259
+A284488 FAUSSE r = sqrt(3)/2 + 3/2 ≈ 2.366025 ; énoncé sqrt(13)/6 + 7/6 ; observé 2.36601
+A284489 FAUSSE r = sqrt(3) ≈ 1.732051 ; énoncé 1/2 + sqrt(13)/2 ; observé 1.73205
+A284491 FAUSSE r = sqrt(3)/2 + 3/2 ≈ 2.366025 ; énoncé sqrt(13)/6 + 7/6 ; observé 2.36601
+A284492 FAUSSE r = sqrt(3) ≈ 1.732051 ; énoncé 1/2 + sqrt(13)/2 ; observé 1.73205
+A284509 VRAIE r = sqrt(13)/6 + 7/6 ≈ 1.767592 ; énoncé sqrt(13)/6 + 7/6 ; observé 1.76754
+A284510 VRAIE r = 1/2 + sqrt(13)/2 ≈ 2.302776 ; énoncé 1/2 + sqrt(13)/2 ; observé 2.30284
+A284513 VRAIE r = sqrt(13)/6 + 7/6 ≈ 1.767592 ; énoncé sqrt(13)/6 + 7/6 ; observé 1.76799
+A284514 VRAIE r = 1/2 + sqrt(13)/2 ≈ 2.302776 ; énoncé 1/2 + sqrt(13)/2 ; observé 2.30209
+A284525 VRAIE r = sqrt(13)/6 + 7/6 ≈ 1.767592 ; énoncé sqrt(13)/6 + 7/6 ; observé 1.76746
+A284526 VRAIE r = 1/2 + sqrt(13)/2 ≈ 2.302776 ; énoncé 1/2 + sqrt(13)/2 ; observé 2.30298
+A284528 VRAIE r = sqrt(13)/6 + 7/6 ≈ 1.767592 ; énoncé sqrt(13)/6 + 7/6 ; observé 1.76799
+A284529 VRAIE r = 1/2 + sqrt(13)/2 ≈ 2.302776 ; énoncé 1/2 + sqrt(13)/2 ; observé 2.30209
+A284534 VRAIE r = sqrt(3)/2 + 3/2 ≈ 2.366025 ; énoncé sqrt(3)/2 + 3/2 ; observé 2.36602
+A284535 VRAIE r = sqrt(3) ≈ 1.732051 ; énoncé sqrt(3) ; observé 1.73205
+A284589 VRAIE r = sqrt(3)/2 + 3/2 ≈ 2.366025 ; énoncé sqrt(3)/2 + 3/2 ; observé 2.36602
+A284590 VRAIE r = sqrt(3) ≈ 1.732051 ; énoncé sqrt(3) ; observé 1.73205
+A284623 autre {0011->0}-transform of the Thue-Morse word A010060.
+A284626 autre {0011->0}-transform of the Thue-Morse word A010060.
+A284681 VRAIE r = sqrt(13)/6 + 7/6 ≈ 1.767592 ; énoncé sqrt(13)/6 + 7/6 ; observé 1.76765
+A284682 VRAIE r = 1/2 + sqrt(13)/2 ≈ 2.302776 ; énoncé 1/2 + sqrt(13)/2 ; observé 2.30267
+A284684 autre {0011->1}-transform of the Thue-Morse word A010060.
+A284685 autre {0011->1}-transform of the Thue-Morse word A010060.
+A284746 VRAIE r = sqrt(13)/6 + 5/6 ≈ 1.434259 ; énoncé sqrt(13)/6 + 5/6 ; observé 1.43440
+A284790 autre {1001->0}-transform of the Thue-Morse word A010060.
+A284791 autre {1001->0}-transform of the Thue-Morse word A010060.
+A284933 autre {1001->1}-transform of the Thue-Morse word A010060.
+A284934 autre {1001->1}-transform of the Thue-Morse word A010060.
+A284955 VRAIE r = sqrt(13)/6 + 5/6 ≈ 1.434259 ; énoncé sqrt(13)/6 + 5/6 ; observé 1.43405
+A284956 VRAIE r = 3/2 + sqrt(13)/2 ≈ 3.302776 ; énoncé 3/2 + sqrt(13)/2 ; observé 3.30382
+A284958 VRAIE r = sqrt(13)/6 + 5/6 ≈ 1.434259 ; énoncé sqrt(13)/6 + 5/6 ; observé 1.43450
+A284959 VRAIE r = 3/2 + sqrt(13)/2 ≈ 3.302776 ; énoncé 3/2 + sqrt(13)/2 ; observé 3.30146
+A285091 autre {1100->1}-transform of the Thue-Morse word A010060.
+A285092 autre {1100->1}-transform of the Thue-Morse word A010060.
+A285160 VRAIE r = 2 ≈ 2.000000 ; énoncé 2 ; observé 1.99999
+A285161 VRAIE r = 2 ≈ 2.000000 ; énoncé 2 ; observé 2.00000
+A285401 FAUSSE r = sqrt(17)/4 + 5/4 ≈ 2.280776 ; énoncé 61/26 - sqrt(3)/26 ; observé 2.27575
+A285402 FAUSSE r = 3/4 + sqrt(17)/4 ≈ 1.780776 ; énoncé sqrt(3)/47 + 82/47 ; observé 1.78385
+A285412 FAUSSE r = sqrt(17)/4 + 5/4 ≈ 2.280776 ; énoncé 61/26 - sqrt(3)/26 ; observé 2.27663
+A285413 FAUSSE r = 3/4 + sqrt(17)/4 ≈ 1.780776 ; énoncé 61/26 - sqrt(3)/26 ; observé 1.78330
+A285428 FAUSSE r = sqrt(17)/4 + 5/4 ≈ 2.280776 ; énoncé 61/26 - sqrt(3)/26 ; observé 2.27877
+A285429 FAUSSE r = 3/4 + sqrt(17)/4 ≈ 1.780776 ; énoncé sqrt(3)/47 + 82/47 ; observé 1.78198
+A285502 VRAIE r = sqrt(5)/2 + 3/2 ≈ 2.618034 ; énoncé sqrt(5)/2 + 3/2 ; observé 2.61774
+A285505 VRAIE r = sqrt(5)/2 + 3/2 ≈ 2.618034 ; énoncé sqrt(5)/2 + 3/2 ; observé 2.61824
+A285506 VRAIE r = 1/2 + sqrt(5)/2 ≈ 1.618034 ; énoncé 1/2 + sqrt(5)/2 ; observé 1.61795
+A285516 VRAIE r = sqrt(5)/2 + 3/2 ≈ 2.618034 ; énoncé sqrt(5)/2 + 3/2 ; observé 2.61774
+A285519 VRAIE r = sqrt(5)/2 + 3/2 ≈ 2.618034 ; énoncé sqrt(5)/2 + 3/2 ; observé 2.61824
+A285520 VRAIE r = 1/2 + sqrt(5)/2 ≈ 1.618034 ; énoncé 1/2 + sqrt(5)/2 ; observé 1.61795
+A285531 VRAIE r = 2 ≈ 2.000000 ; énoncé 2 ; observé 1.97991
+A285532 VRAIE r = 2 ≈ 2.000000 ; énoncé 2 ; observé 2.02049
+A285534 VRAIE r = 2 ≈ 2.000000 ; énoncé 2 ; observé 2.00903
+A285535 VRAIE r = 2 ≈ 2.000000 ; énoncé 2 ; observé 1.99104
+A285566 VRAIE r = sqrt(5)/2 + 3/2 ≈ 2.618034 ; énoncé sqrt(5)/2 + 3/2 ; observé 2.61808
+A285569 VRAIE r = sqrt(5)/2 + 3/2 ≈ 2.618034 ; énoncé sqrt(5)/2 + 3/2 ; observé 2.61809
+A285590 autre transformée non alignée
+A285591 autre transformée non alignée
+A285593 autre transformée non alignée
+A285594 autre transformée non alignée
+A285597 VRAIE r = sqrt(17)/2 + 5/2 ≈ 4.561553 ; énoncé sqrt(17)/2 + 5/2 ; observé 4.56151
+A285598 VRAIE r = 1/4 + sqrt(17)/4 ≈ 1.280776 ; énoncé 1/4 + sqrt(17)/4 ; observé 1.28078
+A285601 VRAIE r = 1/4 + sqrt(17)/4 ≈ 1.280776 ; énoncé 1/4 + sqrt(17)/4 ; observé 1.28078
+A285619 VRAIE r = 2 ≈ 2.000000 ; énoncé 2 ; observé 2.00759
+A285658 VRAIE r = sqrt(17)/2 + 5/2 ≈ 4.561553 ; énoncé sqrt(17)/2 + 5/2 ; observé 4.56153
+A285659 VRAIE r = 1/4 + sqrt(17)/4 ≈ 1.280776 ; énoncé 1/4 + sqrt(17)/4 ; observé 1.28078
+A285697 autre 3-limiting word of the mapping 00->1000, 10->01, starting with 00.
+A285958 autre {01->0}-transform of the Thue-Morse word A010060.
+A285959 autre {01->0}-transform of the Thue-Morse word A010060.
+A285962 autre {01->1}-transform of the Thue-Morse word A010060.
+A285964 autre {11->0}-transform of the Thue-Morse word A010060.
+A285965 autre {11->0}-transform of the Thue-Morse word A010060.
+A285967 autre {11->1}-transform of the Thue-Morse word A010060.
+A285968 autre {11->1}-transform of the Thue-Morse word A010060.
+A285973 autre {10->1}-transform of the Thue-Morse word A010060.
+A285974 autre {10->1}-transform of the Thue-Morse word A010060.
+A285976 autre {00->0}-transform of the Thue-Morse word A010060.
+A285977 autre {00->0}-transform of the Thue-Morse word A010060.
+A285979 autre {00->1}-transform of the Thue-Morse word A010060.
+A285980 autre {00->1}-transform of the Thue-Morse word A010060.
+A286031 VRAIE r = 1/2 + sqrt(5)/2 ≈ 1.618034 ; énoncé 1/2 + sqrt(5)/2 ; observé 1.61801
+A286045 autre {011->0}-transform of the Thue-Morse word A010060.
+A286053 autre {101->0}-transform of the Thue-Morse word A010060.
+A286666 autre {0->01}-transform of the Pell word, A171588.
+A286667 autre {0->01}-transform of the Pell word, A171588.
+A286909 autre {0->00,1->01}-transform of the Sturmian word A080764.
+A287402 autre 0-limiting word of the mapping 00->1000, 10->000, starting with 00.
+A287519 autre 1-limiting word of the mapping 00->1000, 10->000, starting with 00.
+A287527 autre 0-limiting word of the mapping 00->1000, 10->000, starting with 00.
+A288316 autre Fixed point of the mapping 00->0001, 1->00, starting with 00.
+A288463 autre Fixed point of the mapping 00->0101, 1->10, starting with 00.
+A288464 autre Fixed point of the mapping 00->0101, 1->10, starting with 00.
+A288708 autre 0-limiting word of the mapping 00->1000, 10->00, starting with 00.
+A288709 autre 0-limiting word of the mapping 00->1000, 10->00, starting with 00.
+A288712 autre 1-limiting word of the mapping 00->1000, 10->00, starting with 00.
+A288713 autre 1-limiting word of the mapping 00->1000, 10->00, starting with 00.
+A288998 autre Fixed point of the mapping 00->0010, 01->001, 10->001, starting with 
+A289008 autre Fixed point of the mapping 00->0010, 01->001, 10->011, starting with 
+A289009 autre Fixed point of the mapping 00->0010, 01->001, 10->011, starting with 
+A289026 autre Fixed point of the mapping 00->0010, 01->010, 10->001, starting with 
+A289036 autre Fixed point of the mapping 00->0010, 01->010, 10->010, starting with 
+A289037 autre Fixed point of the mapping 00->0010, 01->010, 10->010, starting with 

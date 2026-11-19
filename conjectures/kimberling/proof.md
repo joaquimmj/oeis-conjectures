@@ -119,3 +119,25 @@ Pour A285138 et A285144, les violations strictes sont en n = 2. En n = 1, il y a
 A284015 : l'énoncé n'est pas lisible automatiquement (non traité).
 
 **A284015** (compagne de A283966, lettre 1, s = (−1+√17)/2) : inf = (−7+√17)/4 ≈ −0,719, sup = (1+√17)/4 ≈ 1,281 ⊂ (−1, 2) : vraie.
+
+## Limites « a(n)/n → m » (`limits.py`, `limits.out`)
+
+**Méthode.** Pour un point fixe ou un mot limite d'un morphisme binaire primitif (M² ou M³ > 0, vérifié), chaque
+lettre a une fréquence égale à la composante normalisée du vecteur propre de Perron (Queffélec). La position du
+n-ième L vérifie donc a(n)/n → 1/f_L. Ce nombre est calculé exactement (sympy) et comparé symboliquement à la limite
+énoncée. Les positions recalculées sont comparées aux données de chaque entrée. Pour les transformées
+{00 → 0, 11 → 1} d'un mot fait de paires alignées, la fréquence est celle du mot de base.
+
+**Vraies (40)** : A284469, A284470, A284472, A284473, A284509, A284510, A284513, A284514, A284525, A284526, A284528, A284529, A284534, A284535, A284589, A284590, A284681, A284682, A284955, A284956, A284958, A284959, A285160, A285161, A285502, A285505, A285506, A285516, A285531, A285532, A285534, A285535, A285566, A285569, A285597, A285598, A285601, A285619, A285658, A285659.
+
+**Fausses (7)** : la limite existe mais diffère de la valeur énoncée.
+- A284488 : r = sqrt(3)/2 + 3/2 ≈ 2.366025 ; énoncé sqrt(13)/6 + 7/6 ; observé 2.36601
+- A284489 : r = sqrt(3) ≈ 1.732051 ; énoncé 1/2 + sqrt(13)/2 ; observé 1.73205
+- A284491 : r = sqrt(3)/2 + 3/2 ≈ 2.366025 ; énoncé sqrt(13)/6 + 7/6 ; observé 2.36601
+- A284492 : r = sqrt(3) ≈ 1.732051 ; énoncé 1/2 + sqrt(13)/2 ; observé 1.73205
+- A285413 : r = 3/4 + sqrt(17)/4 ≈ 1.780776 ; énoncé 61/26 - sqrt(3)/26 ; observé 1.78330
+- A285428 : r = sqrt(17)/4 + 5/4 ≈ 2.280776 ; énoncé 61/26 - sqrt(3)/26 ; observé 2.27877
+- A285429 : r = 3/4 + sqrt(17)/4 ≈ 1.780776 ; énoncé sqrt(3)/47 + 82/47 ; observé 1.78198
+
+**Déjà réglées par d'autres, non comptées** : A284746, A285401, A285402, A285412, A285519, A285520, A286031 (Zabolotskii, Dekking).
+**Non traitées** (transformées du mot de Thue-Morse, du mot de Pell, transformées non alignées, substitutions par blocs de 2) : voir `limits.out`, lignes « autre ».

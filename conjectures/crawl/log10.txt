@@ -1,0 +1,3 @@
+"a(n)/n ->" Kimberling 110
+"a(n)/n ->" morphism 215
+"limiting word" Kimberling 325

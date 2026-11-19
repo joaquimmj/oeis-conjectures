@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 125 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 69 au lot 6 Kimberling, 18 au lot 7) : 111 vraies, 13 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
+**Bilan : 172 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 116 au lot 6 Kimberling, 18 au lot 7) : 151 vraies, 20 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -83,6 +83,7 @@ exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,1602
 - **Transformées du mot de Fibonacci** (`fibtransform/`, Walnut en numération de Fibonacci) : A287676 (avec la
   formule de Liu), A287723, A287724 et A287727 vraies.
 - **Total Kimberling** : 55 vraies (dont A284015), 13 fausses, 1 vraie pour n ≥ 2.
+- **Limites a(n)/n → m** (`kimberling/limits.py`) : 40 vraies, 7 fausses (limite énoncée incorrecte), par les fréquences de Perron ; 7 déjà réglées par d'autres ; une cinquantaine non traitées (transformées de Thue-Morse, de Pell, substitutions par blocs).
 
 ## Lot 7 (19/11) : Bala, Yanev
 
