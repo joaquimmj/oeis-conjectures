@@ -56,3 +56,4 @@
 - 2026-11-19 : A036766 : récurrence de Mathar prouvée (opérateur réduit modulo l'équation algébrique quartique). Total 295.
 - 2026-11-19 : précalg : 17 récurrences de Mathar prouvées (f.g. algébriques), A025258 fausse en n = 5. Total 312.
 - 2026-11-19 : A083207 : conjecture des 12 consécutifs (Zumkeller) prouvée. Total 314.
+- 2026-11-19 : A010048 : sens « si » prouvé, irréductibilité pour n pair vérifiée jusqu'à 60 ; non compté.
