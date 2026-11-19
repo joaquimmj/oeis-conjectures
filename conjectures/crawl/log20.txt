@@ -1,0 +1,3 @@
+"Conjecture" "Mathar" "satisfies" "a(n-1)" 110
+"Conjecture: D-finite" satisfies 135
+"conjecture" "Mathar" "A(x) = 1 + x" 189

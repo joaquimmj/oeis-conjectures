@@ -54,3 +54,4 @@
 - 2026-11-19 : A033485 : rapport décroissant jusqu'à 1,566 en 1,5e8 (contre 1,64) ; non prouvé, non compté.
 - 2026-11-19 : A067992 : pas de contre-exemple sur 3e7 termes ; non prouvé, non compté.
 - 2026-11-19 : A036766 : récurrence de Mathar prouvée (opérateur réduit modulo l'équation algébrique quartique). Total 295.
+- 2026-11-19 : précalg : 17 récurrences de Mathar prouvées (f.g. algébriques), A025258 fausse en n = 5. Total 312.
