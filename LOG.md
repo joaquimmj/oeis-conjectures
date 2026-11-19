@@ -38,3 +38,4 @@
 - 2026-11-19 : A373308, A000918, A048881, A059906, A073089 (élémentaires). Total 207 entrées.
 - 2026-11-19 : A225132 (rapport -> 1/x0, preuve assistée par principe de l'argument certifié ; la formule 1/(1+g) de l'entrée ne reproduit pas les données). Total 209.
 - 2026-11-19 : lot 8 : équations complémentaires de Kimberling, a(n)/a(n-1) -> phi : 65 conjectures vraies (un théorème élémentaire, conjectures/compeq/), plus 25 entrées où la limite était affirmée sans preuve. Total 274.
+- 2026-11-19 : lot 9 : A297469/A298468 (conjecture de Sloane vraie, Walnut ; (1),(3) de Kimberling fausses telles qu'écrites). Total 276.

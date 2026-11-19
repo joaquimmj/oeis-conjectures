@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 274 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 31 au lot 7, 65 au lot 8) : 252 vraies, 21 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
+**Bilan : 276 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 31 au lot 7, 65 au lot 8, 2 au lot 9) : 252 vraies, 21 fausses, 1 vraie seulement pour n ≥ 2 (A285078), 2 mixtes (A297469, A298468 : conjecture de Sloane vraie, deux énoncés de Kimberling faux tels qu'écrits). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -107,6 +107,12 @@ exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,1602
 Contrôles : `compute.py` (90/90 conformes aux données OEIS, minoration symbolique de g) et `check.py` (générateur
 indépendant, 600 termes, 0 échec). Apport modeste : l'argument est standard, mais il n'était écrit nulle part dans
 ces entrées.
+
+## Lot 9 (19/11) : systèmes d'équations complémentaires (Walnut)
+
+| Entrée | Conjecture | Statut | Preuve |
+|---|---|---|---|
+| A297469, A298468 | Sloane (2019) : formules binaires de bb(2t) et aa(2t) ; Kimberling : cc = A047218, (1)–(4) | **Sloane vraie**, cc = A047218, (2) et (4) vraies ; (1) et (3) **fausses telles qu'écrites** (n = 1), versions corrigées prouvées | Walnut base 2 : candidats automatiques puis vérification des règles gloutonnes (`A297469/`) |
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
 arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002

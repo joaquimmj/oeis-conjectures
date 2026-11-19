@@ -62,6 +62,7 @@ check scripts, Walnut scripts and outputs, draft OEIS comment). Nothing there ha
 | A226898, A072939, A368281, A363308, A088538, A361190 | Greathouse, Jovovic/Kimberling/Sloane, a Hofstadter-like identity, a parity, Aktar, Kotesovec | by hand (A361190 via the Denisov-Wachtel theorem) |
 | A005121, A006068, A055938, A008278, A040027, A079267, A170941, A088617, A003959 | Mohapatra, Kurkov, Stephan, Wiseman, Yanev, Callan | by hand, A006068 with Walnut |
 | 65 entries (A293057, ..., A294565) + 25 stated without proof | Kimberling's complementary equations a(n) = a(n-1) + a(n-2) + g(b, n): a(n)/a(n-1) -> phi | by hand, one elementary theorem for all (`conjectures/compeq/`) |
+| A297469, A298468 | Sloane's conjecture (binary formulas) for Kimberling's aa/bb/cc system; two of Kimberling's bounds are false as written | Walnut, base 2 (candidates + greedy rules) |
 | 69 entries (A026363, A284654, A285032, ..., A287727) | Kimberling's discrepancy conjectures for other morphic words | **55 true** with exact optimal bounds (the paper's method), **13 false** with explicit counterexamples, 1 true for n >= 2 |
 
 Details and confidence levels: `conjectures/REPORT.md`.

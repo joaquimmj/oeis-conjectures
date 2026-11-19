@@ -1,0 +1,33 @@
+# A297469 / A298468 / A047218 : système aa = least new, bb(n) = aa(n) + cc(n-1), cc = least new (Kimberling).
+# Candidats (conjecture de Sloane) ; on vérifie ensuite qu'ils satisfont les règles gloutonnes, d'où l'égalité.
+# ov(t) : l'écriture binaire de t finit par un nombre impair de 0 (t = 0, écrit « 0 », compte).
+reg ov msd_2 "0*|(0|1)*1(00)*0":
+def bb "?msd_2 (Ek (n=2*k & (($ov(k) & z=10*k+2) | (~$ov(k) & z=10*k+1)))) | (Ek (n=2*k+1 & z=10*k+7))":
+def cc "?msd_2 (Ek (n=2*k & z=5*k+3)) | (Ek (n=2*k+1 & z=5*k+5))":
+def aa "?msd_2 (n=0 & z=1) | (n>=1 & (Ey,w ($bb(n,y) & $cc(n-1,w) & z+w=y)))":
+eval fun "?msd_2 An ((Ez $aa(n,z)) & (Ez $bb(n,z)) & (Ez $cc(n,z)) & (Ay,z (($aa(n,y) & $aa(n,z)) => y=z)))":
+eval inc "?msd_2 An,y,z (($aa(n,y) & $aa(n+1,z)) => y<z) & (($bb(n,y) & $bb(n+1,z)) => y<z) & (($cc(n,y) & $cc(n+1,z)) => y<z)":
+# partition de N+ : chaque x >= 1 est dans exactement une des trois images
+def ina "?msd_2 En $aa(n,x)":
+def inb "?msd_2 En $bb(n,x)":
+def inc "?msd_2 En $cc(n,x)":
+eval part "?msd_2 Ax (x>=1) => (($ina(x) | $inb(x) | $inc(x)) & ~($ina(x) & $inb(x)) & ~($ina(x) & $inc(x)) & ~($inb(x) & $inc(x)))":
+eval zero "?msd_2 ~$ina(0) & ~$inb(0) & ~$inc(0)":
+# règles gloutonnes : avant aa(n) sont placés aa(<n), bb(<n), cc(<n) ; avant cc(n) : aa(<=n), bb(<=n), cc(<n)
+eval greedy_a "?msd_2 An,x,z ($aa(n,z) & x>=1 & x<z) => (Ek (k<n & ($aa(k,x) | $bb(k,x) | $cc(k,x))))":
+eval greedy_c "?msd_2 An,x,z ($cc(n,z) & x>=1 & x<z) => (Ek ((k<=n & ($aa(k,x) | $bb(k,x))) | (k<n & $cc(k,x))))":
+eval init "?msd_2 $aa(0,1) & $bb(0,2) & $cc(0,3)":
+# conjecture de Sloane pour aa (t >= 1) ; (2) et (4) de Kimberling
+eval sloane_aa "?msd_2 At (t>=1) => (($ov(t) => $aa(2*t,5*t+2)) & (~$ov(t) => $aa(2*t,5*t+1)))":
+eval sloane_aa_odd "?msd_2 At $aa(2*t+1,5*t+4)":
+eval k2 "?msd_2 An,z $aa(n,z) => (Eq (z=5*q+1 | z=5*q+2 | z=5*q+4))":
+eval k4 "?msd_2 An,z $bb(n,z) => (Eq (z=5*q+1 | z=5*q+2))":
+# (1) et (3) telles qu'écrites : 5n-1-2aa(n) in {0,1,2} et 5n-3-bb(n) in {0,1} (n >= 0)
+eval k1 "?msd_2 An,z $aa(n,z) => (5*n>=2*z+1 & 5*n<=2*z+3)":
+eval k3 "?msd_2 An,z $bb(n,z) => (5*n>=z+3 & 5*n<=z+4)":
+# version corrigée : 2aa(n) - 5n in {2,3,4}, bb(n) - 5n in {1,2}
+eval k1c "?msd_2 An,z $aa(n,z) => (2*z>=5*n+2 & 2*z<=5*n+4)":
+eval k3c "?msd_2 An,z $bb(n,z) => (z>=5*n+1 & z<=5*n+2)":
+eval k1c_tight "?msd_2 (Ez $aa(0,z) & 2*z=2) & (En,z ($aa(n,z) & 2*z=5*n+3)) & (En,z ($aa(n,z) & 2*z=5*n+4))":
+eval k3c_tight "?msd_2 (En,z ($bb(n,z) & z=5*n+1)) & (En,z ($bb(n,z) & z=5*n+2))":
+exit;
