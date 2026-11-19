@@ -1,0 +1,5 @@
+%C A100035 The sequence is the concatenation of (1,2,3) and, for k >= 2 and m = 2k, the blocks (1, m, m-1, m+1, m, m-2, m+1, m-3, m, m-4, ..., 2, m+1) of length 4k-1 starting at 2k^2-3k+2; by induction, after each block the adjacent pairs used are exactly all pairs in [1, 2k+1], which makes each step greedy. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A100036 The conjecture is true: n = 2k first occurs at 2k^2-3k+3 = A096376(k-1) and n = 2k+1 at A096376(k-1)+2 (block structure in A100035), so the first differences are 2 and 2n-7 (n even) after 1, 1, 1, 2, 2. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A100037 The formula a(n) = 2n^2 - n + 3 is true: by the block structure of A100035, the second copy takes n as the low value of block n, at position (2n^2-3n+2) + 2n + 1. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A100038 The formula a(n) = 2n^2 + 3n + 6 is true (low value n of block n+1 of A100035). - _Joaquim Manji-Jung_, Nov 19 2026
+%C A100039 The formula a(n) = 2n^2 + 7n + 13 is true (low value n of block n+2 of A100035). - _Joaquim Manji-Jung_, Nov 19 2026
