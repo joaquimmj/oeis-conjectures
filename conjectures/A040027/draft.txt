@@ -1,0 +1,1 @@
+%C A040027 Yanev's conjecture is true: Sum_n Stirling2(n+1,k+1)*x^n/n! = exp(x)*(exp(x)-1)^k/k!, so the right side has e.g.f. H(x) = exp(x)*C(exp(x)-1) with C(y) = Sum_k A058006(k)*y^k/k!; since C' - C = -1/(1+y)^2, H' = (1+exp(x))*H - 1 with H(0) = 1, which is the derivative form of the e.g.f. equation above (for the sequence shifted by one). - _Joaquim Manji-Jung_, Nov 19 2026
