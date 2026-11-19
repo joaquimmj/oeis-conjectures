@@ -1,0 +1,1 @@
+%C A008278 Wiseman's conjecture is true: such a divisor amounts to placing k-1 non-attacking rooks on the staircase board with rows of lengths 1, 2, ..., n-1 (prime p_i has exponent at most n-i), and the rook numbers of this board satisfy r(n,j) = r(n-1,j) + (n-j)*r(n-1,j-1), the recurrence of Stirling2(n,n-j). - _Joaquim Manji-Jung_, Nov 19 2026
