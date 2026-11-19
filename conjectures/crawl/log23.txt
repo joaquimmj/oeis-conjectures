@@ -1,0 +1,4 @@
+"Extension of Beatty sequence" 12
+mex "fixed point of the morphism" Conjecture Kimberling 14
+"Except for the initial" "fixed point of the morphism" 16
+"positions of" "fixed point of the morphism" mex 16
