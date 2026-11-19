@@ -1,0 +1,40 @@
+A026367: tau = {'0': '11', '1': '110'} depuis 1, lettre 1, r = (1/2 + 1/2*sqrt(3)) ≈ 1.366025 ; indexation OK
+   inf = (-1/2 + -1/6*sqrt(3)) ≈ -0.788675, sup = (1 + 1/3*sqrt(3)) ≈ 1.577350 (observé -0.7613 .. 1.5400)
+   conjecture -1 < D < 2 : inf TRUE, sup TRUE   [Conjecture:  -1 < n*r - a(n) < 2 for n>=1, where r = (1 + sqrt(3))/2.  - _Clark Kimberling]
+A284654: tau = {'0': '0110', '1': '1011001101'} depuis 0, lettre 0, r = (3/2 + 1/2*sqrt(3)) ≈ 2.366025 ; indexation OK
+   inf = -1 ≈ -1.000000, sup = (3/2 + 1/2*sqrt(3)) ≈ 2.366025 (observé -0.9353 .. 2.3218)
+   conjecture -1 < D < 3 : inf ÉGALITÉ, sup TRUE   [Conjecture: -1 < n*r - a(n) < 3 for n >= 1, where r = (3+sqrt(3))/2.]
+A284675: tau = {'0': '0111', '1': '1011101110111'} depuis 0, lettre 0, r = (5/2 + 1/2*sqrt(13)) ≈ 4.302776 ; indexation OK
+   inf = (1/2 + 1/2*sqrt(13)) ≈ 2.302776, sup = (3/2 + 1/2*sqrt(13)) ≈ 3.302776 (observé 2.3028 .. 3.3028)
+   conjecture 2 < D < 4 : inf TRUE, sup TRUE   [Conjecture: 2 < n*r - a(n) < 4 for n >= 1, where r = (5+sqrt(13))/2.]
+A284676: tau = {'0': '0111', '1': '1011101110111'} depuis 0, lettre 1, r = (-1/2 + 1/2*sqrt(13)) ≈ 1.302776 ; indexation OK
+   inf = (-5/2 + 1/2*sqrt(13)) ≈ -0.697224, sup = (-3/2 + 1/2*sqrt(13)) ≈ 0.302776 (observé -0.6972 .. 0.3028)
+   conjecture -1 < D < 4 : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 4 for n >= 1, where r = (-1+sqrt(13))/2.]
+A284678: tau = {'0': '0111', '1': '1011101110111'} depuis 1, lettre 0, r = (5/2 + 1/2*sqrt(13)) ≈ 4.302776 ; indexation OK
+   inf = (1/2 + 1/2*sqrt(13)) ≈ 2.302776, sup = (3/2 + 1/2*sqrt(13)) ≈ 3.302776 (observé 2.3028 .. 3.3028)
+   conjecture 2 < D < 4 : inf TRUE, sup TRUE   [Conjecture: 2 < n*r - a(n) < 4 for n >= 1, where r = (5+sqrt(13))/2.]
+A284679: tau = {'0': '0111', '1': '1011101110111'} depuis 1, lettre 1, r = (-1/2 + 1/2*sqrt(13)) ≈ 1.302776 ; indexation OK
+   inf = (-5/2 + 1/2*sqrt(13)) ≈ -0.697224, sup = (-3/2 + 1/2*sqrt(13)) ≈ 0.302776 (observé -0.6972 .. 0.3028)
+   conjecture -1 < D < 1 : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 1 for n >= 1, where r = (-1+sqrt(13))/2.]
+A285032: tau = {'0': '00110', '1': '1010001'} depuis 0, lettre 0, r = (1 + 1/2*sqrt(2)) ≈ 1.707107 ; indexation OK
+   inf = (-1 + 1/4*sqrt(2)) ≈ -0.646447, sup = (1/2 + 3/4*sqrt(2)) ≈ 1.560660 (observé -0.6464 .. 1.5607)
+   conjecture -1 < D < 2 : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 2 for n>=1, where r = 1 + sqrt(1/2).]
+A285035: tau = {'0': '00110', '1': '1010001'} depuis 1, lettre 0, r = (1 + 1/2*sqrt(2)) ≈ 1.707107 ; indexation OK
+   inf = (-1 + 1/4*sqrt(2)) ≈ -0.646447, sup = (1/2 + 3/4*sqrt(2)) ≈ 1.560660 (observé -0.6464 .. 1.5606)
+   conjecture -1 < D < 2 : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 2 for n>=1, where r = 1 + sqrt(1/2).]
+A285036: tau = {'0': '00110', '1': '1010001'} depuis 1, lettre 1, r = (1 + 1*sqrt(2)) ≈ 2.414214 ; indexation OK
+   inf = (-3/2 + 1/2*sqrt(2)) ≈ -0.792893, sup = (1/2 + 1*sqrt(2)) ≈ 1.914214 (observé -0.7928 .. 1.9142)
+   conjecture -1 < D < 2 : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 2 for n>=1, where r = 1 + sqrt(2).]
+A285082: tau = {'0': '01110', '1': '10011011'} depuis 0, lettre 1, r = (1/2 + 1/2*sqrt(5)) ≈ 1.618034 ; indexation OK
+   inf = -1 ≈ -1.000000, sup = 1 ≈ 1.000000 (observé -1.0000 .. 1.0000)
+   conjecture -1 < D < 1 : inf ÉGALITÉ, sup ÉGALITÉ   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = (1+sqrt(5))/2, the golden ratio.]
+A285084: tau = {'0': '01110', '1': '10011011'} depuis 1, lettre 0, r = (3/2 + 1/2*sqrt(5)) ≈ 2.618034 ; indexation OK
+   inf = 0 ≈ 0.000000, sup = (3/2 + 1/2*sqrt(5)) ≈ 2.618034 (observé 0.0000 .. 2.6180)
+   conjecture 0 < D < r : inf ÉGALITÉ, sup ÉGALITÉ   [Conjecture: 0 < n*r - a(n) < r for n>=1, where r = (3+sqrt(5))/2.]
+Traceback (most recent call last):
+  File "/home/user/oeis-walnut/conjectures/kimberling/run2.py", line 47, in <module>
+    res = analyse(sigma, c, L, r, verbose=False); mn, mx = dt_check(sigma, c, L, r, res)
+  File "/home/user/oeis-walnut/conjectures/kimberling/../../python/discrepancy_exact.py", line 68, in analyse
+    assert abs(float(lam2)) < 1 < float(lam)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

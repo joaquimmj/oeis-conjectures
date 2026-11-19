@@ -1,0 +1,5 @@
+"n*r - a(n)" 110
+"n*r - u(n)" 140
+"n*s - v(n)" 144
+Kimberling conjecture morphism limiting word 171
+Kimberling conjecture fixed point morphism positions 224

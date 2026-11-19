@@ -1,0 +1,2 @@
+%C A285126 Kimberling's conjecture is false: a(3) = 3 and 3*r - 3 = 1.1711... > 1. In fact n*r - a(n) is unbounded, since the morphism 0->10, 1->0000 is not Pisot (its second eigenvalue (1-sqrt(17))/2 has absolute value > 1); n*r - a(n) exceeds 1000 for some n < 2.2*10^6. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A285127 Kimberling's conjecture is false: a(2) = 11 and 2*r - 11 = -3.8768... < -3; moreover n*r - a(n) is unbounded (the morphism 0->10, 1->0000 is not Pisot). - _Joaquim Manji-Jung_, Nov 19 2026
