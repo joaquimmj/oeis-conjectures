@@ -1,0 +1,5 @@
+%C A373308 The conjecture is true: Product_{n>=0} (1 - x^(2^n)) = Sum_n (-1)^A010060(n) x^n, and cubing over GF(3) gives Sum_n (-1)^A010060(n) x^(3n), so a(3n) == (-1)^A010060(n) == A001285(n) (mod 3) and a(n) == 0 (mod 3) if 3 does not divide n. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A000918 Jeffery's conjecture is true: A007814(A000108(m)) = A000120(m+1) - 1 (Kummer), and the least m+1 with binary weight n is 2^n - 1. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A048881 Kimberling's conjecture is true: the n-th word of A076478 is the binary expansion of n+1 with its leading 1 removed. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A059906 Yanev's conjecture is true: in the second formula the terms for k = 2m-1 and k = 2m cancel except for the contribution 2^((i-1)/2) of each bit of n in odd position i, and the first formula follows from it by summation by parts. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A073089 Yanev's conjecture is true: A057661(m) = (1 + Sum_{d|m} d*phi(d))/2, and Sum_{d|m} d*phi(d) == 3^([m even] + [odd part of m == 3 (mod 4)]) (mod 4), which matches a(n) = A014577(n-2) + A056594(n). - _Joaquim Manji-Jung_, Nov 19 2026
