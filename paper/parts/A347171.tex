@@ -1,7 +1,10 @@
 \section{Real roots of the Doche--Mend\`es France polynomials (\oeis{A347171})}\label{s:A347171}
 The triangle \oeis{A347171} gives the coefficients of $P_n(y)=\sum_{0\le j<2^n}\mathrm{GRS}(j)\,y^{\mathrm{wt}(j)}$, where $\mathrm{GRS}$ is the Golay--Rudin--Shapiro sequence. The entry (K.~Ryde, 2021) records the conjecture of Doche and Mend\`es France that the number of real roots of $P_n$ is \oeis{A285869}$(n)$, the number of zeros of the Chebyshev polynomial $S_n$ in $(-\sqrt2,\sqrt2)$.
 
-\paragraph{Prior work.} We could not read the 2001 paper of Doche and Mend\`es France; the OEIS entry presents the statement as a conjecture of that paper. Before publication, the paper and its citations should be checked for a proof.
+\paragraph{Prior work.} In their paper (Budapest 2001; version of April 2005, pp.~9--10), Doche and Mend\`es France
+write that computations up to degree $200$ with PARI's \texttt{polsturm} suggest the count
+$2\lceil n/4\rceil-((-1)^{n+1}+1)/2$, which equals \oeis{A285869}$(n)$, and add: ``Unfortunately we are not able to
+establish this.'' We found no later proof.
 
 \subsection{Statement}
 The polynomials satisfy $P_0=1$, $P_1=1+y$ and

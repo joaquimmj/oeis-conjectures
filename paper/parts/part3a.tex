@@ -39,6 +39,15 @@ $j+kt_n-1\ge m_0+t_n$, so the count wraps and
 Since $m_0+t_n=T(n+1)$ and $t_n\ge1$ (because $T(n)\ge k>r_n$), the induction goes on, and the $m\ge k$ with
 $J(m)\le k-1$ are exactly the $T(n)\ge k$. \end{proof}
 
+\begin{remark}[Prior work] The conjecture is in fact a short corollary of the classical formula of Odlyzko
+and Wilf~\cite{OW}, also in Graham--Knuth--Patashnik's \emph{Concrete Mathematics} (\S3.3):
+$J_k(m)=km+1-D_j$, where $D_0=1$, $D_j=\lceil kD_{j-1}/(k-1)\rceil$ and $j$ is least with $D_j>(k-1)m$
+(we checked it for $k\le8$, $m<400$). Indeed $S(n)=D_{n-1}$, so $T(n+1)=D_n-D_{n-1}=\lceil D_{n-1}/(k-1)\rceil$. If
+$m=\lceil D_{j-1}/(k-1)\rceil\ge k$, then $D_j=D_{j-1}+m$ is the least $D$ above $(k-1)m$ and
+$J_k(m)=(k-1)m+1-D_{j-1}\in[1,k-1]$. Conversely, if $J_k(m)\le k-1$ then $D_j\ge k(m-1)+2$; with
+$c=\lceil D_{j-1}/(k-1)\rceil\le m$, the assumption $c\le m-1$ would give both $D_{j-1}\ge(k-1)m-k+3$ and
+$D_{j-1}\le(k-1)(m-1)$, a contradiction, so $m=c$ is a value of $T$. The proof above is independent of that formula.
+\end{remark}
 \begin{remark} Hadjicostas expected Schuh's 1968 method for $k=3$ to help. The argument above is direct: the
 Josephus recursion, observed at the times when the survivor is small, coincides with the ceiling recursion
 defining $T$. This is the principle of the Burde--Thériault algorithm, with the explicit identification
@@ -92,7 +101,8 @@ $s(m)=F_m$ by induction.
 So $N(m):=\#\{n:a(n)<2^m\}=\sum_{j\le m}F_j=F_{m+2}-1$. If $a(n)$ has $m$ bits, then $N(m-1)<n\le N(m)$, so
 $\varphi^m/C\le n\le C\varphi^m$ and $2^{m-1}\le a(n)<2^m$ for a constant $C$. Hence $\log a(n)=m\log2+O(1)$,
 $\log n=m\log\varphi+O(1)$, and the ratio tends to $\log2/\log\varphi$. \end{proof}
-Check: \texttt{A371176/check.py} (each step for $m\le22$). The convergence is slow (the ratio is $1.419$ at
+The count $s(m)=F_m$ of Schreier sets with maximum $m$ is a known fact (A.~Bird); the contribution is to
+connect it with Kotesovec's conjecture. Check: \texttt{A371176/check.py} (each step for $m\le22$). The convergence is slow (the ratio is $1.419$ at
 $n=46\,367$) because of the $O(1)/m$ term.
 
 \section{Nested recursions of Gutkovskiy}\label{s:A366860}
@@ -282,7 +292,14 @@ precision: $E_{27}=4.1068$, $E_{28}=4.1618$. Iterating the bound from $k=28$ to 
 (maximum near $k=100$, then decreasing to $0.02$ at $k=10^4$), so $D\le L/2$ always holds; beyond $10^4$,
 $\delta\le9.5\ln k/k$ gives $D_k\le D_{10^4}+4.75(\ln^2k-\ln^210^4)\ll k/2$. Hence $E_k=O(\log^2k)$ and
 $\beta(n)/\log_2n\to1$. \end{proof}
-\begin{remark} This proof is not fully certified: the base values $E_{27},E_{28}$ are computed in floating point
+\begin{remark}[A shorter route, and prior work] The limit also follows from de Bruijn's asymptotic expansion
+for binary partitions (1948), recorded by Flajolet in \oeis{A000123}: with $L_2=\log2$,
+$\log a(n)=\frac1{2L_2}\log^2\frac n{\log n}+\bigl(\frac12+\frac{1+\log L_2}{L_2}\bigr)\log n-\bigl(1+\frac{\log L_2}{L_2}\bigr)\log\log n
++\Phi\bigl(\log\frac n{\log n}/L_2\bigr)+o(1)$ with $\Phi$ of period $1$. Taking the difference between $2n$ and $n$, the
+periodic terms cancel up to $o(1)$ and $\log a(2n)-\log a(n)=\log n-\log\log n+\log(2\log2)+o(1)$, which gives the
+limit $2\log2$. So Cloitre's value is refuted by a classical theorem, and the argument below is an independent,
+self-contained check.\end{remark}
+\begin{remark} The self-contained proof is not fully certified: the base values $E_{27},E_{28}$ are computed in floating point
 (relative error about $10^{-7}$, against a margin of $10^{-5}$); the worst case $L=k$ inside a block is checked on a
 grid ($k=28,50,200,1000$); and the smallest margin $k/2-D_k$ in the iteration is $1$. A certified version would
 redo the base in interval arithmetic. The result is consistent with de Bruijn's asymptotics for binary partitions

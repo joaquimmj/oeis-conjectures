@@ -33,7 +33,8 @@ The results differ a lot in depth. We list first those that we believe need a re
   Theorem~\ref{t:A347171}). $P_n(y)=\sum_{j<2^n}\mathrm{GRS}(j)\,y^{\mathrm{wt}(j)}$ has exactly
   \oeis{A285869}$(n)$ real roots, all simple, with an explicit count in each of six regions.
 \item \textbf{Hadjicostas' Josephus conjecture for every $k\ge2$} (\oeis{A005427}, \oeis{A120160} and the
-  entries for $k=2,\dots,9$; Theorem~\ref{t:josephus}), with the explicit survivor $J_k(T(n))=r_n+1$.
+  entries for $k=2,\dots,9$; Theorem~\ref{t:josephus}), with the explicit survivor $J_k(T(n))=r_n+1$. It turns
+  out to be a short corollary of the Odlyzko--Wilf formula.
 \item \textbf{Kotesovec's exponent} for \oeis{A371176}: $\log a(n)/\log n\to\log2/\log\varphi$, through a
   Fibonacci count of Schreier sets (Theorem~\ref{t:A371176}).
 \item \textbf{Gutkovskiy's nested recursions} $a_k(n)=n-a_k(\lfloor a_k(n-1)/k\rfloor)$ for every $k\ge1$
@@ -45,8 +46,8 @@ The results differ a lot in depth. We list first those that we believe need a re
 \item \textbf{Stephan's conjecture for \oeis{A005590}}: $a(3n)=0$ if and only if $n$ is fibbinary, by an
   invariant quadratic cone (Theorem~\ref{t:A005590}).
 \item \textbf{Cloitre's constant for binary partitions is wrong} (\oeis{A033485}): the limit of
-  $a(2n)/a(n)\cdot\log n/n$ exists and is $2\log2=1.386\ldots$, not $1.64\ldots$ (Theorem~\ref{t:A033485};
-  computer-assisted, not fully certified).
+  $a(2n)/a(n)\cdot\log n/n$ exists and is $2\log2=1.386\ldots$, not $1.64\ldots$ (Theorem~\ref{t:A033485}); this also follows from
+  de Bruijn's 1948 asymptotics.
 \item \textbf{Song's lower bound for Golomb's sequence}, $a(n)\ge n^{\varphi-1}$ (Theorem~\ref{t:A001462}).
 \item \textbf{The anti-tetranacci system} (\oeis{A299405}): the published bound for $c$ fails at
   $c(26)=113$, infinitely often (Section~\ref{s:A299405}). This entry is not counted, because published work
