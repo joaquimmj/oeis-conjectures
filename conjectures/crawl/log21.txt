@@ -1,0 +1,6 @@
+conjecture keyword:nice 110
+conjecture keyword:core 156
+Conjecture author:"Leroy Quet" 218
+Conjecture author:"Amarnath Murthy" 328
+Conjecture author:"John W. Layman" 411
+Conjecture author:"Reinhard Zumkeller" 521
