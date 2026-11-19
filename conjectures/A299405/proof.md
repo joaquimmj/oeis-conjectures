@@ -30,3 +30,11 @@ La méthode est la même que pour A297464 :
 ## Contrôle indépendant
 `systems/conj_test.py`, à partir de la définition et sans automate : premier échec de c en n = 26, borne 4 valide
 sur 2·10⁵ termes.
+
+## Travaux antérieurs (trouvés après coup)
+L'entrée OEIS cite Bosma, Bruin, Fokkink, Grube, Reuijl et Tromp, *Using Walnut to solve problems from the OEIS*
+(arXiv:2503.04122, JIS 28, 2025), ainsi que Fokkink et Joshi, *Anti-recurrence sequences* (arXiv:2506.13337). Ces
+articles traitent ce système avec Walnut. Ils n'ont pas été lus : arxiv.org et math.ru.nl sont bloqués depuis la
+session. Ce dossier n'est donc **pas compté** dans le bilan. Il reste un contrôle indépendant ; il signale en plus,
+pour A299405, un désaccord possible (borne de c fausse en n = 26) à confronter avec ces articles avant toute
+diffusion.

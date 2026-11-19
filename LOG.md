@@ -39,4 +39,4 @@
 - 2026-11-19 : A225132 (rapport -> 1/x0, preuve assistée par principe de l'argument certifié ; la formule 1/(1+g) de l'entrée ne reproduit pas les données). Total 209.
 - 2026-11-19 : lot 8 : équations complémentaires de Kimberling, a(n)/a(n-1) -> phi : 65 conjectures vraies (un théorème élémentaire, conjectures/compeq/), plus 25 entrées où la limite était affirmée sans preuve. Total 274.
 - 2026-11-19 : lot 9 : A297469/A298468 (conjecture de Sloane vraie, Walnut ; (1),(3) de Kimberling fausses telles qu'écrites). Total 276.
-- 2026-11-19 : lot 9 suite : A297464-6 (vraies avec n décalé, récurrence vraie) et A299405/9/37/38/41 (fausses, c(26) = 113), Walnut avec automates devinés. Total 284.
+- 2026-11-19 : lot 9 suite : A297464-6 (vraies avec n décalé, récurrence vraie) et A299405/9/37/38/41 (fausses, c(26) = 113), Walnut avec automates devinés. Total 276 (A297464 et A299405 et leurs entrées sœurs déjà traitées par Bosma et al. 2025 : non comptées).

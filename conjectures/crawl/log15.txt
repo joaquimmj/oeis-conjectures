@@ -1,0 +1,3 @@
+"complementary equations" system conjecture 23
+"least new" conjecture 62
+"least new k" Kimberling 90
