@@ -1,0 +1,12 @@
+conjecture Bala 110
+conjecture Kotesovec 179
+conjecture Cloitre 241
+conjecture Jovovic 298
+conjecture Wiseman 371
+conjecture Deutsch 397
+conjecture Somos 426
+conjecture Reznick 431
+conjecture Callan 489
+conjecture Hasler 550
+conjecture Greathouse 583
+conjecture Rowland 644

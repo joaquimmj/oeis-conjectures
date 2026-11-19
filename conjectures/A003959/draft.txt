@@ -1,0 +1,1 @@
+%C A003959 Stephan's formula is true: a is multiplicative with a(p^e) = (p+1)^e, so the Euler factor at p is Sum_{e>=0} ((p+1)/p^s)^e = 1/(1 - p^(-s) - p^(1-s)) (for Re(s) > 2). - _Joaquim Manji-Jung_, Nov 19 2026

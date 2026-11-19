@@ -1,0 +1,104 @@
+Welcome to Walnut! Type "help;" to see all available commands.
+
+[Walnut]$ computed ~:2 states - 19ms
+
+[Walnut]$ p<=n:2 states - 10ms
+ (pw(p))&p<=n):3 states - 2ms
+  n<(2*p):3 states - 3ms
+   ((pw(p))&p<=n)&n<(2*p)):2 states - 1ms
+Total computation time: 39ms.
+
+[Walnut]$ computed ~:1 states - 2ms
+computed ~:2 states - 1ms
+x=((2*j)+1):2 states - 1ms
+ (E j x=((2*j)+1)):2 states - 1ms
+Total computation time: 7ms.
+
+[Walnut]$ (igray(n,a))&igray(n,b))):2 states - 1ms
+ a=b:1 states - 0ms
+  ((igray(n,a))&igray(n,b)))=>a=b):1 states - 1ms
+   (A a , b ((igray(n,a))&igray(n,b)))=>a=b)):1 states - 0ms
+    (igray(n,a))&(A a , b ((igray(n,a))&igray(n,b)))=>a=b))):2 states - 0ms
+     (E a (igray(n,a))&(A a , b ((igray(n,a))&igray(n,b)))=>a=b)))):1 states - 0ms
+      (A n (E a (igray(n,a))&(A a , b ((igray(n,a))&igray(n,b)))=>a=b))))):1 states - 0ms
+Total computation time: 3ms.
+____
+TRUE
+
+[Walnut]$ (igray((2*n),((2*a)+1)))&igray(((2*n)+1),(2*a)))):2 states - 0ms
+ (odd(a))=>(igray((2*n),((2*a)+1)))&igray(((2*n)+1),(2*a))))):4 states - 0ms
+  ~odd(a)):2 states - 1ms
+   (igray((2*n),(2*a)))&igray(((2*n)+1),((2*a)+1)))):2 states - 0ms
+    (~odd(a))=>(igray((2*n),(2*a)))&igray(((2*n)+1),((2*a)+1))))):4 states - 0ms
+     ((odd(a))=>(igray((2*n),((2*a)+1)))&igray(((2*n)+1),(2*a)))))&(~odd(a))=>(igray((2*n),(2*a)))&igray(((2*n)+1),((2*a)+1)))))):2 states - 1ms
+      (igray(n,a))=>((odd(a))=>(igray((2*n),((2*a)+1)))&igray(((2*n)+1),(2*a)))))&(~odd(a))=>(igray((2*n),(2*a)))&igray(((2*n)+1),((2*a)+1))))))):1 states - 0ms
+       (A n , a (igray(n,a))=>((odd(a))=>(igray((2*n),((2*a)+1)))&igray(((2*n)+1),(2*a)))))&(~odd(a))=>(igray((2*n),(2*a)))&igray(((2*n)+1),((2*a)+1)))))))):1 states - 0ms
+Total computation time: 11ms.
+____
+TRUE
+
+[Walnut]$ computed ~:1 states - 1ms
+(igray(0,0))&igray(1,1))):0 states - 0ms
+Total computation time: 2ms.
+____
+TRUE
+
+[Walnut]$ x<=1:2 states - 1ms
+ y=x:1 states - 0ms
+  (x<=1&y=x):2 states - 0ms
+   x>=2:3 states - 1ms
+    p=(2*q):2 states - 0ms
+     (msb(x,p))&p=(2*q)):3 states - 1ms
+      x>=(p+q):3 states - 0ms
+       (y+q)=x:2 states - 1ms
+        (x>=(p+q)&(y+q)=x):4 states - 0ms
+         x<(p+q):3 states - 1ms
+          y=(x+q):2 states - 0ms
+           (x<(p+q)&y=(x+q)):6 states - 1ms
+            ((x>=(p+q)&(y+q)=x)|(x<(p+q)&y=(x+q))):12 states - 2ms
+             ((msb(x,p))&p=(2*q))&((x>=(p+q)&(y+q)=x)|(x<(p+q)&y=(x+q)))):3 states - 1ms
+              (E p , q ((msb(x,p))&p=(2*q))&((x>=(p+q)&(y+q)=x)|(x<(p+q)&y=(x+q))))):3 states - 0ms
+               (x>=2&(E p , q ((msb(x,p))&p=(2*q))&((x>=(p+q)&(y+q)=x)|(x<(p+q)&y=(x+q)))))):3 states - 0ms
+                ((x<=1&y=x)|(x>=2&(E p , q ((msb(x,p))&p=(2*q))&((x>=(p+q)&(y+q)=x)|(x<(p+q)&y=(x+q))))))):3 states - 0ms
+Total computation time: 9ms.
+
+[Walnut]$ (y+p)=x:2 states - 0ms
+ (msb(x,p))&(y+p)=x):2 states - 0ms
+  (E p (msb(x,p))&(y+p)=x)):2 states - 1ms
+Total computation time: 1ms.
+
+[Walnut]$ (c2(2,3))&c2(3,2))):0 states - 0ms
+ ((c2(2,3))&c2(3,2)))&c2(6,4))):0 states - 0ms
+  (((c2(2,3))&c2(3,2)))&c2(6,4)))&c2(9,13))):0 states - 0ms
+   ((((c2(2,3))&c2(3,2)))&c2(6,4)))&c2(9,13)))&dropmsb(3,1))):0 states - 0ms
+    (((((c2(2,3))&c2(3,2)))&c2(6,4)))&c2(9,13)))&dropmsb(3,1)))&dropmsb(13,5))):0 states - 0ms
+Total computation time: 6ms.
+____
+TRUE
+
+[Walnut]$ n>=1:2 states - 3ms
+ (n>=1&c2(n,m))):3 states - 0ms
+  ((n>=1&c2(n,m)))&dropmsb(m,r))):3 states - 0ms
+   (((n>=1&c2(n,m)))&dropmsb(m,r)))&igray(n,a))):4 states - 0ms
+    ((((n>=1&c2(n,m)))&dropmsb(m,r)))&igray(n,a)))&igray(r,b))):4 states - 0ms
+     (((((n>=1&c2(n,m)))&dropmsb(m,r)))&igray(n,a)))&igray(r,b)))&msb(n,p))):4 states - 0ms
+      a=(b+p):2 states - 0ms
+       ((((((n>=1&c2(n,m)))&dropmsb(m,r)))&igray(n,a)))&igray(r,b)))&msb(n,p)))=>a=(b+p)):1 states - 3ms
+        (A n , m , r , a , b , p ((((((n>=1&c2(n,m)))&dropmsb(m,r)))&igray(n,a)))&igray(r,b)))&msb(n,p)))=>a=(b+p))):1 states - 0ms
+Total computation time: 8ms.
+____
+TRUE
+
+[Walnut]$ n>=1:2 states - 0ms
+ (n>=1&dropmsb(n,r))):2 states - 0ms
+  ((n>=1&dropmsb(n,r)))&igray(n,a))):3 states - 0ms
+   (((n>=1&dropmsb(n,r)))&igray(n,a)))&igray(r,b))):3 states - 0ms
+    ((((n>=1&dropmsb(n,r)))&igray(n,a)))&igray(r,b)))&msb(n,p))):3 states - 0ms
+     a=(b+p):2 states - 0ms
+      (((((n>=1&dropmsb(n,r)))&igray(n,a)))&igray(r,b)))&msb(n,p)))=>a=(b+p)):5 states - 2ms
+       (A n , r , a , b , p (((((n>=1&dropmsb(n,r)))&igray(n,a)))&igray(r,b)))&msb(n,p)))=>a=(b+p))):4 states - 0ms
+Total computation time: 3ms.
+_____
+FALSE
+
+[Walnut]$ 

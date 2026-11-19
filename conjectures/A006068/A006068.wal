@@ -1,0 +1,18 @@
+# A006068 (Gray inverse) : conjecture de Kurkov a(n) = a(A053645(A063946(n))) + A053644(n), n > 0.
+# igray(n,a) : a = Gray inverse de n (bit i de a = XOR des bits de n de rang >= i) ; automate igray.txt (2 états).
+reg pw msd_2 "0*10*":
+def msb "?msd_2 $pw(p) & p<=n & n<2*p":
+# contrôle de igray : a(2n) et a(2n+1) en fonction de a(n) (Gray inverse : a(2n) = 2a(n) + (a(n) mod 2), a(2n+1) = 2a(n) + 1 - (a(n) mod 2))
+def odd "?msd_2 Ej x=2*j+1":
+eval ig_func "?msd_2 An Ea $igray(n,a) & Aa,b ($igray(n,a) & $igray(n,b)) => a=b":
+eval ig_rec "?msd_2 An,a ($igray(n,a)) => (($odd(a) => ($igray(2*n,2*a+1) & $igray(2*n+1,2*a))) & (~$odd(a) => ($igray(2*n,2*a) & $igray(2*n+1,2*a+1))))":
+eval ig_init "?msd_2 $igray(0,0) & $igray(1,1)":
+# A063946 : complémente le 2e bit (n >= 2) ; A053645 : retire le bit de tête
+# NB : Walnut ordonne les variables libres d'un def par ordre alphabétique : entrée x, sortie y.
+def c2 "?msd_2 (x<=1 & y=x) | (x>=2 & Ep,q $msb(x,p) & p=2*q & ((x>=p+q & y+q=x) | (x<p+q & y=x+q)))":
+def dropmsb "?msd_2 Ep $msb(x,p) & y+p=x":
+eval c_ctl "?msd_2 $c2(2,3) & $c2(3,2) & $c2(6,4) & $c2(9,13) & $dropmsb(3,1) & $dropmsb(13,5)":
+eval kurkov "?msd_2 An,m,r,a,b,p (n>=1 & $c2(n,m) & $dropmsb(m,r) & $igray(n,a) & $igray(r,b) & $msb(n,p)) => a=b+p":
+# témoin négatif : sans le complément du 2e bit, l'énoncé doit être FALSE
+eval kurkov_bad "?msd_2 An,r,a,b,p (n>=1 & $dropmsb(n,r) & $igray(n,a) & $igray(r,b) & $msb(n,p)) => a=b+p":
+exit;
