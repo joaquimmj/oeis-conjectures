@@ -1,0 +1,2 @@
+"transform of the infinite Fibonacci word" 21
+transform Fibonacci word conjecture Kimberling 50

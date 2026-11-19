@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 106 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 68 au lot 6 Kimberling) : 92 vraies, 13 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
+**Bilan : 107 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 69 au lot 6 Kimberling) : 93 vraies, 13 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -82,7 +82,7 @@ exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,1602
   A285279, le r énoncé est faux) ; **A285078** vraie pour n ≥ 2, fausse en n = 1 (égalité avec la borne).
 - **Transformées du mot de Fibonacci** (`fibtransform/`, Walnut en numération de Fibonacci) : A287676 (avec la
   formule de Liu), A287723, A287724 et A287727 vraies.
-- **Total Kimberling** : 54 vraies, 13 fausses, 1 vraie pour n ≥ 2. Non traitée : A284015 (énoncé non lu).
+- **Total Kimberling** : 55 vraies (dont A284015), 13 fausses, 1 vraie pour n ≥ 2.
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
 arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002

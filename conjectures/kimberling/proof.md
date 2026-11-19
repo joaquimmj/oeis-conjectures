@@ -117,3 +117,5 @@ A285130 (idem, lettre 1) : n = 2, a(2) = 3, 2r − 3 ≈ 4,124 > 3 (données de 
 ```
 Pour A285138 et A285144, les violations strictes sont en n = 2. En n = 1, il y a égalité avec la borne √3.
 A284015 : l'énoncé n'est pas lisible automatiquement (non traité).
+
+**A284015** (compagne de A283966, lettre 1, s = (−1+√17)/2) : inf = (−7+√17)/4 ≈ −0,719, sup = (1+√17)/4 ≈ 1,281 ⊂ (−1, 2) : vraie.

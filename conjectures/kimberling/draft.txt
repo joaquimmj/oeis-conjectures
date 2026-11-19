@@ -60,3 +60,4 @@
 %C A285129 Kimberling's conjecture is false; see the counterexample in the companion repository (conjectures/kimberling/counter.out). - _Joaquim Manji-Jung_, Nov 19 2026
 %C A285130 Kimberling's conjecture is false; see the counterexample in the companion repository (conjectures/kimberling/counter.out). - _Joaquim Manji-Jung_, Nov 19 2026
 %C A285078 The conjecture holds for n >= 2 with optimal bounds, but not for n = 1, where n*r - a(n) = sqrt(2) equals the upper bound. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A284015 Kimberling's conjecture is true: the exact infimum and supremum of n*s - a(n) are (-7+sqrt(17))/4 and (1+sqrt(17))/4 (companion repository). - _Joaquim Manji-Jung_, Nov 19 2026
