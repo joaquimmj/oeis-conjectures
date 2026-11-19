@@ -62,3 +62,4 @@
 - 2026-11-19 : A123722, A123723 prouvées ; A123365 vérifiée jusqu'à 3e6 (non prouvée). Total 318.
 - 2026-11-19 : antériorités reportées (Josèphe : Odlyzko–Wilf ; A033485 : de Bruijn) d'après les commits de l'article.
 - 2026-11-19 : A143772 (Wilson 2008) prouvée. Total 319.
+- 2026-11-19 : A101513 (Sloane 2005) : conjectures (1)-(4) prouvées, (5) non traitée. Total 320.

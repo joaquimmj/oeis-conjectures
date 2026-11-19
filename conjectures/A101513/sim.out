@@ -1,0 +1,5 @@
+lignes : 1500 | entiers < 583511 tous placés
+(1) repoussé <=> premier (x < low) : OK
+(3) premiers dans l'ordre (lignes croissantes, et ordre dans la ligne) : True
+(4) 2p dans une ligne, p dans la suivante : OK
+H(n) pour 3 <= n <= 1500 : True
