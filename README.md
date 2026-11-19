@@ -59,6 +59,9 @@ check scripts, Walnut scripts and outputs, draft OEIS comment). Nothing there ha
 | A004123, A006531 | Bala's periodicity mod k, and its general form for e.g.f. G(exp(x)-1) | by hand (Stirling numbers, Carmichael function) |
 | A050446 | Rascoe's conjecture on words with bounded adjacent sums | by hand (bijection, recurrence) |
 | A003278, A006364, A034448 | conjectures of Jeffery and Yanev | by hand (elementary) |
+| A226898, A072939, A368281, A363308, A088538, A361190 | Greathouse, Jovovic/Kimberling/Sloane, a Hofstadter-like identity, a parity, Aktar, Kotesovec | by hand (A361190 via the Denisov-Wachtel theorem) |
+| A005121, A006068, A055938, A008278, A040027, A079267, A170941, A088617, A003959 | Mohapatra, Kurkov, Stephan, Wiseman, Yanev, Callan | by hand, A006068 with Walnut |
+| 58 entries (A026363, A284654, A285032, ..., A287727) | Kimberling's discrepancy conjectures for other morphic words | **54 true** with exact optimal bounds (the paper's method), **13 false** with explicit counterexamples, 1 true for n >= 2 |
 
 Details and confidence levels: `conjectures/REPORT.md`.
 

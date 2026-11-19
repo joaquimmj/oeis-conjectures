@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 60 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 22 au lot 6) : 58 vraies, 2 fausses (A285126, A285127) ; une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses ; rien n'est soumis.**
+**Bilan : 106 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 68 au lot 6 Kimberling) : 92 vraies, 13 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -76,6 +76,13 @@ exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,1602
   entrées ; la discrépance y est non bornée (morphisme 0 → 10, 1 → 0000 non Pisot).
 - Déjà prouvées par Dekking, non comptées : A285074, A285075, A287664, A287665, A287675, A287726, A287770.
 - Conséquence : la conjecture plus forte de Dekking dans A284753 (sur A026363, borne 3/2) est vraie.
+- **Troisième série** (`kimberling/proof.md`) : **30 vraies** avec bornes exactes, dont 4 entrées compagnes de
+  mots de l'article (A283964, A283967, A284370, A284506), formulées en positions ; **11 fausses** avec contre-exemples
+  exacts (A285129, A285130, A285134, A285135, A285137, A285138, A285140, A285141, A285143, A285144, A285279 ; pour
+  A285279, le r énoncé est faux) ; **A285078** vraie pour n ≥ 2, fausse en n = 1 (égalité avec la borne).
+- **Transformées du mot de Fibonacci** (`fibtransform/`, Walnut en numération de Fibonacci) : A287676 (avec la
+  formule de Liu), A287723, A287724 et A287727 vraies.
+- **Total Kimberling** : 54 vraies, 13 fausses, 1 vraie pour n ≥ 2. Non traitée : A284015 (énoncé non lu).
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
 arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002

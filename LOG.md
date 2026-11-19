@@ -28,3 +28,4 @@
 - 2026-11-19 : lot 4 : A226898 (Greathouse), A072939 (4 conjectures), A368281, A363308, A088538, A361190 (via Denisov–Wachtel). A288997 non prouvée. Total 29 entrées.
 - 2026-11-19 : lot 5 : A005121, A006068, A055938, A008278, A040027, A079267, A170941, A088617, A003959. Total 38 entrées.
 - 2026-11-19 : lot 6 : 20 conjectures de Kimberling prouvées (outil exact de l'article), A285126 et A285127 réfutées. Total 60 entrées.
+- 2026-11-19 : Kimberling, 3e série (30 vraies, 11 fausses, A285078) et transformées de Fibonacci (4 vraies, Walnut). Total 106 entrées (92 vraies, 13 fausses, 1 partielle).
