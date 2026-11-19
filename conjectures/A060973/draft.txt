@@ -1,0 +1,1 @@
+%C A060973 Both conjectures of Peter Bala are true; since a(n) = n - A006165(n) has a closed form synchronized in base 2, they are proved with the Walnut theorem prover. - _Joaquim Manji-Jung_, Nov 19 2026

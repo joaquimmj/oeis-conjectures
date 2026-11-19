@@ -1,0 +1,1 @@
+%C A080253 Bala's conjecture is true: exp(x)/(2-exp(2x)) = G(exp(x)-1) with G(u) = (1+u)/(1-2u-u^2) an integral power series, so a(n) = Sum_j g_j*j!*Stirling2(n,j) and, as in A004123, a(n) mod k is periodic for n >= log_2(k) with period dividing A002322(k), hence phi(k). - _Joaquim Manji-Jung_, Nov 19 2026

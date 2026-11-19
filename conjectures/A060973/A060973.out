@@ -1,0 +1,140 @@
+Welcome to Walnut! Type "help;" to see all available commands.
+
+[Walnut]$ computed ~:2 states - 18ms
+
+[Walnut]$ p<=n:2 states - 6ms
+ (pw(p))&p<=n):3 states - 2ms
+  n<(2*p):3 states - 2ms
+   ((pw(p))&p<=n)&n<(2*p)):2 states - 0ms
+Total computation time: 21ms.
+
+[Walnut]$ computed ~:1 states - 1ms
+computed ~:2 states - 2ms
+n=1:2 states - 3ms
+ y=1:2 states - 0ms
+  (n=1&y=1):2 states - 1ms
+   n>=2:3 states - 2ms
+    p=(2*q):2 states - 1ms
+     (msb(n,p))&p=(2*q)):3 states - 1ms
+      n<=(p+q):3 states - 2ms
+       (y+q)=n:2 states - 1ms
+        (n<=(p+q)&(y+q)=n):4 states - 1ms
+         n>(p+q):3 states - 1ms
+          y=p:1 states - 0ms
+           (n>(p+q)&y=p):3 states - 0ms
+            ((n<=(p+q)&(y+q)=n)|(n>(p+q)&y=p)):5 states - 2ms
+             ((msb(n,p))&p=(2*q))&((n<=(p+q)&(y+q)=n)|(n>(p+q)&y=p))):5 states - 1ms
+              (E p , q ((msb(n,p))&p=(2*q))&((n<=(p+q)&(y+q)=n)|(n>(p+q)&y=p)))):5 states - 1ms
+               (n>=2&(E p , q ((msb(n,p))&p=(2*q))&((n<=(p+q)&(y+q)=n)|(n>(p+q)&y=p))))):5 states - 0ms
+                ((n=1&y=1)|(n>=2&(E p , q ((msb(n,p))&p=(2*q))&((n<=(p+q)&(y+q)=n)|(n>(p+q)&y=p)))))):5 states - 1ms
+Total computation time: 22ms.
+
+[Walnut]$ n>=1:2 states - 0ms
+ (y+z)=n:2 states - 0ms
+  (f(n,z))&(y+z)=n):5 states - 1ms
+   (E z (f(n,z))&(y+z)=n)):4 states - 0ms
+    (n>=1&(E z (f(n,z))&(y+z)=n))):4 states - 0ms
+Total computation time: 2ms.
+
+[Walnut]$ computed ~:1 states - 1ms
+(g(1,0))&g(2,1))):0 states - 0ms
+ n>=2:3 states - 1ms
+  (n>=2&g(n,y))):4 states - 0ms
+   ((n>=2&g(n,y)))=>g((2*n),(2*y)))):1 states - 1ms
+    (A n , y ((n>=2&g(n,y)))=>g((2*n),(2*y))))):1 states - 0ms
+     ((g(1,0))&g(2,1)))&(A n , y ((n>=2&g(n,y)))=>g((2*n),(2*y)))))):0 states - 0ms
+      n>=1:2 states - 0ms
+       (n>=1&g(n,y))):4 states - 1ms
+        ((n>=1&g(n,y)))&g((n+1),z))):5 states - 0ms
+         (((n>=1&g(n,y)))&g((n+1),z)))=>g(((2*n)+1),(y+z)))):1 states - 1ms
+          (A n , y , z (((n>=1&g(n,y)))&g((n+1),z)))=>g(((2*n)+1),(y+z))))):1 states - 0ms
+           (((g(1,0))&g(2,1)))&(A n , y ((n>=2&g(n,y)))=>g((2*n),(2*y))))))&(A n , y , z (((n>=1&g(n,y)))&g((n+1),z)))=>g(((2*n)+1),(y+z)))))):0 states - 0ms
+Total computation time: 9ms.
+____
+TRUE
+
+[Walnut]$ n>=1:2 states - 0ms
+ (g(n,y))&g(n,z))):4 states - 0ms
+  y=z:1 states - 0ms
+   ((g(n,y))&g(n,z)))=>y=z):1 states - 0ms
+    (A y , z ((g(n,y))&g(n,z)))=>y=z)):1 states - 0ms
+     (g(n,y))&(A y , z ((g(n,y))&g(n,z)))=>y=z))):4 states - 0ms
+      (E y (g(n,y))&(A y , z ((g(n,y))&g(n,z)))=>y=z)))):2 states - 0ms
+       (n>=1=>(E y (g(n,y))&(A y , z ((g(n,y))&g(n,z)))=>y=z))))):1 states - 0ms
+        (A n (n>=1=>(E y (g(n,y))&(A y , z ((g(n,y))&g(n,z)))=>y=z)))))):1 states - 0ms
+Total computation time: 1ms.
+____
+TRUE
+
+[Walnut]$ n>=1:2 states - 0ms
+ (n>=1&g(n,y1))):4 states - 0ms
+  ((n>=1&g(n,y1)))&g((n-y1),y2))):6 states - 8ms
+   (((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3))):7 states - 1ms
+    ((((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3)))&g((n-y3),y4))):7 states - 0ms
+     y2=y4:1 states - 0ms
+      (((((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3)))&g((n-y3),y4)))=>y2=y4):1 states - 2ms
+       (A n , y1 , y2 , y3 , y4 (((((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3)))&g((n-y3),y4)))=>y2=y4)):1 states - 0ms
+Total computation time: 23ms.
+____
+TRUE
+
+[Walnut]$ n>=1:2 states - 1ms
+ (n>=1&g(n,y1))):4 states - 0ms
+  ((n>=1&g(n,y1)))&g((n-y1),y2))):6 states - 0ms
+   (((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3))):7 states - 0ms
+    n>y1:2 states - 0ms
+     n>y2:2 states - 0ms
+      (n>y1&n>y2):4 states - 0ms
+       n>y3:2 states - 0ms
+        ((n>y1&n>y2)&n>y3):8 states - 1ms
+         ((((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3)))=>((n>y1&n>y2)&n>y3)):1 states - 2ms
+          (A n , y1 , y2 , y3 ((((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3)))=>((n>y1&n>y2)&n>y3))):1 states - 0ms
+Total computation time: 8ms.
+____
+TRUE
+
+[Walnut]$ (g(n,z))&g(z,y))):7 states - 0ms
+ (E z (g(n,z))&g(z,y)))):6 states - 0ms
+Total computation time: 0ms.
+
+[Walnut]$ n>=2:3 states - 0ms
+ (n>=2&b(n,y1))):6 states - 0ms
+  ((n>=2&b(n,y1)))&b((n-y1),y2))):8 states - 0ms
+   (((n>=2&b(n,y1)))&b((n-y1),y2)))&b((n-y2),y3))):10 states - 0ms
+    ((((n>=2&b(n,y1)))&b((n-y1),y2)))&b((n-y2),y3)))&b((n-y3),y4))):10 states - 0ms
+     y2=y4:1 states - 0ms
+      (((((n>=2&b(n,y1)))&b((n-y1),y2)))&b((n-y2),y3)))&b((n-y3),y4)))=>y2=y4):1 states - 2ms
+       (A n , y1 , y2 , y3 , y4 (((((n>=2&b(n,y1)))&b((n-y1),y2)))&b((n-y2),y3)))&b((n-y3),y4)))=>y2=y4)):1 states - 0ms
+Total computation time: 5ms.
+____
+TRUE
+
+[Walnut]$ n>=2:3 states - 1ms
+ (n>=2&b(n,y1))):6 states - 0ms
+  ((n>=2&b(n,y1)))&b((n-y1),y2))):8 states - 1ms
+   (((n>=2&b(n,y1)))&b((n-y1),y2)))&b((n-y2),y3))):10 states - 0ms
+    n>y1:2 states - 0ms
+     n>y2:2 states - 0ms
+      (n>y1&n>y2):4 states - 0ms
+       n>y3:2 states - 0ms
+        ((n>y1&n>y2)&n>y3):8 states - 0ms
+         (E z b((n-y3),z))):3 states - 1ms
+          (((n>y1&n>y2)&n>y3)&(E z b((n-y3),z)))):9 states - 0ms
+           ((((n>=2&b(n,y1)))&b((n-y1),y2)))&b((n-y2),y3)))=>(((n>y1&n>y2)&n>y3)&(E z b((n-y3),z))))):1 states - 2ms
+            (A n , y1 , y2 , y3 ((((n>=2&b(n,y1)))&b((n-y1),y2)))&b((n-y2),y3)))=>(((n>y1&n>y2)&n>y3)&(E z b((n-y3),z)))))):1 states - 0ms
+Total computation time: 6ms.
+____
+TRUE
+
+[Walnut]$ n>=1:2 states - 0ms
+ (n>=1&g(n,y1))):4 states - 0ms
+  ((n>=1&g(n,y1)))&g((n-y1),y2))):6 states - 0ms
+   (((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3))):7 states - 0ms
+    y2=y3:1 states - 0ms
+     ((((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3)))=>y2=y3):8 states - 1ms
+      (A n , y1 , y2 , y3 ((((n>=1&g(n,y1)))&g((n-y1),y2)))&g((n-y2),y3)))=>y2=y3)):7 states - 0ms
+Total computation time: 3ms.
+_____
+FALSE
+
+[Walnut]$ 

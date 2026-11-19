@@ -1,0 +1,18 @@
+# A060973 = n - A006165(n) : conjectures de Bala (2022). (Variables des def : ordre alphabétique.)
+reg pw msd_2 "0*10*":
+def msb "?msd_2 $pw(p) & p<=n & n<2*p":
+def f "?msd_2 (n=1 & y=1) | (n>=2 & Ep,q $msb(n,p) & p=2*q & ((n<=p+q & y+q=n) | (n>p+q & y=p)))":
+def g "?msd_2 n>=1 & Ez $f(n,z) & y+z=n":
+# contrôle : g vérifie la définition de A060973 (a(1)=0, a(2)=1, a(2n)=2a(n), a(2n+1)=a(n)+a(n+1))
+eval g_def "?msd_2 $g(1,0) & $g(2,1) & (An,y (n>=2 & $g(n,y)) => $g(2*n,2*y)) & (An,y,z (n>=1 & $g(n,y) & $g(n+1,z)) => $g(2*n+1,y+z))":
+eval g_func "?msd_2 An (n>=1) => (Ey $g(n,y) & Ay,z ($g(n,y) & $g(n,z)) => y=z)":
+# (1) a(n - a(n)) = a(n - a(n - a(n - a(n)))), n >= 1
+eval bala1 "?msd_2 An,y1,y2,y3,y4 (n>=1 & $g(n,y1) & $g(n-y1,y2) & $g(n-y2,y3) & $g(n-y3,y4)) => y2=y4":
+eval bala1_def "?msd_2 An,y1,y2,y3 (n>=1 & $g(n,y1) & $g(n-y1,y2) & $g(n-y2,y3)) => (n>y1 & n>y2 & n>y3)":
+# (2) b = a o a : b(n - b(n)) = b(n - b(n - b(n - b(n)))), n >= 2
+def b "?msd_2 Ez $g(n,z) & $g(z,y)":
+eval bala2 "?msd_2 An,y1,y2,y3,y4 (n>=2 & $b(n,y1) & $b(n-y1,y2) & $b(n-y2,y3) & $b(n-y3,y4)) => y2=y4":
+eval bala2_def "?msd_2 An,y1,y2,y3 (n>=2 & $b(n,y1) & $b(n-y1,y2) & $b(n-y2,y3)) => (n>y1 & n>y2 & n>y3 & (Ez $b(n-y3,z)))":
+# témoin : (1) avec a(n - a(n - a(n))) à droite (doit être FALSE)
+eval bala1_bad "?msd_2 An,y1,y2,y3 (n>=1 & $g(n,y1) & $g(n-y1,y2) & $g(n-y2,y3)) => y2=y3":
+exit;
