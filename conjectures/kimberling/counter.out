@@ -1,0 +1,13 @@
+A285134: r = (1 + 1/3*sqrt(3)) ; premier n avec D hors de (-1, 1) : n = 2, a(n) = 2, D = 2/3*sqrt(3) ≈ 1.154701
+A285135: r = (1 + 1*sqrt(3)) ; premier n avec D hors de (-1, 1) : n = 1, a(n) = 4, D = (-3 + 1*sqrt(3)) ≈ -1.267949
+A285137: r = (1 + 1/3*sqrt(3)) ; premier n avec D hors de (-1, 1) : n = 3, a(n) = 6, D = (-3 + 1*sqrt(3)) ≈ -1.267949
+A285138: r = (1 + 1*sqrt(3)) ; premier n avec D hors de (-1, 1*sqrt(3)) : n = 1, a(n) = 1, D = 1*sqrt(3) ≈ 1.732051
+A285140: r = (1 + 1/3*sqrt(3)) ; premier n avec D hors de (-1, 1) : n = 2, a(n) = 2, D = 2/3*sqrt(3) ≈ 1.154701
+A285141: r = (1 + 1*sqrt(3)) ; premier n avec D hors de (-1, 1) : n = 6, a(n) = 15, D = (-9 + 6*sqrt(3)) ≈ 1.392305
+A285143: r = (1 + 1/3*sqrt(3)) ; premier n avec D hors de (-1, 1) : n = 12, a(n) = 20, D = (-8 + 4*sqrt(3)) ≈ -1.071797
+A285144: r = (1 + 1*sqrt(3)) ; premier n avec D hors de (-1, 1*sqrt(3)) : n = 1, a(n) = 1, D = 1*sqrt(3) ≈ 1.732051
+A285279: r = (2 + 1*sqrt(2)) ; premier n avec D hors de (0, 6) : n = 4, a(n) = 6, D = (2 + 4*sqrt(2)) ≈ 7.656854
+A285078: r = (1 + 1*sqrt(2)) ; premier n avec D hors de ((-1 + 1*sqrt(2)), 1*sqrt(2)) : n = 1, a(n) = 1, D = 1*sqrt(2) ≈ 1.414214
+A285138 (violation stricte) : n = 2, a(n) = 3, D = (-1 + 2*sqrt(3)) ≈ 2.464102
+A285144 (violation stricte) : n = 2, a(n) = 3, D = (-1 + 2*sqrt(3)) ≈ 2.464102
+A285078 (violation stricte) : aucune sur 114243 termes
