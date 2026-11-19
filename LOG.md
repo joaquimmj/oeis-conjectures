@@ -52,3 +52,4 @@
 - 2026-11-19 : A078841 (Wilson 2007) : rapport -> 2 prouvé. Total 293.
 - 2026-11-19 : A014664 (Shevelev 2008) : classique, vraie. Total 294.
 - 2026-11-19 : A033485 : rapport décroissant jusqu'à 1,566 en 1,5e8 (contre 1,64) ; non prouvé, non compté.
+- 2026-11-19 : A067992 : pas de contre-exemple sur 3e7 termes ; non prouvé, non compté.
