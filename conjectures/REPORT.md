@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 23 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 après), toutes prouvées vraies ; rien n'est soumis.**
+**Bilan : 29 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4), toutes vraies ; une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses ; rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -34,6 +34,18 @@ entrées. Non vérifié : les historiques OEIS (page protégée contre les robot
 | A003278, A006364, A034448 (nice) | Jeffery, Yanev, Yanev | **vraies** | élémentaires | élevée ; apport modeste |
 | A022558 | Burstein 2019 : |Av(2143, 415263)| = |Av(1342)| | **ouverte**, vérifiée pour n ≤ 10 (`count.py`) | TileScope (tilings 4.1.0) : pas de spécification avec point, row ou insertion placements en 300 s chacune ; la 4e stratégie sature la mémoire du conteneur | — |
 | A033485 (nice) | Cloitre 2003 : lim a(2n)/a(n)·log n/n | non prouvée | a(n) = b(2n)/2 (partitions binaires) ; la limite devrait découler de de Bruijn 1948 ou Knuth 1966, non lus ; numériquement ≈ 1,60, pas 1,64 | — |
+
+## Lot 4 (19/11, suite du crawl)
+
+| Entrée | Conjecture | Statut | Preuve | Certitude |
+|---|---|---|---|---|
+| A226898 (core) | Greathouse 2026 : Δ(n) ≤ d(n)/2 pour n > 4 (Δ de Hooley) | **vraie** | à la main (chaînes d, dq, dq², … pour un premier impair q) | élevée |
+| A072939 | Jovovic 2003, Kimberling 2017, Sloane 2019, limite 3 | **vraies** (quatre conjectures) | à la main (dynamique des différences) | élevée |
+| A368281 / A368282 | sommes partielles du point fixe de 0 → 1ⁿ, 1 → 1ⁿ0 | **vraie** pour tout n | théorème de A366860 | élevée |
+| A363308 | parité de C(x·C(x)³) | **vraie** | à la main dans GF(2)[[x]] | élevée |
+| A088538 | Aktar 2007 : limite 4/π | **vraie** | à la main (produit de Viète) | élevée ; apport modeste |
+| A361190 | Kotesovec 2026 : exposant 1 + π/arctan(√2) | **vraie** (et série non D-finie) | application du théorème de Denisov–Wachtel (2015) | moyenne à élevée : hypothèses non re-vérifiées ligne à ligne |
+| A288997 | Dekking 2022 : mot de Pell décalé | non prouvée, vérifiée sur 248 425 lettres | réduite à un énoncé en numération de Pell | — |
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
 arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002
