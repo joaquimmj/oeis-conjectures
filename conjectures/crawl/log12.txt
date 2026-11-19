@@ -1,0 +1,6 @@
+"Conjecture: D-finite" "sqrt(1-4*x)" 32
+"Conjecture: D-finite" "sqrt(1-2*x-3*x^2)" 38
+"Conjecture: D-finite" "sqrt(1-6*x+x^2)" 39
+"Conjecture: D-finite" "sqrt(1-8*x)" 42
+"Conjecture: D-finite" "sqrt(1-4*x^2)" 42
+"Conjecture D-finite" "sqrt(1-4*x)" 42

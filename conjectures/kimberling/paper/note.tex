@@ -1,0 +1,108 @@
+% Draft, not peer reviewed.
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,longtable,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newcommand{\oeis}[1]{\href{https://oeis.org/#1}{#1}}
+\title{Kimberling's discrepancy conjectures for morphic words:\\ a systematic resolution}
+\author{Joaquim Manji-Jung\\ Paris}
+\date{November 19, 2026\\[2pt] {\small Draft, not peer reviewed}}
+\begin{document}\maketitle
+\begin{abstract}
+In 2017 C.~Kimberling stated, in about a hundred OEIS entries, conjectures of the form
+$\ell < n r - a(n) < h$, where $a(n)$ is the position of the $n$-th occurrence of a letter in a fixed point
+(or limiting word) of a binary morphism and $1/r$ is the frequency of that letter, and conjectures of the form
+$a(n)/n \to m$. Extending the method of our earlier note (exact computation of the extremal discrepancy via
+Dumont--Thomas numeration, certified in $\mathbb{Q}(\sqrt d)$), we settle all such statements whose underlying
+word is a fixed point or limiting word of a primitive binary morphism, a transform of the Fibonacci word, or a
+block transform of the Thue--Morse word. Most conjectures are true, often with optimal bounds; thirteen bound
+conjectures and eight limit conjectures are false, with explicit counterexamples.
+\end{abstract}
+
+\section{Method}
+For a Pisot morphism $\sigma$ on $\{0,1\}$ prolongable on $c$ and a letter $L$, the discrepancy
+$D(n) = n r - a(n)$ is an affine function of the Dumont--Thomas expansion of $a(n)-1$, with weights powers of the
+conjugate eigenvalue. Its supremum and infimum are the unique bounded fixed point of a contracting max/min operator
+over the prefix automaton; we guess the active edges numerically, solve exactly in $\mathbb{Q}(\sqrt d)$, and verify
+the fixed-point equations exactly (a certificate). A limiting word is the fixed point of $\sigma^2$. When an extremal
+value equals an integer bound, it is not attained since $D(n)$ is irrational for $n\ge1$. For transforms of the
+Fibonacci word the positions are synchronized in Zeckendorf numeration and the inequalities, with $r\in\mathbb{Q}(\varphi)$,
+are decided by the Walnut prover. Limits $a(n)/n\to 1/f_L$ follow from Perron--Frobenius (primitive substitutions),
+and for Thue--Morse transforms from exact factor frequencies (Perron vector of the induced block substitution).
+
+\section{Results}
+\begin{theorem}
+The following bound conjectures of Kimberling are true. Columns: entry, conjectured bounds, exact infimum and
+supremum of $D(n)$ (decimal values; exact values in $\mathbb{Q}(\sqrt d)$ are in the repository).
+\end{theorem}
+\begin{longtable}{llrr}
+\toprule entry & conjecture & $\inf D$ & $\sup D$ \\ \midrule
+\oeis{A026363} & $-1<D<2$ & -1.0000 & 1.3660 \\
+\oeis{A026364} & $-1<D<4$ & -1.0000 & 3.7321 \\
+\oeis{A026367} & $-1<D<2$ & -0.7887 & 1.5774 \\
+\oeis{A026368} & $-2<D<4$ & -1.5774 & 3.1547 \\
+\oeis{A283964} & $-1<D<2$ & -0.7887 & 1.5774 \\
+\oeis{A283967} & $-1<D<3$ & -0.5000 & 2.2808 \\
+\oeis{A284370} & $-3<D<4$ & -2.3660 & 3.7321 \\
+\oeis{A284506} & $-3<D<4$ & -2.9434 & 3.1547 \\
+\oeis{A284654} & $-1<D<3$ & -1.0000 & 2.3660 \\
+\oeis{A284657} & $-1<D<3$ & -1.0000 & 2.3660 \\
+\oeis{A284675} & $2<D<4$ & 2.3028 & 3.3028 \\
+\oeis{A284676} & $-1<D<4$ & -0.6972 & 0.3028 \\
+\oeis{A284678} & $2<D<4$ & 2.3028 & 3.3028 \\
+\oeis{A284679} & $-1<D<1$ & -0.6972 & 0.3028 \\
+\oeis{A284752} & $-1<D<3$ & -1.0000 & 2.1547 \\
+\oeis{A284753} & $-2<D<3$ & -2.0000 & 2.7321 \\
+\oeis{A284773} & $-1<D<2$ & -0.3333 & 1.2440 \\
+\oeis{A284774} & $-1<D<2$ & -0.4227 & 1.5774 \\
+\oeis{A284852} & $-2<D<2$ & -1.2440 & 1.9107 \\
+\oeis{A284853} & $-2<D<4$ & -1.5774 & 3.1547 \\
+\oeis{A284894} & $2<D<6$ & 2.4142 & 5.8284 \\
+\oeis{A284902} & $-3<D<3$ & -2.4880 & 2.8214 \\
+\oeis{A284903} & $-4<D<6$ & -3.1547 & 5.3094 \\
+\oeis{A284930} & $1<D<4$ & 1.4142 & 3.4142 \\
+\oeis{A284945} & $-4<D<3$ & -3.4142 & 2.4142 \\
+\oeis{A284946} & $-1<D<3$ & -0.5858 & 2.4142 \\
+\oeis{A285032} & $-1<D<2$ & -0.6464 & 1.5607 \\
+\oeis{A285033} & $-1<D<2$ & -0.7929 & 1.9142 \\
+\oeis{A285035} & $-1<D<2$ & -0.6464 & 1.5607 \\
+\oeis{A285036} & $-1<D<2$ & -0.7929 & 1.9142 \\
+\oeis{A285077} & $-1<D<1$ & -0.2929 & 0.7071 \\
+\oeis{A285081} & $0<D<r$ & 0.0000 & 2.6180 \\
+\oeis{A285082} & $-1<D<1$ & -1.0000 & 1.0000 \\
+\oeis{A285084} & $0<D<r$ & 0.0000 & 2.6180 \\
+\oeis{A285085} & $-1<D<1$ & -1.0000 & 1.0000 \\
+\oeis{A285206} & $-1<D<1$ & -0.6667 & 0.9107 \\
+\oeis{A285207} & $0<D<3$ & 0.1547 & 2.1547 \\
+\oeis{A285209} & $-1<D<1$ & -0.6667 & 0.9107 \\
+\oeis{A285210} & $0<D<3$ & 0.1547 & 2.1547 \\
+\oeis{A285275} & $0<D<6$ & 0.0000 & 5.8284 \\
+\oeis{A285278} & $0<D<6$ & 0.0000 & 5.8284 \\
+\oeis{A285302} & $-2<D<2$ & -1.5774 & 1.5774 \\
+\oeis{A285342} & $0<D<4$ & 0.0000 & 3.4142 \\
+\oeis{A285359} & $-1<D<1$ & -1.0000 & 1.0000 \\
+\oeis{A285419} & $-1<D<5$ & -0.4227 & 4.3094 \\
+\oeis{A285420} & $-2<D<2$ & -1.2113 & 1.1547 \\
+\oeis{A285422} & $-1<D<5$ & -0.4227 & 4.3094 \\
+\oeis{A285423} & $-2<D<2$ & -1.2113 & 1.1547 \\
+\oeis{A285669} & $-1<D<4$ & -0.1798 & 3.1010 \\
+\oeis{A285670} & $-1<D<4$ & -0.5899 & 1.0505 \\
+\bottomrule
+\end{longtable}
+In addition: \oeis{A287676} (with Liu's formula $a(n)=5n+2-2\lfloor (n+1)\varphi\rfloor$), \oeis{A287723},
+\oeis{A287724}, \oeis{A287727} (Fibonacci-word transforms, Walnut), and \oeis{A284015}.
+
+\paragraph{False bound conjectures.} \oeis{A285126} ($n=3$), \oeis{A285127} ($n=2$), \oeis{A285129} ($n=2$),
+\oeis{A285130} ($n=2$), \oeis{A285134} ($n=2$), \oeis{A285135} ($n=1$), \oeis{A285137} ($n=3$), \oeis{A285138}
+($n=2$), \oeis{A285140} ($n=2$), \oeis{A285141} ($n=6$), \oeis{A285143} ($n=12$), \oeis{A285144} ($n=2$),
+\oeis{A285279} ($n=4$; the stated $r$ is not $1/f$). The first two families come from the non-Pisot morphism
+$0\to10$, $1\to0000$, for which $D(n)$ is unbounded. \oeis{A285078} holds for $n\ge2$ but fails at $n=1$ by equality.
+
+\paragraph{Limit conjectures.} Sixty-three conjectures $a(n)/n\to m$ are true; eight are false because the stated
+limit differs from $1/f_L$: \oeis{A284488}, \oeis{A284489}, \oeis{A284491}, \oeis{A284492}, \oeis{A285413},
+\oeis{A285428}, \oeis{A285429}, and \oeis{A285964} (stated $4/5$, actual $5/4$).
+
+\paragraph{Reproducibility.} Scripts and raw outputs: \url{https://github.com/joaquimmj/oeis-walnut}, folders
+\texttt{conjectures/kimberling} and \texttt{conjectures/fibtransform}.
+\end{document}

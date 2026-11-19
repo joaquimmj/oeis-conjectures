@@ -34,3 +34,4 @@
 - 2026-11-19 : transformées de Thue-Morse : 19 limites vraies, A285964 fausse (coquille). Total 192 entrées.
 - 2026-11-19 : 4 transformées non alignées (fréquences de plages exactes). Total 196 entrées.
 - 2026-11-19 : 6 récurrences D-finies de Mathar (vérification exacte sur séries algébriques). Total 202 entrées.
+- 2026-11-19 : note LaTeX de synthèse sur les conjectures de Kimberling (conjectures/kimberling/paper/note.tex, 3 pages, tableau généré depuis les sorties brutes). Brouillon non relu.
