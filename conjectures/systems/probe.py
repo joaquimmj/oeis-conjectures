@@ -3,10 +3,12 @@ from fractions import Fraction as F
 def run(steps, init, N):
     used = set(); seqs = {k: [] for k, _ in steps}
     for k, v in init.items(): seqs[k].append(v); used.add(v)
-    m = 1
-    def least(lo=1):
-        x = lo
-        while x in used: x += 1
+    nxt = {}
+    def least(lo=1):   # union-find « prochain entier libre >= lo »
+        path, x = [], lo
+        while x in used:
+            path.append(x); x = nxt.get(x, x + 1)
+        for p in path: nxt[p] = x
         return x
     n = 1
     while n < N:
@@ -34,9 +36,9 @@ if __name__ == "__main__":
     for name, (steps, init) in SYS.items():
         if init is None:   # A297291 : a(0) = 1, b(0) = 3 (least new >= a+2), c(0) = a+b-2 = 2
             init = {"a": 1, "b": 3, "c": 2}
-        s = run(steps, init, 60000)
+        s = run(steps, init, 200000)
         print(name, {k: v[:12] for k, v in s.items()})
         for k, v in s.items():
-            r = F(v[-1] - v[1000], len(v) - 1 - 1000)
+            r = F(v[-1] - v[1000], len(v) - 1 - 1000).limit_denominator(40)
             dev = [v[n] - (r.numerator*n)//r.denominator for n in range(len(v))]
-            print("  ", k, "pente ~", float(r), "écarts", sorted(set(dev[:20000]))[:12], "noyau2", kernel(dev, 2), "noyau3", kernel(dev, 3, 5))
+            print("  ", k, "pente ~", float(r), "écarts", sorted(set(dev[:20000]))[:12], "noyau2", [kernel(dev, 2, d) for d in (6, 8, 10)], "noyau3", [kernel(dev, 3, d) for d in (4, 6)])

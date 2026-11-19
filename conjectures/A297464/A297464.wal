@@ -1,0 +1,27 @@
+# A297464 : candidats devinés (guess.py), vérifiés ici par les règles gloutonnes.
+def a "?lsd_3 Et (3*t<=10*n & 10*n<3*t+3 & ((K297464A[n]=@0 & z=t+1) | (K297464A[n]=@1 & z=t+2)))":
+def b "?lsd_3 Et (3*t<=10*n & 10*n<3*t+3 & ((K297464B[n]=@0 & z=t+2) | (K297464B[n]=@1 & z=t+3)))":
+def c "?lsd_3 Et (3*t<=10*n & 10*n<3*t+3 & ((K297464C[n]=@0 & z=t+3) | (K297464C[n]=@1 & z=t+4)))":
+def d "?lsd_3 Et (1*t<=10*n & 10*n<1*t+1 & ((K297464D[n]=@0 & z=t+5) | (K297464D[n]=@1 & z=t+6) | (K297464D[n]=@2 & z=t+7)))":
+eval fun "?lsd_3 An (Ez $a(n,z)) & (Ay,z ($a(n,y) & $a(n,z)) => y=z) & (Ez $b(n,z)) & (Ay,z ($b(n,y) & $b(n,z)) => y=z) & (Ez $c(n,z)) & (Ay,z ($c(n,y) & $c(n,z)) => y=z) & (Ez $d(n,z)) & (Ay,z ($d(n,y) & $d(n,z)) => y=z)":
+eval incr "?lsd_3 An,y,z (($a(n,y) & $a(n+1,z)) => y<z) & (($b(n,y) & $b(n+1,z)) => y<z) & (($c(n,y) & $c(n+1,z)) => y<z) & (($d(n,y) & $d(n+1,z)) => y<z)":
+def ina "?lsd_3 En $a(n,x)":
+def inb "?lsd_3 En $b(n,x)":
+def inc "?lsd_3 En $c(n,x)":
+def ind "?lsd_3 En $d(n,x)":
+eval part "?lsd_3 (Ax (x>=1) => (($ina(x) | $inb(x) | $inc(x) | $ind(x)) & ~($ina(x) & $inb(x)) & ~($ina(x) & $inc(x)) & ~($ina(x) & $ind(x)) & ~($inb(x) & $inc(x)) & ~($inb(x) & $ind(x)) & ~($inc(x) & $ind(x)))) & ~($ina(0) | $inb(0) | $inc(0) | $ind(0))":
+eval greedy_a "?lsd_3 An,x,z ($a(n,z) & x>=1 & x<z) => ((Ek (k<n & ($a(k,x) | $b(k,x) | $c(k,x) | $d(k,x)))))":
+eval greedy_b "?lsd_3 An,x,z ($b(n,z) & x>=1 & x<z) => ((Ek (k<n & ($a(k,x) | $b(k,x) | $c(k,x) | $d(k,x)))) | $a(n,x))":
+eval greedy_c "?lsd_3 An,x,z ($c(n,z) & x>=1 & x<z) => ((Ek (k<n & ($a(k,x) | $b(k,x) | $c(k,x) | $d(k,x)))) | $a(n,x) | $b(n,x))":
+eval rule_d "?lsd_3 An,va,vb,vc,z ($a(n,va) & $b(n,vb) & $c(n,vc) & $d(n,z)) => z=va+vb+vc":
+eval init "?lsd_3 $a(0,1) & $b(0,2) & $c(0,3) & $d(0,6)":
+# énoncés de Kimberling avec m = n+1 (a(1) = 1) : 0 <= 10m-6-3a <= 2, 0 <= 10m-2-3b <= 3, 0 <= 10m+1-3c <= 3, 0 <= 10m-3-d <= 2
+eval ka "?lsd_3 An,z $a(n,z) => (3*z+6<=10*n+10 & 10*n+10<=3*z+8)":
+eval kb "?lsd_3 An,z $b(n,z) => (3*z+2<=10*n+10 & 10*n+10<=3*z+5)":
+eval kc "?lsd_3 An,z $c(n,z) => (3*z<=10*n+11 & 10*n+11<=3*z+3)":
+eval kd "?lsd_3 An,z $d(n,z) => (z+3<=10*n+10 & 10*n+10<=z+5)":
+# telles qu écrites (n >= 0) : fausses dès n = 0
+eval ka0 "?lsd_3 An,z $a(n,z) => (3*z+6<=10*n & 10*n<=3*z+8)":
+# formule conjecturée a(n) = a(n-1) + a(n-3) - a(n-4), n >= 4
+eval rec "?lsd_3 An,w,x,y,z (n>=4 & $a(n,w) & $a(n-1,x) & $a(n-3,y) & $a(n-4,z)) => w+z=x+y":
+exit;

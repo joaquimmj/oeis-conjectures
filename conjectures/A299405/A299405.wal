@@ -1,0 +1,30 @@
+# A299405 : candidats devinés (guess.py), vérifiés ici par les règles gloutonnes.
+def a "?lsd_2 Et (4*t<=17*n & 17*n<4*t+4 & ((K299405A[n]=@0 & z=t+1) | (K299405A[n]=@1 & z=t+2)))":
+def b "?lsd_2 Et (4*t<=17*n & 17*n<4*t+4 & ((K299405B[n]=@0 & z=t+2) | (K299405B[n]=@1 & z=t+3)))":
+def c "?lsd_2 Et (4*t<=17*n & 17*n<4*t+4 & ((K299405C[n]=@0 & z=t+3) | (K299405C[n]=@1 & z=t+4)))":
+def d "?lsd_2 Et (4*t<=17*n & 17*n<4*t+4 & ((K299405D[n]=@0 & z=t+4) | (K299405D[n]=@1 & z=t+5)))":
+def e "?lsd_2 Et (1*t<=17*n & 17*n<1*t+1 & ((K299405E[n]=@0 & z=t+9) | (K299405E[n]=@1 & z=t+10) | (K299405E[n]=@2 & z=t+11) | (K299405E[n]=@3 & z=t+12)))":
+eval fun "?lsd_2 An (Ez $a(n,z)) & (Ay,z ($a(n,y) & $a(n,z)) => y=z) & (Ez $b(n,z)) & (Ay,z ($b(n,y) & $b(n,z)) => y=z) & (Ez $c(n,z)) & (Ay,z ($c(n,y) & $c(n,z)) => y=z) & (Ez $d(n,z)) & (Ay,z ($d(n,y) & $d(n,z)) => y=z) & (Ez $e(n,z)) & (Ay,z ($e(n,y) & $e(n,z)) => y=z)":
+eval incr "?lsd_2 An,y,z (($a(n,y) & $a(n+1,z)) => y<z) & (($b(n,y) & $b(n+1,z)) => y<z) & (($c(n,y) & $c(n+1,z)) => y<z) & (($d(n,y) & $d(n+1,z)) => y<z) & (($e(n,y) & $e(n+1,z)) => y<z)":
+def ina "?lsd_2 En $a(n,x)":
+def inb "?lsd_2 En $b(n,x)":
+def inc "?lsd_2 En $c(n,x)":
+def ind "?lsd_2 En $d(n,x)":
+def ine "?lsd_2 En $e(n,x)":
+eval part "?lsd_2 (Ax (x>=1) => (($ina(x) | $inb(x) | $inc(x) | $ind(x) | $ine(x)) & ~($ina(x) & $inb(x)) & ~($ina(x) & $inc(x)) & ~($ina(x) & $ind(x)) & ~($ina(x) & $ine(x)) & ~($inb(x) & $inc(x)) & ~($inb(x) & $ind(x)) & ~($inb(x) & $ine(x)) & ~($inc(x) & $ind(x)) & ~($inc(x) & $ine(x)) & ~($ind(x) & $ine(x)))) & ~($ina(0) | $inb(0) | $inc(0) | $ind(0) | $ine(0))":
+eval greedy_a "?lsd_2 An,x,z ($a(n,z) & x>=1 & x<z) => ((Ek (k<n & ($a(k,x) | $b(k,x) | $c(k,x) | $d(k,x) | $e(k,x)))))":
+eval greedy_b "?lsd_2 An,x,z ($b(n,z) & x>=1 & x<z) => ((Ek (k<n & ($a(k,x) | $b(k,x) | $c(k,x) | $d(k,x) | $e(k,x)))) | $a(n,x))":
+eval greedy_c "?lsd_2 An,x,z ($c(n,z) & x>=1 & x<z) => ((Ek (k<n & ($a(k,x) | $b(k,x) | $c(k,x) | $d(k,x) | $e(k,x)))) | $a(n,x) | $b(n,x))":
+eval greedy_d "?lsd_2 An,x,z ($d(n,z) & x>=1 & x<z) => ((Ek (k<n & ($a(k,x) | $b(k,x) | $c(k,x) | $d(k,x) | $e(k,x)))) | $a(n,x) | $b(n,x) | $c(n,x))":
+eval rule_e "?lsd_2 An,va,vb,vc,vd,z ($a(n,va) & $b(n,vb) & $c(n,vc) & $d(n,vd) & $e(n,z)) => z=va+vb+vc+vd":
+eval init "?lsd_2 $a(0,1) & $b(0,2) & $c(0,3) & $d(0,4) & $e(0,10)":
+# énoncés avec m = n+1 : 0 <= 17m-11-4a <= 4, 0 <= 17m-7-4b <= 4, 0 <= 17m-3-4c <= 3, 0 <= 17m+1-4d <= 3, 0 <= 17m-5-e <= 3
+eval ka "?lsd_2 An,z $a(n,z) => (4*z+11<=17*n+17 & 17*n+17<=4*z+15)":
+eval kb "?lsd_2 An,z $b(n,z) => (4*z+7<=17*n+17 & 17*n+17<=4*z+11)":
+eval kc "?lsd_2 An,z $c(n,z) => (4*z+3<=17*n+17 & 17*n+17<=4*z+6)":
+eval kc4 "?lsd_2 An,z $c(n,z) => (4*z+3<=17*n+17 & 17*n+17<=4*z+7)":
+eval kc_cex "?lsd_2 $c(26,113)":
+eval kd "?lsd_2 An,z $d(n,z) => (4*z<=17*n+18 & 17*n+18<=4*z+3)":
+eval ke "?lsd_2 An,z $e(n,z) => (z+5<=17*n+17 & 17*n+17<=z+8)":
+eval ka0 "?lsd_2 An,z $a(n,z) => (4*z+11<=17*n & 17*n<=4*z+15)":
+exit;

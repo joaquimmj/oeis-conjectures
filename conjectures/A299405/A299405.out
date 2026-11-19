@@ -1,0 +1,371 @@
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=46475 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+Picked up _JAVA_OPTIONS: -XX:+UnlockDiagnosticVMOptions -XX:DisableIntrinsic=_base64_encodeBlock,_base64_decodeBlock
+Welcome to Walnut! Type "help;" to see all available commands.
+
+[Walnut]$ (4*t)<=(17*n):21 states - 12ms
+computed ~:1 states - 18ms
+computed ~:2 states - 2ms
+ (17*n)<((4*t)+4):21 states - 7ms
+  ((4*t)<=(17*n)&(17*n)<((4*t)+4)):25 states - 2ms
+   K299405A[n]=@0:8 states - 0ms
+    z=(t+1):2 states - 1ms
+     (K299405A[n]=@0&z=(t+1)):15 states - 0ms
+      K299405A[n]=@1:8 states - 0ms
+       z=(t+2):3 states - 0ms
+        (K299405A[n]=@1&z=(t+2)):14 states - 1ms
+         ((K299405A[n]=@0&z=(t+1))|(K299405A[n]=@1&z=(t+2))):23 states - 1ms
+          (((4*t)<=(17*n)&(17*n)<((4*t)+4))&((K299405A[n]=@0&z=(t+1))|(K299405A[n]=@1&z=(t+2)))):53 states - 2ms
+           (E t (((4*t)<=(17*n)&(17*n)<((4*t)+4))&((K299405A[n]=@0&z=(t+1))|(K299405A[n]=@1&z=(t+2))))):37 states - 3ms
+Total computation time: 89ms.
+
+[Walnut]$ (4*t)<=(17*n):21 states - 5ms
+ (17*n)<((4*t)+4):21 states - 7ms
+  ((4*t)<=(17*n)&(17*n)<((4*t)+4)):25 states - 1ms
+   K299405B[n]=@0:7 states - 0ms
+    z=(t+2):3 states - 0ms
+     (K299405B[n]=@0&z=(t+2)):15 states - 1ms
+      K299405B[n]=@1:7 states - 0ms
+       z=(t+3):4 states - 1ms
+        (K299405B[n]=@1&z=(t+3)):17 states - 0ms
+         ((K299405B[n]=@0&z=(t+2))|(K299405B[n]=@1&z=(t+3))):17 states - 1ms
+          (((4*t)<=(17*n)&(17*n)<((4*t)+4))&((K299405B[n]=@0&z=(t+2))|(K299405B[n]=@1&z=(t+3)))):52 states - 1ms
+           (E t (((4*t)<=(17*n)&(17*n)<((4*t)+4))&((K299405B[n]=@0&z=(t+2))|(K299405B[n]=@1&z=(t+3))))):33 states - 1ms
+Total computation time: 20ms.
+
+[Walnut]$ (4*t)<=(17*n):21 states - 7ms
+ (17*n)<((4*t)+4):21 states - 5ms
+  ((4*t)<=(17*n)&(17*n)<((4*t)+4)):25 states - 1ms
+   K299405C[n]=@0:8 states - 1ms
+    z=(t+3):4 states - 0ms
+     (K299405C[n]=@0&z=(t+3)):16 states - 1ms
+      K299405C[n]=@1:8 states - 0ms
+       z=(t+4):4 states - 0ms
+        (K299405C[n]=@1&z=(t+4)):15 states - 1ms
+         ((K299405C[n]=@0&z=(t+3))|(K299405C[n]=@1&z=(t+4))):28 states - 1ms
+          (((4*t)<=(17*n)&(17*n)<((4*t)+4))&((K299405C[n]=@0&z=(t+3))|(K299405C[n]=@1&z=(t+4)))):58 states - 1ms
+           (E t (((4*t)<=(17*n)&(17*n)<((4*t)+4))&((K299405C[n]=@0&z=(t+3))|(K299405C[n]=@1&z=(t+4))))):36 states - 1ms
+Total computation time: 20ms.
+
+[Walnut]$ (4*t)<=(17*n):21 states - 3ms
+ (17*n)<((4*t)+4):21 states - 3ms
+  ((4*t)<=(17*n)&(17*n)<((4*t)+4)):25 states - 1ms
+   K299405D[n]=@0:3 states - 0ms
+    z=(t+4):4 states - 0ms
+     (K299405D[n]=@0&z=(t+4)):4 states - 0ms
+      K299405D[n]=@1:3 states - 0ms
+       z=(t+5):5 states - 0ms
+        (K299405D[n]=@1&z=(t+5)):6 states - 0ms
+         ((K299405D[n]=@0&z=(t+4))|(K299405D[n]=@1&z=(t+5))):7 states - 1ms
+          (((4*t)<=(17*n)&(17*n)<((4*t)+4))&((K299405D[n]=@0&z=(t+4))|(K299405D[n]=@1&z=(t+5)))):48 states - 1ms
+           (E t (((4*t)<=(17*n)&(17*n)<((4*t)+4))&((K299405D[n]=@0&z=(t+4))|(K299405D[n]=@1&z=(t+5))))):26 states - 0ms
+Total computation time: 12ms.
+
+[Walnut]$ (1*t)<=(17*n):18 states - 1ms
+ (17*n)<((1*t)+1):18 states - 2ms
+  ((1*t)<=(17*n)&(17*n)<((1*t)+1)):17 states - 1ms
+   K299405E[n]=@0:6 states - 0ms
+    z=(t+9):7 states - 0ms
+     (K299405E[n]=@0&z=(t+9)):22 states - 0ms
+      K299405E[n]=@1:6 states - 1ms
+       z=(t+10):6 states - 0ms
+        (K299405E[n]=@1&z=(t+10)):20 states - 1ms
+         ((K299405E[n]=@0&z=(t+9))|(K299405E[n]=@1&z=(t+10))):37 states - 1ms
+          K299405E[n]=@2:6 states - 1ms
+           z=(t+11):7 states - 0ms
+            (K299405E[n]=@2&z=(t+11)):22 states - 0ms
+             (((K299405E[n]=@0&z=(t+9))|(K299405E[n]=@1&z=(t+10)))|(K299405E[n]=@2&z=(t+11))):40 states - 3ms
+              K299405E[n]=@3:6 states - 0ms
+               z=(t+12):6 states - 0ms
+                (K299405E[n]=@3&z=(t+12)):17 states - 0ms
+                 ((((K299405E[n]=@0&z=(t+9))|(K299405E[n]=@1&z=(t+10)))|(K299405E[n]=@2&z=(t+11)))|(K299405E[n]=@3&z=(t+12))):43 states - 3ms
+                  (((1*t)<=(17*n)&(17*n)<((1*t)+1))&((((K299405E[n]=@0&z=(t+9))|(K299405E[n]=@1&z=(t+10)))|(K299405E[n]=@2&z=(t+11)))|(K299405E[n]=@3&z=(t+12)))):67 states - 0ms
+                   (E t (((1*t)<=(17*n)&(17*n)<((1*t)+1))&((((K299405E[n]=@0&z=(t+9))|(K299405E[n]=@1&z=(t+10)))|(K299405E[n]=@2&z=(t+11)))|(K299405E[n]=@3&z=(t+12))))):32 states - 0ms
+Total computation time: 19ms.
+
+[Walnut]$ (E z a(n,z))):1 states - 0ms
+ (a(n,y))&a(n,z))):37 states - 1ms
+  y=z:1 states - 0ms
+   ((a(n,y))&a(n,z)))=>y=z):1 states - 1ms
+    (A y , z ((a(n,y))&a(n,z)))=>y=z)):1 states - 0ms
+     ((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z))):1 states - 1ms
+      (E z b(n,z))):1 states - 0ms
+       (((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z)))):1 states - 0ms
+        (b(n,y))&b(n,z))):33 states - 0ms
+         y=z:1 states - 0ms
+          ((b(n,y))&b(n,z)))=>y=z):1 states - 0ms
+           (A y , z ((b(n,y))&b(n,z)))=>y=z)):1 states - 0ms
+            ((((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z))))&(A y , z ((b(n,y))&b(n,z)))=>y=z))):1 states - 1ms
+             (E z c(n,z))):1 states - 0ms
+              (((((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z))))&(A y , z ((b(n,y))&b(n,z)))=>y=z)))&(E z c(n,z)))):1 states - 0ms
+               (c(n,y))&c(n,z))):36 states - 1ms
+                y=z:1 states - 0ms
+                 ((c(n,y))&c(n,z)))=>y=z):1 states - 2ms
+                  (A y , z ((c(n,y))&c(n,z)))=>y=z)):1 states - 0ms
+                   ((((((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z))))&(A y , z ((b(n,y))&b(n,z)))=>y=z)))&(E z c(n,z))))&(A y , z ((c(n,y))&c(n,z)))=>y=z))):1 states - 0ms
+                    (E z d(n,z))):1 states - 0ms
+                     (((((((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z))))&(A y , z ((b(n,y))&b(n,z)))=>y=z)))&(E z c(n,z))))&(A y , z ((c(n,y))&c(n,z)))=>y=z)))&(E z d(n,z)))):1 states - 0ms
+                      (d(n,y))&d(n,z))):26 states - 0ms
+                       y=z:1 states - 0ms
+                        ((d(n,y))&d(n,z)))=>y=z):1 states - 1ms
+                         (A y , z ((d(n,y))&d(n,z)))=>y=z)):1 states - 0ms
+                          ((((((((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z))))&(A y , z ((b(n,y))&b(n,z)))=>y=z)))&(E z c(n,z))))&(A y , z ((c(n,y))&c(n,z)))=>y=z)))&(E z d(n,z))))&(A y , z ((d(n,y))&d(n,z)))=>y=z))):1 states - 0ms
+                           (E z e(n,z))):1 states - 0ms
+                            (((((((((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z))))&(A y , z ((b(n,y))&b(n,z)))=>y=z)))&(E z c(n,z))))&(A y , z ((c(n,y))&c(n,z)))=>y=z)))&(E z d(n,z))))&(A y , z ((d(n,y))&d(n,z)))=>y=z)))&(E z e(n,z)))):1 states - 0ms
+                             (e(n,y))&e(n,z))):32 states - 0ms
+                              y=z:1 states - 0ms
+                               ((e(n,y))&e(n,z)))=>y=z):1 states - 0ms
+                                (A y , z ((e(n,y))&e(n,z)))=>y=z)):1 states - 0ms
+                                 ((((((((((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z))))&(A y , z ((b(n,y))&b(n,z)))=>y=z)))&(E z c(n,z))))&(A y , z ((c(n,y))&c(n,z)))=>y=z)))&(E z d(n,z))))&(A y , z ((d(n,y))&d(n,z)))=>y=z)))&(E z e(n,z))))&(A y , z ((e(n,y))&e(n,z)))=>y=z))):1 states - 1ms
+                                  (A n ((((((((((E z a(n,z)))&(A y , z ((a(n,y))&a(n,z)))=>y=z)))&(E z b(n,z))))&(A y , z ((b(n,y))&b(n,z)))=>y=z)))&(E z c(n,z))))&(A y , z ((c(n,y))&c(n,z)))=>y=z)))&(E z d(n,z))))&(A y , z ((d(n,y))&d(n,z)))=>y=z)))&(E z e(n,z))))&(A y , z ((e(n,y))&e(n,z)))=>y=z)))):1 states - 0ms
+Total computation time: 18ms.
+____
+TRUE
+
+[Walnut]$ (a(n,y))&a((n+1),z))):69 states - 1ms
+ y<z:2 states - 0ms
+  ((a(n,y))&a((n+1),z)))=>y<z):1 states - 2ms
+   (b(n,y))&b((n+1),z))):63 states - 2ms
+    y<z:2 states - 0ms
+     ((b(n,y))&b((n+1),z)))=>y<z):1 states - 1ms
+      (((a(n,y))&a((n+1),z)))=>y<z)&((b(n,y))&b((n+1),z)))=>y<z)):1 states - 0ms
+       (c(n,y))&c((n+1),z))):67 states - 2ms
+        y<z:2 states - 0ms
+         ((c(n,y))&c((n+1),z)))=>y<z):1 states - 2ms
+          ((((a(n,y))&a((n+1),z)))=>y<z)&((b(n,y))&b((n+1),z)))=>y<z))&((c(n,y))&c((n+1),z)))=>y<z)):1 states - 0ms
+           (d(n,y))&d((n+1),z))):50 states - 1ms
+            y<z:2 states - 0ms
+             ((d(n,y))&d((n+1),z)))=>y<z):1 states - 1ms
+              (((((a(n,y))&a((n+1),z)))=>y<z)&((b(n,y))&b((n+1),z)))=>y<z))&((c(n,y))&c((n+1),z)))=>y<z))&((d(n,y))&d((n+1),z)))=>y<z)):1 states - 0ms
+               (e(n,y))&e((n+1),z))):90 states - 1ms
+                y<z:2 states - 0ms
+                 ((e(n,y))&e((n+1),z)))=>y<z):1 states - 2ms
+                  ((((((a(n,y))&a((n+1),z)))=>y<z)&((b(n,y))&b((n+1),z)))=>y<z))&((c(n,y))&c((n+1),z)))=>y<z))&((d(n,y))&d((n+1),z)))=>y<z))&((e(n,y))&e((n+1),z)))=>y<z)):1 states - 1ms
+                   (A n , y , z ((((((a(n,y))&a((n+1),z)))=>y<z)&((b(n,y))&b((n+1),z)))=>y<z))&((c(n,y))&c((n+1),z)))=>y<z))&((d(n,y))&d((n+1),z)))=>y<z))&((e(n,y))&e((n+1),z)))=>y<z))):1 states - 0ms
+Total computation time: 22ms.
+____
+TRUE
+
+[Walnut]$ (E n a(n,x))):228 states - 2ms
+Total computation time: 2ms.
+
+[Walnut]$ (E n b(n,x))):231 states - 2ms
+Total computation time: 2ms.
+
+[Walnut]$ (E n c(n,x))):226 states - 3ms
+Total computation time: 3ms.
+
+[Walnut]$ (E n d(n,x))):76 states - 1ms
+Total computation time: 1ms.
+
+[Walnut]$ (E n e(n,x))):177 states - 1ms
+Total computation time: 1ms.
+
+[Walnut]$ x>=1:2 states - 1ms
+ (ina(x))|inb(x))):303 states - 2ms
+  ((ina(x))|inb(x)))|inc(x))):486 states - 3ms
+   (((ina(x))|inb(x)))|inc(x)))|ind(x))):181 states - 2ms
+    ((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x))):2 states - 0ms
+     (ina(x))&inb(x))):1 states - 2ms
+      ~(ina(x))&inb(x))):1 states - 0ms
+       (((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x)))):2 states - 1ms
+        (ina(x))&inc(x))):1 states - 1ms
+         ~(ina(x))&inc(x))):1 states - 0ms
+          ((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x)))):2 states - 0ms
+           (ina(x))&ind(x))):1 states - 1ms
+            ~(ina(x))&ind(x))):1 states - 0ms
+             (((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x)))):2 states - 0ms
+              (ina(x))&ine(x))):1 states - 1ms
+               ~(ina(x))&ine(x))):1 states - 0ms
+                ((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x)))):2 states - 1ms
+                 (inb(x))&inc(x))):1 states - 2ms
+                  ~(inb(x))&inc(x))):1 states - 0ms
+                   (((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x)))):2 states - 0ms
+                    (inb(x))&ind(x))):1 states - 0ms
+                     ~(inb(x))&ind(x))):1 states - 0ms
+                      ((((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x))))&~(inb(x))&ind(x)))):2 states - 1ms
+                       (inb(x))&ine(x))):1 states - 1ms
+                        ~(inb(x))&ine(x))):1 states - 0ms
+                         (((((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x))))&~(inb(x))&ind(x))))&~(inb(x))&ine(x)))):2 states - 0ms
+                          (inc(x))&ind(x))):1 states - 1ms
+                           ~(inc(x))&ind(x))):1 states - 0ms
+                            ((((((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x))))&~(inb(x))&ind(x))))&~(inb(x))&ine(x))))&~(inc(x))&ind(x)))):2 states - 0ms
+                             (inc(x))&ine(x))):1 states - 1ms
+                              ~(inc(x))&ine(x))):1 states - 0ms
+                               (((((((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x))))&~(inb(x))&ind(x))))&~(inb(x))&ine(x))))&~(inc(x))&ind(x))))&~(inc(x))&ine(x)))):2 states - 0ms
+                                (ind(x))&ine(x))):1 states - 1ms
+                                 ~(ind(x))&ine(x))):1 states - 0ms
+                                  ((((((((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x))))&~(inb(x))&ind(x))))&~(inb(x))&ine(x))))&~(inc(x))&ind(x))))&~(inc(x))&ine(x))))&~(ind(x))&ine(x)))):2 states - 0ms
+                                   (x>=1=>((((((((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x))))&~(inb(x))&ind(x))))&~(inb(x))&ine(x))))&~(inc(x))&ind(x))))&~(inc(x))&ine(x))))&~(ind(x))&ine(x))))):1 states - 0ms
+                                    (A x (x>=1=>((((((((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x))))&~(inb(x))&ind(x))))&~(inb(x))&ine(x))))&~(inc(x))&ind(x))))&~(inc(x))&ine(x))))&~(ind(x))&ine(x)))))):1 states - 0ms
+computed ~:1 states - 0ms
+                                     (ina(0))|inb(0))):0 states - 0ms
+                                      ((ina(0))|inb(0)))|inc(0))):0 states - 0ms
+                                       (((ina(0))|inb(0)))|inc(0)))|ind(0))):0 states - 0ms
+                                        ((((ina(0))|inb(0)))|inc(0)))|ind(0)))|ine(0))):0 states - 0ms
+                                         ~((((ina(0))|inb(0)))|inc(0)))|ind(0)))|ine(0))):0 states - 0ms
+                                          ((A x (x>=1=>((((((((((((((ina(x))|inb(x)))|inc(x)))|ind(x)))|ine(x)))&~(ina(x))&inb(x))))&~(ina(x))&inc(x))))&~(ina(x))&ind(x))))&~(ina(x))&ine(x))))&~(inb(x))&inc(x))))&~(inb(x))&ind(x))))&~(inb(x))&ine(x))))&~(inc(x))&ind(x))))&~(inc(x))&ine(x))))&~(ind(x))&ine(x))))))&~((((ina(0))|inb(0)))|inc(0)))|ind(0)))|ine(0)))):0 states - 0ms
+Total computation time: 45ms.
+____
+TRUE
+
+[Walnut]$ x>=1:2 states - 0ms
+ (a(n,z))&x>=1):73 states - 1ms
+  x<z:2 states - 0ms
+   ((a(n,z))&x>=1)&x<z):120 states - 0ms
+    k<n:2 states - 0ms
+     (a(k,x))|b(k,x))):57 states - 0ms
+      ((a(k,x))|b(k,x)))|c(k,x))):72 states - 1ms
+       (((a(k,x))|b(k,x)))|c(k,x)))|d(k,x))):80 states - 1ms
+        ((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))):172 states - 1ms
+         (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))):334 states - 4ms
+          (E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))))):4309 states - 153ms
+           (((a(n,z))&x>=1)&x<z)=>(E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))):1 states - 562ms
+            (A n , x , z (((a(n,z))&x>=1)&x<z)=>(E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))))))):1 states - 0ms
+Total computation time: 726ms.
+____
+TRUE
+
+[Walnut]$ x>=1:2 states - 1ms
+ (b(n,z))&x>=1):65 states - 0ms
+  x<z:2 states - 0ms
+   ((b(n,z))&x>=1)&x<z):108 states - 1ms
+    k<n:2 states - 0ms
+     (a(k,x))|b(k,x))):57 states - 1ms
+      ((a(k,x))|b(k,x)))|c(k,x))):72 states - 1ms
+       (((a(k,x))|b(k,x)))|c(k,x)))|d(k,x))):80 states - 0ms
+        ((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))):172 states - 1ms
+         (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))):334 states - 4ms
+          (E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))))):4309 states - 234ms
+           ((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x))):4318 states - 76ms
+            (((b(n,z))&x>=1)&x<z)=>((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x)))):1 states - 519ms
+             (A n , x , z (((b(n,z))&x>=1)&x<z)=>((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x))))):1 states - 0ms
+Total computation time: 841ms.
+____
+TRUE
+
+[Walnut]$ x>=1:2 states - 0ms
+ (c(n,z))&x>=1):71 states - 1ms
+  x<z:2 states - 0ms
+   ((c(n,z))&x>=1)&x<z):117 states - 1ms
+    k<n:2 states - 0ms
+     (a(k,x))|b(k,x))):57 states - 2ms
+      ((a(k,x))|b(k,x)))|c(k,x))):72 states - 1ms
+       (((a(k,x))|b(k,x)))|c(k,x)))|d(k,x))):80 states - 1ms
+        ((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))):172 states - 1ms
+         (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))):334 states - 5ms
+          (E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))))):4309 states - 172ms
+           ((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x))):4318 states - 48ms
+            (((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x)))|b(n,x))):4323 states - 50ms
+             (((c(n,z))&x>=1)&x<z)=>(((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x)))|b(n,x)))):1 states - 395ms
+              (A n , x , z (((c(n,z))&x>=1)&x<z)=>(((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x)))|b(n,x))))):1 states - 1ms
+Total computation time: 682ms.
+____
+TRUE
+
+[Walnut]$ x>=1:2 states - 0ms
+ (d(n,z))&x>=1):51 states - 1ms
+  x<z:2 states - 0ms
+   ((d(n,z))&x>=1)&x<z):79 states - 1ms
+    k<n:2 states - 0ms
+     (a(k,x))|b(k,x))):57 states - 1ms
+      ((a(k,x))|b(k,x)))|c(k,x))):72 states - 1ms
+       (((a(k,x))|b(k,x)))|c(k,x)))|d(k,x))):80 states - 1ms
+        ((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))):172 states - 1ms
+         (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))):334 states - 3ms
+          (E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x))))):4309 states - 163ms
+           ((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x))):4318 states - 37ms
+            (((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x)))|b(n,x))):4323 states - 28ms
+             ((((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x)))|b(n,x)))|c(n,x))):4354 states - 33ms
+              (((d(n,z))&x>=1)&x<z)=>((((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x)))|b(n,x)))|c(n,x)))):1 states - 326ms
+               (A n , x , z (((d(n,z))&x>=1)&x<z)=>((((E k (k<n&((((a(k,x))|b(k,x)))|c(k,x)))|d(k,x)))|e(k,x)))))|a(n,x)))|b(n,x)))|c(n,x))))):1 states - 1ms
+Total computation time: 599ms.
+____
+TRUE
+
+[Walnut]$ (a(n,va))&b(n,vb))):61 states - 1ms
+ ((a(n,va))&b(n,vb)))&c(n,vc))):75 states - 2ms
+  (((a(n,va))&b(n,vb)))&c(n,vc)))&d(n,vd))):85 states - 2ms
+   ((((a(n,va))&b(n,vb)))&c(n,vc)))&d(n,vd)))&e(n,z))):137 states - 2ms
+    z=(((va+vb)+vc)+vd):4 states - 0ms
+     (((((a(n,va))&b(n,vb)))&c(n,vc)))&d(n,vd)))&e(n,z)))=>z=(((va+vb)+vc)+vd)):1 states - 19ms
+      (A n , va , vb , vc , vd , z (((((a(n,va))&b(n,vb)))&c(n,vc)))&d(n,vd)))&e(n,z)))=>z=(((va+vb)+vc)+vd))):1 states - 0ms
+Total computation time: 30ms.
+____
+TRUE
+
+[Walnut]$ (a(0,1))&b(0,2))):0 states - 0ms
+ ((a(0,1))&b(0,2)))&c(0,3))):0 states - 0ms
+  (((a(0,1))&b(0,2)))&c(0,3)))&d(0,4))):0 states - 0ms
+   ((((a(0,1))&b(0,2)))&c(0,3)))&d(0,4)))&e(0,10))):0 states - 0ms
+Total computation time: 1ms.
+____
+TRUE
+
+[Walnut]$ ((4*z)+11)<=((17*n)+17):21 states - 2ms
+ ((17*n)+17)<=((4*z)+15):21 states - 2ms
+  (((4*z)+11)<=((17*n)+17)&((17*n)+17)<=((4*z)+15)):28 states - 0ms
+   (a(n,z))=>(((4*z)+11)<=((17*n)+17)&((17*n)+17)<=((4*z)+15))):1 states - 1ms
+    (A n , z (a(n,z))=>(((4*z)+11)<=((17*n)+17)&((17*n)+17)<=((4*z)+15)))):1 states - 0ms
+Total computation time: 8ms.
+____
+TRUE
+
+[Walnut]$ ((4*z)+7)<=((17*n)+17):21 states - 2ms
+ ((17*n)+17)<=((4*z)+11):21 states - 3ms
+  (((4*z)+7)<=((17*n)+17)&((17*n)+17)<=((4*z)+11)):28 states - 0ms
+   (b(n,z))=>(((4*z)+7)<=((17*n)+17)&((17*n)+17)<=((4*z)+11))):1 states - 0ms
+    (A n , z (b(n,z))=>(((4*z)+7)<=((17*n)+17)&((17*n)+17)<=((4*z)+11)))):1 states - 0ms
+Total computation time: 7ms.
+____
+TRUE
+
+[Walnut]$ ((4*z)+3)<=((17*n)+17):21 states - 1ms
+ ((17*n)+17)<=((4*z)+6):21 states - 3ms
+  (((4*z)+3)<=((17*n)+17)&((17*n)+17)<=((4*z)+6)):25 states - 0ms
+   (c(n,z))=>(((4*z)+3)<=((17*n)+17)&((17*n)+17)<=((4*z)+6))):26 states - 0ms
+    (A n , z (c(n,z))=>(((4*z)+3)<=((17*n)+17)&((17*n)+17)<=((4*z)+6)))):25 states - 0ms
+Total computation time: 8ms.
+_____
+FALSE
+
+[Walnut]$ ((4*z)+3)<=((17*n)+17):21 states - 1ms
+ ((17*n)+17)<=((4*z)+7):21 states - 2ms
+  (((4*z)+3)<=((17*n)+17)&((17*n)+17)<=((4*z)+7)):29 states - 0ms
+   (c(n,z))=>(((4*z)+3)<=((17*n)+17)&((17*n)+17)<=((4*z)+7))):1 states - 1ms
+    (A n , z (c(n,z))=>(((4*z)+3)<=((17*n)+17)&((17*n)+17)<=((4*z)+7)))):1 states - 0ms
+Total computation time: 8ms.
+____
+TRUE
+
+[Walnut]$ Total computation time: 2ms.
+____
+TRUE
+
+[Walnut]$ (4*z)<=((17*n)+18):23 states - 1ms
+ ((17*n)+18)<=((4*z)+3):21 states - 1ms
+  ((4*z)<=((17*n)+18)&((17*n)+18)<=((4*z)+3)):26 states - 0ms
+   (d(n,z))=>((4*z)<=((17*n)+18)&((17*n)+18)<=((4*z)+3))):1 states - 0ms
+    (A n , z (d(n,z))=>((4*z)<=((17*n)+18)&((17*n)+18)<=((4*z)+3)))):1 states - 0ms
+Total computation time: 5ms.
+____
+TRUE
+
+[Walnut]$ (z+5)<=((17*n)+17):18 states - 0ms
+ ((17*n)+17)<=(z+8):18 states - 1ms
+  ((z+5)<=((17*n)+17)&((17*n)+17)<=(z+8)):21 states - 0ms
+   (e(n,z))=>((z+5)<=((17*n)+17)&((17*n)+17)<=(z+8))):1 states - 0ms
+    (A n , z (e(n,z))=>((z+5)<=((17*n)+17)&((17*n)+17)<=(z+8)))):1 states - 0ms
+Total computation time: 4ms.
+____
+TRUE
+
+[Walnut]$ ((4*z)+11)<=(17*n):25 states - 1ms
+ (17*n)<=((4*z)+15):27 states - 2ms
+  (((4*z)+11)<=(17*n)&(17*n)<=((4*z)+15)):32 states - 0ms
+   (a(n,z))=>(((4*z)+11)<=(17*n)&(17*n)<=((4*z)+15))):38 states - 0ms
+    (A n , z (a(n,z))=>(((4*z)+11)<=(17*n)&(17*n)<=((4*z)+15)))):37 states - 0ms
+Total computation time: 6ms.
+_____
+FALSE
+
+[Walnut]$ 
