@@ -29,3 +29,4 @@
 - 2026-11-19 : lot 5 : A005121, A006068, A055938, A008278, A040027, A079267, A170941, A088617, A003959. Total 38 entrées.
 - 2026-11-19 : lot 6 : 20 conjectures de Kimberling prouvées (outil exact de l'article), A285126 et A285127 réfutées. Total 60 entrées.
 - 2026-11-19 : Kimberling, 3e série (30 vraies, 11 fausses, A285078) et transformées de Fibonacci (4 vraies, Walnut). Total 106 entrées (92 vraies, 13 fausses, 1 partielle).
+- 2026-11-19 : lot 7 : A060973 (Walnut), A007226, A080253 (Bala) et neuf identités de Yanev. Total 119 entrées.

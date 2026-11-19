@@ -1,0 +1,9 @@
+%C A129527 Yanev's conjecture a(n) = 2n - A000265(n) is true: the right side satisfies f(2n+1) = 2n+1 and f(2n) = f(n) + 2n. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A173614 Yanev's conjecture a(n) = A002322(A007947(n)) is true: for squarefree m, lambda(m) = lcm_{p|m} lambda(p) = lcm_{p|m} (p-1). - _Joaquim Manji-Jung_, Nov 19 2026
+%C A023887 Yanev's conjecture is true: both sides are multiplicative and agree at prime powers, sigma(p^(me+m-1))/sigma(p^(m-1)) = (p^(m(e+1))-1)/(p^m-1). - _Joaquim Manji-Jung_, Nov 19 2026
+%C A055210 Yanev's conjecture is true: both sides are multiplicative and equal (p^(2t+1)+1)/(p+1) at n = p^e, t = floor(e/2). - _Joaquim Manji-Jung_, Nov 19 2026
+%C A367865 Yanev's conjecture is true: both sides equal Product_{p|n} (p^2-p+1), the right side because rad(nk)/rad(k) = Product_{p|n, p does not divide k} p depends only on k mod rad(n). - _Joaquim Manji-Jung_, Nov 19 2026
+%C A090079 Yanev's conjecture is true: a(n) is the alternating word 1010... of length r = A005811(n), whose value is (2^(r+1)-1)/3 if it ends in 1 (n odd) and (2^(r+1)-2)/3 otherwise. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A163617 Yanev's conjecture is true: using A003188(2n) = 2*A003188(n) + (n mod 2) and A003188(2n+1) = 2*A003188(n) + 1 - (n mod 2), the right side satisfies the defining recurrences. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A285385 Yanev's conjecture is true: the terms are the m such that m-1 has an even number of trailing zeros in binary (see A072939), so the next term after m is m+1 if A007814(m) is even and m+2 otherwise, and A096268(m-1) = A007814(m) mod 2. - _Joaquim Manji-Jung_, Nov 19 2026
+%C A179504 Yanev's conjecture is true: a(n)/A023887(n) = sigma_n(2^(v+1))/sigma_n(2^v) = (2^(n(v+2))-1)/(2^(n(v+1))-1), v = A007814(n), which equals the stated factor. - _Joaquim Manji-Jung_, Nov 19 2026
