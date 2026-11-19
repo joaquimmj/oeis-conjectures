@@ -159,3 +159,12 @@ A286044 » est celle de l'entrée, contrôlée sur ses données.)
 probable).
 
 **Déjà prouvées par Dekking, non comptées** : A284623, A284626, A285962, A285967, A285968, A285977.
+
+## Transformées non alignées A285590, A285591, A285593, A285594 (`runs_limits.py`, `runs_limits.out`)
+
+{00 → 0, 11 → 1} (gloutonne, de gauche à droite) appliquée aux mots limites A285565 et A285568 de 0 → 11, 1 → 0110.
+Elle envoie chaque plage maximale de k lettres identiques sur ⌈k/2⌉ lettres (vérifié sur les données). Les
+fréquences des plages sont celles des facteurs y·x^k·y. Ces fréquences de facteurs sont calculées exactement : vecteur
+de Perron (λ = 1 + √5) de la substitution induite sur les blocs de longueur (plage maximale + 2), avec un contrôle
+empirique. Limites exactes : 1 + √5/2 (lettre 0) et 1 + 2/√5 (lettre 1), c'est-à-dire 1 + sqrt(5/4) et 1 + sqrt(4/5)
+comme conjecturé. **Vraies (4).**

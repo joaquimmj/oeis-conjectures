@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 192 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 136 au lot 6 Kimberling, 18 au lot 7) : 170 vraies, 21 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
+**Bilan : 196 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 18 au lot 7) : 174 vraies, 21 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -83,7 +83,7 @@ exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,1602
 - **Transformées du mot de Fibonacci** (`fibtransform/`, Walnut en numération de Fibonacci) : A287676 (avec la
   formule de Liu), A287723, A287724 et A287727 vraies.
 - **Total Kimberling** : 55 vraies (dont A284015), 13 fausses, 1 vraie pour n ≥ 2.
-- **Limites a(n)/n → m** (`kimberling/limits.py`, `tm_limits.py`) : 59 vraies, 8 fausses (limite énoncée incorrecte, dont A285964, coquille 4/5 pour 5/4), par les fréquences de Perron et celles des facteurs de Thue-Morse ; 13 déjà réglées par d'autres (Dekking, Zabolotskii) ; restent non traitées les transformées de Pell, les transformées non alignées et les substitutions par blocs de 2.
+- **Limites a(n)/n → m** (`kimberling/limits.py`, `tm_limits.py`) : 63 vraies, 8 fausses (limite énoncée incorrecte, dont A285964, coquille 4/5 pour 5/4), par les fréquences de Perron, celles des facteurs de Thue-Morse et celles des plages ; 13 déjà réglées par d'autres (Dekking, Zabolotskii) ; restent non traitées les substitutions par blocs de 2 (A287xxx, A288xxx, A289xxx).
 
 ## Lot 7 (19/11) : Bala, Yanev
 

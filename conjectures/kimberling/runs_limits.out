@@ -1,0 +1,4 @@
+A285590 : données OK ; limite exacte 1 + sqrt(5)/2 ≈ 2.118034 ; énoncée 1 + sqrt(5)/2 ≈ 2.118034 ; VRAIE (observé 2.11804)
+A285591 : données OK ; limite exacte 2*sqrt(5)/5 + 1 ≈ 1.894427 ; énoncée 2*sqrt(5)/5 + 1 ≈ 1.894427 ; VRAIE (observé 1.89441)
+A285593 : données OK ; limite exacte 1 + sqrt(5)/2 ≈ 2.118034 ; énoncée 1 + sqrt(5)/2 ≈ 2.118034 ; VRAIE (observé 2.11806)
+A285594 : données OK ; limite exacte 2*sqrt(5)/5 + 1 ≈ 1.894427 ; énoncée 2*sqrt(5)/5 + 1 ≈ 1.894427 ; VRAIE (observé 1.89440)
