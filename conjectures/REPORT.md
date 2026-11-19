@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 38 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5), toutes vraies ; une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses ; rien n'est soumis.**
+**Bilan : 60 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 22 au lot 6) : 58 vraies, 2 fausses (A285126, A285127) ; une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses ; rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -64,6 +64,18 @@ entrées. Non vérifié : les historiques OEIS (page protégée contre les robot
 **Références à ajouter (déjà prouvé ailleurs)** : A059100 (Cloitre 2002 : la fraction continue de Σ n^(−2^k)
 relève du théorème de Shallit 1979 sur Σ x^(−2^k), non relu), A001156 (Bohman–Fröberg–Riesel : l'asymptotique
 exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,16022).
+
+## Lot 6 (19/11) : conjectures de discrépance de Kimberling hors article, avec la méthode exacte de l'article
+
+`conjectures/kimberling/` : outil `python/discrepancy_exact.py` réutilisé tel quel (certificat exact dans ℚ(√d)).
+- **20 conjectures vraies, avec les bornes exactes** : A026363, A026364, A026367, A026368, A284654, A284675, A284676,
+  A284678, A284679, A284753, A284894, A285032, A285035, A285036, A285082, A285084, A285275, A285278, A285419, A285669.
+  Plusieurs bornes conjecturées sont exactement l'infimum ou le supremum, jamais atteints (D(n) irrationnel) :
+  elles sont optimales. A284753, A284894 et A285669 n'avaient que la forme faible (bornitude, Dekking).
+- **2 conjectures fausses** : A285126 (n = 3) et A285127 (n = 2), contre-exemples dans les données mêmes des
+  entrées ; la discrépance y est non bornée (morphisme 0 → 10, 1 → 0000 non Pisot).
+- Déjà prouvées par Dekking, non comptées : A285074, A285075, A287664, A287665, A287675, A287726, A287770.
+- Conséquence : la conjecture plus forte de Dekking dans A284753 (sur A026363, borne 3/2) est vraie.
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
 arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002
