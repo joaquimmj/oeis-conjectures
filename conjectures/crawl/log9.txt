@@ -1,0 +1,7 @@
+conjecture Wythoff 87
+conjecture Zeckendorf 118
+conjecture lower Wythoff 118
+conjecture floor(n*phi) 138
+conjecture Beatty sequence 195
+conjecture Karttunen 301
+conjecture tribonacci 361
