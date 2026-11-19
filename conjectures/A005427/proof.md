@@ -64,3 +64,6 @@ récurrence, les m ≥ k avec J(m) ≤ k−1 sont exactement les T(n) ≥ k. ∎
 - **Nouveauté non vérifiée hors de l'OEIS.** Il faut vérifier que Burde (1987), Thériault ou Odlyzko–Wilf (1991)
   ne contiennent pas déjà l'énoncé général.
 - Preuve relue seulement par l'auteur (une IA).
+
+## Antériorité (ajoutée après coup)
+Voir `paper/parts/part3a.tex`. Le résultat découle d'un théorème classique : la formule d'Odlyzko–Wilf pour Josèphe, et l'asymptotique de de Bruijn (1948) pour A033485. La preuve ci-dessus est indépendante, mais elle n'est pas la première.

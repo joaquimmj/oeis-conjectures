@@ -60,3 +60,4 @@
 - 2026-11-19 : A022344 (Ramsey 2007) prouvée ; A010048 partielle. Total 315.
 - 2026-11-19 : A155200 (Hanna 2009) prouvée ; A073117 tentée (dynamique pseudo-aléatoire), non résolue. Total 316.
 - 2026-11-19 : A123722, A123723 prouvées ; A123365 vérifiée jusqu'à 3e6 (non prouvée). Total 318.
+- 2026-11-19 : antériorités reportées (Josèphe : Odlyzko–Wilf ; A033485 : de Bruijn) d'après les commits de l'article.

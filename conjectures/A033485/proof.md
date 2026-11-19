@@ -65,3 +65,6 @@ a(2n)/a(n)·log n/n = (2n/β(2n))·log n/n → 2 ln 2. ∎
 - C'est cohérent avec l'asymptotique de de Bruijn (1948) pour les partitions binaires, avec ses termes en
   log(n/log n). Nous ne l'utilisons pas et ne l'avons pas relue (article inaccessible depuis la session).
 - Preuve relue seulement par l'auteur (une IA).
+
+## Antériorité (ajoutée après coup)
+Voir `paper/parts/part3a.tex`. Le résultat découle d'un théorème classique : la formule d'Odlyzko–Wilf pour Josèphe, et l'asymptotique de de Bruijn (1948) pour A033485. La preuve ci-dessus est indépendante, mais elle n'est pas la première.
