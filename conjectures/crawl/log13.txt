@@ -1,0 +1,3 @@
+"a(n+1)/a(n)" conjecture "convolutory inverse" 6
+"a(n+1)/a(n) ->" conjecture 116
+conjecture "lim a(n+1)/a(n)" 118

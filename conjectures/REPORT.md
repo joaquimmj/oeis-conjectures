@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 209 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 31 au lot 7) : 187 vraies, 21 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
+**Bilan : 274 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 31 au lot 7, 65 au lot 8) : 252 vraies, 21 fausses, 1 vraie seulement pour n ≥ 2 (A285078). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -96,6 +96,17 @@ exacte, donnée par Kotesovec dans l'entrée, a pour exposant 7/6, et non 1,1602
 | A285503, A285517, A285567, A285623, A285627, A285663 | Kimberling : a(n)/n → φ | **vraies** | fréquences de Perron (substitutions primitives non Pisot) |
 | A373308, A000918, A048881, A059906, A073089, A284388, A225132 | parité de Thue-Morse, Jeffery, Kimberling, Yanev, Beck, inverse de Thue-Morse (preuve assistée, principe de l argument certifié) | **vraies** | élémentaires (`batch8/`) |
 | A026743, A027174, A027175, A103973, A190171, A385252 | Mathar (récurrences D-finies) | **vraies** (A385252 : pour n ≥ 6, fausse en n = 5) | vérification exacte de l'opérateur différentiel sur la série algébrique (`dfinite/`) ; apport minime |
+
+## Lot 8 (19/11) : équations complémentaires de Kimberling, a(n)/a(n−1) → φ
+
+| Entrées | Conjecture | Statut | Preuve |
+|---|---|---|---|
+| 65 entrées : A293057, A293058, A293076, A293316, A293317, A293349–A293351, A293357, A293358, A293406, A293765–A293767, A294365–A294368, A294413–A294426, A294532–A294551, A294553–A294565 | a(n) = a(n−1) + a(n−2) + g(b, n), avec a, b complémentaires : a(n)/a(n−1) → φ | **vraies** | élémentaire, un seul théorème (`compeq/proof.md`) : g ≥ 0, donc croissance exponentielle, donc b(n) ≤ 2n+1, donc e(n) = a(n) − φa(n−1) est à croissance polynomiale. A294413 (g = 6 − b(n−1)) se traite par une récurrence à part |
+| 25 entrées (A294170, A294552, A295357, A295754, A295862, A295947–A295953, A295960, A296245…A296843) | même limite, affirmée sans preuve ni mention « Conjecture » | prouvée, **non comptée** dans le bilan | même théorème ; A295754 est d'ordre 4, avec P = (x² − x − 1)(x² + 1) |
+
+Contrôles : `compute.py` (90/90 conformes aux données OEIS, minoration symbolique de g) et `check.py` (générateur
+indépendant, 600 termes, 0 échec). Apport modeste : l'argument est standard, mais il n'était écrit nulle part dans
+ces entrées.
 
 **Déjà résolues par d'autres (trouvé en Phase 0, non comptées)** : A000521 (Sun : rapports décroissants ; Li,
 arXiv:2506.19292, 2025, théorème 3.1), A001462 (van Lamoen : Claes–Miyamoto, arXiv:2602.10992, 2026), A000002

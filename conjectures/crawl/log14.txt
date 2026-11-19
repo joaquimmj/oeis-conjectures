@@ -1,0 +1,3 @@
+"complementary equation" conjecture golden ratio 70
+"complementary equation" "a(n)/a(n-1)" 117
+"complementary equation" conjecture 164
