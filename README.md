@@ -63,6 +63,7 @@ check scripts, Walnut scripts and outputs, draft OEIS comment). Nothing there ha
 | A005121, A006068, A055938, A008278, A040027, A079267, A170941, A088617, A003959 | Mohapatra, Kurkov, Stephan, Wiseman, Yanev, Callan | by hand, A006068 with Walnut |
 | 65 entries (A293057, ..., A294565) + 25 stated without proof | Kimberling's complementary equations a(n) = a(n-1) + a(n-2) + g(b, n): a(n)/a(n-1) -> phi | by hand, one elementary theorem for all (`conjectures/compeq/`) |
 | A297469, A298468 | Sloane's conjecture (binary formulas) for Kimberling's aa/bb/cc system; two of Kimberling's bounds are false as written | Walnut, base 2 (candidates + greedy rules) |
+| A304451, A304452 | Kimberling's limits a(n)/n -> 5/2, b(n)/n -> 5/3 (true); his bounds fail at n = 1 | by hand (limsup/liminf contraction) |
 | A297464-A297466, A299405, A299409, A299637, A299638, A299641 (not counted: already treated by Bosma et al. 2025 and Fokkink-Joshi 2025) | Kimberling's bounds for the anti-tribonacci and anti-tetranacci systems | Walnut (guessed automata + greedy rules): the first three are true only with n shifted by 1; the other five are false (c(26) = 113) |
 | 69 entries (A026363, A284654, A285032, ..., A287727) | Kimberling's discrepancy conjectures for other morphic words | **55 true** with exact optimal bounds (the paper's method), **13 false** with explicit counterexamples, 1 true for n >= 2 |
 
