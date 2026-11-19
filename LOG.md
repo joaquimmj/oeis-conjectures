@@ -36,3 +36,4 @@
 - 2026-11-19 : 6 récurrences D-finies de Mathar (vérification exacte sur séries algébriques). Total 202 entrées.
 - 2026-11-19 : note LaTeX de synthèse sur les conjectures de Kimberling (conjectures/kimberling/paper/note.tex, 3 pages, tableau généré depuis les sorties brutes). Brouillon non relu.
 - 2026-11-19 : A373308, A000918, A048881, A059906, A073089 (élémentaires). Total 207 entrées.
+- 2026-11-19 : A225132 (rapport -> 1/x0, preuve assistée par principe de l'argument certifié ; la formule 1/(1+g) de l'entrée ne reproduit pas les données). Total 209.
