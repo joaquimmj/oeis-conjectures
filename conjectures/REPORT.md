@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 316 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 31 au lot 7, 65 au lot 8, 42 au lot 9) : 285 vraies, 26 fausses, 1 vraie seulement pour n ≥ 2 (A285078), 4 mixtes (A297469, A298468 : conjecture de Sloane vraie, deux énoncés de Kimberling faux tels qu'écrits ; A304451, A304452 : limites vraies, encadrements faux en n = 1). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
+**Bilan : 318 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 31 au lot 7, 65 au lot 8, 44 au lot 9) : 287 vraies, 26 fausses, 1 vraie seulement pour n ≥ 2 (A285078), 4 mixtes (A297469, A298468 : conjecture de Sloane vraie, deux énoncés de Kimberling faux tels qu'écrits ; A304451, A304452 : limites vraies, encadrements faux en n = 1). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -126,6 +126,7 @@ Non traitées : A297291–A297293 (encadrements vrais numériquement, sur 2·10�
 | A083207 | 12 entiers consécutifs contiennent un nombre de Zumkeller (2010) | **vraie** | à la main : 3·2^a est de Zumkeller, extension première, multiples de 6 (`A083207/`) ; corollaire d'un fait déjà noté (Ianakiev), apport modeste |
 | A022344 | Ramsey (2007) : produit de deux lignes du tableau de Wythoff, caractéristique multiplicative | **vraie** | identité de norme dans ℤ[φ] et théorème de Morrison (`A022344/`) ; apport modeste |
 | A155200 | Hanna (2009) : v₂(a(n)) = s₂(n) pour exp(Σ 2^{n²}xⁿ/n) | **vraie** | à la main : A = exp(2x)·R, Legendre, valuations 2-adiques (`A155200/`) |
+| A123722, A123723 | nombre de carrés mod n égal à ⌈(n+1)/3⌉ ou ⌈(n+1)/4⌉ : les multiples de 3 (resp. 4) sont 3p (resp. 4p) | **vraies** | multiplicativité et formules aux puissances premières (`A123365/`) ; A123365 (cubes) vérifiée jusqu'à 3·10⁶ mais non prouvée |
 | A078841 | Wilson (2007) : a(n+1)/a(n) → 2 pour le (n+1)-ième entier à n facteurs premiers | **vraie** | à la main : a(n) = 2ⁿ·t_{n+1} avec V = {u/2^Ω(u), u impair} indépendant de n, puis théorème des nombres premiers (`A078841/`) |
 | A005427 | Hadjicostas (2020) : pour tout k ≥ 2, les m dont le survivant de Josèphe (une personne sur k) est parmi les k−1 premiers sont les T(n;k) = ⌈ΣT/(k−1)⌉ ≥ k | **vraie pour tout k** | à la main : invariant J(T(n)) = r_n + 1 (reste du plafond), base par J(v) = kv + 1 − Q(v) (`A005427/`) ; nouveauté à vérifier (Burde 1987, Thériault) |
 | A120160 | Hadjicostas (2020) : Josèphe pour k = 5 ; conjectures 1 et 2 en base 5/4 | **vraies** (conjecture 1 : multiples > 0 ; avec 0 compté, échec seulement en n = 2) | cas k = 5 du théorème de A005427 ; arbre des écritures en base (k+1)/k, pour tout k (`A120160/`) |
