@@ -1,0 +1,1 @@
+%C A079267 Callan's conjecture is true: by the explicit formula, d(n,s)/(2n-1)!! = (1/s!)*Sum_{h>=s} (-1)^(h-s)*r_h/(h-s)! with r_h = Product_{i<h} 2(n-i)/(2n-i), so 0 <= r_h <= 1 and r_h -> 1 for fixed h; by dominated convergence the limit is exp(-1)/s!. - _Joaquim Manji-Jung_, Nov 19 2026

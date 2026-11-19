@@ -1,0 +1,1 @@
+%C A170941 Callan's conjecture is true: by inclusion-exclusion a(n) = Sum_h (-1)^h*binomial(n-h,h)*A000085(n-2h), and since A000085(m) >= (m-1)*A000085(m-2) each term divided by A000085(n) is at most 1/h!, while it tends to 1/h! for fixed h (A000085(m)/A000085(m-1) ~ sqrt(m)); dominated convergence gives the limit 1/e. - _Joaquim Manji-Jung_, Nov 19 2026
