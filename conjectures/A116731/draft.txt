@@ -1,0 +1,1 @@
+%C A116731 Meeussen's conjecture is true: with the left inversion table (L_1,...,L_n), 0 <= L_i <= i-1, bubble sort makes Sum L_i swaps and max L_i passes; for each P = max L the sums fill [P, Sum_i min(i-1,P)], so the number of distinct pairs is Sum_{P=0..n-1} (Sum_i min(i-1,P) - P + 1) = (n^3 - 3n^2 + 5n)/3. - _Joaquim Manji-Jung_, Nov 19 2026

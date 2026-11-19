@@ -64,3 +64,4 @@
 - 2026-11-19 : A143772 (Wilson 2008) prouvée. Total 319.
 - 2026-11-19 : A101513 (Sloane 2005) : conjectures (1)-(4) prouvées, (5) non traitée. Total 320.
 - 2026-11-19 : A100036-A100039 (Stephan 2007) prouvées via la structure en blocs de A100035. Total 324.
+- 2026-11-19 : A116731 (Meeussen 2008) prouvée. Total 325.
