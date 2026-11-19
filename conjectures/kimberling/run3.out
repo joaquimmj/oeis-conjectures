@@ -1,0 +1,123 @@
+A283964: tau = {'0': '1', '1': '1010'} depuis 1, lettre 0, r = (3/2 + 1/2*sqrt(3)) ≈ 2.366025 ; indexation OK
+   inf = (-1/2 + -1/6*sqrt(3)) ≈ -0.788675, sup = (1 + 1/3*sqrt(3)) ≈ 1.577350 (observé -0.7495 .. 1.5400)
+   conjecture -1 < D < 2  : inf TRUE, sup TRUE   [Conjecture: -1 <  n*r - a(n) < 2 for n >= 1, where r = (3+sqrt(3))/2.]
+A283967: tau = {'0': '1', '1': '10101'} depuis 1, lettre 0, r = (7/4 + 1/4*sqrt(17)) ≈ 2.780776 ; indexation OK
+   inf = -1/2 ≈ -0.500000, sup = (5/4 + 1/4*sqrt(17)) ≈ 2.280776 (observé -0.4917 .. 2.2737)
+   conjecture -1 < D < 3  : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 3 for n >= 1, where r = (7+sqrt(17))/4.]
+A284015 : énoncé non trouvé
+A284370: tau = {'0': '1', '1': '1001'} depuis 1, lettre 0, r = (3/2 + 1/2*sqrt(3)) ≈ 2.366025 ; indexation OK
+   inf = (-3/2 + -1/2*sqrt(3)) ≈ -2.366025, sup = (2 + 1*sqrt(3)) ≈ 3.732051 (observé -2.3013 .. 3.6437)
+   conjecture -3 < D < 4  : inf TRUE, sup TRUE   [Conjecture:  -3 < n*r - a(n) < 4 for n >= 1, where r = (3+sqrt(3))/2.]
+A284506: tau = {'0': '1', '1': '1100'} depuis 1, lettre 0, r = (3/2 + 1/2*sqrt(3)) ≈ 2.366025 ; indexation OK
+   inf = (-3/2 + -5/6*sqrt(3)) ≈ -2.943376, sup = (2 + 2/3*sqrt(3)) ≈ 3.154701 (observé -2.8413 .. 3.0800)
+   conjecture -3 < D < 4  : inf TRUE, sup TRUE   [Conjecture: -3 < n*r - a(n) < 4 for n >= 1, where r = (3+sqrt(3))/2.]
+A284657: tau = {'0': '0110', '1': '1011001101'} depuis 1, lettre 0, r = (3/2 + 1/2*sqrt(3)) ≈ 2.366025 ; indexation OK
+   inf = -1 ≈ -1.000000, sup = (3/2 + 1/2*sqrt(3)) ≈ 2.366025 (observé -0.9676 .. 2.3100)
+   conjecture -1 < D < 3  : inf ÉGALITÉ, sup TRUE   [Conjecture: -1 < n*r - a(n) < 3 for n >= 1, where r = (3+sqrt(3))/2.]
+A284752: tau = {'0': '01', '1': '0001'} depuis 0, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = -1 ≈ -1.000000, sup = (1 + 2/3*sqrt(3)) ≈ 2.154701 (observé -0.9490 .. 2.1173)
+   conjecture -1 < D < 3  : inf ÉGALITÉ, sup TRUE   [Conjecture: -1 < n*r - a(n) < 3 for n >= 1, where r = (3+sqrt(3))/3.]
+A284773: tau = {'0': '01', '1': '0010'} depuis 0, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = -1/3 ≈ -0.333333, sup = (2/3 + 1/3*sqrt(3)) ≈ 1.244017 (observé -0.3118 .. 1.2282)
+   conjecture -1 < D < 2  : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 2 for n >= 1, where r = (3+sqrt(3))/3.]
+A284774: tau = {'0': '01', '1': '0010'} depuis 0, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-1 + 1/3*sqrt(3)) ≈ -0.422650, sup = (1 + 1/3*sqrt(3)) ≈ 1.577350 (observé -0.3953 .. 1.5400)
+   conjecture -1 < D < 2  : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 2 for n >= 1, where r = 1 + sqrt(3).]
+A284852: tau = {'0': '01', '1': '0100'} depuis 0, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = (-2/3 + -1/3*sqrt(3)) ≈ -1.244017, sup = (4/3 + 1/3*sqrt(3)) ≈ 1.910684 (observé -1.2009 .. 1.8654)
+   conjecture -2 < D < 2  : inf TRUE, sup TRUE   [Conjecture: -2 < n*r - a(n) < 2 for n >= 1, where r = (3+sqrt(3))/3.]
+A284853: tau = {'0': '01', '1': '0100'} depuis 0, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-1 + -1/3*sqrt(3)) ≈ -1.577350, sup = (2 + 2/3*sqrt(3)) ≈ 3.154701 (observé -1.4990 .. 3.0800)
+   conjecture -2 < D < 4  : inf TRUE, sup TRUE   [Conjecture: -2 < n*r - a(n) < 4 for n >= 1, where r = 1+sqrt(3).]
+A284902: tau = {'0': '01', '1': '1000'} depuis 0, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = (-4/3 + -2/3*sqrt(3)) ≈ -2.488034, sup = (5/3 + 2/3*sqrt(3)) ≈ 2.821367 (observé -2.4154 .. 2.7222)
+   conjecture -3 < D < 3  : inf TRUE, sup TRUE   [Conjecture: -3 < n*r - a(n) < 3 for n >= 1, where r = (3+sqrt(3))/3.]
+A284903: tau = {'0': '01', '1': '1000'} depuis 0, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-2 + -2/3*sqrt(3)) ≈ -3.154701, sup = (3 + 4/3*sqrt(3)) ≈ 5.309401 (observé -2.9829 .. 5.1836)
+   conjecture -4 < D < 6  : inf TRUE, sup TRUE   [Conjecture: -4 < n*r - a(n) < 6 for n >= 1, where r = 1 + sqrt(3).]
+A284930: tau = {'0': '01', '1': '1011'} depuis 0, lettre 0, r = (2 + 1*sqrt(2)) ≈ 3.414214 ; indexation OK
+   inf = 1*sqrt(2) ≈ 1.414214, sup = (2 + 1*sqrt(2)) ≈ 3.414214 (observé 1.4257 .. 3.4061)
+   conjecture 1 < D < 4  : inf TRUE, sup TRUE   [Conjecture:  1 < n*r - a(n) < 4 for n >= 1, where r = 2 + sqrt(2).]
+A284945: tau = {'0': '01', '1': '1110'} depuis 0, lettre 0, r = (2 + 1*sqrt(2)) ≈ 3.414214 ; indexation OK
+   inf = (-2 + -1*sqrt(2)) ≈ -3.414214, sup = (1 + 1*sqrt(2)) ≈ 2.414214 (observé -3.3635 .. 2.4142)
+   conjecture -4 < D < 3  : inf TRUE, sup TRUE   [Conjecture:  -4 < n*r - a(n) < 3 for n >= 1, where r = 2 + sqrt(2).]
+A284946: tau = {'0': '01', '1': '1110'} depuis 0, lettre 1, r = 1*sqrt(2) ≈ 1.414214 ; indexation OK
+   inf = (-2 + 1*sqrt(2)) ≈ -0.585786, sup = (1 + 1*sqrt(2)) ≈ 2.414214 (observé -0.5858 .. 2.3932)
+   conjecture -1 < D < 3  : inf TRUE, sup TRUE   [Conjecture:  -1 < n*r - a(n) < 3 for n >= 1, where r = 2 + sqrt(2).]
+A285033: tau = {'0': '00110', '1': '1010001'} depuis 0, lettre 1, r = (1 + 1*sqrt(2)) ≈ 2.414214 ; indexation OK
+   inf = (-3/2 + 1/2*sqrt(2)) ≈ -0.792893, sup = (1/2 + 1*sqrt(2)) ≈ 1.914214 (observé -0.7929 .. 1.9142)
+   conjecture -1 < D < 2  : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 2 for n>=1, where r = 1 + sqrt(2).]
+A285077: tau = {'0': '01010', '1': '1001010'} depuis 1, lettre 0, r = (1 + 1/2*sqrt(2)) ≈ 1.707107 ; indexation OK
+   inf = (-1 + 1/2*sqrt(2)) ≈ -0.292893, sup = 1/2*sqrt(2) ≈ 0.707107 (observé -0.2929 .. 0.7071)
+   conjecture -1 < D < 1  : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = 1 + sqrt(1/2).]
+A285078: tau = {'0': '01010', '1': '1001010'} depuis 1, lettre 1, r = (1 + 1*sqrt(2)) ≈ 2.414214 ; indexation OK
+   inf = (-1 + 1*sqrt(2)) ≈ 0.414214, sup = 1*sqrt(2) ≈ 1.414214 (observé 0.4142 .. 1.4142)
+   conjecture -1 + sqrt(2) < D < sqrt(2) : inf ÉGALITÉ, sup ÉGALITÉ   [Conjecture: -1 + sqrt(2) < n*r - a(n) < sqrt(2) for n>=1, where r = 1 + sqrt(2).]
+A285081: tau = {'0': '01110', '1': '10011011'} depuis 0, lettre 0, r = (3/2 + 1/2*sqrt(5)) ≈ 2.618034 ; indexation OK
+   inf = 0 ≈ 0.000000, sup = (3/2 + 1/2*sqrt(5)) ≈ 2.618034 (observé 0.0000 .. 2.6180)
+   conjecture 0 < D < r  : inf ÉGALITÉ, sup ÉGALITÉ   [Conjecture: 0 < n*r - a(n) < r for n>=1, where r = (3+sqrt(5))/2.]
+A285085: tau = {'0': '01110', '1': '10011011'} depuis 1, lettre 1, r = (1/2 + 1/2*sqrt(5)) ≈ 1.618034 ; indexation OK
+   inf = -1 ≈ -1.000000, sup = 1 ≈ 1.000000 (observé -1.0000 .. 1.0000)
+   conjecture -1 < D < 1  : inf ÉGALITÉ, sup ÉGALITÉ   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = (1+sqrt(5))/2, the golden ratio (A0016]
+A285129: NON PISOT (tau = {'0': '000010', '1': '10101010'} depuis 1, lettre 0, r ≈ 1.390388) ; premier contre-exemple : (2, 4, -1.2192235935955846) ; conjecture -1 < D < 1 
+A285130: NON PISOT (tau = {'0': '000010', '1': '10101010'} depuis 1, lettre 1, r ≈ 3.561553) ; premier contre-exemple : (2, 3, 4.123105625617661) ; conjecture -1 < D < 3 
+A285134: tau = {'0': '000110', '1': '1010100001'} depuis 0, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = (-5/3 + -1/3*sqrt(3)) ≈ -2.244017, sup = (4/3 + 1*sqrt(3)) ≈ 3.065384 (observé -2.1312 .. 3.0201)
+   conjecture -1 < D < 1  : inf FALSE, sup FALSE   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = 1 + sqrt(1/3).]
+A285135: tau = {'0': '000110', '1': '1010100001'} depuis 0, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-3 + -1/3*sqrt(3)) ≈ -3.577350, sup = (2 + 5/3*sqrt(3)) ≈ 4.886751 (observé -3.4990 .. 4.6913)
+   conjecture -1 < D < 1  : inf FALSE, sup FALSE   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = 1 + sqrt(3).]
+A285137: tau = {'0': '000110', '1': '1010100001'} depuis 1, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = (-5/3 + -1/3*sqrt(3)) ≈ -2.244017, sup = (4/3 + 1*sqrt(3)) ≈ 3.065384 (observé -2.2009 .. 2.9504)
+   conjecture -1 < D < 1  : inf FALSE, sup FALSE   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = 1 + sqrt(1/3).]
+A285138: tau = {'0': '000110', '1': '1010100001'} depuis 1, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-3 + -1/3*sqrt(3)) ≈ -3.577350, sup = (2 + 5/3*sqrt(3)) ≈ 4.886751 (observé -3.3782 .. 4.8120)
+   conjecture -1 < D < sqrt(3) : inf FALSE, sup FALSE   [Conjecture: -1 < n*r - a(n) < sqrt(3) for n>=1, where r = 1 + sqrt(3).]
+A285140: tau = {'0': '001010', '1': '1010001010'} depuis 0, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = -4/3 ≈ -1.333333, sup = (2/3 + 2/3*sqrt(3)) ≈ 1.821367 (observé -1.2607 .. 1.8056)
+   conjecture -1 < D < 1  : inf FALSE, sup FALSE   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = (3 + sqrt(3))/3.]
+A285141: tau = {'0': '001010', '1': '1010001010'} depuis 0, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-2 + 1/3*sqrt(3)) ≈ -1.422650, sup = (1 + 4/3*sqrt(3)) ≈ 3.309401 (observé -1.3953 .. 3.1836)
+   conjecture -1 < D < 1  : inf FALSE, sup FALSE   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = 1 + sqrt(3).]
+A285143: tau = {'0': '001010', '1': '1010001010'} depuis 1, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = -4/3 ≈ -1.333333, sup = (2/3 + 2/3*sqrt(3)) ≈ 1.821367 (observé -1.3118 .. 1.7545)
+   conjecture -1 < D < 1  : inf FALSE, sup FALSE   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = (3 + sqrt(3))/3.]
+A285144: tau = {'0': '001010', '1': '1010001010'} depuis 1, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-2 + 1/3*sqrt(3)) ≈ -1.422650, sup = (1 + 4/3*sqrt(3)) ≈ 3.309401 (observé -1.3069 .. 3.2720)
+   conjecture -1 < D < sqrt(3) : inf FALSE, sup FALSE   [Conjecture: -1 < n*r - a(n) < sqrt(3) for n>=1, where r = 1 + sqrt(3).]
+A285206: tau = {'0': '010010', '1': '1001001010'} depuis 0, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = -2/3 ≈ -0.666667, sup = (1/3 + 1/3*sqrt(3)) ≈ 0.910684 (observé -0.6422 .. 0.9028)
+   conjecture -1 < D < 1 : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 1, where r = 1 + sqrt(1/3).]
+A285207: tau = {'0': '010010', '1': '1001001010'} depuis 0, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-1 + 2/3*sqrt(3)) ≈ 0.154701, sup = (1 + 2/3*sqrt(3)) ≈ 2.154701 (observé 0.1684 .. 2.1123)
+   conjecture 0 < D < 3 : inf TRUE, sup TRUE   [Conjecture: 0 < n*r - a(n) < 3, where r = 1 + sqrt(3).]
+A285209: tau = {'0': '010010', '1': '1001001010'} depuis 1, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = -2/3 ≈ -0.666667, sup = (1/3 + 1/3*sqrt(3)) ≈ 0.910684 (observé -0.6559 .. 0.8841)
+   conjecture -1 < D < 1 : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 1, where r = 1 + sqrt(1/3).]
+A285210: tau = {'0': '010010', '1': '1001001010'} depuis 1, lettre 1, r = (1 + 1*sqrt(3)) ≈ 2.732051 ; indexation OK
+   inf = (-1 + 2/3*sqrt(3)) ≈ 0.154701, sup = (1 + 2/3*sqrt(3)) ≈ 2.154701 (observé 0.2007 .. 2.1360)
+   conjecture 0 < D < 3 : inf TRUE, sup TRUE   [Conjecture: 0 < n*r - a(n) < 3, where r = 1 + sqrt(3).]
+A285279: tau = {'0': '011110', '1': '10011101110111'} depuis 1, lettre 1, r = 1*sqrt(2) ≈ 1.414214 ; indexation OK
+   inf = -2 ≈ -2.000000, sup = 1 ≈ 1.000000 (observé -1.9885 .. 0.9919)
+   conjecture 0 < D < 6  : inf FALSE, sup TRUE   [Conjecture: 0 < n*r - a(n) < 6 for n>=1, where r = 2+sqrt(2).]
+A285302: tau = {'0': '10', '1': '1000'} depuis 1, lettre 0, r = (1 + 1/3*sqrt(3)) ≈ 1.577350 ; indexation OK
+   inf = (-1 + -1/3*sqrt(3)) ≈ -1.577350, sup = (1 + 1/3*sqrt(3)) ≈ 1.577350 (observé -1.5263 .. 1.5400)
+   conjecture -2 < D < 2  : inf TRUE, sup TRUE   [Conjecture: -2 < n*r - a(n) < 2 for n>=1, where r = 1 + sqrt(1/3).]
+A285342: tau = {'0': '10', '1': '1011'} depuis 1, lettre 0, r = (2 + 1*sqrt(2)) ≈ 3.414214 ; indexation OK
+   inf = 0 ≈ 0.000000, sup = (2 + 1*sqrt(2)) ≈ 3.414214 (observé 0.0115 .. 3.3980)
+   conjecture 0 < D < 4  : inf ÉGALITÉ, sup TRUE   [Conjecture: 0 < n*r - a(n) < 4 for n>=1, where r = 2 + sqrt(2).]
+A285359: tau = {'0': '10', '1': '1101'} depuis 1, lettre 0, r = (2 + 1*sqrt(2)) ≈ 3.414214 ; indexation OK
+   inf = -1 ≈ -1.000000, sup = 1 ≈ 1.000000 (observé -0.9885 .. 0.9919)
+   conjecture -1 < D < 1  : inf ÉGALITÉ, sup ÉGALITÉ   [Conjecture: -1 < n*r - a(n) < 1 for n>=1, where r = 2 + sqrt(2).]
+A285420: tau = {'0': '011011', '1': '11011011'} depuis 0, lettre 1, r = (1/2 + 1/2*sqrt(3)) ≈ 1.366025 ; indexation OK
+   inf = (-3/2 + 1/6*sqrt(3)) ≈ -1.211325, sup = 2/3*sqrt(3) ≈ 1.154701 (observé -1.1976 .. 1.1123)
+   conjecture -2 < D < 2  : inf TRUE, sup TRUE   [Conjecture: -2 < n*r - a(n) < 2 for n>=1, where r = (1 + sqrt(3))/2.]
+A285422: tau = {'0': '011011', '1': '11011011'} depuis 1, lettre 0, r = (2 + 1*sqrt(3)) ≈ 3.732051 ; indexation OK
+   inf = (-1 + 1/3*sqrt(3)) ≈ -0.422650, sup = (2 + 4/3*sqrt(3)) ≈ 4.309401 (observé -0.3716 .. 4.1836)
+   conjecture -1 < D < 5  : inf TRUE, sup TRUE   [Conjecture: -1 < n*r - a(n) < 5 for n>=1, where r = 2 + sqrt(3).]
+A285423: tau = {'0': '011011', '1': '11011011'} depuis 1, lettre 1, r = (1/2 + 1/2*sqrt(3)) ≈ 1.366025 ; indexation OK
+   inf = (-3/2 + 1/6*sqrt(3)) ≈ -1.211325, sup = 2/3*sqrt(3) ≈ 1.154701 (observé -1.1653 .. 1.1360)
+   conjecture -2 < D < 2  : inf TRUE, sup TRUE   [Conjecture: -2 < n*r - a(n) < 2 for n>=1, where r = (1 + sqrt(3))2.]
+A285670: tau = {'0': '11', '1': '1101'} depuis 1, lettre 1, r = (1/4 + 1/4*sqrt(17)) ≈ 1.280776 ; indexation OK
+   inf = (-23/32 + 1/32*sqrt(17)) ≈ -0.589903, sup = (13/32 + 5/32*sqrt(17)) ≈ 1.050485 (observé -0.5872 .. 1.0457)
+   conjecture -1 < D < 4  : inf TRUE, sup TRUE   [Conjecture:  -1 < n*r - a(n) < 4 for n>=1, where r = (1 + sqrt(17))/4.]

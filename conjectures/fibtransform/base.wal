@@ -1,0 +1,7 @@
+# Briques en numération de Fibonacci : décalage de Zeckendorf, floor(n*phi), et contrôle du mot F de Walnut.
+reg shift {0,1} {0,1} "([0,0]|([0,1][1,1]*[1,0]))*":
+def phin "?msd_fib (n=0 & y=0) | (n>=1 & Ex $shift(n-1,x) & y=x+1)":
+eval phin_ctl "?msd_fib $phin(1,1) & $phin(2,3) & $phin(3,4) & $phin(4,6) & $phin(5,8) & $phin(6,9) & $phin(7,11) & $phin(10,16) & $phin(20,32)":
+eval phin_func "?msd_fib An Ey $phin(n,y) & Ay,z ($phin(n,y) & $phin(n,z)) => y=z":
+eval F_ctl "?msd_fib F[0]=@0 & F[1]=@1 & F[2]=@0 & F[3]=@0 & F[4]=@1 & F[5]=@0 & F[6]=@1 & F[7]=@0":
+exit;

@@ -20,13 +20,15 @@ def exact_r(sigma, L):
     v = [Q(M[0][1], 0, d), lam - M[0][0]]                                  # vecteur propre (colonnes)
     return (v[0] + v[1]) / v[int(L)]
 def parse_bounds(line):
-    m = re.search(r"Conjecture:\s*(.+?)\s*<\s*n\*r - a\(n\)\s*<\s*(.+?)\s+for", line)
+    m = re.search(r"([-+]?[0-9./]*(?:\s*[-+]\s*)?(?:sqrt\(\d+(?:/\d+)?\))?)\s*<\s*n\s*\*?\s*r\s*-\s*a\(n\)\s*<\s*([-+0-9./()r* ]*(?:sqrt\(\d+(?:/\d+)?\))?[-+0-9./()r* ]*?)\s*(?:for|,|;|\.\s|$)", line)
     ev = lambda s: float(eval(s.replace("sqrt", "__import__('math').sqrt"), {}))
-    return m.group(1), m.group(2), ev(m.group(1).replace("r", "0")), ev(m.group(2).replace("r", "0")) if "r" not in m.group(2) else None
+    nr = lambda s, v: re.sub(r"\br\b", v, s)
+    return m.group(1), m.group(2), ev(m.group(1)), (ev(m.group(2)) if not re.search(r"\br\b", m.group(2)) else None)
 targets = (sys.argv[1:] or "A026367 A284654 A284675 A284676 A284678 A284679 A285032 A285035 A285036 A285082 A285084 A285275 A285278 A285419".split())
 for a in targets:
     T = txt(a)
-    conj = next(l[11:] for l in T.split("\n") if l.startswith("%") and "Conjecture" in l and "n*r - a(n)" in l)
+    conj = next((l[11:] for l in T.split("\n") if l.startswith("%") and "onjecture" in l and re.search(r"n\s*\*?\s*r\s*-\s*a\(n\)", l)), None)
+    if conj is None: print(a, ": énoncé non trouvé"); continue
     if a == "A026367":
         sigma, c, L = {'0': '11', '1': '110'}, '1', '1'
     else:
@@ -43,9 +45,15 @@ for a in targets:
     pos = [i + 1 for i, x in enumerate(w) if x == L]; dd = data(a)
     ok = pos[:len(dd)] == dd
     lo_s, hi_s, lo, hi = parse_bounds(conj)
-    if hi is None: hi = float(eval(hi_s.replace("r", str(float(r)))))
+    if hi is None: hi = float(eval(re.sub(r"\br\b", str(float(r)), hi_s).replace("sqrt", "__import__('math').sqrt")))
     lam2 = (Q(Fr(sum(sigma[x].count(x) for x in '01'), 2), 0, r.d) - (Q(0, 0, r.d)))  # (contrôle Pisot ci-dessous)
-    res = analyse(sigma, c, L, r, verbose=False); mn, mx = dt_check(sigma, c, L, r, res)
+    try:
+        res = analyse(sigma, c, L, r, verbose=False); mn, mx = dt_check(sigma, c, L, r, res)
+    except AssertionError:
+        D = [float(r) * n - p for n, p in enumerate(pos, 1)]
+        bad = next(((n, p, d) for n, (p, d) in enumerate(zip(pos, D), 1) if not (lo < d < hi)), None)
+        print(f"{a}: NON PISOT (tau = {sigma} depuis {c}, lettre {L}, r ≈ {float(r):.6f}) ; premier contre-exemple : {bad} ; conjecture {lo_s} < D < {hi_s}")
+        continue
     inf, sup = res['inf'], res['sup']
     vl = 'TRUE' if float(inf) > lo + 1e-12 else ('ÉGALITÉ' if abs(float(inf) - lo) < 1e-9 else 'FALSE')
     vh = 'TRUE' if float(sup) < hi - 1e-12 else ('ÉGALITÉ' if abs(float(sup) - hi) < 1e-9 else 'FALSE')

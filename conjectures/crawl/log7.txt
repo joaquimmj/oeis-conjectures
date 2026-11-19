@@ -1,0 +1,5 @@
+"limiting word" conjecture 30
+"u(n) = # 0" 140
+"positions of 0" conjecture Kimberling 250
+"positions of 1" conjecture Kimberling 360
+Kimberling conjecture "1/r + 1/s = 1" 360

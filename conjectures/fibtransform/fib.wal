@@ -1,0 +1,36 @@
+# Transformées du mot de Fibonacci F (A003849) : A287676, A287723, A287724, A287727 (conjectures de Kimberling)
+# et la formule de Liu pour A287676. Numération de Fibonacci (Zeckendorf).
+reg shift {0,1} {0,1} "([0,0]|([0,1][1,1]*[1,0]))*":
+def phin "?msd_fib (n=0 & y=0) | (n>=1 & Ex $shift(n-1,x) & y=x+1)":
+# phin = floor(n*phi) : fonction, strictement croissante, et {phin(n)}, {phin(n)+n} (n >= 1) partitionnent les entiers >= 1
+# (caractérisation de Lambek-Moser / Skolem de la paire de Beatty de phi)
+eval phin_func "?msd_fib An Ey $phin(n,y) & Ay,z ($phin(n,y) & $phin(n,z)) => y=z":
+eval phin_incr "?msd_fib An,y,z ($phin(n,y) & $phin(n+1,z)) => y<z":
+eval phin_part "?msd_fib Am (m>=1) => ((En,y n>=1 & $phin(n,y) & m=y) <=> ~(En,y n>=1 & $phin(n,y) & m=y+n))":
+# ones(i) = nombre de 1 dans F[0..i) = 2i + 1 - phin(i+1) ; vérifié par la récurrence
+def ones "?msd_fib Ep $phin(i+1,p) & y+p=2*i+1":
+eval ones_ok "?msd_fib $ones(0,0) & Ai,y ($ones(i,y)) => ((F[i]=@1 => $ones(i+1,y+1)) & (F[i]=@0 => $ones(i+1,y)))":
+# st(i,s) : position (à partir de 1) du début du bloc T(F[i]) quand |T(0)| = 1, |T(1)| = 3
+def st "?msd_fib Ey $ones(i,y) & s=1+i+2*y":
+# T1 : 0->1, 1->001 ; position du n-ième 1 (A287676)
+def a1 "?msd_fib n>=1 & Es $st(n-1,s) & ((F[n-1]=@0 & x=s) | (F[n-1]=@1 & x=s+2))":
+eval A287676 "?msd_fib An,x,p (n>=1 & $a1(n,x) & $phin(2*n,p)) => (p+x<5*n+1 & p+x+2>=5*n)":
+eval A287676_liu "?msd_fib An,x,q (n>=1 & $a1(n,x) & $phin(n+1,q)) => x+2*q=5*n+2":
+# T2 : 0->1, 1->010 ; n-ième 1 (A287724) et n-ième 0 (A287723)
+def a2one "?msd_fib n>=1 & Es $st(n-1,s) & ((F[n-1]=@0 & x=s) | (F[n-1]=@1 & x=s+1))":
+eval A287724 "?msd_fib An,x,p (n>=1 & $a2one(n,x) & $phin(2*n,p)) => (p+x<5*n & p+x+3>=5*n)":
+def a2zero "?msd_fib Ei,k,s F[i]=@1 & $ones(i,k) & $st(i,s) & ((n=2*k+1 & x=s) | (n=2*k+2 & x=s+2))":
+eval A287723 "?msd_fib An,x,q (n>=1 & $a2zero(n,x) & $phin(n,q)) => (q+3*n+2>=2*x & q+3*n<2*x+2)":
+# T3 : 0->1, 1->011 ; n-ième 1 (A287727)
+def a3 "?msd_fib Ei,c,s $ones(i,c) & $st(i,s) & ((F[i]=@0 & n=i+c+1 & x=s) | (F[i]=@1 & ((n=i+c+1 & x=s+1) | (n=i+c+2 & x=s+2))))":
+eval A287727 "?msd_fib An,x,q (n>=1 & $a3(n,x) & $phin(n,q)) => (q+5*x+5>=8*n & q+5*x<8*n+5)":
+# les relations a1, a2one, a2zero, a3 sont des fonctions de n (une seule position par n)
+eval funcs "?msd_fib An (n>=1) => ((Ex $a1(n,x)) & (Ex $a2one(n,x)) & (Ex $a2zero(n,x)) & (Ex $a3(n,x)) & (Ax,y ($a3(n,x) & $a3(n,y)) => x=y) & (Ax,y ($a2zero(n,x) & $a2zero(n,y)) => x=y))":
+# témoin négatif : borne supérieure de A287723 resserrée à 1/2 (doit être FALSE)
+eval A287723_bad "?msd_fib An,x,q (n>=1 & $a2zero(n,x) & $phin(n,q)) => (q+3*n+2>=2*x & q+3*n+1<2*x+2)":
+# contrôle : premiers termes des données OEIS
+eval A287676_data "?msd_fib $a1(1,1) & $a1(2,4) & $a1(3,5) & $a1(4,6) & $a1(5,9) & $a1(6,10) & $a1(7,13) & $a1(8,14) & $a1(9,15) & $a1(10,18) & $a1(11,19) & $a1(12,20)":
+eval A287724_data "?msd_fib $a2one(1,1) & $a2one(2,3) & $a2one(3,5) & $a2one(4,6) & $a2one(5,8) & $a2one(6,10) & $a2one(7,12) & $a2one(8,14) & $a2one(9,15) & $a2one(10,17) & $a2one(11,19) & $a2one(12,20)":
+eval A287723_data "?msd_fib $a2zero(1,2) & $a2zero(2,4) & $a2zero(3,7) & $a2zero(4,9) & $a2zero(5,11) & $a2zero(6,13) & $a2zero(7,16) & $a2zero(8,18) & $a2zero(9,21) & $a2zero(10,23) & $a2zero(11,25) & $a2zero(12,27)":
+eval A287727_data "?msd_fib $a3(1,1) & $a3(2,3) & $a3(3,4) & $a3(4,5) & $a3(5,6) & $a3(6,8) & $a3(7,9) & $a3(8,10) & $a3(9,12) & $a3(10,13) & $a3(11,14) & $a3(12,15)":
+exit;
