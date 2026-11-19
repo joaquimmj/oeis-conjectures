@@ -20,3 +20,11 @@
    impair. On compare avec la formule de l'entrée a(n) = A014577(n−2) + A056594(n) = [o(n−1) ≡ 1 (4)] + A056594(n) :
    pour n impair, A056594(n) = 0 ; pour n ≡ 0 et 2 (mod 4), la vérification se fait directement. ∎
 **Contrôle** : `check.py`.
+
+6. **A284388** (Beck : après le premier terme, A284388 = A026465 − 1). Soit σ : 0 → 1, 1 → 001. Le mot 0-limite est
+   X = point fixe de σ² : 0 → 001, 1 → 11001. Soit ρ′ : 0 → 010, 1 → 01110 : c'est la règle des plages de Thue-Morse
+   1 → 121, 2 → 12221 (prouvée dans A026465, conjecture de Layman), réécrite avec les longueurs diminuées de 1. Donc
+   A026465 − 1 est le point fixe de ρ′ issu de 0. On vérifie que 01·σ²(a) = ρ′(a)·01 pour a = 0 et a = 1, donc
+   01·σ²(Z) = ρ′(Z)·01 pour tout mot fini Z, et 01·σ²(Z) = ρ′(Z) pour tout mot infini Z. Avec X = 0Y, l'égalité
+   σ²(X) = X donne 001·σ²(Y) = 0Y, soit Y = 01·σ²(Y) = ρ′(Y). Y est donc le point fixe de ρ′ issu de 0 :
+   Y = A026465 − 1. ∎ (Contrôle : `A284388_check.py`.)
