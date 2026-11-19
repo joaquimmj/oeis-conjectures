@@ -1,6 +1,6 @@
 # Conjectures OEIS hors article — rapport (18/11/2026)
 
-**Bilan : 331 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 31 au lot 7, 65 au lot 8, 57 au lot 9) : 298 vraies, 26 fausses, 1 vraie seulement pour n ≥ 2 (A285078), 5 mixtes (dont A088226 : vraie seulement avec n−1), 1 partielle (A101513 : 4 conjectures sur 5) (A297469, A298468 : conjecture de Sloane vraie, deux énoncés de Kimberling faux tels qu'écrits ; A304451, A304452 : limites vraies, encadrements faux en n = 1). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
+**Bilan : 334 entrées avec une conjecture nouvellement réglée (14 avant le crawl, 9 au lot 3, 6 au lot 4, 9 au lot 5, 140 au lot 6 Kimberling, 31 au lot 7, 65 au lot 8, 60 au lot 9) : 301 vraies, 26 fausses, 1 vraie seulement pour n ≥ 2 (A285078), 5 mixtes (dont A088226 : vraie seulement avec n−1), 1 partielle (A101513 : 4 conjectures sur 5) (A297469, A298468 : conjecture de Sloane vraie, deux énoncés de Kimberling faux tels qu'écrits ; A304451, A304452 : limites vraies, encadrements faux en n = 1). Une (A361190) repose sur un théorème publié appliqué sans re-vérification complète de ses hypothèses. Rien n'est soumis.**
 
 Phase 0 faite le 18/11 : entrées complètes téléchargées (`phase0/`), arXiv interrogé (Shallit depuis 2023,
 Dekking depuis 2020, Letouzey, Doche, Schreier, Rudin-Shapiro). Aucune preuve antérieure trouvée pour ces
@@ -135,6 +135,7 @@ Non traitées : A297291–A297293 (encadrements vrais numériquement, sur 2·10�
 | A084091, A327551 | Stephan (f.g. de Dirichlet), Sloane (cycles du mélange parfait) | **vraies** | élémentaires (`batch11/`) ; apport modeste |
 | A088226 | Stephan (2013) : plus petite distance paire à un carré | **mixte** : fausse telle qu'écrite (n = 2), vraie avec n−1 | formule par blocs prouvée par récurrence (`batch11/`) |
 | A047863 | Stephan (2013) : 5 ∤ a(n), parité, 3 | a(2n), 7 | a(6n+5), 13 | a(12n+3) | **vraies** | périodicité de a(n) mod p (Fourier discret dans 𝔽_p) (`A047863/`) |
+| A049473, A001953, A001954 | Kimberling (2014) : s(a(n)) < 1/n² < s(a(n)−1) pour la queue de ζ(3), et positions de Beatty | **vraies** | télescopages exacts et parité (`A049473/`) |
 | A078841 | Wilson (2007) : a(n+1)/a(n) → 2 pour le (n+1)-ième entier à n facteurs premiers | **vraie** | à la main : a(n) = 2ⁿ·t_{n+1} avec V = {u/2^Ω(u), u impair} indépendant de n, puis théorème des nombres premiers (`A078841/`) |
 | A005427 | Hadjicostas (2020) : pour tout k ≥ 2, les m dont le survivant de Josèphe (une personne sur k) est parmi les k−1 premiers sont les T(n;k) = ⌈ΣT/(k−1)⌉ ≥ k | **vraie pour tout k** | à la main : invariant J(T(n)) = r_n + 1 (reste du plafond), base par J(v) = kv + 1 − Q(v) (`A005427/`) ; nouveauté à vérifier (Burde 1987, Thériault) | **Antériorité :** corollaire court de la formule d'Odlyzko–Wilf (J_k(m) = km + 1 − D_j, aussi dans *Concrete Mathematics* §3.3) ; voir `paper/parts/part3a.tex`.
 | A120160 | Hadjicostas (2020) : Josèphe pour k = 5 ; conjectures 1 et 2 en base 5/4 | **vraies** (conjecture 1 : multiples > 0 ; avec 0 compté, échec seulement en n = 2) | cas k = 5 du théorème de A005427 ; arbre des écritures en base (k+1)/k, pour tout k (`A120160/`) | **Antériorité :** la partie Josèphe relève du même corollaire d'Odlyzko–Wilf.
@@ -153,7 +154,7 @@ A006012, A094913/A006697 (probablement Shallit 1993, Allouche–Shallit 2016).
 **Écartées après Phase 0** : A178482 (déjà prouvée, Shallit–Vukusic 2025) ; A156253 (la récurrence de Maiga a
 une note de 2025 dans l'entrée, non lue ; l'asymptotique 2n/3 équivaut à la densité de Kolakoski) ; A364648
 (énoncé non exprimable directement dans Walnut : multiplication j·d) ; A285296, A356677, A370630 (suites
-lexicographiques, pas d'angle) ; A001953/A001954, A022344, A070875, A133954, A189628 (non examinées en détail).
+lexicographiques, pas d'angle) ; A022344 (traitée depuis), A070875, A133954, A189628 (non examinées en détail).
 
 Walnut : github.com/firetto/Walnut, HEAD a4fe84e, compilé avec javac (OpenJDK 21), fastutil 8.5.13 et
 automaton 1.12-4. Les lignes `#` des scripts `.wal` sont retirées avant exécution, car le REPL ne les accepte pas.
