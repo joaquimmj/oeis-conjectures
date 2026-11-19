@@ -1,0 +1,1 @@
+%C A074355 The conjectured g.f. is false as written (its x^4 coefficient is 27, not 15); the correct g.f. is (9x^4+3x^3)/(1-x-3x^2)^2, which follows from [q^1]: a(n) = a(n-1) + 3a(n-2) + 3*A006130(n-2) for n >= 3. - _Joaquim Manji-Jung_, Nov 19 2026
