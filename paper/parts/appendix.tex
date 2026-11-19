@@ -1,0 +1,78 @@
+\section{Verification record of November 19, 2026}\label{a:verif}
+The repository was cloned afresh (branch \texttt{conjectures}, commit \texttt{446ae5d}, then \texttt{7194295}) on a macOS machine;
+\Walnut{} was cloned at commit \texttt{a4fe84e} and compiled with \texttt{javac} (OpenJDK 27) against fastutil
+8.5.12 and dk.brics.automaton 1.12-4 from Maven Central; Python 3.9 with sympy 1.14, mpmath, numpy 2.0 and
+python-flint was used.
+
+\subsection{\Walnut{} scripts}
+Each script was run with its comment lines removed, and the sequence of \TRUE/\FALSE{} answers was compared with
+the recorded output. The automata of \texttt{python/make\_uniform.py} were regenerated and found identical to the
+committed ones; the other automata were taken from the repository.
+\begin{center}\small\begin{tabular}{lll}\toprule
+Script & answers (T = \TRUE, F = \FALSE) & equal to record\\\midrule
+\texttt{walnut/groupA\_uniform} & TTTF & yes\\
+\texttt{walnut/groupA\_nonuniform\_A284677} & 17 T, then FF & yes\\
+\texttt{walnut/groupA\_nonuniform\_A285076} & 17 T, then FF & yes\\
+\texttt{walnut/groupA\_nonuniform\_A285358} & 17 T, then FF & yes\\
+\texttt{walnut/groupB\_sqrt13\_A284368} & 21 T, FF, TT, FF & yes\\
+\texttt{walnut/groupB\_sqrt13\_A284386} & 21 T, FF, TT, FF & yes\\
+\texttt{A161580} & TTF & yes\\
+\texttt{A007413} & TTTTTTF & yes\\
+\texttt{A006068} & TTTTTF & yes\\
+\texttt{A006165} & 14 T, F & yes\\
+\texttt{A060973} & TTTTTTF & yes\\
+\texttt{A118006} & TTF & yes\\
+\texttt{fibtransform/base}, \texttt{fib} & TTT; 10 T, F, TTTT & yes\\
+\texttt{A297469} & 11 T, FF, TTTT & yes\\
+\texttt{A297464} & 12 T, F, T & yes\\
+\texttt{A299405} & 11 T, F, TTTT, F & yes\\\bottomrule
+\end{tabular}\end{center}
+
+\subsection{Python checks}
+All $74$ check scripts of \texttt{python/} and \texttt{conjectures/} were run. $73$ exit normally and print the
+expected confirmations, six of them after being re-run from the folder they read their data from, or with their
+size argument; the remaining one, \texttt{A288997/dfao.py}, is a helper for an open case that needs an automaton
+file as argument (for example: ``OK pour $n<4000$'' for \oeis{A000139}, the
+counterexamples $n=8\,933\,313$ and $n=2\,977\,771$ in exact integers for \oeis{A284364}, ``n = 1..300 : OK'' for the
+Sturm count of \oeis{A347171}, $a(5000)/a(4999)=-1.405177106052044\ldots$ for \oeis{A225132}, ``0 échec'' for the
+$90$ complementary equations, ``ALL B-FILES OK'' for the b-files of Part~\ref{part:one}). Scripts that read their
+data with a path relative to \texttt{conjectures/} were run from that folder. Not run: the crawler, the
+generators called by other scripts, and \texttt{A022558/tilescope.py} (an open case).
+
+The four entries added to the branch on the same day (commit \texttt{7194295}) were checked in the same way:
+\texttt{A022344/check.py} ($4\,563$ pairs, no failure), \texttt{A083207/check.py} (maximal gap $12$ below
+$10^5$), \texttt{A155200/check.py} ($n\le300$), and for \oeis{A033485} the base values were recomputed from
+\texttt{beta.c} ($E_{27}=4.106847$, $E_{28}=4.161768$, equal to the values used) and \texttt{bootstrap.py 10001}
+reproduces the recorded iteration. The Sturm count of \oeis{A347171} was re-run up to $n=300$: OK.
+
+\subsection{Independent re-checks of the falsity claims}
+On the same day, the data and the conjectures of every entry declared false in Part~\ref{part:two} and
+Sections~\ref{s:A074355}, \ref{s:beatty} and~\ref{s:A299405} were fetched from the OEIS, and the counterexamples
+were recomputed by a separate short program (not from the repository) from the printed data and constants: all
+agree. The anti-tetranacci system was regenerated from its definition by a third program, which gives
+$c(26)=113$ and the same $3\,333$ failures below $2\cdot10^5$.
+
+\section{Catalogue of the \Ntotal{} entries}\label{a:catalogue}
+Result: true, false (as stated), mixed, or true for $n\ge2$. Method: H hand proof, W \Walnut, X exact discrepancy
+computation with certificate, P Perron frequencies, S exact symbolic reduction, C explicit counterexample,
+R published theorem applied.
+{\small\begin{longtable}{p{1.6cm}p{3.2cm}p{5.6cm}p{1.6cm}p{1.0cm}p{0.8cm}}\toprule
+Entry & Conjecture by & Statement & Result & Method & Sect.\\\midrule\endhead
+\tinput tables/catalogue.tex 
+\bottomrule\end{longtable}}
+
+\section{The 90 complementary equations}\label{a:compeq}
+$a(n)$ is given by the right side below for $n\ge n_0$; ``labelled'' means that the limit is written as a
+conjecture in the entry (only those are counted).
+{\small\begin{longtable}{lll}\toprule
+Entry & $a(n)=$ & labelled\\\midrule\endhead
+\tinput tables/compeq.tex 
+\bottomrule\end{longtable}}
+
+\section{Draft comments for the OEIS}\label{a:drafts}
+For each entry, the repository contains a draft comment in the format of the OEIS, reproduced here as it stands.
+The drafts of the original note (\texttt{drafts/}) come first, then those of the branch \texttt{conjectures}.
+Where a draft still reads ``Nov xx 2026'', the date is filled in at submission. The drafts for \oeis{A284364},
+\oeis{A284365}, \oeis{A284366} (published), \oeis{A284677}, \oeis{A045671} and \oeis{A045672} (under review) have
+already been submitted.
+\tinput tables/drafts.tex 

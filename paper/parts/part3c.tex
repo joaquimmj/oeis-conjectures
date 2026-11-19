@@ -1,0 +1,176 @@
+\section{Arithmetic and generating functions}\label{s:arith}
+\subsection{Parity of \oeis{A000139} and \oeis{A007226}}\label{s:A000139}
+Bala (2025): $a(n)=2(3n)!/((2n+1)!(n+1)!)$ is odd if and only if $n\in\oeis{A022341}=\{4f+1:f\text{ fibbinary}\}$.
+\begin{proof} By Legendre, $\nu_2(m!)=m-s(m)$, so $\nu_2(a(n))=s(n)+s(n+1)-s(3n)$, using $s(2n+1)=s(n)+1$. Let $t$ be the
+number of trailing $1$s of $n$ and $c$ the number of carries in $n+2n$. Then $s(n+1)=s(n)+1-t$ and
+$s(3n)=2s(n)-c$, so $\nu_2(a(n))=c+1-t$. If $t=0$ this is $\ge1$. If $t\ge2$, bits $1,\dots,t-1$ of $n$ and $2n$ are $1$,
+giving carries at positions $1,\dots,t-1$, and one more at bit $t$; so $c\ge t$. If $t=1$, $\nu_2=c$, which is $0$ if
+and only if $n$ and $2n$ share no $1$ bit, that is, $n$ is fibbinary. \end{proof}
+Bala (2023) for \oeis{A007226}: since $a(n)=(2n+1)\,\oeis{A000139}(n)$ (Chapoton, in the entry), the same
+criterion holds.
+
+\subsection{Periodicity modulo \texorpdfstring{$k$}{k}: \oeis{A004123}, \oeis{A006531}, \oeis{A080253}}\label{s:A004123}
+Bala conjectured that $a(n)\bmod k$ is eventually periodic with period dividing $\phi(k)$, for \oeis{A004123}
+(e.g.f.\ $1/(3-2e^x)$), \oeis{A006531} (semiorders) and \oeis{A080253}, and more generally for every integer
+sequence with e.g.f.\ $G(e^x-1)$, $G\in\mathbb{Z}[[x]]$.
+\begin{theorem} If $a$ has e.g.f.\ $G(e^x-1)$ with $G=\sum g_jx^j\in\mathbb{Z}[[x]]$, then for every $k\ge1$,
+$a(n)\bmod k$ is periodic from $n=\lceil\log_2k\rceil$ on, with a period dividing the Carmichael function
+$\lambda(k)$, hence dividing $\phi(k)$.\end{theorem}
+\begin{proof} $(e^x-1)^j/j!=\sum_nS(n,j)x^n/n!$, so $a(n)=\sum_jg_j\,j!\,S(n,j)$. Since $k\mid j!$ for $j\ge k$,
+$a(n)\equiv\sum_{j<k}g_j\sum_{i\le j}(-1)^{j-i}\binom jii^n\equiv\sum_{i<k}c_ii^n\pmod k$ with integers $c_i$. For each
+$i$ write $k=k_1k_2$ where $k_1$ contains the primes dividing $i$ and $\gcd(i,k_2)=1$; then $i^n\equiv0\pmod{k_1}$
+for $n\ge\log_2k_1$, and $i^n\bmod k_2$ has period the order of $i$, which divides $\lambda(k_2)\mid\lambda(k)$.
+\end{proof}
+For \oeis{A004123}, $g_j=2^j$. For \oeis{A006531}, $a(n)=(-1)^nb(n)$ with $g_j=(-1)^j\mathrm{Cat}(j)$, and the factor
+$(-1)^n$ has period $2\mid\lambda(k)$ for $k\ge3$. For \oeis{A080253}, $e^x/(2-e^{2x})=(1+u)/(1-2u-u^2)$ with
+$u=e^x-1$. The argument is classical (as for Fubini numbers), and gives the finer period $\lambda(k)$.
+
+\subsection{A Catalan parity (\oeis{A363308})}\label{s:A363308}
+Conjecture (2023): the coefficients of $C(xC(x)^3)$ are odd exactly at $n=0$ and the powers of $2$.
+\begin{proof} In $\mathrm{GF}(2)[[x]]$ let $P=\sum_{k\ge0}x^{2^k}$. Since $\mathrm{Cat}(m)$ is odd if and only if
+$m=2^k-1$, $C\equiv P/x$, and $P^2=P+x$. Let $y=xC^3$ and $A=1+P$, so $A^2=A+x$ and
+$y\equiv C^2\cdot xC\equiv\frac{P+x}{x^2}P=\frac{P+x+xP}{x^2}$. A direct computation gives $(P+x+xP)(1+x+P)=x^2P$,
+so $yA^2=P=A+1$, that is $A=1+yA^2$. Since $F=C(y)$ is the unique series with $F=1+yF^2$ ($y$ has valuation $1$),
+and this identity reduces modulo $2$, $C(y)\equiv1+\sum x^{2^k}\pmod2$. \end{proof}
+
+\subsection{Five formulas for the 3-adic valuation of central Delannoy numbers (\oeis{A358360})}\label{s:A358360}
+$a(n)=\nu_3(D(n))$. We use two theorems of Alekseyev, Amdeberhan, Shallit and Vukusic~\cite{AASV}: (Th.~4)
+$a(2m)=\nu_3\binom{2m}m$ and $a(2m+1)=1+\nu_3(2m+1)+\nu_3\binom{2m}m$; (Th.~6, $p=3$) $a(3n+r)=a(n)+(n\bmod2)$ for
+$r\in\{0,2\}$ and $a(3n+1)=a(n)+1-(n\bmod2)$.
+\begin{proof}[Proof of Oudra's five formulas (2026)] (4) $a(2n)=\oeis{A000989}(n)$ is Th.~4. (5)
+$a(2n+1)=\oeis{A000989}(n)+\oeis{A254046}(n+1)$: \oeis{A254046} satisfies $b(3j)=b(3j+1)=1$, $b(3j+2)=1+b(j+1)$, and so
+does $1+\nu_3(2m-1)$, because $2(3j)-1$ and $2(3j+1)-1$ are prime to $3$ and $2(3j+2)-1=3(2(j+1)-1)$. (3)
+$a(n)=\oeis{A000989}(\lfloor(n+1)/2\rfloor)+\oeis{A168570}(n+1)$, where $\oeis{A168570}(k)=\nu_3(2^k-1)$ is $0$ for odd
+$k$ and $1+\nu_3(j)$ for $k=2j$ (LTE); with $\binom{2m+2}{m+1}=\binom{2m}m\cdot2(2m+1)/(m+1)$ this is Th.~4. (2)
+$a(n)=\sum_{k\ge0}(\lfloor n/3^k\rfloor\bmod2)$: the right side $g$ has $g(0)=0$ and $g(3n+r)=((3n+r)\bmod2)+g(n)$, which
+is the recursion of Th.~6. (1) $a(n)=\sum_{k\le n}(-1)^{k+1}\oeis{A051064}(k)$ with $\oeis{A051064}(k)=\#\{j:3^j\mid k\}$:
+exchanging the sums gives $\sum_j\sum_{i\le\lfloor n/3^j\rfloor}(-1)^{i+1}=g(n)$, since $3^j$ is odd. \end{proof}
+
+\subsection{Shevelev's conjecture in \oeis{A014664}}\label{s:A014664}
+If $p$ is not a Wieferich prime, $\mathrm{ord}_{p^k}(2)=\mathrm{ord}_p(2)\,p^{k-1}$. This is classical: with
+$d=\mathrm{ord}_p(2)$, non-Wieferich is equivalent to $2^d\not\equiv1\pmod{p^2}$ (if $2^d=1+pt$ with $p\nmid t$ then
+$2^{p-1}\equiv1+mpt$ with $m=(p-1)/d$ prime to $p$), the lifting-the-exponent lemma gives
+$\nu_p(2^{dp^i}-1)=1+i$, and the order modulo $p^k$, of the form $dp^i$, is $dp^{k-1}$. We count it because the
+entry still calls it a conjecture; the contribution is nil.
+
+\subsection{Coefficients of the polynomials \texorpdfstring{$\nu(n)$}{nu(n)} (\oeis{A074355}--\oeis{A074360})}\label{s:A074355}
+$\nu(0)=1$, $\nu(1)=b$, $\nu(n)=b\,\nu(n-1)+\lambda(1+q+\dots+q^{n-2})\nu(n-2)$; $c_j(n)=[q^j]\nu(n)$, $C_j(x)=\sum c_j(n)x^n$.
+For $n\ge2$, $c_j(n)=bc_j(n-1)+\lambda\sum_{i=0}^{\min(j,n-2)}c_{j-i}(n-2)$, hence
+\[ C_j(x)(1-bx-\lambda x^2)=[j=0]+\lambda x^2\sum_{i=1}^j\Bigl(C_{j-i}(x)-\sum_{m<i}c_{j-i}(m)x^m\Bigr), \]
+a triangular system with $C_0=1/(1-bx-\lambda x^2)$.
+\begin{theorem} (a) For \oeis{A074355} ($b=1$, $\lambda=3$, $j=1$) Stephan's generating function
+$(9x^4+3x^3)/(1-3x-3x^2)^2$ is false (its $x^4$ coefficient is $27$, while $a(4)=15$); the correct one is
+$(9x^4+3x^3)/(1-x-3x^2)^2$. (b) The generating functions conjectured in \oeis{A074356}, \oeis{A074357} ($b=1$,
+$\lambda=3$, $j=2,3$) and \oeis{A074358}, \oeis{A074359}, \oeis{A074360} ($b=\lambda=2$, $j=1,2,3$) by Mathar, Wu
+and Barker are true, as are Barker's recursion of order $6$ for \oeis{A074356} and his closed form and recursion of
+order $4$ for \oeis{A074358}.\end{theorem}
+\begin{proof} (a) From the system, $C_1(1-x-3x^2)=3x^2(C_0-1)=3x^2(x+3x^2)/(1-x-3x^2)$. (b) \texttt{A074357/solve.py}
+solves the system exactly and compares with each conjecture: the differences vanish. The denominator
+$(1-2x-2x^2)^2$ gives the order-$4$ recursion of \oeis{A074358} for $n>4$; Barker's closed form satisfies it (double
+roots $1\pm\sqrt3$) and agrees for $n\le40$. The denominator $(1-x-3x^2)^3$ and a numerator of degree $7$ give the
+order-$6$ recursion of \oeis{A074356} for $n>7$. \end{proof}
+
+\section{Elementary identities}\label{s:elem}
+\subsection{Layman's closed form (\oeis{A070864})}\label{s:A070864}
+$a(1)=a(2)=1$, $a(n)=2+a(n-a(n-1))$. Layman (2002): with $K=\lfloor\sqrt{n+1}\rfloor$ and $d=n-K^2+1$,
+$a(n)=2K-1$ if $d\in\{0,1,2\}$ or $d$ is even, and $2K+1$ otherwise. The entry also has equivalent formulas of
+Cloitre and Curgus, without written proof.
+\begin{theorem} For $k\ge1$, $a(k^2)=2k-1$ and $a(k^2-i)=2k-2-(-1)^i$ for $1\le i\le2k-2$; equivalently
+$a(n)=2\lfloor\sqrt n\rfloor-(-1)^{n+\lceil\sqrt n\rceil}$ (Curgus), and Layman's formula holds.\end{theorem}
+\begin{proof} Strong induction on $n\ge3$, $n=k^2-i$, $0\le i\le2k-2$. If $i=0$: $a(n-1)=2k-1$, $n-a(n-1)=(k-1)^2$,
+$a(n)=2k-1$. If $i=2k-2$, $n=(k-1)^2+1$: $a(n-1)=2k-3$ and $n-a(n-1)=(k-2)^2+1$, where $a=2k-5$, so $a(n)=2k-3$. If
+$1\le i\le2k-3$: $a(n-1)=2k-2+(-1)^i$ and $n-a(n-1)=(k-1)^2-i'$ with $i'=i-1+(-1)^i$; for odd $i\ge3$, $i'$ is odd in
+$[1,2k-4]$ and $a(n)=2k-1$; for $i=1$, $n-a(n-1)=(k-1)^2+1$ and $a(n)=2k-1$; for even $i$, $i'=i$ and $a(n)=2k-3$.
+For Layman's form, $n\in[K^2-1,(K+1)^2-2]$ and $d\in[0,2K]$; for $d\le2$, $a(n)=2K-1$; for $d\ge3$,
+$n=(K+1)^2-i$ with $i=2K+2-d$, so $a(n)=2K-(-1)^d$. \end{proof}
+
+\subsection{Group sums of the lazy Fibonacci representation (\oeis{A112310})}\label{s:A112310}
+Adamson (2010): grouping the terms into groups of $F(k)$ terms, the sums are $1,3,7,15,30,\ldots=\oeis{A023610}$.
+\begin{theorem} For $k\ge2$ the sum of the $k$-th group is $\oeis{A023610}(k-2)$ (the first group, $(0)$, has sum
+$0$).\end{theorem}
+\begin{proof} The lazy representation of $n\ge1$ is the unique $n=\sum w_iF(i+1)$ with $w=w_1\cdots w_L$ a binary
+word without $00$ and $w_L=1$ (Brown 1965). Words of length $L$ represent exactly the $F(L+1)$ integers of
+$(F(L+2)-2,F(L+3)-2]$, so group $k$ is the set of $n$ whose word has length $L=k-1$. Read from the leading digit, a
+word of $W(L)$ ($L\ge3$) is $1$ followed by a word of $W(L-1)$ or $10$ followed by a word of $W(L-2)$, so the total
+number $T(L)$ of $1$s satisfies $T(L)=T(L-1)+T(L-2)+F(L+1)$, $T(1)=1$, $T(2)=3$: the recursion of \oeis{A023610}.
+\end{proof}
+
+\subsection{Short identities}\label{s:small}
+\begin{itemize}
+\item \oeis{A055246} (Jeffery 2015), from $a(n)=1+6c(n)$, $c=\oeis{A005836}$: the rules $1$, $x\mapsto3x-2$,
+  $x\mapsto3x+4$ come from $c\mapsto3c$, $3c+1$; $a(n)=2\,\oeis{A191107}(n)-1$ since $\oeis{A191107}=1+3c$;
+  $a(n)=6\,\oeis{A003278}(n)-5$; and $a(n)=(a((2n-1)2^{k-1})+2)/3^k$, since $(2n-1)2^{k-1}-1$ is $n-1$ followed by
+  $0$ and $k-1$ ones in binary, so $c((2n-1)2^{k-1})=3^kc(n)+(3^{k-1}-1)/2$.
+\item \oeis{A003278} (Jeffery): $a(n)=c(n)+1=(\oeis{A191107}(n)+2)/3=(\oeis{A055246}(n)+5)/6$.
+\item \oeis{A006364} (Yanev 2016): the terms come in pairs $\{2j,2j+1\}$ with $j$ evil, and the $i$-th evil number is
+  $2i+t(i)$; the formula follows by checking $n=2i+1$ and $n=2i+2$.
+\item \oeis{A034448} (Yanev 2017): $\mathrm{usigma}(n)=\sigma(n^2/\mathrm{rad}\,n)/\sigma(n/\mathrm{rad}\,n)$; both sides
+  are multiplicative and at $p^e$ the right side is $(p^{2e}-1)/(p^e-1)=p^e+1$.
+\item \oeis{A003959} (Stephan 2013): $a(p^e)=(p+1)^e$ gives the Euler product
+  $\prod_p(1-p^{-s}-p^{1-s})^{-1}$ for $\Re s>2$.
+\end{itemize}
+
+\subsection{Eight further statements}\label{s:batch8}
+\begin{enumerate}
+\item \oeis{A373308}: $\prod_{n\ge0}(1-x^{2^n})=\sum(-1)^{t(n)}x^n$, and in $\mathbb{F}_3[[x]]$ the cube of $\sum s_nx^n$
+  with $s_n=\pm1$ is $\sum s_nx^{3n}$; so $a(3n)\equiv(-1)^{t(n)}\equiv\oeis{A001285}(n)\pmod3$, and $a(n)\equiv0$ if
+  $3\nmid n$.
+\item \oeis{A000918} (Jeffery): $\nu_2(\mathrm{Cat}(m))=s(m+1)-1$ by Kummer, and the least $m+1$ of weight $n$ is
+  $2^n-1$, so the least $m$ with $\nu_2(\mathrm{Cat}(m))=n-1$ is $2^n-2$.
+\item \oeis{A048881} (Kimberling): the $n$-th word of \oeis{A076478} is the binary expansion of $n+1$ without its
+  leading $1$, so its digit sum is $\mathrm{wt}(n+1)-1$.
+\item \oeis{A059906} (Yanev): $a(n)=j(n)$ collects the bits of odd rank of $n$. In
+  $S(i)=\sum_{k=1}^i(-1)^{k+1}2^{i-k+\lfloor k/2\rfloor}$ the terms $k=2m-1$ and $2m$ cancel, so $S(i)=0$ for even $i$ and
+  $2^{(i-1)/2}$ for odd $i$, which gives the first formula; the second follows by summation by parts.
+\item \oeis{A073089} (Yanev): with $g(m)=\sum_{d\mid m}d\phi(d)$ multiplicative and $\oeis{A057661}(m)=(1+g(m))/2$, the
+  computation of $g$ modulo $4$ prime by prime shows that \oeis{A057661}$(m)$ is even if and only if
+  $[2\mid m]+[o(m)\equiv3\pmod4]$ is odd, where $o(m)$ is the odd part; this is the formula of the entry.
+\item \oeis{A284388} (Beck): after its first term, \oeis{A284388} is $\oeis{A026465}-1$. With $\sigma:0\mapsto1$,
+  $1\mapsto001$ and $\rho':0\mapsto010$, $1\mapsto01110$ (the run rule of Thue--Morse with lengths decreased by $1$),
+  $01\,\sigma^2(a)=\rho'(a)\,01$ for each letter, hence $01\,\sigma^2(Y)=\rho'(Y)$ for infinite $Y$; writing the
+  $0$-limiting word as $X=0Y$, $\sigma^2(X)=X$ gives $Y=01\,\sigma^2(Y)=\rho'(Y)$.
+\end{enumerate}
+
+\subsection{Nine identities of Yanev}\label{s:yanev}
+\begin{enumerate}
+\item \oeis{A129527}: $a(n)=2n-\mathrm{odd}(n)$, since $f(n)=2n-\mathrm{odd}(n)$ satisfies $f(2n+1)=2n+1$,
+  $f(2n)=f(n)+2n$, $f(0)=0$.
+\item \oeis{A173614}: $\mathrm{lcm}_{p\mid n}(p-1)=\lambda(\mathrm{rad}\,n)$.
+\item \oeis{A023887}: $\sigma_m(n)=\sigma(n^m\mathrm{rad}(n)^{m-1})/\sigma(\mathrm{rad}(n)^{m-1})$; both sides are
+  multiplicative, and at $p^e$ both equal $(p^{m(e+1)}-1)/(p^m-1)$.
+\item \oeis{A055210}: $\sum_{d^2\mid n}\phi(d^2)=\sigma_2(n/\mathrm{core}\,n)/\sigma_1(n/\mathrm{core}\,n)$; at $p^e$ with
+  $t=\lfloor e/2\rfloor$ both are $(p^{2t+1}+1)/(p+1)$.
+\item \oeis{A367865}: $\sum_{d\mid n}d\phi(d)\mu(d)^2=(\mathrm{rad}\,n/n)\sum_{k\le n}\mathrm{rad}(nk)/\mathrm{rad}(k)$; the
+  summand depends on $k\bmod\mathrm{rad}\,n$, and both sides equal $\prod_{p\mid n}(p^2-p+1)$.
+\item \oeis{A090079}: $a(n)=(2^{r+1}+[n\text{ odd}]-2)/3$, $r=\oeis{A005811}(n)$: $a(n)$ is the alternating word
+  $1010\cdots$ of length $r$.
+\item \oeis{A163617}: $a(n)=g(n)+(6n+1-(-1)^n)/4$ with $g$ the Gray code: both sides satisfy $R(2n)=2R(n)$,
+  $R(2n+1)=2R(n)+2+(-1)^n$, $R(0)=0$.
+\item \oeis{A285385}: $a(n+1)=a(n)+\oeis{A096268}(a(n)-1)+1$, by the characterisation of Section~\ref{s:A072939}
+  and $\oeis{A096268}(m-1)=\nu_2(m)\bmod2$.
+\item \oeis{A179504}: $\sigma_n(2n)=\sigma_n(n)\bigl((2^n-1)/(2^{n(v+1)}-1)+2^n\bigr)$, $v=\nu_2(n)$, since the ratio is
+  $\sigma_n(2^{v+1})/\sigma_n(2^v)$.
+\end{enumerate}
+
+\section{Two further arithmetic statements}\label{s:late}
+\subsection{Hanna's valuation conjecture (\oeis{A155200})}\label{s:A155200}
+Let $A(x)=\sum a(n)x^n=\exp\bigl(\sum_{n\ge1}2^{n^2}x^n/n\bigr)$. Hanna (2009) conjectured $\nu_2(a(n))=s_2(n)$.
+\begin{theorem} For every $n\ge0$, $a(n)/2^{s_2(n)}$ is an odd integer.\end{theorem}
+\begin{proof} Write $A=\exp(2x)\,R(x)$ with $R=\exp\bigl(\sum_{n\ge2}2^{n^2}x^n/n\bigr)=\sum r(t)x^t$. By Legendre,
+$\nu_2(2^j/j!)=s_2(j)$. The coefficient $r(t)$ is a sum, over $k\ge1$ and decompositions $t=n_1+\dots+n_k$ with
+$n_i\ge2$, of $\prod_i(2^{n_i^2}/n_i)/k!$; since $\nu_2(k!)\le k-1$ and $n^2-\nu_2(n)\ge n+1$ for $n\ge2$, each term has
+valuation $\ge\sum(n_i+1)-(k-1)=t+1$, so $\nu_2(r(t))\ge t+1$ for $t\ge1$. In
+$a(n)=\sum_{t=0}^n\frac{2^{n-t}}{(n-t)!}r(t)$ the term $t=0$ has valuation $s_2(n)$, and for $t\ge1$ the valuation is
+at least $s_2(n-t)+t+1\ge s_2(n-t)+s_2(t)+1\ge s_2(n)+1$. \end{proof}
+
+\subsection{Zumkeller numbers in short intervals (\oeis{A083207})}\label{s:A083207}
+A comment of 2010 states that $12$ consecutive integers always contain a Zumkeller number (one whose divisors can
+be split into two parts of equal sum).
+\begin{proposition} This is true, and $12$ is optimal.\end{proposition}
+\begin{proof} For $a\ge1$, $3\cdot2^a$ is Zumkeller: $\sigma(3\cdot2^a)=4(2^{a+1}-1)$ and
+$\{3\cdot2^a,2,4,\dots,2^{a-1}\}$ has sum $2^{a+2}-2=\sigma/2$. If $q$ is Zumkeller and $\gcd(q,m)=1$, the partition
+$D(q)=A\sqcup B$ gives $D(qm)=A\,D(m)\sqcup B\,D(m)$ with equal sums. Twelve consecutive integers contain two
+consecutive multiples of $6$, $6x$ and $6x+6$; one of $x$, $x+1$ is prime to $3$, so one of them is $n=3\cdot2^am$ with
+$a\ge1$ and $\gcd(m,6)=1$, which is Zumkeller. The gap $12$ occurs below $10^5$. \end{proof}
+This is an immediate corollary of a fact already in the entry (Ianakiev: $2^q3^rs$ is Zumkeller for odd $r$ and
+$\gcd(s,6)=1$); the contribution is modest.

@@ -1,227 +1,72 @@
-% Preprint, not peer reviewed.
+% Preprint, not peer reviewed. Tables in paper/tables/ are produced by paper/make_tables.py.
 \documentclass[11pt]{article}
-\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
 \usepackage[margin=1in]{geometry}
 \usepackage[hidelinks]{hyperref}
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
 \newcommand{\oeis}[1]{\href{https://oeis.org/#1}{#1}}
+\newcommand{\Walnut}{\textsc{Walnut}}
+\newcommand{\TRUE}{\textsc{true}}
+\newcommand{\FALSE}{\textsc{false}}
+\input{tables/counts.tex}
+\makeatletter\let\tinput\@@input\makeatother
+\setcounter{tocdepth}{2}
+\emergencystretch=3em
 
-\title{Exact discrepancy bounds for some binary morphic words:\\ on conjectures of Kimberling and Mathar in the OEIS}
+\title{Proofs and disproofs of \Ntotal{} conjectures in the OEIS\\[4pt]
+\large Binary morphic words, Kimberling's discrepancy and limit conjectures,\\ complementary equations, and
+individual problems}
 \author{Joaquim Manji-Jung\\ Paris}
-\date{November 16, 2026\\[2pt] {\small Preprint, not peer reviewed}}
+\date{November 19, 2026\\[2pt] {\small Preprint, not peer reviewed}}
 
 \begin{document}\maketitle
 
 \begin{abstract}
-For eight binary morphisms appearing in nine OEIS entries, Kimberling conjectured bounds of the form
-$\ell < nr - a(n) < h$, where $a(n)$ is the position of the $n$-th occurrence of a letter in the fixed point
-and $1/r$ is the frequency of that letter. We compute the exact infimum and supremum of $nr-a(n)$ in all
-sixteen cases (eight morphisms, two letters) and show that neither is ever attained. The conjectured bounds
-hold for eight of the nine entries. For \oeis{A284364}, and for the companion entries \oeis{A284365} and
-\oeis{A284366} that state it with positions, the conjecture is false: the smallest counterexample is
-$n = 2\,977\,771$, and it can be checked with one line of integer arithmetic. We also prove four equalities
-between sequences conjectured by Mathar, one of which (\oeis{A284677}) holds only after an index shift.
-The method is the classical one based on Dumont--Thomas numeration; several statements are also proved
-with the Walnut prover.
+We settle conjectures stated in \Ntotal{} entries of the On-Line Encyclopedia of Integer Sequences (OEIS):
+\Ntrue{} are true, \Nfalse{} are false as stated, \Nmixed{} are partly true and partly false, and \Ntwo{} holds
+only from $n=2$ on. The conjectures come from about thirty contributors, among them C.~Kimberling,
+R.~J.~Mathar, P.~Bala, V.~Kotesovec, V.~Shevelev, R.~Stephan, D.~Callan, P.~Hadjicostas, V.~Yanev and
+N.~J.~A.~Sloane. Highlights include the number of real roots of the Doche--Mend\`es France polynomials
+(\oeis{A347171}); Hadjicostas' Josephus conjecture for every step $k$ (\oeis{A005427}, \oeis{A120160});
+Kotesovec's growth exponent for the Schreier-type sequence \oeis{A371176}; Gutkovskiy's linear growth for the
+nested recursions $a(n)=n-a(\lfloor a(n-1)/k\rfloor)$ for every $k$ (\oeis{A366860} and two others);
+$80$ of Kimberling's discrepancy conjectures $\ell<nr-a(n)<h$ for binary morphic words, of which $63$ are
+true (in most cases with the exact infimum and supremum) and $16$ false, with explicit counterexamples
+such as $n=2\,977\,771$ for \oeis{A284364}; and a counterexample
+$c(26)=113$ to the bounds stated for the anti-tetranacci system (\oeis{A299405}). The tools are hand proofs,
+the \Walnut{} prover, exact computation with certificates in $\mathbb{Q}(\sqrt d)$, Perron--Frobenius
+frequencies and exact computer algebra. Every computational claim was re-run on November 19, 2026 from the
+public repository.
 \end{abstract}
 
-\section{Introduction}
-Many OEIS entries describe fixed points of binary morphisms and the positions of their letters. For a
-fixed point $x$ in which the letter $L$ has frequency $1/r$, the position $a(n)$ of the $n$-th $L$ is close
-to $nr$, and in 2017 Kimberling conjectured explicit bounds on the difference $nr-a(n)$ for a family of such
-words. No proof was given.
+\tableofcontents
+\newpage
 
-In this note we compute the exact values of
-\[ \inf_{n\ge1}\bigl(nr-a(n)\bigr)\qquad\text{and}\qquad \sup_{n\ge1}\bigl(nr-a(n)\bigr) \]
-in closed form in $\mathbb{Q}(\sqrt d)$, for each of the sixteen cases, using the symbolic discrepancy method
-of Dumont and Thomas~\cite{DT} and Adamczewski~\cite{Ad}, in the form used by Fokkink and Joshi~\cite{FJ}
-for \oeis{A284753}. The main outcomes are:
-\begin{itemize}
-\item the conjectured bounds are true for \oeis{A283963}, \oeis{A283966}, \oeis{A284386}, \oeis{A284368},
-  \oeis{A284369}, \oeis{A284505}, \oeis{A045671} and \oeis{A045672} (Theorem~\ref{t:table});
-\item the conjectured bound for \oeis{A284364}, \oeis{A284365} and \oeis{A284366} is false, first at
-  $n = 2\,977\,771$ (Theorem~\ref{t:counter});
-\item four equalities between sequences stated by Mathar hold, the one for \oeis{A284677} after
-  correcting an index (Section~\ref{s:mathar}).
-\end{itemize}
+\input{parts/intro.tex}
 
-\section{Method}\label{s:method}
-Let $\sigma$ be a morphism on $\{0,1\}$, prolongable on a letter $s$, with fixed point
-$x=\sigma^\omega(s)=x_0x_1\cdots$, incidence matrix $M$ and eigenvalues $\lambda>1>|\lambda'|$, with
-$\lambda$ a quadratic irrational. For a letter $L$ let $a(n)$ be the position (starting at $1$) of the
-$n$-th $L$ in $x$, and let $1/r$ be the frequency of $L$. Put
-\[ D(n)=nr-a(n). \]
+\part{Binary morphic words: the original note}\label{part:one}
+\input{parts/part1.tex}
 
-\begin{lemma}\label{l:eigen} Let $f(q)=r\,q_L-(q_0+q_1)$ for $q\in\mathbb{Z}^2$. Then $f(Mq)=\lambda' f(q)$.\end{lemma}
-\begin{proof} The form $f$ vanishes on the $\lambda$-eigenvector $v$ of $M$ (the frequency vector), and so
-does $f\circ M$. In dimension $2$ the linear forms vanishing on $v$ are the multiples of $f$, so
-$f\circ M=\mu f$ for some $\mu$. Evaluating on a $\lambda'$-eigenvector $w$, where $f(w)\ne0$, gives
-$\mu=\lambda'$. \end{proof}
+\part{Kimberling's discrepancy and limit conjectures}\label{part:two}
+\input{parts/part2.tex}
 
-By Dumont and Thomas~\cite{DT}, each $m\ge 0$ corresponds to a unique path
-$(c_k,d_k),\dots,(c_0,d_0)$ in the prefix automaton (the states are the letters, $c_k=s$, and the edges
-are $c\xrightarrow{d}\sigma(c)_d$ for $0\le d<|\sigma(c)|$) such that
-\[ x_0\cdots x_{m-1}=\sigma^k(p_k)\cdots\sigma(p_1)p_0, \]
-where $p_i$ is the prefix of length $d_i$ of $\sigma(c_i)$; the end state is $x_m$. With
-$g(c,d)=f(\text{Parikh vector of the prefix of length $d$ of }\sigma(c))$, Lemma~\ref{l:eigen} gives
-\begin{equation}\label{e:D}
-D(n)= r-1+\sum_{i=0}^{k}\lambda'^{\,i}\,g(c_i,d_i)\qquad (m=a(n)-1).
-\end{equation}
+\part{Individual theorems}\label{part:three}
+\input{parts/part3a.tex}
+\input{parts/part3b.tex}
+\input{parts/part3c.tex}
 
-\begin{lemma}\label{l:fixed} Let $S_c$ and $I_c$ be the supremum and the infimum of
-$\sum_i\lambda'^i g(c_i,d_i)$ over all paths from $s$ ending in $c$. If $\lambda'<0$, then $(S,I)$ is the
-unique bounded solution of
-\[ S_{c'}=\max\bigl(\{0 : c'=s\}\cup\{\lambda' I_c+g(c,d)\}\bigr),\qquad
-   I_{c'}=\min\bigl(\{0 : c'=s\}\cup\{\lambda' S_c+g(c,d)\}\bigr), \]
-where the max and min range over the edges $c\xrightarrow{d}c'$. \end{lemma}
-\begin{proof} A path ending in $c'$ is either empty (when $c'=s$) or a path ending in some $c$ followed by
-an edge $c\xrightarrow{d}c'$, which changes the sum $v$ into $\lambda' v+g(c,d)$. Since $\lambda'<0$,
-multiplying by $\lambda'$ exchanges suprema and infima, which gives the equations. The right-hand side is
-a contraction of ratio $|\lambda'|<1$ for the sup norm, so the bounded solution is unique. \end{proof}
+\part{Families settled by a common argument}\label{part:four}
+\input{parts/part4.tex}
 
-Since the end state of the path of $m=a(n)-1$ is $x_m=L$, it follows from~\eqref{e:D} that
-\[ \sup_n D(n)=S_L+r-1,\qquad \inf_n D(n)=I_L+r-1. \]
-In each case the system of Lemma~\ref{l:fixed} is solved by guessing which edge realises each max and min,
-solving the resulting linear system over $\mathbb{Q}(\sqrt d)$, and checking the finitely many remaining
-inequalities exactly; by uniqueness the solution is then the true one. All case analyses use exact
-arithmetic in $\mathbb{Q}(\sqrt d)$, with no floating point.
+\part{Prior work, partial results and open cases}\label{part:five}
+\input{parts/part5.tex}
 
-\paragraph{Non-attainment.} A finite path attains $S_{c'}$ (resp.\ $I_{c'}$) if and only if $c'=s$ and
-the value $0$ is extremal, or some edge $c\xrightarrow{d}c'$ realises the max (resp.\ min) in
-Lemma~\ref{l:fixed} and a finite path attains $I_c$ (resp.\ $S_c$). The set of nodes that are attained is
-therefore a least fixed point over the tight edges, which we compute exactly: it does not contain the
-letter $L$ in any of the sixteen cases. As an independent check, a shortest attaining path repeats no node,
-so it has at most three edges, and an exact scan of the first $5000$ letters finds no equality.
+\appendix
+\input{parts/appendix.tex}
 
-\section{Results}\label{s:results}
-\begin{theorem}\label{t:table} For the following morphisms $0\mapsto u$, $1\mapsto w$ and letters, the
-exact extreme values of $D(n)=nr-a(n)$, $n\ge1$, are given in the table. Neither bound is attained:
-$\inf D<D(n)<\sup D$ for all $n\ge1$.\end{theorem}
-\begin{center}\small\begin{tabular}{llllll}\toprule
-OEIS & morphism $(u,w)$ & letter & $r$ & $\inf D$ & $\sup D$\\\midrule
-\oeis{A283963} & $1,\ 1010$ & 0 & $(3+\sqrt3)/2$ & $-(3+\sqrt3)/6$ & $(3+\sqrt3)/3$\\
-        &            & 1 & $\sqrt3$ & $(-3+\sqrt3)/3$ & $(3+\sqrt3)/3$\\
-\oeis{A283966} & $1,\ 10101$ & 0 & $(7+\sqrt{17})/4$ & $-1/2$ & $(5+\sqrt{17})/4$\\
-        &             & 1 & $(-1+\sqrt{17})/2$ & $(-7+\sqrt{17})/4$ & $(1+\sqrt{17})/4$\\
-\oeis{A284364} & $1,\ 101010$ & 0 & $(9+\sqrt{21})/6$ & $-(12+2\sqrt{21})/15$ & $(6+\sqrt{21})/5$\\
-        &              & 1 & $(-1+\sqrt{21})/2$ & $(-9+\sqrt{21})/5$ & $(6+\sqrt{21})/5$\\
-\oeis{A284386} & $1,\ 1101$ & 0 & $(5+\sqrt{13})/2$ & $(1+\sqrt{13})/6$ & $(7+\sqrt{13})/6$\\
-        &            & 1 & $(-1+\sqrt{13})/2$ & $(-5+\sqrt{13})/6$ & $(1+\sqrt{13})/6$\\
-\oeis{A284368} & $1,\ 1011$ & 0 & $(5+\sqrt{13})/2$ & $(1+\sqrt{13})/3$ & $(4+\sqrt{13})/3$\\
-        &            & 1 & $(-1+\sqrt{13})/2$ & $(-5+\sqrt{13})/3$ & $(-2+\sqrt{13})/3$\\
-\oeis{A284369} & $1,\ 1001$ & 0 & $(3+\sqrt3)/2$ & $-(3+\sqrt3)/2$ & $2+\sqrt3$\\
-        &            & 1 & $\sqrt3$ & $-2$ & $1+\sqrt3$\\
-\oeis{A284505} & $1,\ 1100$ & 0 & $(3+\sqrt3)/2$ & $-(9+5\sqrt3)/6$ & $(6+2\sqrt3)/3$\\
-        &            & 1 & $\sqrt3$ & $-(3+\sqrt3)/3$ & $(6+2\sqrt3)/3$\\
-\oeis{A045672} & $11,\ 1110$ & 0 & $(5+\sqrt{17})/2$ & $-(9+\sqrt{17})/16$ & $(27+3\sqrt{17})/16$\\
-\oeis{A045671} & $11,\ 1110$ & 1 & $(1+\sqrt{17})/4$ & $-(9+\sqrt{17})/32$ & $(27+3\sqrt{17})/32$\\\bottomrule
-\end{tabular}\end{center}
-
-\begin{corollary} Kimberling's conjectured bounds hold for \oeis{A283963}, \oeis{A283966},
-\oeis{A284386}, \oeis{A284368}, \oeis{A284369}, \oeis{A284505}, \oeis{A045671} and \oeis{A045672}.
-\end{corollary}
-
-\begin{remark} Three points of reading. (i) In all these entries except \oeis{A045671} and
-\oeis{A045672}, the conjecture is written with the counting function $u(n)$ in place of the position
-$a(n)$; read literally, that form is false, and we use the reading with positions throughout. (ii) In
-\oeis{A284386} the constant $r$ must be $(5+\sqrt{13})/2$. (iii) For \oeis{A284369}, the conjectured lower
-bound $-2$ for the letter 1 is the exact infimum; it is not attained since $n\sqrt3\notin\mathbb{Q}$.
-\end{remark}
-
-\section{The counterexample for A284364}\label{s:counter}
-\begin{theorem}\label{t:counter} Let $x$ be the fixed point of $0\mapsto 1$, $1\mapsto 101010$
-(\oeis{A284364}), and let $a_0(n)$, $a_1(n)$ be the positions of the $n$-th $0$ and the $n$-th $1$. The
-conjectured bound $D(n)<2$ is false for both letters:
-$\sup D=(6+\sqrt{21})/5=2.1165\ldots$, and the smallest $n$ with $D(n)>2$ are
-\[ n=2\,977\,771\ \ (\text{letter }1,\ a_1(n)=5\,334\,043),\qquad
-   n=8\,933\,313\ \ (\text{letter }0,\ a_0(n)=20\,222\,898), \]
-with $D(n)=2.00487\ldots$ in both cases.\end{theorem}
-
-The companion entries \oeis{A284365} (positions of $0$) and \oeis{A284366} (positions of $1$) state the
-conjecture directly with the positions, as $-2<nr-a_0(n)<2$ and $-1<ns-a_1(n)<2$ with
-$r=(9+\sqrt{21})/6$ and $s=(-1+\sqrt{21})/2$, so these two values of $n$ refute them as written.
-
-\paragraph{Elementary verification.} The counterexamples can be checked without any of the theory above.
-Generate the first $2.1\cdot10^7$ letters of $x$ and test $D(n)>2$ in integers: since both sides are
-positive,
-\[ n\,\tfrac{\sqrt{21}-1}{2}-a_1(n)>2 \iff 21n^2>(2a_1(n)+4+n)^2,\qquad
-   n\,\tfrac{9+\sqrt{21}}{6}-a_0(n)>2 \iff 21n^2>(6a_0(n)+12-9n)^2. \]
-The script \texttt{python/independent\_check.py}, written from the OEIS definitions only, does exactly this.
-
-\paragraph{Mean value.} Eldar's conjecture in \oeis{A284364}, that the asymptotic mean of the sequence is
-$(\sqrt{21}+1)/10$, is true: this mean is the frequency $1/s$ of the letter $1$, which exists because the
-morphism is primitive.
-
-\section{Equalities conjectured by Mathar}\label{s:mathar}
-\begin{proposition}\label{p:mathar} The following hold.
-\begin{enumerate}
-\item $\oeis{A284948}(n)=\oeis{A096268}(n-2)$ for $n\ge2$.
-\item $\oeis{A285358}(n)=\oeis{A284929}(n+1)$ for $n\ge1$.
-\item $\oeis{A285076}(n)=\oeis{A285073}(n)$ for $n\ge3$.
-\item $\oeis{A284677}(n)=\oeis{A284674}(n)$ for $n\ge3$. The stated form
-  $\oeis{A284677}(n)=\oeis{A284674}(n-1)$ is false: $\oeis{A284677}(6)=0$ while $\oeis{A284674}(5)=1$.
-\end{enumerate}
-\end{proposition}
-Item 1 is proved with Walnut~\cite{Mo,Sh}, both sequences being automatic. Items 2--4 have short proofs
-by hand, given below; they were also proved with Walnut, using a Dumont--Thomas numeration whose adder
-is validated inside Walnut by axioms (addition total, functional, commutative, with $x+0=x$ and compatible
-with the successor).
-
-\begin{proof}[Proof of item 2] Let $\sigma: 0\mapsto10,\ 1\mapsto1101$ with fixed point $x$ starting with $1$
-(\oeis{A285358}), and $\tau: 0\mapsto01,\ 1\mapsto1011$ with fixed point $y$ starting with $0$
-(\oeis{A284929}). Then $\sigma(a)1=1\tau(a)$ for $a\in\{0,1\}$, hence $\sigma(w)1=1\tau(w)$ for every finite
-word $w$. If $p$ is a prefix of $y$, then $\tau(p)$ is a prefix of $y$, so $\sigma(p)$ is a prefix of $1y$;
-therefore $\sigma(y)=1y$. Writing $y=0z$, we get $10\,\sigma(z)=10\,z$, so $\sigma(z)=z$. Since $z$ starts
-with $1$ and the fixed point of $\sigma$ starting with $1$ is unique, $z=x$. \end{proof}
-
-\begin{proof}[Proof of items 3 and 4] Let $\psi: 0\mapsto10,\ 1\mapsto010$. Then $\psi^2$ has exactly two
-fixed points, $b$ starting with $01$ (\oeis{A285073}) and $a$ starting with $10$ (\oeis{A285076}), and
-$\psi(a)=b$, $\psi(b)=a$. Write $a=10c$ and $b=01c'$. From $b=\psi(a)$ and $a=\psi(b)$ we get
-$c'=010\,\psi(c)$ and $c=010\,\psi(c')$. The map $G(w)=010\,\psi(010\,\psi(w))$ fixes both $c$ and $c'$,
-and if two infinite words agree on their first $k$ letters, their images under $G$ agree on at least $k+8$
-letters. Hence $G$ has at most one infinite fixed point, and $c=c'$. This is item 3; it is also implicit in
-a 2017 comment of Dekking.
-
-For item 4, take $\psi: 0\mapsto1,\ 1\mapsto0111$, with $b=\oeis{A284674}$ starting with $01$ and
-$a=\oeis{A284677}$ starting with $10$. The same computation gives $a=10t$, $b=01t'$ with $t'=111\,\psi(t)$ and
-$t=111\,\psi(t')$, and the same uniqueness argument with $G(w)=111\,\psi(111\,\psi(w))$ gives $t=t'$.
-\end{proof}
-
-\section{Mechanical proofs for the cases in \texorpdfstring{$\mathbb{Q}(\sqrt{13})$}{Q(sqrt 13)}}
-For \oeis{A284386} and \oeis{A284368}, the four conjectured bounds also have a proof that does not rely on
-the exact computation of Section~\ref{s:method}. In Dumont--Thomas numeration, Walnut proves that the
-positions $p$ of each letter are quasi-additive: for all $i,j\ge1$,
-\[ p(i)+p(j)+A\le p(i+j)\le p(i)+p(j)+B, \]
-with $(A,B)=(0,2)$ and $(-1,1)$ for the letters $0$ and $1$ of \oeis{A284386}, and $(1,3)$ and $(-1,1)$ for
-\oeis{A284368}; tightening $A$ or $B$ by one gives \textsc{false}. By Fekete's lemma $p(n)/n$ tends to a
-limit $\ell$ with $A\le n\ell-p(n)\le B$ for all $n$. Walnut also proves that the number $Z$ of zeros
-satisfies $Z(f(n))=n-Z(n)$, where $f(n)=n+3(n-Z(n))$, which gives the density $(5-\sqrt{13})/6$ of the
-letter $0$ and hence $\ell=r$. Finally $\ell$ is irrational, so $n\ell-p(n)$ is never an integer and the
-inequalities are strict: $A<nr-p(n)<B$, which are Kimberling's bounds. This argument gives integer bounds
-only, so it reaches the conjectures exactly because $\sup D-\inf D=1$ in these four cases.
-
-\section{Remarks}
-The equality for \oeis{A285383} is due to Ashburn~\cite{As}. Beatty sequences
-$\lfloor n\alpha+\beta\rfloor$ with quadratic $\alpha$ can be handled in Walnut through Ostrowski
-numeration~\cite{SSZ}; we did not find how to use this for the non-unimodular morphisms considered here.
-
-\paragraph{Status and data.} All numerical statements were derived twice, by the exact computation and by
-an independent program written from the OEIS definitions only. The proofs have not been refereed. The
-counterexample of Theorem~\ref{t:counter} was submitted to the OEIS on November 15, 2026, as comments on
-\oeis{A284364}, \oeis{A284365} and \oeis{A284366}, and is under review at the date above. Code, Walnut
-scripts and raw outputs are available at \url{https://github.com/joaquimmj/oeis-walnut}.
-
-\begin{thebibliography}{9}\small
-\bibitem{Ad} B. Adamczewski, Symbolic discrepancy and self-similar dynamics, \emph{Ann. Inst. Fourier} 54 (2004), 2201--2234.
-\bibitem{As} A. Ashburn, Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words, arXiv:2610.04842, 2026.
-\bibitem{DT} J.-M. Dumont and A. Thomas, Syst\`emes de num\'eration et fonctions fractales relatifs aux substitutions, \emph{Theoret. Comput. Sci.} 65 (1989), 153--169.
-\bibitem{FJ} R. Fokkink and G. Joshi, On Cloitre's hiccup sequences, arXiv:2507.16956, 2025.
-\bibitem{Mo} H. Mousavi, Automatic theorem proving in Walnut, arXiv:1603.06017, 2016.
-\bibitem{SSZ} L. Schaeffer, J. Shallit and S. Zorcic, Beatty sequences for a quadratic irrational: decidability and applications, \emph{Discrete Math.} 349 (2026), 115183; arXiv:2402.08331.
-\bibitem{Sh} J. Shallit, \emph{The Logical Approach to Automatic Sequences}, Cambridge University Press, 2022.
-\end{thebibliography}
+\input{parts/biblio.tex}
 \end{document}

@@ -1,0 +1,193 @@
+\section{Discrepancy bounds: further entries}\label{s:kimb}
+In 2017 Kimberling added to several hundred OEIS entries on binary morphic words a conjecture
+$\ell<nr-a(n)<h$, where $a(n)$ is the position of the $n$-th occurrence of a letter and $1/r$ is its
+frequency. Part~\ref{part:one} treats the nine entries whose morphisms appear in our original note. Here the
+same method (Section~\ref{s:method}, script \texttt{python/discrepancy\_exact.py}, unchanged) is applied to
+all other entries of this kind that we found and that were not already settled. For each entry the positions
+computed from the morphism are compared with the data of the entry, and the constant $r$ stated by
+Kimberling is compared with $1/f_L$ computed exactly from the Perron eigenvector.
+
+When an entry speaks of a ``$c$-limiting word'' of $\sigma$ (because $\sigma(c)$ does not begin with $c$),
+the word is the fixed point of $\sigma^2$ beginning with $c$, and the method is applied to $\sigma^2$.
+
+\paragraph{Attainment.} In every case below $r$ is irrational, so $D(n)=nr-a(n)$ is irrational for $n\ge1$ and
+is never equal to an integer bound. When a conjectured integer bound equals the exact infimum or supremum,
+the strict inequality is therefore true and the bound is optimal. A non-integer bound equal to $r$ cannot be
+attained either, since $D(n)=r$ would give $(n-1)r=a(n)$.
+
+\subsection{First series: fixed points}
+\begin{theorem}\label{t:kimb1} For the following entries the exact extreme values of $D(n)$ are as
+stated, and Kimberling's conjecture is true.\end{theorem}
+\begin{center}\small\begin{tabular}{llllll}\toprule
+OEIS & morphism, letter & $r$ & $\inf D$ & $\sup D$ & conjecture\\\midrule
+\oeis{A026363} & $0\to11$, $1\to101$, 1 & $(1+\sqrt3)/2$ & $-1$ & $(1+\sqrt3)/2$ & $(-1,2)$\\
+\oeis{A026364} & $0\to11$, $1\to101$, 0 & $2+\sqrt3$ & $-1$ & $2+\sqrt3$ & $(-1,4)$\\
+\oeis{A026368} & $0\to11$, $1\to110$, 0 & $2+\sqrt3$ & $-1-\sqrt3/3$ & $2+2\sqrt3/3$ & $(-2,4)$\\
+\oeis{A284753} & $0\to01$, $1\to0001$, 1 & $1+\sqrt3$ & $-2$ & $1+\sqrt3$ & $(-2,3)$\\
+\oeis{A284894} & $0\to01$, $1\to0111$, 0 & $2+\sqrt2$ & $1+\sqrt2$ (at $n=1$) & $3+2\sqrt2$ & $(2,6)$\\
+\oeis{A285669} & $0\to11$, $1\to1101$, 0 & $(5+\sqrt{17})/2$ & $(-7+\sqrt{17})/16$ & $(29+5\sqrt{17})/16$ & $(-1,4)$\\\bottomrule
+\end{tabular}\end{center}
+For \oeis{A284753}, \oeis{A284894} and \oeis{A285669} only boundedness was known (Dekking, from
+Adamczewski's theorem~\cite{Ad}). Dekking notes in \oeis{A284753} that it would imply
+$-1<n(1+\sqrt3)/2-\oeis{A026363}(n)<3/2$; this stronger statement is true, since $\sup=(1+\sqrt3)/2<3/2$.
+
+\subsection{Second series: limiting words}
+\begin{theorem}\label{t:kimb2} For the following entries Kimberling's conjecture is true, with the exact
+extreme values shown.\end{theorem}
+\begin{center}\small\begin{tabular}{llllll}\toprule
+OEIS & $\sigma$, start, letter & $\inf D$ & $\sup D$ & conjecture\\\midrule
+\oeis{A026367} & $0\to11$, $1\to110$; letter 1 & $-(3+\sqrt3)/6$ & $1+\sqrt3/3$ & $(-1,2)$\\
+\oeis{A284654} & $0\to1$, $1\to0110$; 0-limit, letter 0 & $-1$ & $(3+\sqrt3)/2$ & $(-1,3)$\\
+\oeis{A284675} & $0\to1$, $1\to0111$; 0-limit, letter 0 & $(1+\sqrt{13})/2$ & $(3+\sqrt{13})/2$ & $(2,4)$\\
+\oeis{A284676} & same, letter 1 & $(-5+\sqrt{13})/2$ & $(-3+\sqrt{13})/2$ & $(-1,4)$\\
+\oeis{A284678} & $0\to1$, $1\to0111$; 1-limit, letter 0 & $(1+\sqrt{13})/2$ & $(3+\sqrt{13})/2$ & $(2,4)$\\
+\oeis{A284679} & same, letter 1 & $(-5+\sqrt{13})/2$ & $(-3+\sqrt{13})/2$ & $(-1,1)$\\
+\oeis{A285032} & $0\to10$, $1\to001$; 0-limit, letter 0 & $-1+\sqrt2/4$ & $1/2+3\sqrt2/4$ & $(-1,2)$\\
+\oeis{A285035} & $0\to10$, $1\to001$; 1-limit, letter 0 & $-1+\sqrt2/4$ & $1/2+3\sqrt2/4$ & $(-1,2)$\\
+\oeis{A285036} & same, letter 1 & $-3/2+\sqrt2/2$ & $1/2+\sqrt2$ & $(-1,2)$\\
+\oeis{A285082} & $0\to10$, $1\to011$; 0-limit, letter 1 & $-1$ & $1$ & $(-1,1)$\\
+\oeis{A285084} & $0\to10$, $1\to011$; 1-limit, letter 0 & $0$ & $r=(3+\sqrt5)/2$ & $(0,r)$\\
+\oeis{A285275} & $0\to10$, $1\to0111$; 0-limit, letter 0 & $0$ & $3+2\sqrt2$ & $(0,6)$\\
+\oeis{A285278} & $0\to10$, $1\to0111$; 1-limit, letter 0 & $0$ & $3+2\sqrt2$ & $(0,6)$\\
+\oeis{A285419} & $0\to11$, $1\to011$; 0-limit, letter 0 & $-1+\sqrt3/3$ & $2+4\sqrt3/3$ & $(-1,5)$\\\bottomrule
+\end{tabular}\end{center}
+In \oeis{A285082} and \oeis{A285084} both conjectured bounds are the exact infimum and supremum, and
+neither is attained.
+
+\subsection{Third series}
+The third series contains the companion entries of the words of Part~\ref{part:one} (\oeis{A283964},
+\oeis{A283967}, \oeis{A284370}, \oeis{A284506}, \oeis{A285359}) and further families. In the table, $\tau$ is
+the morphism to which the method is applied ($\sigma^2$ for a limiting word), with the first letter of the
+fixed point in parentheses, followed by the letter whose positions are listed. All the values of $r$ stated
+in these entries agree with $1/f_L$, except in \oeis{A285279} (Section~\ref{s:kimbfalse}).
+\begin{theorem}\label{t:kimb3} For each entry in the following table, Kimberling's conjecture is true,
+and the exact infimum and supremum of $D(n)$ are the values shown.\end{theorem}
+{\footnotesize\setlength{\tabcolsep}{4pt}\begin{longtable}{llllll}\toprule
+OEIS & $\tau$ (start), letter & $r$ & $\inf D$ & $\sup D$ & conj.\\\midrule\endhead
+\tinput tables/kimb3.tex 
+\oeis{A284015} & $0\to1,1\to10101$ (1), 1 & $\tfrac{-1+\sqrt{17}}{2}$ & $\tfrac{-7+\sqrt{17}}{4}$ & $\tfrac{1+\sqrt{17}}{4}$ & $(-1,2)$\\\bottomrule
+\end{longtable}}
+
+\subsection{False conjectures}\label{s:kimbfalse}
+\begin{theorem}\label{t:kimbfalse} The conjectures of the following entries are false as stated. The value
+of $n$ is the first one for which $D(n)$ lies outside the conjectured interval, computed in exact arithmetic
+with the constant $r$ stated in the entry; in each case $a(n)$ is in the data of the entry.\end{theorem}
+\begin{center}\small\begin{tabular}{llllll}\toprule
+OEIS & stated $r$ & conjecture & $n$ & $a(n)$ & $D(n)$\\\midrule
+\oeis{A285129} & $1.3903\ldots$ & $(-1,1)$ & 2 & 4 & $-1.219\ldots$\\
+\oeis{A285130} & $3.5621\ldots$ & $(-1,3)$ & 2 & 3 & $4.124\ldots$\\
+\oeis{A285134} & $1+\sqrt{1/3}$ & $(-1,1)$ & 2 & 2 & $2\sqrt3/3$\\
+\oeis{A285135} & $1+\sqrt3$ & $(-1,1)$ & 1 & 4 & $-3+\sqrt3$\\
+\oeis{A285137} & $1+\sqrt{1/3}$ & $(-1,1)$ & 3 & 6 & $-3+\sqrt3$\\
+\oeis{A285138} & $1+\sqrt3$ & $(-1,\sqrt3)$ & 2 & 3 & $-1+2\sqrt3$\\
+\oeis{A285140} & $(3+\sqrt3)/3$ & $(-1,1)$ & 2 & 2 & $2\sqrt3/3$\\
+\oeis{A285141} & $1+\sqrt3$ & $(-1,1)$ & 6 & 15 & $-9+6\sqrt3$\\
+\oeis{A285143} & $(3+\sqrt3)/3$ & $(-1,1)$ & 12 & 20 & $-8+4\sqrt3$\\
+\oeis{A285144} & $1+\sqrt3$ & $(-1,\sqrt3)$ & 2 & 3 & $-1+2\sqrt3$\\
+\oeis{A285279} & $2+\sqrt2$ & $(0,6)$ & 4 & 6 & $2+4\sqrt2$\\\bottomrule
+\end{tabular}\end{center}
+For \oeis{A285138} and \oeis{A285144}, $D(1)=\sqrt3$ is equal to the bound, and the first strict violation is
+at $n=2$. For \oeis{A285279} the stated $r$ is not the inverse frequency, which is $\sqrt2$. Each
+counterexample was re-checked on November 19, 2026 against the data of the entry, with the constant as
+printed there. \oeis{A285129} and \oeis{A285130} come from the non-Pisot morphism $0\mapsto10$,
+$1\mapsto0000$ of Section~\ref{s:A285126} (its $1$-limiting word).
+
+\begin{proposition} The conjecture $-1+\sqrt2<n(1+\sqrt2)-a(n)<\sqrt2$ of \oeis{A285078} is false for $n=1$,
+where $a(1)=1$ and $D(1)=\sqrt2$, and true for all $n\ge2$; both bounds are the exact infimum and supremum
+over $n\ge2$.\end{proposition}
+This is the same phenomenon as the one noted by Dekking for \oeis{A285074}.
+
+\subsection{A non-Pisot morphism}\label{s:A285126}
+\begin{proposition} Let $\sigma:0\mapsto10$, $1\mapsto0000$, and let \oeis{A285125} be its $0$-limiting word
+(the fixed point of $\sigma^2$ beginning with $0$). The conjectures $0<nr-a(n)<1$ of \oeis{A285126} and
+$-3<ns-b(n)<0$ of \oeis{A285127}, with $r=1.39038\ldots$ and $s=3.56155\ldots$ the inverse frequencies,
+are false: $3r-a(3)=3r-3=1.171\ldots$ and $2s-b(2)=2s-11=-3.876\ldots$. Moreover the discrepancy is
+unbounded.\end{proposition}
+\begin{proof} The counterexamples are in the data. The incidence matrix has eigenvalues $(1\pm\sqrt{17})/2$,
+and the second one, $-1.56\ldots$, has modulus larger than~$1$. The Perron eigenvector is
+$(4,\lambda-1)$ with $\lambda=(1+\sqrt{17})/2$, which gives the frequencies. By the representation
+\eqref{e:D} with $|\lambda'|>1$, $D$ is unbounded; numerically, on $3\cdot10^6$ letters, $nr-a(n)$ reaches
+$1017.3$ and $ns-b(n)$ reaches $-2603.3$. \end{proof}
+
+\subsection{Transforms of the Fibonacci word}\label{s:fibtr}
+Let $F=\oeis{A003849}$ be the Fibonacci word, fixed point of $0\mapsto01$, $1\mapsto0$, and let
+$T_1:0\mapsto1,1\mapsto001$, $T_2:0\mapsto1,1\mapsto010$, $T_3:0\mapsto1,1\mapsto011$.
+\begin{theorem}\label{t:fibtr} The following conjectures of Kimberling are true:
+\begin{itemize}
+\item \oeis{A287676} (positions of $1$ in $T_1(F)$): $-1<n(4-\sqrt5)-a(n)<2$; moreover Liu's formula
+  $a(n)=5n+2-2\lfloor(n+1)\varphi\rfloor$ holds, so $n(4-\sqrt5)-a(n)=\sqrt5-1-2\{(n+1)\varphi\}$, with exact
+  bounds $\sqrt5-3$ and $\sqrt5-1$;
+\item \oeis{A287724} (positions of $1$ in $T_2(F)$): $0<n(4-\sqrt5)-a(n)<3$;
+\item \oeis{A287723} (positions of $0$ in $T_2(F)$): $-1<n(7+\sqrt5)/4-a(n)<1$;
+\item \oeis{A287727} (positions of $1$ in $T_3(F)$): $-1<n(15-\sqrt5)/10-a(n)<1$.
+\end{itemize}\end{theorem}
+\begin{proof}[Proof (\Walnut, Fibonacci numeration; \texttt{fibtransform/fib.wal})] The map
+$n\mapsto\lfloor n\varphi\rfloor$ is defined through the Zeckendorf shift, and \Walnut{} checks that it is
+strictly increasing and that $\{\lfloor n\varphi\rfloor\}$ and $\{\lfloor n\varphi\rfloor+n\}$ partition the
+positive integers, which characterises it (Lambek--Moser). The number of $1$s in $F[0..i)$ is
+$2i+1-\lfloor(i+1)\varphi\rfloor$ (checked by induction in \Walnut), so the block $T(F[i])$ starts at
+$1+i+2\cdot\mathrm{ones}(i)$, and the positions of the letters follow block by block; these are checked to be
+functions of $n$ and to agree with the data. The constants are in $\mathbb{Q}(\varphi)$:
+$4-\sqrt5=5-2\varphi$, $(7+\sqrt5)/4=(\varphi+3)/2$, $(15-\sqrt5)/10=(8-\varphi)/5$, and each inequality
+becomes an integer comparison with $\lfloor n\varphi\rfloor$ or $\lfloor2n\varphi\rfloor$, because
+$n\varphi$ is irrational. All four statements and Liu's formula are \TRUE; the control with a tightened bound
+is \FALSE. \end{proof}
+
+\section{Limit conjectures \texorpdfstring{$a(n)/n\to m$}{a(n)/n -> m}}\label{s:limits}
+\begin{lemma}[Queffélec~\cite{Qu}]\label{l:perron} Let $\sigma$ be a primitive substitution and $x$ a fixed
+point of a power of $\sigma$. Every letter $L$ has a frequency $f_L$ in $x$, equal to the $L$-component of the
+Perron eigenvector of the incidence matrix normalised to sum $1$. Hence the position $a(n)$ of the $n$-th
+$L$ satisfies $a(n)/n\to1/f_L$. More generally every factor $u$ has a frequency, given by the Perron
+eigenvector of the substitution induced on blocks of length $|u|$.\end{lemma}
+
+\subsection{Morphic words}
+For each entry below the morphism is primitive ($M^2$ or $M^3$ has positive entries, checked), the positions
+recomputed from the morphism agree with the data, and $1/f_L$ is computed exactly and compared symbolically
+with the stated limit. For transforms $\{00\to0,11\to1\}$ of a word made of aligned pairs, the frequency is the
+one of the base word.
+\begin{theorem}\label{t:limits} The limits stated by Kimberling are true for the entries marked ``true'' and
+false for those marked ``false'' (the limit exists but has another value).\end{theorem}
+{\small\begin{longtable}{lllll}\toprule
+OEIS & exact limit $1/f_L$ & stated limit & observed & result\\\midrule\endhead
+\tinput tables/limits.tex 
+\bottomrule\end{longtable}}
+The column ``observed'' is $a(N)/N$ at the end of the data computed (about $2.5\cdot10^5$ terms). In the false
+cases the stated value is the limit of another entry of the same family (for instance $(7+\sqrt{13})/6$ for a
+word whose eigenvalue is in $\mathbb{Q}(\sqrt3)$), which suggests a copying slip.
+
+\subsection{Transforms of the Thue--Morse word}\label{s:tm}
+For a word $u$ and a letter $c$, $\{u\to c\}(\mathrm{TM})$ replaces each occurrence of $u$ in the Thue--Morse
+word by $c$, from left to right. The occurrences used ($u\in\{00,11,01,10,011,101,0011,1001,1100\}$) cannot
+overlap, since an overlap would create a factor $axaxa$, and the Thue--Morse word is overlap-free. If $f_u$
+is the frequency of $u$, the frequency of $L$ in the transform is
+\[ \frac{1/2-|u|_L f_u+[c=L]f_u}{1-(|u|-1)f_u}, \]
+and the $f_u$ are computed exactly by Lemma~\ref{l:perron} (eigenvalue $2$), then checked empirically.
+\begin{theorem} The limits stated by Kimberling are true for the following entries, except \oeis{A285964},
+where the stated value $4/5$ is impossible ($a(n)\ge n$) and the true limit is $5/4$.\end{theorem}
+\begin{center}\small\begin{longtable}{lllll}\toprule
+OEIS & transform, letter & exact limit & stated & result\\\midrule\endhead
+\tinput tables/tm.tex 
+\bottomrule\end{longtable}\end{center}
+For \oeis{A003157}, the identification with the positions of $1$ in \oeis{A286044} is the one given in the
+entry, checked on its data.
+
+\subsection{Non-aligned transforms}\label{s:runs}
+The greedy transform $\{00\to0,11\to1\}$ applied to the limiting words \oeis{A285565} and \oeis{A285568} of
+$0\mapsto11$, $1\mapsto0110$ maps each maximal run of $k$ equal letters to $\lceil k/2\rceil$ letters (checked on
+the data). The run frequencies are the frequencies of the factors $yx^ky$, computed exactly from the Perron
+eigenvector ($\lambda=1+\sqrt5$) of the substitution induced on blocks of length (maximal run $+2$).
+\begin{theorem} The limits $1+\sqrt5/2$ (letter $0$) and $1+2/\sqrt5$ (letter $1$) conjectured in
+\oeis{A285590}, \oeis{A285591}, \oeis{A285593} and \oeis{A285594} are true.\end{theorem}
+
+\subsection{Six limits equal to \texorpdfstring{$\varphi$}{phi}}\label{s:A285503}
+\begin{theorem} In \oeis{A285503}, \oeis{A285517}, \oeis{A285567}, \oeis{A285623}, \oeis{A285627} and
+\oeis{A285663}, $a(n)/n\to\varphi$.\end{theorem}
+\begin{proof} The words are limiting words or fixed points of $0\mapsto11$, $1\mapsto w$ with
+$w\in\{0011,0110,1001,1010,1100\}$; \oeis{A285517} reads \oeis{A285501} by pairs. All five morphisms have
+incidence matrix $M=\begin{pmatrix}0&2\\2&2\end{pmatrix}$, with $M^2>0$, Perron eigenvalue $1+\sqrt5$ and
+eigenvector $(2,1+\sqrt5)$. The frequency of $1$ is $(1+\sqrt5)/(3+\sqrt5)=1/\varphi$, and
+Lemma~\ref{l:perron} applies. For \oeis{A285517}, all images have even length and are made of the blocks $00$
+and $11$, so \oeis{A285501} is a sequence of aligned pairs and the pair word has the same frequency of
+$1$. \end{proof}
+The second eigenvalue $1-\sqrt5$ has modulus larger than $1$, so these words are not Pisot and
+$a(n)-n\varphi$ is unbounded: only the limit is true, not any bound on the discrepancy.

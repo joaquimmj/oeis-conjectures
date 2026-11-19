@@ -1,0 +1,306 @@
+\input{parts/A347171.tex}
+
+\section{The Josephus problem: Hadjicostas' conjectures}\label{s:A005427}
+\subsection{The general conjecture}
+Put $m$ people in a circle, numbered $1,\dots,m$, and remove every $k$-th person, starting the count at $1$.
+Let $J_k(m)$ be the survivor; it satisfies $J(1)=1$ and $J(m)=((J(m-1)+k-1)\bmod m)+1$. Let $T(1)=1$ and
+$T(n)=\lceil(T(1)+\dots+T(n-1))/(k-1)\rceil$, and $S(n)=T(1)+\dots+T(n)$. In a comment of July 22, 2020 in
+\oeis{A005427}, P.~Hadjicostas conjectured that the $m\ge k$ with $J_k(m)\in\{1,\dots,k-1\}$ are exactly the
+values $T(n)\ge k$, and wrote that he did not have a general proof. The cases in the OEIS are $k=2$ (powers
+of $2$), $k=3$ (\oeis{A073941}, \oeis{A005428}), $k=4$ (\oeis{A072493}, \oeis{A005427}) and $k=5,\dots,9$
+(\oeis{A120160}, \oeis{A120170}, \oeis{A120178}, \oeis{A120186}, \oeis{A120194}).
+
+\begin{theorem}\label{t:josephus} The conjecture is true for every $k\ge2$. Moreover, for $T(n)\ge k$,
+\[ J_k(T(n))=r_n+1,\qquad r_n=(k-1)T(n)-S(n-1)\in\{0,\dots,k-2\}. \]\end{theorem}
+
+\begin{proof} The number $r_n$ is the remainder of the ceiling, so $T(n+1)=T(n)+t_n$ with
+$t_n=\lceil(T(n)-r_n)/(k-1)\rceil$, and $r_{n+1}=r_n+(k-1)t_n-T(n)$.
+
+\emph{Small values and the base case.} While $T(n)\le k-1$, we have $t_n\in\{0,1\}$, since
+$T(n)-r_n\le k-1$; so $T$ takes each of the values $1,\dots,k-1$, possibly several times. For $v\le k-1$ let
+$Q(v)$ be the partial sum $S$ at the last occurrence of $v$. The next term is $v+1$ exactly when the sum
+exceeds $(k-1)v$, and the steps are equal to $v$, so $Q(v)\equiv Q(v-1)\pmod v$ and $Q(v)$ is the least
+integer $>(k-1)v$ in this class; hence $(k-1)v<Q(v)\le kv$, with $Q(0)=0$ and $Q(1)=k$.
+
+\emph{Claim:} $J(v)=kv+1-Q(v)$ for $1\le v\le k-1$. For $v=1$ both sides are $1$. If it holds for $v-1$, then
+$J(v-1)+k-1=kv-Q(v-1)$, and since $Q(v)\equiv Q(v-1)\pmod v$ and $0\le kv-Q(v)\le v-1$,
+$(J(v-1)+k-1)\bmod v=kv-Q(v)$, which gives $J(v)=kv-Q(v)+1$.
+
+After the last occurrence of $k-1$ the next term is $T(n_0)=k$, because $(k-1)^2<Q(k-1)\le k(k-1)$. Then
+$r_{n_0}=k(k-1)-Q(k-1)\in[0,k-2]$, and by the claim $J(k-1)+k-1=k(k-1)-Q(k-1)=r_{n_0}<k$, so
+$J(k)=r_{n_0}+1\le k-1$. Thus $T(n_0)=k$ is the first value $\ge k$, it is in the Josephus set, and the formula
+holds there.
+
+\emph{Induction.} For $m\ge k-1$ we have $J(m-1)\le m-1$, so $J(m-1)+k-1<2m$ and the count wraps around at
+most once per step. Suppose $J(m_0)=j=r_n+1$ with $m_0=T(n)\ge k$. For $s\le t_n-1=\lfloor(m_0-j)/(k-1)\rfloor$
+we have $j+(k-1)s\le m_0$ and $J(m_0+s)=j+ks\ge k+1$: none of these $m$ is in the set. For $s=t_n$ we have
+$j+kt_n-1\ge m_0+t_n$, so the count wraps and
+\[ J(m_0+t_n)=j+kt_n-(m_0+t_n)=r_n+1+(k-1)t_n-T(n)=r_{n+1}+1\in[1,k-1]. \]
+Since $m_0+t_n=T(n+1)$ and $t_n\ge1$ (because $T(n)\ge k>r_n$), the induction goes on, and the $m\ge k$ with
+$J(m)\le k-1$ are exactly the $T(n)\ge k$. \end{proof}
+
+\begin{remark} Hadjicostas expected Schuh's 1968 method for $k=3$ to help. The argument above is direct: the
+Josephus recursion, observed at the times when the survivor is small, coincides with the ceiling recursion
+defining $T$. This is the principle of the Burde--Thériault algorithm, with the explicit identification
+$j=r+1$, which closes the proof. We have not checked whether Burde (1987), Thériault or Odlyzko--Wilf
+(1991)~\cite{OW} contain the general statement. The script \texttt{A005427/check.py} checks the equality of the
+sets for $k=2,\dots,30$ and $m\le10^6$, the claim for $k\le60$, and the formula for $J$ for $T(n)\le2000$,
+$k\le60$.\end{remark}
+
+\subsection{Base \texorpdfstring{$(k+1)/k$}{(k+1)/k} digit counts}\label{s:A120160}
+Let $k\ge1$, $p=k+1$, $T(1)=1$ and $T(n)=\lceil S(n-1)/k\rceil$. For \oeis{A120160}, $k=4$ and the base is
+$5/4$. Hadjicostas (2020) conjectured in \oeis{A120160}: (Josephus) from $a(11)=5$ on, the terms are the
+$m$ whose Josephus survivor for step $5$ is in $\{1,2,3,4\}$; (1) $a(n)$ is the number of multiples of $k$
+with $n-1$ digits in base $p/k$ (in the sense of \oeis{A024634}); (2) $a(n)$ is the number of integers $\ge0$
+with $n$ digits, divided by $p$ ($0$ has one digit). In base $p/k$ the last digit of $N$ is $d=N\bmod p$ and the
+other digits are those of $N_1=k(N-d)/p$; for instance $36=4321031$ in base $5/4$.
+
+\begin{theorem}\label{t:A120160} For every $k\ge1$: the Josephus conjecture holds (it is the case $k+1$ of
+Theorem~\ref{t:josephus}); conjecture (2) is true for every $n\ge1$; conjecture (1) is true if only multiples
+$>0$ are counted, and with $0$ counted it fails only for $n=2$.\end{theorem}
+\begin{proof} For $N\ge1$ the parent of $N$ is $P(N)=k\lfloor N/p\rfloor$, and the length satisfies
+$\ell(N)=1+\ell(P(N))$, $\ell(0)=0$. Since $P$ is nondecreasing, so is $\ell$, and the integers of length $n$
+form an interval $I_n=[L_n,L_{n+1})$, with $I_1=\{1,\dots,k\}$. A multiple $kM\ge1$ has exactly $p$ children
+$pM,\dots,pM+k$, and every $N\ge p$ has a parent $\ge k$. So $I_{n+1}$ is the union of the blocks $[pM,pM+k]$
+for $kM\in I_n$. Hence $c_{n+1}=p\,m_n$, where $c_n=|I_n|$ and $m_n$ is the number of multiples of $k$ in $I_n$,
+and $L_{n+1}=pU_n$ with $U_n=\lceil L_n/k\rceil$. Then $U_{n+1}=\lceil pU_n/k\rceil=U_n+\lceil U_n/k\rceil$ and
+$m_n=U_{n+1}-U_n=\lceil U_n/k\rceil$. With $U_1=1=S(1)$ this is the recursion $S(n+1)=S(n)+\lceil S(n)/k\rceil$,
+so $U_n=S(n)$ and $m_n=T(n+1)$, which is conjecture (1) for positive multiples. The number of integers
+$\ge0$ with $n$ digits is $c_1+1=p=pT(1)$ for $n=1$ and $c_n=pm_{n-1}=pT(n)$ for $n\ge2$, which is
+conjecture (2). \end{proof}
+For $k=3$ (\oeis{A072493}) J.~Song announced a proof of the two digit conjectures in a comment of October
+14, 2026; the proof above holds for every $k$. Check: \texttt{A120160/base\_check.py} ($k=2,\dots,12$, all
+lengths below $16$ to $35$).
+
+\section{Schreier sets and Kotesovec's exponent (\oeis{A371176})}\label{s:A371176}
+Let $a(n)$ be the $n$-th integer $k\ge1$ with $\oeis{A000120}(k)\le\oeis{A001511}(k)$, that is, whose binary
+weight is at most the $2$-adic valuation plus one. Kotesovec (2025) conjectured that
+$\limsup\log a(n)/\log n=\log2/\log\varphi$.
+\begin{theorem}\label{t:A371176} $\log a(n)/\log n\to\log2/\log\varphi$; in particular the limit exists.\end{theorem}
+\begin{proof} (Branicky, in the entry.) To $k$ associate the set $X$ of positions of its $1$ bits, the least
+significant having position $1$. Then $\oeis{A000120}(k)=|X|$ and $\oeis{A001511}(k)=\min X$, so $k$ is a term
+if and only if $X$ is a non-empty Schreier set ($|X|\le\min X$), and $2^{m-1}\le k<2^m$ if and only if
+$\max X=m$.
+
+Let $s(m)$ be the number of Schreier sets with maximum $m$. We show $s(m)=F_m$. Clearly $s(1)=s(2)=1$. For
+$m\ge3$, the shift $X\mapsto X-1$ is a bijection from the Schreier sets of maximum $m$ with $|X|<\min X$ onto
+all Schreier sets of maximum $m-1$ (the inverse raises the minimum, so it preserves the condition). The
+remaining sets have $|X|=\min X=j$: they consist of $j$, $m$, and $j-2$ elements of $(j,m)$, so there are
+$\sum_j\binom{m-j-1}{j-2}=F_{m-2}$ of them, by $\sum_i\binom{N-i}{i}=F_{N+1}$. Hence $s(m)=s(m-1)+F_{m-2}$ and
+$s(m)=F_m$ by induction.
+
+So $N(m):=\#\{n:a(n)<2^m\}=\sum_{j\le m}F_j=F_{m+2}-1$. If $a(n)$ has $m$ bits, then $N(m-1)<n\le N(m)$, so
+$\varphi^m/C\le n\le C\varphi^m$ and $2^{m-1}\le a(n)<2^m$ for a constant $C$. Hence $\log a(n)=m\log2+O(1)$,
+$\log n=m\log\varphi+O(1)$, and the ratio tends to $\log2/\log\varphi$. \end{proof}
+Check: \texttt{A371176/check.py} (each step for $m\le22$). The convergence is slow (the ratio is $1.419$ at
+$n=46\,367$) because of the $O(1)/m$ term.
+
+\section{Nested recursions of Gutkovskiy}\label{s:A366860}
+For $k\ge1$ let $a_k(0)=0$ and $a_k(n)=n-a_k(\lfloor a_k(n-1)/k\rfloor)$. Gutkovskiy (2023) conjectured
+$a_k(n)\sim c_k n$ for $k=3,4,5$ (\oeis{A366860}, \oeis{A366870}, \oeis{A366871}). For $k=2$ this is
+\oeis{A286389}, settled by Shallit with \Walnut, and $k=1$ is Hofstadter's $G$-sequence \oeis{A005206}.
+\begin{theorem}\label{t:A366860} Let $\sigma_k:0\mapsto1^k$, $1\mapsto1^k0$, and let $w=w_1w_2\cdots$ be its
+fixed point beginning with $1$. Then $a_k(n)=w_1+\dots+w_n$ for all $n\ge0$. In particular
+$a_k(n)/n\to c_k=(\sqrt{k^2+4k}-k)/2$, the positive root of $c^2+kc-k$: $c_3=(\sqrt{21}-3)/2$,
+$c_4=2(\sqrt2-1)$, $c_5=(3\sqrt5-5)/2$.\end{theorem}
+\begin{proof} Let $b(n)=w_1+\dots+w_n$. Since the recursion determines $a_k$, it suffices to show
+$b(n)=n-b(\lfloor b(n-1)/k\rfloor)$ for $n\ge1$. As $w=\sigma(w)$, $w$ is the concatenation of the blocks
+$\sigma(w_1)\sigma(w_2)\cdots$; each block begins with $k$ letters $1$ and, when $w_j=1$, ends with a $0$, its only
+$0$. Fix $n\ge1$ and write the prefix of length $n-1$ as $j$ complete blocks followed by $r$ letters of block
+$j+1$, $0\le r<|\sigma(w_{j+1})|$. Then $b(n-1)=kj+r$ with $r\le k$, and $n-b(n)$, the number of $0$s in the
+prefix of length $n$, is the number of complete blocks of letter $1$ that it contains. If $r<k$, then
+$\lfloor b(n-1)/k\rfloor=j$ and letter $n$ is a $1$ of block $j+1$; that block is complete only if it is
+$\sigma(0)$, which has no $0$; so $n-b(n)=\#\{i\le j:w_i=1\}=b(j)$. If $r=k$, block $j+1$ is $\sigma(1)$ and letter
+$n$ is its final $0$; then $\lfloor b(n-1)/k\rfloor=j+1$ and $n-b(n)=b(j+1)$. In both cases
+$n-b(n)=b(\lfloor b(n-1)/k\rfloor)$.
+
+The matrix of $\sigma_k$ is primitive, so the frequency of $1$ exists and equals $\lambda/(1+\lambda)$ with
+$\lambda=(k+\sqrt{k^2+4k})/2$ (Lemma~\ref{l:perron}), which gives $c_k$. \end{proof}
+\begin{corollary} For every $n\ge1$, the partial sums of row $n$ of \oeis{A368281} (the fixed point of
+$0\mapsto1^n$, $1\mapsto1^n0$) form row $n$ of \oeis{A368282} ($b(0)=0$, $b(k)=k-b(\lfloor b(k-1)/n\rfloor)$), as
+conjectured in 2024.\end{corollary}
+The second eigenvalue $-k/\lambda$ has modulus less than~$1$, so $a_k(n)-c_kn$ is even bounded. For $k=2$
+this gives again Irvine's conjecture proved by Shallit. Check: \texttt{A366860/guess.py} ($k=2,\dots,7$ on
+$10^6$ terms, $k\le30$ on $10^5$ terms) and \texttt{A368281/check.py}.
+
+\section{Zeros of \texorpdfstring{$a(3n)$}{a(3n)} in Stern-like sequence \oeis{A005590}}\label{s:A005590}
+Let $a(0)=0$, $a(1)=1$, $a(2n)=a(n)$, $a(2n+1)=a(n+1)-a(n)$. Stephan (2003) conjectured that $a(3n)=0$ if and
+only if $n$ is fibbinary (\oeis{A003714}: no two adjacent $1$ bits).
+\begin{theorem}\label{t:A005590} This is true. Moreover, if $n$ is not fibbinary, $a(3n)$ is even and
+$|a(3n)|\ge2$.\end{theorem}
+\begin{proof} Let $u(n)=(a(3n),a(3n+1),a(3n+2),a(3n+3))$. The definition gives
+$u(2n)=B_0u(n)=(a_0,a_1-a_0,a_1,a_2-a_1)$ and $u(2n+1)=B_1u(n)=(a_2-a_1,a_2,a_3-a_2,a_3)$, with $u(0)=(0,1,1,0)$;
+so $u(n)$ is computed by reading the bits of $n$ from the most significant one. Let $P_m=(0,1,1,-2m)$ and
+$Q_m=(0,1,-2m-1,-2m)$. Then $B_0P_m=P_0$, $B_1P_m=Q_m$, $B_0Q_m=P_{m+1}$. Since $u(0)=P_0$, as long as the bits read
+contain no $11$, the state is some $P_m$ (after a $0$) or $Q_m$ (after a $1$); in particular $a(3n)=0$ if $n$ is
+fibbinary.
+
+Let $I$ be the set of vectors with $C_1=a_0(a_0-a_1)>0$, $C_2=a_1(a_1-a_2)>0$, $C_3=a_2(a_2-a_3)>0$. Under $B_0$
+the three quantities become $C_1+a_0^2$, $C_1$ and $C_2+a_1^2$; under $B_1$ they become $C_2$, $C_3+a_2^2$ and
+$C_3$. So $I$ is stable under $B_0$ and $B_1$. At the first $11$, the state is $B_1Q_m=(-2m-2,-2m-1,1,-2m)$,
+which is in $I$ ($C_1=2m+2$, $C_2=(2m+1)(2m+2)$, $C_3=2m+1$). Hence the state stays in $I$, and $I$ forces
+$a_0\ne0$: $a(3n)\ne0$ if $n$ is not fibbinary. Finally the parity pattern (even, odd, odd, even) is stable
+under $B_0$ and $B_1$ and holds for $(0,1,1,0)$, so $a(3n)$ is even, and $|a(3n)|\ge2$ in the second case.
+\end{proof}
+Checks: \texttt{A005590/check\_symbolic.py} (the identities, with sympy) and \texttt{A005590/check.py}
+(the statement and membership in $I$ for all $n<2^{21}$).
+
+\section{Golomb's sequence: Song's lower bound}\label{s:A001462}
+Let $a$ be Golomb's sequence ($n$ appears $a(n)$ times) and $\alpha=\varphi-1=1/\varphi$. Song (2021)
+conjectured $a(n)\ge n^{\varphi-1}$ for all $n\ge1$.
+\begin{theorem}\label{t:A001462} Let $S(m)=a(1)+\dots+a(m)=\oeis{A001463}(m)$. For all $m\ge1$,
+$m^\varphi/\varphi\le S(m)\le m^\varphi$. Consequently $a(n)\ge n^{\varphi-1}$ for all $n\ge1$, with equality only
+at $n=1$.\end{theorem}
+\begin{proof} $S(m)$ is the last position of the value $m$, so $a(n)=m$ for $S(m-1)<n\le S(m)$, and since
+$\varphi\alpha=1$, $a(n)\ge n^\alpha$ for all $n$ is equivalent to $S(m)\le m^\varphi$ for all $m$. We prove both
+inequalities by strong induction. They are checked by computation for $m\le20\,000$ (60 digits). Let $m>30$
+and assume the bounds below $m$. For $j\le m$ put $v=a(j)$; then $v\le a(m)<m$.
+
+Upper bound: $j>S(v-1)\ge(v-1)^\varphi/\varphi$ gives $v<1+(\varphi j)^\alpha$, hence
+$S(m)<m+\varphi^\alpha\sum_{j\le m}j^\alpha\le m+\varphi^\alpha\int_1^{m+1}x^\alpha\,dx<m+\varphi^{\alpha-1}(m+1)^\varphi$.
+This is at most $m^\varphi$ if and only if $h(m)=\varphi^{\alpha-1}(1+1/m)^\varphi+m^{1-\varphi}\le1$; both terms of
+$h$ decrease, and $h(30)=0.99964\ldots<1$.
+
+Lower bound: $j\le S(v)\le v^\varphi$ gives $a(j)=v\ge j^\alpha$, so
+$S(m)\ge\sum_{j\le m}j^\alpha\ge\int_0^mx^\alpha\,dx=m^\varphi/\varphi$. \end{proof}
+The asymptotic constant $S(m)/m^\varphi\to\varphi^{-\varphi(2-\varphi)}\approx0.743$ (Fine, Vardi) leaves a margin;
+the argument does not use it. The other conjecture of the entry (van Lamoen, 2005) follows from relation (4)
+of Claes--Miyamoto~\cite{CM} and is not counted.
+
+\section{Wythoff rows and Knuth's Fibonacci product (\oeis{A357097})}\label{s:A357097}
+The entry defines a multiplication $A(\cdot,\cdot)$ of the rows of the extended Wythoff array; let
+$\oeis{A019586}(n)$ be the row (from $0$) containing $n$, and $x\circ y=\oeis{A101330}(x,y)$ Knuth's Fibonacci
+product: if $x=\sum F(c_i)$ and $y=\sum F(d_j)$ are Zeckendorf representations (indices $\ge2$), then
+$x\circ y=\sum F(c_i+d_j)$. The conjecture is $A(\oeis{A019586}(x),\oeis{A019586}(y))=\oeis{A019586}(x\circ y)$.
+\begin{theorem} The conjecture is true.\end{theorem}
+\begin{proof} Let $\omega=1/\varphi$, so $\omega^2=1-\omega$. The law of the entry,
+$(j_1,k_1)\circ(j_2,k_2)=(j_1j_2+k_1k_2,\ j_1k_2+k_1j_2-k_1k_2)$, is the multiplication of $j+k\omega$ in
+$\mathbb{Z}[\varphi]$. Since $(j+k\omega)\varphi=(j+k)+j\omega$, moving from the pair $(eW(n,m+1),eW(n,m))$ to the next
+pair multiplies by $\varphi$. So row $n$ corresponds to $S_n=\{\beta_n\varphi^m:m\in\mathbb{Z}\}$ for some
+$\beta_n\in\mathbb{Z}[\varphi]$, and the $S_n$ are pairwise disjoint (two consecutive terms determine the row).
+
+For $n\ge1$ with Zeckendorf representation $n=\sum F(c_i)$, let $\theta(n)=\sum\varphi^{c_i}$. As
+$\varphi^c=F(c-1)+F(c)\varphi$, $\theta(n)=a+n\varphi$ with $a=\sum F(c_i-1)$. In the Wythoff array the successor of
+$n$ in its row is $s(n)=\sum F(c_i+1)$ (the Zeckendorf array is the Wythoff array, Kimberling 1995), the pair
+$(s(n),n)$ lies in row $\oeis{A019586}(n)$, and its element is $s(n)+n\omega=(s(n)-n)+n\varphi=\theta(n)$.
+
+$\theta$ is multiplicative for $\circ$: the coefficient of $\varphi$ in $\theta(x)\theta(y)=\sum\varphi^{c_i+d_j}$ is
+$\sum F(c_i+d_j)=x\circ y$. For the integer part, let $\psi=-1/\varphi$. The conjugate of $\theta(n)$ is
+$\sum\psi^{c_i}$, a finite sum over non-adjacent exponents $\ge2$, hence strictly between
+$\psi^3+\psi^5+\dots=-1/\varphi^2$ and $\psi^2+\psi^4+\dots=1/\varphi$. The interval $I=(-1/\varphi^2,1/\varphi)$ has length
+$1$, so for given $N$ there is at most one integer $a$ with $a+N\psi\in I$, and $\theta(N)$ is that element. The
+conjugate of $\theta(x)\theta(y)$ is a product of two numbers of $I$, hence in $(-1/\varphi^3,1/\varphi^2)\subset I$.
+So $\theta(x)\theta(y)=\theta(x\circ y)$.
+
+Let $u=\oeis{A019586}(x)$ and $v=\oeis{A019586}(y)$. Then $\theta(x)\in S_u$, $\theta(y)\in S_v$, the product lies in
+$S_{A(u,v)}$ by definition of $A$, and it equals $\theta(x\circ y)\in S_{\oeis{A019586}(x\circ y)}$. The rows being
+disjoint, $A(u,v)=\oeis{A019586}(x\circ y)$. \end{proof}
+The multiplicativity of $\theta$ is Arnoux's remark (1989) on the Fibonacci product, cited in the entry; the
+argument above is self-contained. Check: \texttt{A357097/check.py} ($1\le x\le y<400$).
+
+\section{Integers with \texorpdfstring{$n$}{n} prime factors (\oeis{A078841})}\label{s:A078841}
+Let $a(n)$ be the $(n+1)$-th integer $m$ with $\Omega(m)=n$ (prime factors counted with multiplicity):
+$1,3,9,20,54,112,\dots$ R.~G.~Wilson~v (2007) conjectured $a(n+1)/a(n)\to2$.
+\begin{theorem} Let $V=\{u/2^{\Omega(u)}:u\text{ odd}\ge1\}$, with multiplicity, in increasing order
+$t_1\le t_2\le\cdots$. Then $a(n)=2^nt_{n+1}$ for all $n\ge0$, and $a(n+1)/a(n)=2t_{n+2}/t_{n+1}\to2$.\end{theorem}
+\begin{proof} An integer $m$ with $\Omega(m)=n$ is uniquely $m=2^{n-j}u$ with $u$ odd and $\Omega(u)=j\le n$, so
+$m\mapsto m/2^n=u/2^j$ is an increasing bijection from $\{m:\Omega(m)=n\}$ onto $V_n=\{u/2^{\Omega(u)}:\Omega(u)\le n\}$.
+If $\Omega(u)=j$ then $u\ge3^j$ and $u/2^j\ge(3/2)^j$, so the elements of $V\setminus V_n$ exceed $(3/2)^n$. On the
+other hand $t_{n+1}\le p_{n+2}/2$, since $1$ and the $p/2$ ($p$ an odd prime) are in $V$; for $n\ge10$,
+$p_{n+2}/2<(3/2)^n$, so the $n+1$ smallest elements of $V$ lie in $V_n$ and $a(n)=2^nt_{n+1}$. For $n<10$ (indeed
+for the 30 known terms) this is checked directly. $V$ is locally finite, since $u/2^j\le y$ forces
+$(3/2)^j\le y$ and $u\le2^jy$; so $t_k\to\infty$. Given $\varepsilon>0$, the prime number theorem gives, for $y$
+large, a prime in $(2y,2y(1+\varepsilon)]$, that is, an element of $V$ in $(y,y(1+\varepsilon)]$. With $y=t_k$ we get
+$t_k\le t_{k+1}\le(1+\varepsilon)t_k$ for large $k$, hence $t_{k+1}/t_k\to1$. \end{proof}
+
+\section{Excursions in a cone: Kotesovec's exponent (\oeis{A361190})}\label{s:A361190}
+$a(n)$ counts the excursions of length $4n$ in the wedge $0\le y\le x$ with steps $(1,1)$, $(1,-1)$, $(-1,0)$.
+Kotesovec observed $a(n)\sim c\,64^n/n^\alpha$ and conjectured $\alpha=1+\pi/\arctan\sqrt2\approx4.288536$.
+\begin{proposition} The conjecture holds, by the theorem of Denisov and Wachtel~\cite{DW}.\end{proposition}
+\begin{proof}[Argument] The map $(u,v)=(x-y,y)$ sends the wedge to the quarter plane and the steps to
+$(0,1)$, $(2,-1)$, $(-1,0)$. The exponential weights $e^{a\,dx+b\,dy}$ cancel the drift for $b=0$ and
+$e^{2a}=1/2$; the probabilities become $(1/4,1/4,1/2)$ and the growth rate is $2\sqrt2$ per step, that is
+$64^n$ for $4n$ steps. The weight of an excursion is $1$, so $a(n)=64^n\,P(\text{excursion of the centred
+walk})$. The centred walk has $\mathrm{Var}\,u=3/2$, $\mathrm{Var}\,v=1/2$, $\mathrm{Cov}=-1/2$, correlation
+$-1/\sqrt3$; after decorrelation the quarter plane becomes a cone of angle
+$\arccos(1/\sqrt3)=\arctan\sqrt2$. For a zero-drift walk with bounded steps, Denisov and Wachtel give
+$P(S_N=0,\ \tau>N)\asymp N^{-1-\pi/\theta}$ along the lattice of returns ($N\in4\mathbb{Z}$ here), hence
+$\alpha=1+\pi/\arctan\sqrt2$. \end{proof}
+As $\arctan(\sqrt2)/\pi=\arccos(-1/3)/(2\pi)$ is irrational, $\alpha$ is irrational and the generating function
+is not D-finite (the argument of Bostan--Raschel--Salvy~\cite{BRS}). This is an application of a published
+theorem, not a self-contained proof; the hypotheses (strong aperiodicity on the lattice generated by the
+steps, non-degenerate covariance) are standard for bounded steps but were not re-checked line by line.
+Numerically, the local slope of $\log(a(n)/64^n)$ is $4.236$, $4.271$, $4.278$, $4.290$ at $n=100,300,500,599$.
+
+\section{The Thue--Morse convolution inverse (\oeis{A225132})}\label{s:A225132}
+The data of \oeis{A225132} are the coefficients of $1/h(x)$, where $h(x)=\sum_{n\ge0}t(n+1)x^n=g(x)/x$ and
+$g$ is the generating function of \oeis{A010060} ($t(0)=0$); the comment ``$1/(1+g(x))$'' does not reproduce
+the data. The conjecture is $a(n+1)/a(n)\to-1.405177106052\ldots$
+\begin{proposition} This is true: $a(n+1)/a(n)\to1/x_0$, where $x_0=-0.7116540653082362\ldots$ is the only zero
+of $h$ in $|x|<0.76$.\end{proposition}
+\begin{proof}[Proof (computer-assisted, \texttt{A225132/proof\_check.py})] The truncation $h_N$ with $N=600$
+terms differs from $h$ by at most $r^{N+1}/(1-r)$ on $|x|\le r$. A sign change of $h$ is certified on an
+interval of width $2\cdot10^{-12}$ around $x_0$, and $h'(x_0)\approx1.8654\ne0$. A certified argument principle
+(40\,000 points on each circle; the minimum of $|h_N|$ exceeds the sum of the truncation error and of the
+variation between points, bounded with $|h'|\le1/(1-r)^2$) shows that $h$ has no zero in $|x|<0.70$ and exactly
+one in $|x|<0.76$, which is $x_0$. Hence $1/h-c/(x-x_0)$, with $c=1/h'(x_0)$, is analytic in $|x|<0.76$, its
+coefficients are $O(0.75^{-n})$, while those of $c/(x-x_0)$ are $-c\,x_0^{-n-1}$, of modulus $\asymp1.405^n$. So
+$a(n)\sim-x_0^{-n-1}/h'(x_0)$ and $a(n+1)/a(n)\to1/x_0=-1.405177106052044\ldots$ \end{proof}
+
+\section{Binary partitions: Cloitre's constant (\oeis{A033485})}\label{s:A033485}
+Let $a(1)=1$ and $a(n)=a(n-1)+a(\lfloor n/2\rfloor)$; for $n\ge1$, $a(n)$ is half the number of binary partitions
+of $2n$ (\oeis{A000123}). Cloitre (2003) conjectured that $a(2n)/a(n)\cdot\log(n)/n$ tends to $c=1.64\ldots$
+\begin{theorem}\label{t:A033485} Let $\beta(n)=n\,a(\lfloor n/2\rfloor)/a(n)$. Then
+$\beta(n)=\log_2n+O((\log\log n)^2)$. Consequently
+\[ \frac{a(2n)}{a(n)}\cdot\frac{\log n}{n}=\frac{2\log n}{\beta(2n)}\longrightarrow2\log2=1.38629\ldots, \]
+so the limit exists, and Cloitre's value $1.64\ldots$ is wrong.\end{theorem}
+The value $1.64$ came from $n\le10^4$: the quantity has a maximum of about $1.659$ near $n=150$, crosses $1.64$
+near $n=10^4$, and is $1.566$ at $n=1.5\cdot10^8$, still decreasing.
+
+\begin{proof}[Proof (computer-assisted)] \emph{Exact identities.} $a(n-1)/a(n)=1-\beta(n)/n$, and
+$0<\beta(n)/n\le1/2$ since $a(n)\ge2a(\lfloor n/2\rfloor)$. Each $k<N$ appears twice and $N$ once in
+$a(2N)=1+\sum_{j=2}^{2N}a(\lfloor j/2\rfloor)$, so $a(2N)=2S(N)-a(N)+1$ and $a(2N+1)=a(2N)+a(N)$, with
+$S(N)=a(1)+\dots+a(N)$. Put $\sigma(N)=S(N)/a(N)=\sum_{k\le N}P(k)$ with $P(k)=\prod_{j=k+1}^N(1-\beta(j)/j)$, and
+$\rho=N/\sigma(N)$. Then
+\[ \beta(2N)=\frac{N}{\sigma-\frac12+\frac1{2a(N)}}\in\Bigl[\rho,\frac{\rho}{1-\rho/(2N)}\Bigr],\qquad
+   \beta(2N+1)=\frac{N+\frac12}{\sigma+\frac1{2a(N)}}\in\Bigl[\frac{\rho}{1+\rho/(2N)},\rho\bigl(1+\tfrac1{2N}\bigr)\Bigr]. \]
+
+\emph{Local step.} Let $N\ge2^{28}$, $L=\log_2N$, and assume $|\beta(j)-\log_2j|\le D$ for $j\in(N/2,N]$, with
+$D\le L/2$. For $\varepsilon\in(0,1/2)$ and $k_1=\lceil(1-\varepsilon)N\rceil$, every $j>k\ge k_1$ has
+$\beta(j)\ge b^*=L+\log_2(1-\varepsilon)-D$, so $P(k)\le((k+1)/(N+1))^{b^*}$, and $P(k)\le P(k_1)$ for $k<k_1$; hence
+$\sigma\le(N+1)/(b^*+1)+1+N(1-\varepsilon+2/N)^{b^*}$. In the other direction, for $k\ge N/2$ and $j\in(k,N]$,
+$\beta(j)\le B=L+D$, and $1-x\ge e^{-x-x^2}$ gives $P(k)\ge(k/N)^Be^{-2B^2/N}$, so
+$\sigma\ge e^{-2B^2/N}N(1-2^{-B-1})/(B+1)$. With the identities, for $n\in\{2N,2N+1\}$:
+$|\beta(n)-\log_2n|\le D+\delta(L,D)$, with an explicit $\delta$ (function \texttt{delta} of
+\texttt{A033485/bootstrap.py}, with $\varepsilon=t\ln b_0/b_0$, $t$ optimised, $b_0=L-D$); asymptotically
+$\delta\approx(3/\ln2)\ln b_0/b_0+1/b_0$, and $\delta\le9.5\ln L/L$ when $D\le L/2$ and $L\ge10^4$.
+
+\emph{Induction on dyadic blocks.} Let $E_k=\max|\beta(j)-\log_2j|$ over $(2^k,2^{k+1}]$. Since an $n$ in
+$(2^{k+1},2^{k+2}]$ is $2N$ or $2N+1$ with $(N/2,N]\subset(2^{k-1},2^{k+1}]$,
+$E_{k+1}\le\max(E_k,E_{k-1})+\delta(k,\max(E_k,E_{k-1}))$ while the hypotheses hold. The base is computed in double
+precision: $E_{27}=4.1068$, $E_{28}=4.1618$. Iterating the bound from $k=28$ to $10^4$ gives $D_k/k\le0.355$
+(maximum near $k=100$, then decreasing to $0.02$ at $k=10^4$), so $D\le L/2$ always holds; beyond $10^4$,
+$\delta\le9.5\ln k/k$ gives $D_k\le D_{10^4}+4.75(\ln^2k-\ln^210^4)\ll k/2$. Hence $E_k=O(\log^2k)$ and
+$\beta(n)/\log_2n\to1$. \end{proof}
+\begin{remark} This proof is not fully certified: the base values $E_{27},E_{28}$ are computed in floating point
+(relative error about $10^{-7}$, against a margin of $10^{-5}$); the worst case $L=k$ inside a block is checked on a
+grid ($k=28,50,200,1000$); and the smallest margin $k/2-D_k$ in the iteration is $1$. A certified version would
+redo the base in interval arithmetic. The result is consistent with de Bruijn's asymptotics for binary partitions
+(1948), which we did not use. The second conjecture of the same line ($a(n)/A(n)$ bounded) is not treated.
+\end{remark}
+
+\section{Products of Wythoff rows (\oeis{A022344})}\label{s:A022344}
+For a positive Fibonacci sequence $T$ let $Q(T)=|T(i)^2-T(i-1)T(i+1)|$, independent of $i$; \oeis{A022344}$(n)$ is
+$Q$ of row $n$ of the Wythoff array. Ramsey (2007) conjectured: if $F_1$, $F_2$ lie in rows $n$, $m$, then for fixed
+$j$ the sequence $F_3(i)=F_1(i)F_2(j+1)-F_1(i+1)F_2(j)$ lies (eventually) in a row $p$ with $a(p)=a(n)a(m)$.
+\begin{proposition} This is true.\end{proposition}
+\begin{proof} $F_3$ is a fixed linear combination of $F_1(i)$ and $F_1(i+1)$, hence a Fibonacci sequence in $i$; it
+is also one in $j$. With $x=G(i-1)$, $y=G(i)$, $G(i)^2-G(i-1)G(i+1)=y^2-xy-x^2$ is the norm form of
+$\mathbb{Z}[\varphi]$, which changes only by a sign when $i$ moves. So $|Q(F_3)|$ does not depend on $i$ or $j$, and
+the identity $|Q(F_3)|=|Q(F_1)|\,|Q(F_2)|$, a polynomial identity in the four initial values, is checked
+symbolically (\texttt{A022344/check.py}). Since $y^2-xy-x^2$ has no non-trivial integer zero, $F_3\not\equiv0$, and
+$F_3(i)\approx F_1(i)(F_2(j+1)-\varphi F_2(j))$ with a non-zero factor, so $F_3$ has eventually constant sign. By
+Morrison's theorem (1980), every positive Fibonacci sequence eventually coincides with a row $p$ of the Wythoff
+array, and $a(p)=|Q(F_3)|=a(n)a(m)$. \end{proof}
+The map $(n,m)\mapsto p$ is \oeis{A357097} (Section~\ref{s:A357097}); the entry notes that
+$a(\oeis{A357097}(x,y))=a(x)a(y)$ (Munn, 2025), which is the core of the conjecture. Contribution: modest.

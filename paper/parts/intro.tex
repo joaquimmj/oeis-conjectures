@@ -1,0 +1,92 @@
+\section{Introduction}\label{s:intro}
+Many OEIS entries end with a line beginning ``Conjecture:''. The statement was usually found by computing
+terms, and nobody has written a proof or a refutation since. This report collects such statements that we
+were able to settle. It started as a three-page note on nine entries about binary morphic words
+(Part~\ref{part:one}, reproduced with minor changes), and grew as the same methods, and others, were applied to
+a systematic crawl of the OEIS.
+
+\subsection{What is counted}
+An entry is counted once, when at least one conjecture written in it (or a formula marked ``conjectured'')
+is settled here and we found no earlier proof or refutation. Statements that appear without the word
+``conjecture'' (``it appears that'', or a limit stated without proof) are counted only when they are worded
+as conjectures; the $25$ further complementary equations of Section~\ref{s:compeq} are proved but not
+counted. Entries already settled by others (Dekking, Zabolotskii, Shallit, Bosma et al., Ashburn, Song and
+others) are listed in Part~\ref{part:five} and are not counted.
+
+\begin{center}
+\begin{tabular}{lr}\toprule
+Result & Entries\\\midrule
+true as stated (possibly after an obvious reading of the index) & \Ntrue\\
+false as stated & \Nfalse\\
+mixed: one statement true, another false & \Nmixed\\
+true for $n\ge2$ only & \Ntwo\\\midrule
+total & \Ntotal\\\bottomrule
+\end{tabular}
+\end{center}
+The complete list, with the author of each conjecture, the result, the method and the section with the
+proof, is Appendix~\ref{a:catalogue}.
+
+\subsection{The main results}
+The results differ a lot in depth. We list first those that we believe need a real argument.
+\begin{itemize}
+\item \textbf{Real roots of the Doche--Mend\`es France polynomials} (\oeis{A347171},
+  Theorem~\ref{t:A347171}). $P_n(y)=\sum_{j<2^n}\mathrm{GRS}(j)\,y^{\mathrm{wt}(j)}$ has exactly
+  \oeis{A285869}$(n)$ real roots, all simple, with an explicit count in each of six regions.
+\item \textbf{Hadjicostas' Josephus conjecture for every $k\ge2$} (\oeis{A005427}, \oeis{A120160} and the
+  entries for $k=2,\dots,9$; Theorem~\ref{t:josephus}), with the explicit survivor $J_k(T(n))=r_n+1$.
+\item \textbf{Kotesovec's exponent} for \oeis{A371176}: $\log a(n)/\log n\to\log2/\log\varphi$, through a
+  Fibonacci count of Schreier sets (Theorem~\ref{t:A371176}).
+\item \textbf{Gutkovskiy's nested recursions} $a_k(n)=n-a_k(\lfloor a_k(n-1)/k\rfloor)$ for every $k\ge1$
+  (\oeis{A366860}, \oeis{A366870}, \oeis{A366871}, \oeis{A368281}): $a_k$ is the counting function of the
+  fixed point of $0\mapsto1^k$, $1\mapsto1^k0$ (Theorem~\ref{t:A366860}).
+\item \textbf{Kimberling's discrepancy conjectures} for binary morphic words: exact extreme values of
+  $nr-a(n)$ in $\mathbb{Q}(\sqrt d)$ (Parts~\ref{part:one} and~\ref{part:two}). The smallest counterexample to
+  \oeis{A284364} is $n=2\,977\,771$.
+\item \textbf{Stephan's conjecture for \oeis{A005590}}: $a(3n)=0$ if and only if $n$ is fibbinary, by an
+  invariant quadratic cone (Theorem~\ref{t:A005590}).
+\item \textbf{Cloitre's constant for binary partitions is wrong} (\oeis{A033485}): the limit of
+  $a(2n)/a(n)\cdot\log n/n$ exists and is $2\log2=1.386\ldots$, not $1.64\ldots$ (Theorem~\ref{t:A033485};
+  computer-assisted, not fully certified).
+\item \textbf{Song's lower bound for Golomb's sequence}, $a(n)\ge n^{\varphi-1}$ (Theorem~\ref{t:A001462}).
+\item \textbf{The anti-tetranacci system} (\oeis{A299405}): the published bound for $c$ fails at
+  $c(26)=113$, infinitely often (Section~\ref{s:A299405}). This entry is not counted, because published work
+  treats the system; we could not read it, and the disagreement should be checked there.
+\end{itemize}
+Many other results are short. Some are classical arguments that had not been written down in the entry
+(Shevelev's conjecture in \oeis{A014664} is the lifting-the-exponent lemma). We count them all, since each
+entry still presented the statement as open, but we mark the trivial ones as such.
+
+\subsection{Methods}
+\begin{description}
+\item[Hand proofs.] Most entries in Parts~\ref{part:three} and~\ref{part:four}.
+\item[\Walnut.] An automatic theorem prover for first-order statements about automatic sequences, by
+  H.~Mousavi, developed by J.~Shallit and others~\cite{Mo,Sh}. A \TRUE{} answer is a proof for all $n$. We
+  use \Walnut{} (commit \texttt{a4fe84e}) in base $2$, $3$, $4$, Fibonacci numeration, and Dumont--Thomas
+  numerations of non-uniform morphisms, the latter validated inside \Walnut{} by axioms. Every script
+  contains at least one statement that must be \FALSE, as a control.
+\item[Exact discrepancy.] The supremum and infimum of $nr-a(n)$ for a fixed point of a binary Pisot morphism
+  are the solution of a contracting max/min system, solved exactly in $\mathbb{Q}(\sqrt d)$ with a checked
+  certificate (Section~\ref{s:method}).
+\item[Perron frequencies.] For primitive substitutions, letter and factor frequencies are the normalised
+  Perron eigenvectors (Queffélec~\cite{Qu}). This settles limit conjectures $a(n)/n\to m$.
+\item[Exact algebra.] For algebraic generating functions, a conjectured holonomic recurrence is reduced
+  exactly modulo the minimal polynomial.
+\item[Published theorems.] Denisov--Wachtel for walks in cones (\oeis{A361190}) and
+  Alekseyev--Amdeberhan--Shallit--Vukusic for $\nu_3$ of Delannoy numbers (\oeis{A358360}).
+\end{description}
+
+\subsection{Reliability}
+None of these proofs has been refereed. The work was done with the help of an AI system; every proof was
+checked by programs written from the OEIS definitions, independently of the code that found the result.
+On November 19, 2026, the whole verification suite was re-run from a fresh clone of the repository: all
+seventeen \Walnut{} scripts give exactly the recorded answers, and the Python checks pass (Appendix~\ref{a:verif}).
+Each falsity claim was also re-checked against the data of the entry fetched from the OEIS on that day.
+The search for prior work was a web and arXiv search and a reading of each entry; for some entries the
+original paper could not be read, and we say so. Before any of these results is submitted to the OEIS,
+the corresponding prior-work check should be completed.
+
+\paragraph{Conventions.} $\varphi=(1+\sqrt5)/2$; $t(n)$ is the Thue--Morse sequence; $s(n)$ or
+$\mathrm{wt}(n)$ is the binary weight; $\nu_p$ is the $p$-adic valuation. For a word $x$ and a letter $L$,
+$a(n)$ is the position, counted from $1$, of the $n$-th occurrence of $L$. File names refer to the
+repository \url{https://github.com/joaquimmj/oeis-walnut}, branch \texttt{conjectures}; each entry has a
+folder \texttt{conjectures/Axxxxxx} with the proof, the checks and a draft OEIS comment.

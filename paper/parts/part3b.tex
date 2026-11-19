@@ -1,0 +1,242 @@
+\section{Statements proved with \Walnut}\label{s:walnut}
+In each case below we give the reduction to a first-order statement, and the list of \Walnut{} answers; the
+scripts \texttt{.wal} and the raw outputs \texttt{.out} are in the folder of the entry. All were re-run on
+November 19, 2026 (Appendix~\ref{a:verif}).
+
+\subsection{A functional equation of Hebisch--Rubey (\oeis{A118006})}\label{s:A118006}
+The statement corrected by Somos is $(1+x+x^2)f(x)-x^2f(x^3)=x(1-x^4)^2/((1-x)(1-x^2)(1-x^6))$. It is true for
+$f(x)=\sum_{n\ge1}a(n)x^{n-1}$ and false for $f(x)=\sum a(n)x^n$ with the offset $1$ of the entry. The right side
+is $x(1+x)(1+x^2)^2/(1-x^6)$, so with $W[i]=a(i+1)$ the identity reads, for all $i\ge0$,
+\[ W[i]+W[i-1]+W[i-2]-[i\equiv2\bmod3]\,W[(i-2)/3]=p(i), \]
+with $W[-1]=W[-2]=0$, $p(0)=0$, and for $i\ge1$, $p(i)=2$ if $i\equiv3,4\pmod6$ and $p(i)=1$ otherwise.
+\begin{lemma} Read the word $w$ of the entry by pairs, $01=A$, $10=B$, and let $R'$ reverse a word and exchange
+$A$ and $B$. If $v(n)$ is the pair word of $w(n)$, then $v(n+1)=v(n)v(n)R'(v(n))$, and $v(n+1)=\phi(v(n))$ for
+$\phi:A\mapsto AAB$, $B\mapsto ABB$.\end{lemma}
+\begin{proof} $\phi R'=R'\phi$ on $A$ and $B$ ($\phi R'(A)=ABB=R'(AAB)$), hence on all words since
+$R'(xy)=R'(y)R'(x)$. By induction, $v(2)=AAB$ and
+$\phi(v(n+1))=\phi(v(n))\phi(v(n))\phi R'(v(n))=v(n+1)v(n+1)R'(v(n+1))=v(n+2)$. \end{proof}
+So the pair word of $W$ is the fixed point of $\phi$ from $A$, an automatic sequence in base $3$ (the
+automaton \texttt{V} of the script). \Walnut: prefix check \TRUE, identity for $i\ge2$ \TRUE, shifted control
+\FALSE. The cases $i=0,1$ are direct ($W[0]=0$, $W[0]+W[1]=1$). Independent check: $10^6$ coefficients from
+$w(n+1)=w(n)w(n)\mathrm{reverse}(w(n))$.
+
+\subsection{Shevelev's conjecture for \oeis{A007413}}\label{s:A007413}
+Shevelev (2009): \oeis{A007413} is the sequence of the numbers of $1$s between consecutive $2$s of
+\oeis{A076826}. Since $\oeis{A076826}(n)=2\sum_{k\le n}t(k)-n$ and each pair $\{2j,2j+1\}$ contains exactly one
+odious number, $\oeis{A076826}(2m+1)=1$ and $\oeis{A076826}(2m)=2t(m)$ (Cloitre's formulas). The $2$s are at the
+positions $2o$ with $o$ odious, and between $2o(j)$ and $2o(j+1)$ there are $o(j+1)-o(j)$ ones. So the
+conjecture is $\oeis{A007413}(j+1)=o(j+1)-o(j)$, where $o(j)=2j+1-t(j)$; the entry states it (``first
+differences of \oeis{A000069}'') without proof.
+\begin{proof}[Proof (\Walnut, base 2)] \texttt{odious\_enum}, \texttt{odious\_incr}: $o(j)$ enumerates the
+odious numbers in order (\TRUE). \texttt{y\_values}: $y(j)=o(j+1)-o(j)\in\{1,2,3\}$ (\TRUE). With
+$\mu:1\mapsto123$, $2\mapsto13$, $3\mapsto2$, the block $\mu(y(j))$ starts at $S(j)=2j+t(j)$, since
+$\sum_{i<j}|\mu(y(i))|=\sum(4-y(i))=4j-o(j)+o(0)$; \texttt{start}, \texttt{tiling}, \texttt{blocks} check that the
+blocks follow each other and that each is $\mu(y(j))$ (\TRUE). So $y$ is the fixed point of $\mu$ from $1$,
+which is \oeis{A007413}. The control $2\mapsto31$ gives \FALSE. \end{proof}
+
+\subsection{Bala's seven identities for \oeis{A006165}}\label{s:A006165}
+$a(1)=a(2)=1$, $a(2n)=2a(n)$, $a(2n+1)=a(n)+a(n+1)$; $a^{(k)}$ is the $k$-th iterate.
+\begin{lemma}[closed form, Wu] For $n\ge2$ with leading bit $p=2^m$, $a(n)=\min(n-p/2,p)$.\end{lemma}
+\Walnut{} checks that the automaton defined by this formula is a function and satisfies the initial values
+and both recursions (\TRUE), so it is \oeis{A006165}.
+\begin{lemma}[iterates] For $n\in[2^m,2^{m+1})$ and $1\le k\le m$,
+$a^{(k)}(n)=\min(n-(2^k-1)2^{m-k},2^{m-k+1})$; for $1\le n<2^k$, $a^{(k)}(n)=1$.\end{lemma}
+\begin{proof} Induction on $k$: if $x=a^{(k)}(n)<2^{m-k+1}$, $x$ is in block $m-k$ and the closed form gives the
+formula for $k+1$; if $x=2^{m-k+1}$ then $a(x)=2^{m-k}$, which is also the formula. For $k=m$, $a^{(m)}(n)\in\{1,2\}$
+and $a(1)=a(2)=1$. \Walnut{} also checks these three points with the parameter $u=2^{m-k}$. \end{proof}
+\begin{theorem} The seven conjectures of Bala (2022) are true; (vi) holds for every $k\ge2$ and (vii) for
+every $k\ge1$.\end{theorem}
+\begin{proof} (i)--(v) are first-order statements, all \TRUE. For (vi), with $u=\mathrm{msb}(n)/2^k$, $a^{(k)}$ is an
+automaton in $(n,u)$; the nested arguments stay $\ge n/16$ (\TRUE), so $u$ can be carried from block to block,
+and the identity is \TRUE{} for all pairs with $4u\le\mathrm{msb}(n)$, that is for all $k\ge2$ and $n\ge2^k$; for
+$2\le n<2^k$ both sides equal $1$. For $k=1$ the statement is \FALSE{} (it fails at $n=5$). For (vii), by the
+lemma, on $[2^m,2^{m+1})$ with $m\ge k$, $n-a^{(k)}(n)=\max((2^k-1)2^{m-k},n-2^{m-k+1})$, constant on
+$[2^m,2^m+2^{m-k}]$ and then increasing by $1$; the jump between blocks is $1$; on $n<2^k$ it is $n-1$. So the
+differences are $0$ or $1$, and the repeated values are the $(2^k-1)2^j$, each repeated $2^j+1$ times:
+$2,3,5,9,17,33,\ldots=\oeis{A000051}$. The ``35'' in the entry is a typo for $33$. \end{proof}
+
+\subsection{Bala's nested identities for \oeis{A060973}}\label{s:A060973}
+$a(n)=n-\oeis{A006165}(n)$. Conjectures: (1) $a(n-a(n))=a(n-a(n-a(n-a(n))))$; (2) with $b=a\circ a$,
+$b(n-b(n))=b(n-b(n-b(n-b(n))))$ for $n\ge2$. With the closed form of \oeis{A006165}, \Walnut{} checks that
+$n-\oeis{A006165}(n)$ satisfies the definition of \oeis{A060973} and is a function, that all nested arguments
+are $\ge1$, and proves (1) and (2) (\TRUE); a modified control gives \FALSE.
+
+\subsection{Kurkov's recursion for the inverse Gray code (\oeis{A006068})}\label{s:A006068}
+Kurkov (2023): $a(n)=a(\oeis{A053645}(\oeis{A063946}(n)))+\oeis{A053644}(n)$ for $n>0$ (complement the second
+bit, remove the leading bit, add the leading bit of $n$). The inverse Gray code is the synchronised relation
+\texttt{igray} (bit $i$ of $a$ is the XOR of the bits of $n$ of rank $\ge i$), checked by functionality and the
+recursions for $a(2n)$, $a(2n+1)$ (\TRUE); the definitions of \oeis{A063946} and \oeis{A053645} are checked on
+values (\TRUE); the statement is \TRUE; without complementing the second bit it is \FALSE.
+
+\subsection{Shevelev's alternation (\oeis{A161580})}\label{s:A161580}
+For odd $k$, in the increasing sequence of $n$ with $t(n)=t(n+k)$ (\oeis{A161579}, \oeis{A161817},
+\oeis{A162311} for $k=3,5,7$), odious and evil numbers alternate; \oeis{A161580} states the same for
+$t(n)+t(n+k)=1$. The first variant is due to Allouche~\cite{All}, cited in the three entries; \oeis{A161580}
+cites nothing, and we did not check whether the second variant is in Allouche's paper. The statement ``if
+$n<m$ are consecutive terms then $t(n)\ne t(m)$'' is first order in $(k,n,m)$, and \Walnut{} proves both variants
+for all odd $k$ at once (\TRUE, \TRUE); without the hypothesis ``$k$ odd'' it is \FALSE.
+
+\section{Complementary systems}\label{s:systems}
+\subsection{Sloane's formulas and Kimberling's bounds (\oeis{A297469}, \oeis{A298468})}\label{s:A297469}
+$aa(0)=1$, $bb(0)=2$, $cc(0)=3$; for $n\ge1$, $aa(n)$ is the least positive integer not yet placed,
+$bb(n)=aa(n)+cc(n-1)$, and $cc(n)$ is the least positive integer not yet placed.
+\begin{theorem} (a) Sloane (2019): $bb(2t)=10t+1$, plus $1$ if the binary expansion of $t$ ends with an odd
+number of $0$s, and $bb(2t+1)=10t+7$; $aa(2t)=5t+1$ (plus $1$ likewise) for $t\ge1$ and $aa(2t+1)=5t+4$: true.
+(b) $cc(n)=\oeis{A047218}(n+2)$: true. (c) Kimberling's $aa(n)\bmod5\in\{1,2,4\}$ and $bb(n)\bmod5\in\{1,2\}$:
+true. (d) Kimberling's $5n-1-2aa(n)\in\{0,1,2\}$ and $5n-3-bb(n)\in\{0,1\}$: false at $n=1$ ($aa(1)=4$,
+$bb(1)=7$ give $-4$ and $-5$); the true forms are $2aa(n)-5n\in\{2,3,4\}$ and $bb(n)-5n\in\{1,2\}$, and each value is
+attained.\end{theorem}
+\begin{proof}[Proof (\Walnut, base 2)] Define three automata: $bb$ by Sloane's formula (the predicate ``ends
+with an odd number of $0$s'' is the regular language $0^*\mid(0|1)^*1(00)^*0$), $cc(2k)=5k+3$, $cc(2k+1)=5k+5$, and
+$aa(n)=bb(n)-cc(n-1)$ for $n\ge1$, $aa(0)=1$. \Walnut{} checks (\TRUE) that they are strictly increasing functions
+whose images partition the positive integers, the initial values, and the greedy rules: every $x$ with
+$1\le x<aa(n)$ is some $aa(k)$, $bb(k)$ or $cc(k)$ with $k<n$, and every $x$ with $1\le x<cc(n)$ is some $aa(k)$ or
+$bb(k)$ with $k\le n$ or $cc(k)$ with $k<n$. By induction on $n$, the candidates coincide with the true sequences:
+if they agree below $n$, the set of placed integers is the same; the candidate $aa(n)$ is not placed (partition
+and injectivity) and every smaller integer is (greedy rule), so it is the true $aa(n)$; then $bb(n)$ agrees; the
+same argument with $aa(n),bb(n)$ added gives $cc(n)$. The statements are then direct \texttt{eval}s: all \TRUE{}
+except (d), which is \FALSE; the witnesses show that each value of the corrected forms is attained. \end{proof}
+
+\subsection{Limits and bounds in \oeis{A304451} and \oeis{A304452}}\label{s:A304451}
+$b(0)=1$; $b(n)$ is the least integer not yet placed and $a(n)=b(n)+b(\lfloor n/2\rfloor)$. Kimberling conjectured
+$a(n)/n\to5/2$, $-1\le5/2-a(n)/n\le2$, $b(n)/n\to5/3$, $-1\le5/3-b(n)/n\le2$ for $n\ge1$.
+\begin{theorem} Both limits are true. The inequalities fail for $n=1$ (both) and $n=2$ (for $a$): $b(1)=3$
+gives $-4/3$, and $a(1)=4$, $a(2)=8$ give $-3/2$; they hold for $n\ge3$, and for all $n$ with $n+1$ in place of
+$n$ in the denominator.\end{theorem}
+\begin{proof} \emph{Lemma: $b(n)=n+1+\#\{k:a(k)<b(n)\}$ and $n+1\le b(n)\le2n+1$.} Both sequences increase and
+$b(n)<a(n)$. When $b(n)$ is chosen, all integers below it are placed: they are $b(0),\dots,b(n-1)$ and the
+$a(k)<b(n)$, all with $k<n$ since $b(k)<a(k)<b(n)$; and no integer $\ge b(n)$ is placed except some $a(k)>b(n)$.
+The bounds follow from $\#\{k:a(k)<b(n)\}\le n$.
+
+Let $\beta^\pm$ be the upper and lower limits of $b(n)/n$; by the lemma $1\le\beta^-\le\beta^+\le2$. For
+$\varepsilon>0$ and $m$ large, $b(m)\ge(\beta^--\varepsilon)m$, so $a(k)\ge(\beta^--\varepsilon)(3k/2-1)-C$ and
+$\#\{k:a(k)<y\}\le2y/(3(\beta^--\varepsilon))+C'$; the lemma gives $b(n)\le n+1+2b(n)/(3(\beta^--\varepsilon))+C'$, so
+$\beta^+\le f(\beta^-)$ with $f(x)=3x/(3x-2)$. Symmetrically $\beta^-\ge f(\beta^+)$. As $f$ decreases on
+$(2/3,\infty)$, $\beta^+\le f(f(\beta^+))=g(\beta^+)$ with $g(x)=9x/(3x+4)$, and $g(x)<x$ for $x>5/3$; so
+$\beta^+\le5/3$, and likewise $\beta^-\ge5/3$. Hence $b(n)/n\to5/3$ and $a(n)/n\to5/3+5/6=5/2$. The
+inequalities: for $n\ge3$, $n+2\le a(n)\le3n+2\le7n/2$ (for $n=3$, $a(3)=9\le21/2$) and $0\le b(n)\le2n+1\le8n/3$
+($n\ge2$); the small cases are direct. \end{proof}
+
+\subsection{Ratio limits in \oeis{A298173} and \oeis{A298741}}\label{s:A298173}
+$a(0)=1$, $b(0)=2$; for $n\ge1$, $b(n)$ is the least positive integer not yet placed, and
+\oeis{A298173}: $a(n)=3a(n-1)+\sum_{j=0}^n(-1)^jb(n-j)$; \oeis{A298741}: $a(n)=2a(n-1)+2b(n)+\sum_{j=1}^n(-1)^jb(n-j)$.
+Kimberling: ``it appears that $a(n)/a(n-1)\to k$ and that $a(n)-k\,a(n-1)$ is unbounded'' ($k=3$, resp.\ $2$).
+\begin{theorem} Both statements are true; more precisely $\lceil n/2\rceil\le a(n)-3a(n-1)\le2n+1$ for
+\oeis{A298173} and $n+1\le a(n)-2a(n-1)\le4n+2$ for \oeis{A298741}.\end{theorem}
+\begin{proof} When $b(n)$ is chosen exactly $2n$ integers are placed, so $b(n)\le2n+1$. Let
+$S(n)=\sum_{j=0}^n(-1)^jb(n-j)$. Grouping into pairs $b(n-2i)-b(n-2i-1)\ge1$, plus $b(0)=2$ if $n$ is even, gives
+$S(n)\ge\lceil n/2\rceil$; writing $S(n)=b(n)-[b(n-1)-b(n-2)]-\cdots$ gives $S(n)\le b(n)\le2n+1$. For
+\oeis{A298173}, $a(n)-3a(n-1)=S(n)$; then $a(n)\ge3^n$ and $a(n)/a(n-1)=3+O(n/3^n)$. For \oeis{A298741},
+$a(n)-2a(n-1)=b(n)+S(n)\in[n+1,4n+2]$, and the same conclusion holds. \end{proof}
+
+\section{Further hand proofs}\label{s:hand}
+\subsection{Four conjectures in \oeis{A072939}}\label{s:A072939}
+$c(1)=1$, $c(2)=n$; if $c(k),c(k+1)$ have the same parity then $c(k+2)=(c(k)+c(k+1))/2$, otherwise
+$c(k+2)=|c(k+1)-2c(k)|$. The entry lists the $n$ for which $c(k)\to\infty$; it contains conjectures of Jovovic
+(2003), Kimberling (2017), Sloane (2019) and the limit $a(n)/n\to3$.
+\begin{theorem} $c(k)\to\infty$ if and only if $n$ is odd and $n-1$ has an odd number of trailing binary zeros
+($n-1\in\oeis{A036554}$); otherwise $c$ is eventually $1$. Consequently: $a(n)=\oeis{A036554}(n)+1$ (Jovovic);
+$a(n)/n\to3$; the $1$s of \oeis{A328979}, fixed point of $0\mapsto0010$, $1\mapsto1010$, are at the positions
+$a(n)$ (Sloane); and the $0$s of \oeis{A285384} are at the same positions (Kimberling).\end{theorem}
+\begin{proof} For a pair $(a,b)$ let $d=b-a$. (1) $d$ even: $(a,b)\to(b,(a+b)/2)$ and $d$ becomes $-d/2$.
+(2) $d$ odd, $d<0$: $b<a\le2a$, so $(a,b)\to(b,2a-b)\to(2a-b,a)$; the difference is $d$ again and the terms grow
+by $|d|$ every two steps: divergence. (3) $d$ odd, $0<d<a$: $(a,b)\to(b,2a-b)\to(a-d,a)$; the difference stays $d$
+and the terms decrease by $d$. (4) $d$ odd, $d\ge a$: $(a,b)\to(b,b-2a)$; if $a=0$ the sequence is constant,
+otherwise the difference $-2a$ is even and (1) gives $(b-2a,b-a)$, of difference $a$.
+
+If $n$ is even, $d=n-1\ge a=1$ gives case (4), then $(n-2,n-1)$ of difference $1$; case (3) goes down to $(1,2)$,
+then (4) gives $(2,0)\to(0,1)\to(1,1)$, constant. If $n$ is odd with $n-1=2^vu$, $u$ odd, then after $v$ steps of (1)
+the difference is $(-1)^vu$. If $v$ is odd it is negative and odd: divergence by (2). If $v$ is even, the term
+reached is $A=1+2u(2^v-1)/3\equiv1\pmod u$; case (3) subtracts $u$ down to $(1,1+u)$, case (4) gives $(u-1,u)$, and
+the sequence ends at $(1,1)$ as before.
+
+Consequences: \oeis{A036554} has density $\sum_j\tfrac12\cdot4^{-(j+1)}\cdot2=1/3$, so $a(n)/n\to3$. The fixed
+point $x$ of $0\mapsto0010$, $1\mapsto1010$ satisfies $x[4i]=x[i]$, $x[4i+1]=x[4i+3]=0$, $x[4i+2]=1$ (indices from
+$0$), so $x[m]=1$ if and only if $m=4^j(4i+2)$, that is $m\in\oeis{A036554}$; with offset $1$ the $1$s are at
+$m+1=a(n)$. Finally the morphism is $\sigma^2$ for $\sigma:0\mapsto11$, $1\mapsto01$ with letters exchanged, so
+\oeis{A285384} is the complement of \oeis{A328979} and has its $0$s at the same places. \end{proof}
+
+\subsection{Hooley's \texorpdfstring{$\Delta$}{Delta} function (\oeis{A226898})}\label{s:A226898}
+Greathouse (2026): $\Delta(n)\le d(n)/2$ for $n>4$, where $\Delta(n)$ is the maximum over $u>0$ of the number of
+divisors of $n$ in $[u,eu]$.
+\begin{proof} If an odd prime $q$ divides $n$, split the divisors into chains $d_0,d_0q,\dots,d_0q^v$ with
+$q\nmid d_0$, $v=\nu_q(n)\ge1$; there are $d(n)/(v+1)$ chains, each with at least two elements, and two elements of
+a chain have ratio $\ge q\ge3>e$, so $[u,eu]$ contains at most one element of each chain:
+$\Delta(n)\le d(n)/(v+1)\le d(n)/2$. If $n=2^v$, an interval of ratio $e<4$ contains at most two powers of $2$, so
+$\Delta(n)\le2\le(v+1)/2$ for $v\ge3$. The integers $5,6,7$ have an odd factor. \end{proof}
+
+\subsection{Gould numbers (\oeis{A040027})}\label{s:A040027}
+Yanev (2021): $a(n)=\sum_{k=0}^n\oeis{A058006}(k)\,S(n+1,k+1)$, with $c_k=\oeis{A058006}(k)=\sum_{j\le k}(-1)^jj!$.
+\begin{proof} $\sum_nS(n+1,k+1)x^n/n!=\frac{d}{dx}\frac{(e^x-1)^{k+1}}{(k+1)!}=e^x(e^x-1)^k/k!$, so the e.g.f.\ of
+the right side is $H(x)=e^xC(e^x-1)$ with $C(y)=\sum c_ky^k/k!$. Since $c_{k+1}-c_k=(-1)^{k+1}(k+1)!$,
+$C'-C=-1/(1+y)^2$. With $u=e^x-1$: $H'=e^xC(u)+e^{2x}C'(u)=(1+e^x)H-1$ and $H(0)=1$. The characterisation in the
+entry (Sloane: the e.g.f.\ satisfies $A'=e^xA+1$) concerns $s(n)=a(n-1)$; $H=S'$ then satisfies $H=1+e^x\int_0^xH$,
+so $H'=(1+e^x)H-1$, $H(0)=1$. Both series solve the same equation with the same initial value. \end{proof}
+
+\subsection{Callan's limit theorems}\label{s:callan}
+\begin{proposition}[\oeis{A079267}]\label{s:A079267} Let $d(n,s)$ be the number of perfect matchings of
+$\{1,\dots,2n\}$ with $s$ short pairs. Then $d(n,s)/(2n-1)!!\to e^{-1}/s!$.\end{proposition}
+\begin{proof} The formula of the entry gives $d(n,s)/(2n-1)!!=\frac1{s!}\sum_{h=s}^n(-1)^{h-s}r_h(n)/(h-s)!$ with
+$r_h(n)=\prod_{i<h}2(n-i)/(2n-i)\in[0,1]$, and $r_h(n)\to1$ for fixed $h$. Dominated convergence (bound
+$1/(h-s)!$) gives the limit $\frac1{s!}\sum_j(-1)^j/j!$. \end{proof}
+\begin{proposition}[\oeis{A170941}]\label{s:A170941} The proportion of involutions of $[n]$ without adjacent
+transposition $(i,i+1)$ tends to $1/e$.\end{proposition}
+\begin{proof} By inclusion-exclusion, $a(n)=\sum_h(-1)^h\binom{n-h}{h}I(n-2h)$, $I=\oeis{A000085}$. Put
+$t_h(n)=\binom{n-h}hI(n-2h)/I(n)$. Since $I(m)\ge(m-1)I(m-2)$, $I(n)\ge\prod_{i<h}(n-1-2i)\,I(n-2h)$, and
+$\binom{n-h}h=\prod_{i<h}(n-h-i)/h!$ with $n-h-i\le n-1-2i$, so $0\le t_h(n)\le1/h!$. For fixed $h$,
+$\binom{n-h}h\sim n^h/h!$ and $I(n-2h)/I(n)\sim n^{-h}$, since $I(m)/I(m-1)\sim\sqrt m$. Dominated convergence gives
+$\sum(-1)^h/h!=1/e$. \end{proof}
+\begin{proposition}[\oeis{A088617}]\label{s:A088617} With $T(n,k)=\binom{n+k}n\binom nk/(k+1)$ (Schröder paths
+with $k$ up steps), the mean number of up steps is $E(n)\sim n/\sqrt2$.\end{proposition}
+\begin{proof} $r(k)=T(n,k+1)/T(n,k)=(n+k+1)(n-k)/((k+1)(k+2))$ decreases strictly in $k$, and $r(xn)\to(1-x^2)/x^2$,
+which equals $1$ at $x=1/\sqrt2$ and decreases. Given $\varepsilon>0$ and $k_\pm=(1\pm\varepsilon)n/\sqrt2$, for large
+$n$ there is $\delta>0$ with $r\ge1+\delta$ below $k_-$ and $r\le1-\delta$ above $k_+$. So the mass beyond
+$k_++m$ is at most $T(n,k_+)(1-\delta)^m/\delta$, and similarly on the left, while the total mass is at least
+$T(n,k_+)$. The contribution to the mean of $k$ outside $[k_--O(1/\delta),k_++O(1/\delta)]$ is $o(n)$, so the
+upper and lower limits of $E(n)/n$ lie in $[(1-\varepsilon)/\sqrt2,(1+\varepsilon)/\sqrt2]$ for every $\varepsilon$.
+\end{proof}
+
+\subsection{Aktar's limit \texorpdfstring{$4/\pi$}{4/pi} (\oeis{A088538})}\label{s:A088538}
+$u(0)=1+i$, $u(n+1)=(u(n)+|u(n)|)/2$. For $z=re^{i\theta}$, $(z+|z|)/2=r\cos(\theta/2)e^{i\theta/2}$, so
+$u(n)=\sqrt2\prod_{k=1}^n\cos(\pi/2^{k+2})\,e^{i\pi/2^{n+2}}$, and Viète's product $\prod_{k\ge1}\cos(\theta/2^k)=\sin\theta/\theta$
+with $\theta=\pi/4$ gives $u(n)\to\sqrt2\cdot(\sqrt2/2)/(\pi/4)=4/\pi$.
+
+\subsection{Mohapatra's triangle (\oeis{A005121})}\label{s:A005121}
+$R(1,1)=1$, $R(n,k)=k\sum_{j=k}^{n-1}R(n-1,j)$ for $1\le k<n$, $R(n,n)=\sum_{j<n}R(n,j)$. Conjecture:
+$R(n,n)=a(n)$.
+\begin{proof} We use Lengyel's recursion $a(1)=1$, $a(n)=\sum_{m<n}S(n,m)a(m)$, cited in the entry, and show that
+$A(n)=R(n,n)$ satisfies it. By induction, $R(n,k)=\sum_{m<n}c(n,k,m)A(m)$ for $k<n$, with
+$c(n,k,m)=k(\sum_{j=k}^{n-2}c(n-1,j,m)+[m=n-1])$. For fixed $m$ and $n>m$, $c(n,k,m)=0$ if $k>m$, and the vector
+$c_n=(c(n,k,m))_{k\le m}$ satisfies $c_{m+1}=v$, $v(k)=k$, $c_n=Mc_{n-1}$ with $M[k][j]=k[j\ge k]$; so $c_n=M^tv$,
+$t=n-m-1$. The column sums $W_t=\mathbf1^{\mathsf T}M^t$ satisfy $W_0\equiv1$ and $W_t(j)-W_t(j-1)=jW_{t-1}(j)$, the
+Stirling recursion, so $W_t(j)=S(j+t,j)$. Telescoping,
+$\sum_kc(n,k,m)=\sum_jjW_t(j)=\sum_j[S(j+1+t,j)-S(j+t,j-1)]=S(m+1+t,m)=S(n,m)$. Hence
+$A(n)=\sum_{k<n}R(n,k)=\sum_{m<n}S(n,m)A(m)$ with $A(1)=1$. \end{proof}
+
+\subsection{The complement of \oeis{A005187} (\oeis{A055938})}\label{s:A055938}
+$a$ is the complement of $\{v(m)=2m-s(m)\}$. Stephan (2013): (1) $a(1)=2$ and $a(n+1)=a(n)+1$ if $n$ is a term,
+$a(n)+3$ otherwise; (2) $a(n)=\oeis{A080578}(n+1)-2=\oeis{A080468}(n+1)+2n$.
+\begin{proof} $v(m+1)-v(m)=1+t(m)$, where $t(m)$ is the number of trailing $1$s of $m$; so $t(m)$ consecutive
+integers are missing between $v(m)$ and $v(m+1)$, only for odd $m$. The complement consists of blocks of
+consecutive integers, and consecutive blocks (for odd $m$ and $m+2$) are separated by $3$. In the differences
+$a(n+1)-a(n)$ the $3$s are at the ranks $\sum_{i\le j}(1+t(i))=v(j+1)$, that is exactly at $n\in\oeis{A005187}$;
+and $a(1)=2$. For (2), let $B(n)=\oeis{A080578}(n+1)-2$; $B(1)=2$. If $B=a$ up to $n$, then $B(n+1)-B(n)$ is $1$ if
+$n+2\in\oeis{A080578}$ and $3$ otherwise; the elements of \oeis{A080578} up to $n+2$ are $\{1\}\cup\{a(1..n)+2\}$, so
+$n+2\in\oeis{A080578}$ if and only if $n$ is a term of $a$, which is rule (1). \end{proof}
+
+\subsection{Divisors of superprimorials (\oeis{A008278})}\label{s:A008278}
+Wiseman: $T(n,k)=S(n,n-k+1)$ is the number of divisors of $\oeis{A006939}(n-1)=\prod_{i<n}p_i^{n-i}$ with $k-1$
+distinct prime factors, all with distinct multiplicities. Such a divisor amounts to choosing $r=k-1$ primes and
+distinct exponents $1\le e_i\le c_i$, where the bounds $c_i$ are $1,2,\dots,n-1$: a placement of $r$
+non-attacking rooks on the staircase board with rows of lengths $1,\dots,n-1$. Conditioning on the longest row
+gives $\rho_r(n)=\rho_r(n-1)+(n-r)\rho_{r-1}(n-1)$, the recursion of $S(n,n-r)$; this is the classical rook
+count of the triangular board.
+
+\subsection{Words with bounded neighbour sums (\oeis{A050446})}\label{s:A050446}
+Rascoe (2025): $T(n,m)$ is the number of words of length $n$ over $[m]$ in which neighbours have sum
+$\le m+1$. The map $v_i=w_i$ ($i$ odd), $v_i=m+1-w_i$ ($i$ even) is a bijection onto weakly alternating words
+$v_1\le v_2\ge v_3\le\cdots$, equinumerous (by $x\mapsto m+1-x$) with the down-up words. In a down-up word the first
+$m$ is at an odd rank $2k+1$, splitting it into a down-up prefix of length $2k$ over $[m-1]$ and an up-down suffix
+of length $n-1-2k$ over $[m]$; with $V(n,m-1)$ for the words without $m$,
+$V(n,m)=V(n,m-1)+\sum_{k}V(2k,m-1)V(n-1-2k,m)$, which is the recursion of the entry (Goebel 1999), with the same
+initial values.

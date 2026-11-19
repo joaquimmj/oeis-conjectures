@@ -1,0 +1,73 @@
+\section{Systems already treated in the literature}\label{s:prior}
+\subsection{The anti-tribonacci system (\oeis{A297464}, \oeis{A297465}, \oeis{A297466})}
+$a(0)=1$, $b(0)=2$, $c(0)=3$; at each step $a(n)$, $b(n)$, $c(n)$ are the least integers not yet placed, in this
+order, and $d(n)=a(n)+b(n)+c(n)$. Kimberling's four bounds, such as $0\le10n-6-3a(n)\le2$, are false as written with
+the offset $0$ of the entry ($-9$ at $n=0$) and true with $n$ replaced by $n+1$; the recursion
+$a(n)=a(n-1)+a(n-3)-a(n-4)$ given as conjectured is true for $n\ge4$. Proof: \Walnut{} in \texttt{lsd\_3}, with
+candidates $x(n)=\lfloor rn\rfloor+w_x(n)$ ($r=10/3$ or $10$) whose corrections $w_x$ are automata guessed from the
+$3$-kernel; \Walnut{} checks that they are increasing functions partitioning $\mathbb{N}^+$, the greedy rules,
+$d=a+b+c$ and the initial values, which identifies them with the true sequences as in
+Section~\ref{s:A297469}; then the statements are direct (\TRUE, and \FALSE{} for the literal indexing). The
+entry cites Bosma et al.~\cite{Bos} and Fokkink--Joshi~\cite{FJ2}, who treat this system with \Walnut; we have not
+read these papers, so the entries are not counted.
+
+\subsection{The anti-tetranacci system (\oeis{A299405} and four others)}\label{s:A299405}
+$a(0),b(0),c(0),d(0)=1,2,3,4$; at each step $a(n),b(n),c(n),d(n)$ are the least integers not yet placed and
+$e(n)=a(n)+b(n)+c(n)+d(n)$. The same conjecture appears in \oeis{A299405}, \oeis{A299409}, \oeis{A299637},
+\oeis{A299638} and \oeis{A299641}:
+\begin{gather*}0\le17n-11-4a(n)\le4,\qquad 0\le17n-7-4b(n)\le4,\qquad 0\le17n-3-4c(n)\le3,\\ 0\le17n+1-4d(n)\le3,\qquad 0\le17n-5-e(n)\le3.\end{gather*}
+\begin{proposition} With the offset $0$ of the entries every line fails at $n=0$. With $n$ replaced by $n+1$,
+the lines for $a,b,d,e$ are true and the line for $c$ is false: $c(26)=113$ gives $17\cdot27-3-4\cdot113=4>3$. It
+fails infinitely often ($3\,333$ times below $2\cdot10^5$, first at offset-$0$ indices $26,90,154$) and becomes true
+with the bound $4$.\end{proposition}
+\begin{proof} The same \Walnut{} method in \texttt{lsd\_2} (candidates $\lfloor17n/4\rfloor+w_x(n)$ and
+$\lfloor17n\rfloor+w_e(n)$, automata with $4$ to $10$ states): the identification checks are \TRUE; the statements for
+$a,b,d,e$ are \TRUE, for $c$ \FALSE, with bound $4$ \TRUE, and $c(26)=113$ is \TRUE. Independently, a direct
+generation from the definition (\texttt{systems/conj\_test.py}, and again on November 19, 2026 by a separate
+script) gives $c(26)=113$ and the same $3\,333$ failures. \end{proof}
+The papers cited in the entry are said, in their abstracts, to verify these bounds. Since the definition and two
+independent computations give a counterexample, the indexing used in those papers should be compared with ours
+before anything is submitted. These entries are not counted.
+
+\section{Partial results}\label{s:partial}
+\subsection{The quasi-logarithm \oeis{A064097}}
+$a(1)=0$, $a(p)=1+a(p-1)$ for $p$ prime, $a(nm)=a(n)+a(m)$. Cloitre: $\log n<a(n)<\frac52\log n$; Wilson:
+$\lfloor\log_2n\rfloor\le a(n)<\frac52\log n$.
+\begin{proposition} $\log_2n\le a(n)\le2\log_2n$ for $n\ge2$. Hence the lower bounds of both conjectures hold, and
+$a(n)\le(2/\log2)\log n\approx2.885\log n$.\end{proposition}
+\begin{proof} Strong induction. For composite $n=uv$ add the bounds. For an odd prime $p$,
+$a(p)=1+a(p-1)=2+a(m)$ with $m=(p-1)/2$, so $a(p)\ge1+\log_2(p-1)\ge\log_2p$ and $a(p)\le2+2\log_2m=2\log_2(p-1)$.
+\end{proof}
+The constant $5/2$ remains open. The upper bound is approached along Cunningham chains $p\mapsto2p+1$, and exceeding
+$\frac52\log n$ would require chains of length about $5.6\log p_1$; heuristically they do not exist, but a proof is out
+of reach. The record of $a(n)/\log n$ below $2\cdot10^9$ is $2.3854$ at $n=2879$. Not counted.
+
+\section{Open cases}\label{s:open}
+\begin{itemize}
+\item \oeis{A022558} (Burstein 2019): $|\mathrm{Av}(2143,415263)|=|\mathrm{Av}(1342)|$, checked for $n\le10$;
+  TileScope found no specification in $300$\,s per strategy.
+\item \oeis{A010048} (Stephan 2004): $P_n(x)=\sum_k\binom nk_Fx^k$ is reducible if and only if $n>1$ is odd. The
+  ``if'' part is proved (the polynomial is palindromic, so $P_n(-1)=0$ for odd $n$); irreducibility for even $n$
+  is checked for $n\le60$ only.
+\item \oeis{A033485}: the second conjecture of the line ($a(n)/A(n)$ bounded) is not treated.
+\item \oeis{A067992} (Adams-Watters 2006): adjacent terms are coprime; no violation in $3\cdot10^7$ terms.
+\item \oeis{A288997} (Dekking 2022): checked on $248\,425$ letters, and reduced to a statement in Pell numeration
+  that \Walnut{} could decide once an automaton for the Pell word in that numeration is built.
+\item The family \oeis{A297830}: \oeis{A297831}, \oeis{A297833}, \oeis{A297835}, \oeis{A297837},
+  \oeis{A298000}--\oeis{A298007}, \oeis{A298108}, \oeis{A298109}, \oeis{A298111}: the bounds hold on $2\cdot10^6$ terms;
+  a proof would probably use Ostrowski numeration~\cite{SSZ}.
+\item \oeis{A297291}--\oeis{A297293}: bounds true on $2\cdot10^5$ terms, no automatic structure found;
+  \oeis{A299634}--\oeis{A299636}: unbounded oscillation, not automatic.
+\end{itemize}
+
+\section{Entries settled by others}\label{s:others}
+Found during the prior-work search and not counted: \oeis{A285383} (Ashburn~\cite{As}); \oeis{A285074},
+\oeis{A285075}, \oeis{A287664}, \oeis{A287665}, \oeis{A287675}, \oeis{A287726}, \oeis{A287770}, \oeis{A284623},
+\oeis{A284626}, \oeis{A285962}, \oeis{A285967}, \oeis{A285968}, \oeis{A285977} (Dekking); \oeis{A284746},
+\oeis{A285401}, \oeis{A285402}, \oeis{A285412}, \oeis{A285519}, \oeis{A285520}, \oeis{A286031} (Zabolotskii, Dekking);
+\oeis{A286389} (Shallit); \oeis{A000521} (Li, 2025); \oeis{A001462}, second conjecture (Claes--Miyamoto~\cite{CM});
+\oeis{A000002} (Hervé 2014); \oeis{A305394} (Dekking et al.); \oeis{A178482} (Shallit--Vukusic 2025); and, probably,
+\oeis{A002083}, \oeis{A001187}, \oeis{A122135}, \oeis{A006012}, \oeis{A094913}. We also note two references to add:
+\oeis{A059100} (Cloitre's continued fraction follows from Shallit's 1979 theorem on $\sum x^{-2^k}$) and
+\oeis{A001156} (the exponent of the asymptotic formula given in the entry is $7/6$, not $1.16022$, by
+Bohman--Fröberg--Riesel).

@@ -1,0 +1,95 @@
+\section{Complementary equations: \texorpdfstring{$a(n)/a(n-1)\to\varphi$}{a(n)/a(n-1) -> phi}}\label{s:compeq}
+In 2017--2018 Kimberling added many entries defined by a complementary equation: $a$ and $b$ are increasing
+complementary sequences of positive integers, and for $n\ge n_0$
+\[ a(n)=\sum_ic_i\,a(n-i)+g(n), \]
+where $g$ is a polynomial of degree $D$ in $n$ and finitely many $b(n+j)$, $j\in\{-4,\dots,1\}$. In $89$ entries
+$\sum c_ia(n-i)=a(n-1)+a(n-2)$, with characteristic polynomial $P=x^2-x-1$; in \oeis{A295754} it is
+$a(n-1)+a(n-3)+a(n-4)$, with $P=(x^2-x-1)(x^2+1)$. In $65$ entries the limit $a(n)/a(n-1)\to\varphi$ is written as a
+conjecture; in $25$ more it is stated without proof (these are proved below but not counted). The table in
+Appendix~\ref{a:compeq} lists all $90$ equations.
+
+\begin{theorem}\label{t:compeq} For each of the $90$ entries, $a(n)/a(n-1)\to\varphi$; more precisely
+$a(n)/a(n-1)-\varphi=O(n^{D+1}r^{-n})$ with $r=\varphi$ ($r=1.4655\ldots$ for \oeis{A295754}).\end{theorem}
+\begin{lemma}\label{l:count} If $a(m)\ge2m+2$, then $b(m)\le2m+1$.\end{lemma}
+\begin{proof} The values of $a$ in $[1,2m+1]$ are among $a(0),\dots,a(m-1)$, so there are at most $m$ of them, and at
+least $m+1$ integers of $[1,2m+1]$ are in $b$; the $(m+1)$-th element $b(m)$ is therefore $\le2m+1$. \end{proof}
+\begin{proof}[Proof of Theorem~\ref{t:compeq}] \emph{Step 1: $g\ge0$} (all entries except \oeis{A294413}).
+Since $b(0)\ge1$ and $b$ increases, $b(k)\ge k+1$; write $b(n+j)=n+j+1+u_j$ with $u$ nonnegative and nondecreasing,
+and $u$ as partial sums of variables $t_i\ge0$, $n=n_0+m$. Then $g$ becomes a polynomial in $(m,t)$ whose
+non-constant coefficients are all $\ge0$ (checked by \texttt{compeq/compute.py}); so $g(n)\ge g_{\min}\ge0$. For
+example $2b(n-1)-b(n-2)-2\ge b(n-1)-1\ge0$.
+
+\emph{Step 2.} As $g\ge0$, $a(n)\ge a(n-1)+a(n-2)$, so $a(n)\ge F(n+1)\ge\varphi^{n-1}$ (for \oeis{A295754},
+$a(n)\ge a(n-1)+a(n-3)$ and $a(n)\ge cr^n$ with $r^3=r^2+1$).
+
+\emph{Step 3.} So $a(m)\ge2m+2$ for large $m$, and $b(m)\le2m+1$ by Lemma~\ref{l:count}; hence $|g(n)|\le Kn^D$.
+
+\emph{Step 4.} Let $e(n)=a(n)-\varphi a(n-1)$ and $P=(x-\varphi)Q$. Then $e$ satisfies the recursion with
+characteristic polynomial $Q$ and the same right side $g$: for $x^2-x-1$, $e(n)=\psi e(n-1)+g(n)$ with
+$\psi=-1/\varphi$; for \oeis{A295754}, $Q=(x-\psi)(x^2+1)$ has simple roots of modulus $\le1$. In both cases the
+impulse response of $Q$ is bounded, so $|e(n)|=O(n^{D+1})$, and
+$a(n)/a(n-1)-\varphi=e(n)/a(n-1)=O(n^{D+1}r^{-n})$.
+
+\emph{The case \oeis{A294413}: $a(n)=a(n-1)+a(n-2)-b(n-1)+6$.} We show $a(n)\ge4n$ for $n\ge5$ by induction:
+$a(5)=23$, $a(6)=35$; if it holds for $n-1$ and $n-2$ ($n\ge7$), then $a(n-1)\ge2n$, so $b(n-1)\le2n-1$ by the lemma,
+and $a(n)\ge(4n-4)+(4n-8)+6-(2n-1)=6n-5$. Hence $g(n)\ge7-2n$, and $d(n)=a(n)-2n-6$ satisfies
+$d(n)\ge d(n-1)+d(n-2)$ with $d(5)=7$, $d(6)=17$; so $a$ grows at least like $\varphi^n$, and Steps 3--4 apply with
+$D=1$. \end{proof}
+
+\begin{proposition}[\oeis{A295070}] For $a(n)=a(n-2)+b(n-1)+b(n-2)$, $a(0)=1$, $a(1)=2$, $b(0)=3$, we have
+$a(n)/a(n-1)\to1$.\end{proposition}
+\begin{proof} $b(k)\ge k+1$ gives $a(n)-a(n-2)\ge2n-1$, so $a(n)\ge n^2/2-O(n)$ and $a(m)\ge2m+2$ for $m\ge3$; by the
+lemma $b(m)\le2m+1$. As $a$ increases, $0<a(n)-a(n-1)\le b(n-1)+b(n-2)\le4n$, so
+$1<a(n)/a(n-1)\le1+4n/a(n-1)\to1$. \end{proof}
+The argument is elementary and Kimberling probably did not consider it difficult; the contribution is a written
+proof for the $65$ entries where the statement is labelled ``Conjecture''. The theorem assumes that the
+complementary pair exists, as the entries assert; the proof applies to any pair satisfying the equation and the
+initial values. Checks: \texttt{compeq/compute.py} (90/90 equal to the OEIS data, lower bound of $g$) and an
+independent generator \texttt{compeq/check.py} ($600$ terms, $0$ failures).
+
+\section{Polynomial recurrences for algebraic generating functions}\label{s:precalg}
+\subsection{Method}
+R.~J.~Mathar conjectured, for many entries with an algebraic generating function $A(x)$ ($P(x,A)=0$), a
+recurrence $\sum_ip_i(n)a(n-i)=0$ guessed from the terms. With $\theta=x\,d/dx$, the coefficient of $x^n$ in
+$x^ip_i(\theta+i)A$ is $p_i(n)a(n-i)$, so the recurrence holds for $n>d$ if and only if
+$L(A)=\sum_ix^ip_i(\theta+i)A$ is a polynomial of degree $d$. We compute $L(A)$ exactly in $\mathbb{Q}(x)[Y]/(P)$,
+using $Y'=-P_x/P_Y$ with the inverse of $P_Y$ modulo the squarefree $P$. Safeguards: the series of the data
+satisfies $P$ modulo $x^{25}$; $P_Y(0,a(0))\ne0$, so the series solution is unique; the recurrence is checked on all
+the data of the entry. For $15$ entries $P$ is the explicit generating function given in the entry (Jovovic,
+Deutsch, Greubel, Barry, Sloane and others), substituted symbolically; for \oeis{A346074} it follows from the
+definition ($A=1/(1-x)+x^5A^2$), and for \oeis{A025258} from the convolution in the definition
+($A=x(1-x+x^2/(1-A))$), also checked against the explicit form.
+\begin{theorem} The recurrences conjectured in the following entries hold for $n$ as indicated. For
+\oeis{A025258} the recurrence fails at $n=5$, where it is already defined, and holds for $n\ge6$.\end{theorem}
+\begin{center}\small\begin{longtable}{lll}\toprule
+OEIS & holds for & agrees with all data\\\midrule\endhead
+\tinput tables/precalg.tex 
+\oeis{A036766} & $n\ge2$ & yes\\\bottomrule
+\end{longtable}\end{center}
+For \oeis{A036766}, $A=1+xA+(xA)^2+(xA)^3+(xA)^4$ (Kruchinin) and $L(A)=8328+6660x$. The proofs are conditional on the
+explicit generating functions of the entries, which the OEIS treats as established. \oeis{A162477} is excluded
+(Munarini already notes a direct proof). The recurrences of \oeis{A242566}, \oeis{A243255}, \oeis{A243760},
+\oeis{A243814} and \oeis{A392976} were not analysed.
+
+\subsection{Recurrences with one radical}\label{s:dfinite}
+When the generating function is a closed form with a single radical $\sqrt\Delta$, $\Delta\in\mathbb{Q}(x)$, we write
+$A=u+vs$ in $\mathbb{Q}(x)[s]/(s^2-\Delta)$, with $\theta(s)=s\,x\Delta'/(2\Delta)$, and reduce
+$\Phi=\sum_kx^kp_k(\theta+k)A+\sum_nc(n)x^n$ in the same way.
+\begin{proposition} The conjectured recurrences of \oeis{A026743} (order $8$), \oeis{A027174}, \oeis{A027175} (order
+$2$, inhomogeneous), \oeis{A103973} (order $3$) and \oeis{A190171} (order $8$) hold for all $n$; that of
+\oeis{A385252} (order $5$) holds for $n\ge6$ and fails at $n=5$ (the entry gives no range).\end{proposition}
+Only $6$ of the about $100$ ``D-finite'' conjectures crawled have a generating function of this form; the others
+(hypergeometric, series reversions, several radicals) are not treated.
+
+\section{The family \oeis{A297830}: three false bounds}\label{s:beatty}
+These $20$ entries are defined by $a(n)=2b(n-1)-b(n-2)+cn+d$ or similar, $a$ and $b$ complementary, each with a
+conjectured bound on $a(n)-\alpha n$ or $b(n)-\beta n$.
+\begin{proposition} (a) In \oeis{A297836}, $a(n)=2b(n-1)-b(n-2)+3n$, the conjecture $a(n)-(5+\sqrt{13})n/2<2$ is false at
+$n=2$: $a(2)=11$ (in the data) and $11-(5+\sqrt{13})=2.394\ldots$; there are $605\,551$ violations below $2\cdot10^6$.
+(b) In \oeis{A298112} and \oeis{A298113}, the conjecture $2/5<b(n)-n\sqrt2<3$ (resp.\ $1/2<\dots$) is false: $b(n)/n$
+tends to $(-1+\sqrt{13})/2$ (resp.\ $-1+\sqrt5$), as forced by complementarity ($1/\alpha+1/\beta=1$ with $\alpha=\beta+c$),
+so $b(n)-n\sqrt2\to-\infty$; already $b(7)=10$ and $10-7\sqrt2=0.10<2/5$.\end{proposition}
+With the correct slope the bounds $2/5$ and $1/2$ hold on $2\cdot10^6$ terms (minima $0.4343$ and $0.5590$); the
+line was probably copied from \oeis{A298111}. In \oeis{A297834} (and \oeis{A298109}) the datum $a(3)=8$ does not satisfy
+the equation of the entry: with $b(1)=4$, $b(2)=6$ one gets $a(3)=10$; this is a data error, not counted. The $16$
+other entries of the family are not proved (Part~\ref{part:five}).
