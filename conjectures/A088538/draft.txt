@@ -1,0 +1,1 @@
+%C A088538 The conjecture of Yalcin Aktar is true: if z = r*exp(i*t) then (z + |z|)/2 = r*cos(t/2)*exp(i*t/2), so u(n) = sqrt(2)*exp(i*Pi/2^(n+2))*Product_{k=1..n} cos(Pi/2^(k+2)), which tends to sqrt(2)*sin(Pi/4)/(Pi/4) = 4/Pi by Viète's product. - _Joaquim Manji-Jung_, Nov 19 2026
