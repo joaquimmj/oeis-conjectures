@@ -1,0 +1,4 @@
+"least new" "floor(n/2)" 2
+"least new" "a(n)/n ->" 107
+"complementary equation" "a(n)/n ->" conjecture 181
+"least new" "b(n)/n" 184
