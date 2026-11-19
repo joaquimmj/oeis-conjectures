@@ -141,3 +141,21 @@ n-ième L vérifie donc a(n)/n → 1/f_L. Ce nombre est calculé exactement (sym
 
 **Déjà réglées par d'autres, non comptées** : A284746, A285401, A285402, A285412, A285519, A285520, A286031 (Zabolotskii, Dekking).
 **Non traitées** (transformées du mot de Thue-Morse, du mot de Pell, transformées non alignées, substitutions par blocs de 2) : voir `limits.out`, lignes « autre ».
+
+## Transformées du mot de Thue-Morse (`tm_limits.py`, `tm_limits.out`)
+
+**Méthode.** {u → c}(TM) remplace chaque occurrence de u par c (de gauche à droite). Les occurrences ne se
+chevauchent pas : TM est sans chevauchement (pas de facteur axaxa), et chaque u utilisé (00, 11, 01, 10, 011, 101,
+0011, 1001, 1100) ne peut se chevaucher qu'en créant un tel facteur. La transformation reproduit les données des
+entrées. Si f_u est la fréquence de u dans TM, la fréquence de L dans le mot transformé vaut
+(1/2 − |u|_L·f_u + [c = L]·f_u)/(1 − (|u| − 1)·f_u). Les f_u sont calculées exactement comme composantes du
+vecteur de Perron (valeur propre 2) de la substitution induite sur les blocs de longueur |u| (Queffélec), et
+contrôlées empiriquement. Limite : a(n)/n → 1/f_L.
+
+**Vraies (19)** : A284684, A284685, A284790, A284791, A284933, A284934, A285091, A285092, A285958, A285959, A285965, A285973, A285974, A285976, A285979, A285980, A286045, A286053, A003157. (Pour A003157, l'identification « positions de 1 dans
+A286044 » est celle de l'entrée, contrôlée sur ses données.)
+
+**Fausse telle qu'écrite** : A285964 annonce 4/5, impossible puisque a(n) ≥ n. La limite vraie est 5/4 (coquille
+probable).
+
+**Déjà prouvées par Dekking, non comptées** : A284623, A284626, A285962, A285967, A285968, A285977.

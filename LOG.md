@@ -31,3 +31,4 @@
 - 2026-11-19 : Kimberling, 3e série (30 vraies, 11 fausses, A285078) et transformées de Fibonacci (4 vraies, Walnut). Total 106 entrées (92 vraies, 13 fausses, 1 partielle).
 - 2026-11-19 : lot 7 : A060973 (Walnut), A007226, A080253 (Bala) et neuf identités de Yanev. Total 119 entrées.
 - 2026-11-19 : limites a(n)/n de Kimberling : 40 vraies, 7 fausses (Perron). Total 172 entrées.
+- 2026-11-19 : transformées de Thue-Morse : 19 limites vraies, A285964 fausse (coquille). Total 192 entrées.
