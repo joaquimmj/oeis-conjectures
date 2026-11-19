@@ -66,6 +66,7 @@ check scripts, Walnut scripts and outputs, draft OEIS comment). Nothing there ha
 | A304451, A304452 | Kimberling's limits a(n)/n -> 5/2, b(n)/n -> 5/3 (true); his bounds fail at n = 1 | by hand (limsup/liminf contraction) |
 | A298173, A298741, A295070 | Kimberling's ratio limits (and unboundedness of a(n) - k a(n-1)) | by hand (elementary) |
 | A297836, A298112, A298113 | Kimberling's bounds in the A297830 family | false (counterexamples at n = 2 and n = 7); also a data error in A297834 |
+| A078841 | Wilson's conjecture a(n+1)/a(n) -> 2 for the n-th n-almost prime | by hand (a(n) = 2^n t(n+1), prime number theorem) |
 | A005427 | Hadjicostas's general Josephus conjecture, every k >= 2 | by hand (survivor recursion = ceiling recursion) |
 | A120160 | Hadjicostas's Josephus and base-5/4 conjectures (proved for every base (k+1)/k) | by hand |
 | A297464-A297466, A299405, A299409, A299637, A299638, A299641 (not counted: already treated by Bosma et al. 2025 and Fokkink-Joshi 2025) | Kimberling's bounds for the anti-tribonacci and anti-tetranacci systems | Walnut (guessed automata + greedy rules): the first three are true only with n shifted by 1; the other five are false (c(26) = 113) |

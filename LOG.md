@@ -49,3 +49,4 @@
 - 2026-11-19 : A074355 (Stephan 2004) : f.g. fausse telle qu'écrite, corrigée et prouvée. Total 286.
 - 2026-11-19 : A120160 : conjectures de Hadjicostas (Josèphe k = 5, base 5/4) prouvées, pour toute base (k+1)/k. Total 287.
 - 2026-11-19 : A074356-A074360 : f.g. conjecturées (Mathar, Wu, Barker) prouvées. Total 292.
+- 2026-11-19 : A078841 (Wilson 2007) : rapport -> 2 prouvé. Total 293.
