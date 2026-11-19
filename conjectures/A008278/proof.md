@@ -1,4 +1,4 @@
-# A008278 — conjecture de Wiseman (2018 ou après) : vraie
+# A008278 — conjecture de Wiseman (nom de l'entrée édité par Wiseman en 2020) : vraie
 
 **Énoncé.** T(n,k) = S(n, n−k+1) est le nombre de diviseurs de la superprimorielle A006939(n−1) = Π_{i<n} p_i^(n−i)
 qui ont k − 1 facteurs premiers distincts, tous avec des multiplicités distinctes.
