@@ -1,0 +1,10 @@
+conjecture Ralf Stephan 110
+conjecture Kurkov 215
+conjecture Yanev 279
+conjecture Shevelev 366
+conjecture Kimberling morphism 465
+conjecture Paul Barry 523
+conjecture Adamson 551
+conjecture Luschny 579
+conjecture Alekseyev 657
+conjecture Layman 734
