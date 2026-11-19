@@ -42,3 +42,4 @@
 - 2026-11-19 : lot 9 suite : A297464-6 (vraies avec n décalé, récurrence vraie) et A299405/9/37/38/41 (fausses, c(26) = 113), Walnut avec automates devinés. Total 276 (A297464 et A299405 et leurs entrées sœurs déjà traitées par Bosma et al. 2025 : non comptées).
 - 2026-11-19 : A304451/A304452 : limites vraies (contraction sur limsup/liminf), encadrements faux en n = 1. Total 278.
 - 2026-11-19 : A297291 : a(n) - floor(5n/2) semble 2-automatique (100 états), mais b et c ne se referment pas même sur 6·10^6 termes ; non résolu.
+- 2026-11-19 : A298173, A298741 (somme alternée), A295070 (croissance quadratique). Total 281.

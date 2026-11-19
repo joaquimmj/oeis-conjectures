@@ -1,0 +1,3 @@
+"least new" "x(k)" "It appears" 2
+"least new" "is unbounded" "a(n)/a(n-1)" 5
+"least new" "x(0)*b(n)" 5
