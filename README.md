@@ -67,6 +67,7 @@ check scripts, Walnut scripts and outputs, draft OEIS comment). Nothing there ha
 | A298173, A298741, A295070 | Kimberling's ratio limits (and unboundedness of a(n) - k a(n-1)) | by hand (elementary) |
 | A297836, A298112, A298113 | Kimberling's bounds in the A297830 family | false (counterexamples at n = 2 and n = 7); also a data error in A297834 |
 | 18 entries (A036766, A025258, ..., A346074) | Mathar's conjectured P-recurrences for algebraic g.f.s | exact reduction of the operator modulo the algebraic equation (`conjectures/precalg/`) |
+| A033485 | Cloitre's constant for a(n) = a(n-1) + a(n/2): the limit is 2 log 2, not 1.64 | by hand + explicit dyadic bootstrap |
 | A078841 | Wilson's conjecture a(n+1)/a(n) -> 2 for the n-th n-almost prime | by hand (a(n) = 2^n t(n+1), prime number theorem) |
 | A005427 | Hadjicostas's general Josephus conjecture, every k >= 2 | by hand (survivor recursion = ceiling recursion) |
 | A120160 | Hadjicostas's Josephus and base-5/4 conjectures (proved for every base (k+1)/k) | by hand |

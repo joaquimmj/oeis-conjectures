@@ -1,0 +1,8 @@
+bloc 28 delta(L=k, k+1/2, k+1) = [0.7546941200485111, 0.740025143052897, 0.7259618067001092] décroissant : True
+bloc 50 delta(L=k, k+1/2, k+1) = [0.4903260757695563, 0.4847797139969165, 0.47938354845402836] décroissant : True
+bloc 200 delta(L=k, k+1/2, k+1) = [0.1660671220520279, 0.16556335115292958, 0.16506296583520155] décroissant : True
+bloc 1000 delta(L=k, k+1/2, k+1) = [0.043593650086986686, 0.04356584275551449, 0.04353807353884227] décroissant : True
+queue k=10000 : delta(k, k/2) * k / ln k = 8.203 (<= 9.5 ?) True
+queue k=100000 : delta(k, k/2) * k / ln k = 8.297 (<= 9.5 ?) True
+queue k=1000000 : delta(k, k/2) * k / ln k = 8.364 (<= 9.5 ?) True
+queue k=100000000 : delta(k, k/2) * k / ln k = 8.439 (<= 9.5 ?) True

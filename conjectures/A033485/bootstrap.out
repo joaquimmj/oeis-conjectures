@@ -1,0 +1,9 @@
+k=29 delta=0.6297 D=4.792 D/k=0.165  k*delta/ln k=5.291
+k=30 delta=0.6225 D=5.414 D/k=0.180  k*delta/ln k=5.361
+k=31 delta=0.6154 D=6.029 D/k=0.194  k*delta/ln k=5.428
+k=41 delta=0.5478 D=11.807 D/k=0.288  k*delta/ln k=5.940
+k=61 delta=0.4361 D=21.536 D/k=0.353  k*delta/ln k=6.390
+k=101 delta=0.2955 D=35.796 D/k=0.354  k*delta/ln k=6.417
+k=1001 delta=0.0340 D=109.250 D/k=0.109  k*delta/ln k=4.928
+k=10001 delta=0.0042 D=195.585 D/k=0.020  k*delta/ln k=4.506
+min (k/2 - D_k) = 1

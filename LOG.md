@@ -51,7 +51,7 @@
 - 2026-11-19 : A074356-A074360 : f.g. conjecturées (Mathar, Wu, Barker) prouvées. Total 292.
 - 2026-11-19 : A078841 (Wilson 2007) : rapport -> 2 prouvé. Total 293.
 - 2026-11-19 : A014664 (Shevelev 2008) : classique, vraie. Total 294.
-- 2026-11-19 : A033485 : rapport décroissant jusqu'à 1,566 en 1,5e8 (contre 1,64) ; non prouvé, non compté.
+- 2026-11-19 : A033485 : la constante de Cloitre est fausse, la limite vaut 2 log 2 (récurrence dyadique explicite). Total 313.
 - 2026-11-19 : A067992 : pas de contre-exemple sur 3e7 termes ; non prouvé, non compté.
 - 2026-11-19 : A036766 : récurrence de Mathar prouvée (opérateur réduit modulo l'équation algébrique quartique). Total 295.
 - 2026-11-19 : précalg : 17 récurrences de Mathar prouvées (f.g. algébriques), A025258 fausse en n = 5. Total 312.
