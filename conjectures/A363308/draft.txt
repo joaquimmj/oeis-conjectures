@@ -1,0 +1,1 @@
+%C A363308 The conjecture is true. Modulo 2, C(x) == P(x)/x where P(x) = Sum_{k>=0} x^(2^k), and P^2 = P + x. With y = x*C(x)^3 and A = 1 + P one checks y*A^2 = A - 1 over GF(2); since C(y) is the unique power series with F = 1 + y*F^2, the g.f. is congruent to 1 + Sum_{k>=0} x^(2^k) (mod 2). - _Joaquim Manji-Jung_, Nov 19 2026
